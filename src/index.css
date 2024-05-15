@@ -30,6 +30,9 @@
 
 /* Signup page */
 .familycontainer{
+  position: absolute;
+  width: 100%;
+  top: 0px;
   height: 100vh;
   display: flex !important;
   align-items: center !important;

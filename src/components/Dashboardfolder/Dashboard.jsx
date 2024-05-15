@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../theme-assets/css/vendors.css';
 import '../theme-assets/css/plugins/charts/chartist.css';
 import '../theme-assets/css/app-lite.css'
@@ -7,16 +7,46 @@ import '../theme-assets/css/core/colors/palette-gradient.css'
 import '../theme-assets/css/pages/dashboard-ecommerce.css'
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
+import axios from 'axios';
+import { useNavigate } from 'react-router';
+
 // ../theme-assets/images/portrait/small/avatar-s-19.png
 
 const Dashboard = () => {
-  const toggleDropdown=()=> {
+  let url = "http://localhost:5000/useranimalinvest/dashboard"
+  const navigate = useNavigate()
+  const toggleDropdown = () => {
     let dropdownContent = document.getElementById("dropdownContent");
     dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
   }
 
+  useEffect(() => {
+    let token = localStorage.token
+    axios.get(url, {
+      headers: {
+        "Authorization": `Bearers ${token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (!localStorage.useradminlogin || response.data.status == false) {
+          navigate("/login");
+        }
+        else {
+          console.log("welcome");
+        }
+      })
+  }, [])
+
+
+  const LogoutBtn = () => {
+    navigate("/login")
+  }
+
   return (
     <>
+
       <nav className="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
         <div className="navbar-wrapper">
           <div className="navbar-container content">
@@ -66,7 +96,7 @@ const Dashboard = () => {
               </ul>
 
               <ul className="nav navbar-nav float-right">
-                <li className="dropdown dropdown-notification nav-item">
+                {/* <li className="dropdown dropdown-notification nav-item">
                   <a
                     className="nav-link nav-link-label"
                     href="#"
@@ -87,7 +117,7 @@ const Dashboard = () => {
                       </a>
                     </div>
                   </div>
-                </li>
+                </li> */}
 
 
 
@@ -106,22 +136,22 @@ const Dashboard = () => {
                     </span>
                   </a>
                   <div class="dropdown-content" id="dropdownContent">
-                  <a className="dropdown-item" href="#">
-                        <i className="ft-user" /> Edit Profile
-                      </a>
-                      <a className="dropdown-item" href="#">
-                        <i className="ft-mail" /> My Inbox
-                      </a>
-                      <a className="dropdown-item" href="#">
-                        <i className="ft-check-square" /> Task
-                      </a>
-                      <a className="dropdown-item" href="#">
-                        <i className="ft-message-square" /> Chats
-                      </a>
-                      <div className="dropdown-divider" />
-                      <a className="dropdown-item" href="#">
-                        <i className="ft-power" /> Logout
-                      </a>
+                    <a className="dropdown-item">
+                      <i className="ft-user" /> Edit Profile
+                    </a>
+                    <a className="dropdown-item">
+                      <i className="ft-mail" /> My Inbox
+                    </a>
+                    <a className="dropdown-item">
+                      <i className="ft-check-square" /> Task
+                    </a>
+                    <a className="dropdown-item">
+                      <i className="ft-message-square" /> Chats
+                    </a>
+                    <div className="dropdown-divider" />
+                    <a className="dropdown-item" onClick={LogoutBtn}>
+                      <i className="ft-power" /> Logout
+                    </a>
                   </div>
                 </li>
 
@@ -133,7 +163,10 @@ const Dashboard = () => {
       <Sidenav />
       <div className="app-content content">
         <div className="content-wrapper">
-          <div className="content-wrapper-before" />
+            <div className="content-wrapper-before" style={{ zIndex: "-20" }} />
+            <div className='shadow-lg text-white d-flex justify-content-center' style={{position:"absolute",top:"0px", height:"150px", alignItems: "center"}}>
+              tESLIMAgboola
+            </div>
           <div className="content-header row"></div>
           <div className="content-body">
             {/* Chart */}
@@ -154,7 +187,7 @@ const Dashboard = () => {
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted danger position-absolute p-1">
-                      Progress Stats
+                      Total Earning
                     </h5>
                     <div>
                       <i className="ft-pie-chart danger font-large-1 float-right p-1" />
@@ -173,7 +206,7 @@ const Dashboard = () => {
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted info position-absolute p-1">
-                      Activity Stats
+                      Next End of Cycle Date
                     </h5>
                     <div>
                       <i className="ft-activity info font-large-1 float-right p-1" />
@@ -192,7 +225,7 @@ const Dashboard = () => {
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted warning position-absolute p-1">
-                      Sales Stats
+                      Active Investment
                     </h5>
                     <div>
                       <i className="ft-shopping-cart warning font-large-1 float-right p-1" />
@@ -223,19 +256,19 @@ const Dashboard = () => {
                     <div className="heading-elements">
                       <span className="avatar">
                         <img
-                          src="theme-assets/images/portrait/small/avatar-s-2.png"
+                          src={profile}
                           alt="avatar"
                         />
                       </span>
                       <span className="avatar">
                         <img
-                          src="theme-assets/images/portrait/small/avatar-s-3.png"
+                          src={profile}
                           alt="avatar"
                         />
                       </span>
                       <span className="avatar">
                         <img
-                          src="theme-assets/images/portrait/small/avatar-s-4.png"
+                          src={profile}
                           alt="avatar"
                         />
                       </span>
@@ -272,72 +305,37 @@ const Dashboard = () => {
                         Carousel Card With Header &amp; Footer
                       </h6>
                     </div>
-                    <div
-                      id="carousel-area"
-                      className="carousel slide"
-                      data-ride="carousel"
-                    >
-                      <ol className="carousel-indicators">
-                        <li
-                          data-target="#carousel-area"
-                          data-slide-to={0}
-                          className="active"
-                        />
-                        <li data-target="#carousel-area" data-slide-to={1} />
-                        <li data-target="#carousel-area" data-slide-to={2} />
-                      </ol>
-                      <div className="carousel-inner" role="listbox">
-                        <div className="carousel-item active">
-                          <img
-                            src="theme-assets/images/carousel/08.jpg"
-                            className="d-block w-100"
-                            alt="First slide"
-                          />
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      </div>
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src={profile} class="d-block w-100" alt="Slide 1" />
                         </div>
-                        <div className="carousel-item">
-                          <img
-                            src="theme-assets/images/carousel/03.jpg"
-                            className="d-block w-100"
-                            alt="Second slide"
-                          />
+                        <div class="carousel-item">
+                          <img src={profile} class="d-block w-100" alt="Slide 2" />
                         </div>
-                        <div className="carousel-item">
-                          <img
-                            src="theme-assets/images/carousel/01.jpg"
-                            className="d-block w-100"
-                            alt="Third slide"
-                          />
+                        <div class="carousel-item">
+                          <img src={profile} class="d-block w-100" alt="Slide 3" />
                         </div>
                       </div>
-                      <a
-                        className="carousel-control-prev"
-                        href="#carousel-area"
-                        role="button"
-                        data-slide="prev"
-                      >
-                        <span className="la la-angle-left" aria-hidden="true" />
-                        <span className="sr-only">Previous</span>
-                      </a>
-                      <a
-                        className="carousel-control-next"
-                        href="#carousel-area"
-                        role="button"
-                        data-slide="next"
-                      >
-                        <span
-                          className="la la-angle-right icon-next"
-                          aria-hidden="true"
-                        />
-                        <span className="sr-only">Next</span>
-                      </a>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
                     </div>
-                    <div className="card-body">
-                      <a href="#" className="card-link">
-                        Card link
-                      </a>
-                      <a href="#" className="card-link">
-                        Another link
-                      </a>
+
+                    <div class="card-body">
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
                     </div>
                   </div>
                   <div className="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
@@ -351,6 +349,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+
               <div className="col-xl-4 col-lg-12">
                 <div className="card">
                   <div className="card-header">
@@ -669,14 +668,6 @@ const Dashboard = () => {
           </ul>
         </div>
       </footer>
-      {/* BEGIN VENDOR JS*/}
-      {/* BEGIN VENDOR JS*/}
-      {/* BEGIN PAGE VENDOR JS*/}
-      {/* END PAGE VENDOR JS*/}
-      {/* BEGIN CHAMELEON  JS*/}
-      {/* END CHAMELEON  JS*/}
-      {/* BEGIN PAGE LEVEL JS*/}
-      {/* END PAGE LEVEL JS*/}
     </>
 
   )

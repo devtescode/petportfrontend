@@ -10,23 +10,26 @@ const Sidenav = () => {
   const dashboardrouting=()=>{
     navigate('/dashboard')
   }
+  const investmentrouting=()=>{
+    navigate('/investment')
+  }
   return (
     <>
     <div
-        className="main-menu menu-fixed menu-light menu-accordion    menu-shadow "
+        className="border border-2 border-dark  main-menu menu-fixed menu-light menu-accordion  menu-shadow"
         data-scroll-to-active="true"
         data-img="theme-assets/images/backgrounds/02.jpg"
       >
         <div className="navbar-header">
           <ul className="nav navbar-nav flex-row">
             <li className="nav-item mr-auto">
-              <a className="navbar-brand" href="index.html">
+              <a className="navbar-brand">
                 <img
                   className="brand-logo"
                   alt="Chameleon admin logo"
                   src={logo}
                 />
-                <h3 className="brand-text">Chameleon</h3>
+                <h3 className="brand-text">Petport</h3>
               </a>
             </li>
             <li className="nav-item d-md-none">
@@ -42,7 +45,7 @@ const Sidenav = () => {
             id="main-menu-navigation"
             data-menu="menu-navigation"
           >
-            <li className="active" onClick={dashboardrouting}>
+            <li className="activ" onClick={dashboardrouting}>
               <a>
                 <i className="ft-home" />
                 <span className="menu-title" data-i18n="">
@@ -50,7 +53,7 @@ const Sidenav = () => {
                 </span>
               </a>
             </li>
-            <li className=" nav-item">
+            <li className=" nav-ite" onClick={investmentrouting}>
               <a >
                 <i className="ft-pie-chart" />
                 <span className="menu-title" data-i18n="">

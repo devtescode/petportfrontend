@@ -351,7 +351,6 @@ footer.footer-dark
 {
     position: absolute;
     z-index: 1051;
-
     display: table-cell;
 }
 .main-menu.menu-light
@@ -375,6 +374,9 @@ footer.footer-dark
 {
     border-color: #d9d9d9;
 }
+/* .main-menu.menu-light{
+    width: 20% !important;
+} */
 .main-menu.menu-light .navigation
 {
     position: relative;

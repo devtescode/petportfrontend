@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router'
 import axios from 'axios'
 
 const Signup = () => {
-    const [action, setaction] = useState("Sign Up")
+    // const [action, setaction] = useState("Sign Up")
+    localStorage.removeItem("useradminlogin")
     const navigate = useNavigate()
     const SignUpRouting = () => {
         navigate("/signup")
@@ -30,8 +31,12 @@ const Signup = () => {
                 .then((response) => {
                     alert(response.data.message)
                     if (response.data.status === true) {
-                        alert(response.data.message)
+                        // alert(response.data.message)
+                        // navigate("/dashboard")
+
+                        localStorage.token = response.data.token
                         navigate("/dashboard")
+                        localStorage.setItem("useradminlogin", true)
                     }
                 })
         }
