@@ -29,7 +29,7 @@ const Signup = () => {
                .required("Email is required"),
         }),
         onSubmit: (values) => {
-            console.log(values)
+            // console.log(values)
             axios.post("http://localhost:5000/useranimalinvest/signup", {Fullname: values.Fullname, Number: values.Number, Email: values.Email, Password: values.Password})
             .then((response)=>{
                 alert(response.data.message)

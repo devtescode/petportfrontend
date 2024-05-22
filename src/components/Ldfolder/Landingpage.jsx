@@ -19,9 +19,9 @@ const Landingpage = () => {
     <>
       <Narbar />
       <div className="container-fluid bg-primary py-5 mb-5 hero-header">
-        <div className="container py-5">
+        <div className="container">
           <div className="row justify-content-start">
-            <div className="col-lg-8 text-center text-lg-start">
+            <div className="col-lg-8 text-lg-start">
               <h1 className="display-1 text-uppercase text-dark mb-lg-4">
                 petport
               </h1>
@@ -36,13 +36,13 @@ const Landingpage = () => {
               <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
                 <a
                   href=""
-                  className="btn btn-outline-light border-2 py-md-3 px-md-5 me-5"
+                  className="btn btn-outline-light py-md-2 px-md-2 me-4"
                 >
                   Read More
                 </a>
                 <button
                   type="button"
-                  className="btn-play"
+                  className="btn-play me-4"
                   data-bs-toggle="modal"
                   data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
                   data-bs-target="#videoModal"
@@ -124,16 +124,16 @@ const Landingpage = () => {
               </div>
             </div>
             <div className="col-lg-7">
-              <div className="border-start border-5 border-primary ps-5 mb-5">
+              <div className="mb-3">
                 <h6 className="text-primary text-uppercase">About Us</h6>
                 <h1 className="display-5 text-uppercase mb-0">
                   We Keep Your Pets Happy All Time
                 </h1>
               </div>
-              <h4 className="text-body mb-4">
+              <h4 className="text-body mb-2">
               Ruff Life Crew Where every pup's got a pack and tails waggin high
               </h4>
-              <div className="bg-light p-4">
+              <div className="shadow-lg p-4 rounded-4 border border-1 border-light">
                 <ul
                   className="nav nav-pills justify-content-between mb-3"
                   id="pills-tab"
@@ -175,7 +175,7 @@ const Landingpage = () => {
                     role="tabpanel"
                     aria-labelledby="pills-1-tab"
                   >
-                    <p className="mb-0">
+                    <p className="mb-0 fs-5">
                     Our mission at PETPORT is to connect dog lovers with the opportunity to invest in the well-being of our canine companions. Through transparent and accountable practices, we empower our community to support the care and happiness of dogs, fostering a world of responsible pet ownership and compassion."
                     </p>
                   </div>
@@ -185,7 +185,7 @@ const Landingpage = () => {
                     role="tabpanel"
                     aria-labelledby="pills-2-tab"
                   >
-                    <p className="mb-0">
+                    <p className="mb-0 fs-5">
                     Our vision at PETPORT is to create a world where every dog receives the love, care, and attention they deserve. By providing a platform for responsible investment in canine companionship, we aim to inspire a global community committed to the well-being and happiness of dogs, fostering a future where every wagging tail signifies joy and fulfillment.
                     </p>
                   </div>
@@ -196,110 +196,13 @@ const Landingpage = () => {
         </div>
       </div>
 
-      <div className="container-fluid py-5">
-        <div className="container">
-          <div className="row gx-5">
-            <div className="col-lg-5 mb-5 mb-lg-0" style={{ minHeight: 500 }}>
-              <div className="position-relative h-100">
-                <img
-                  className="position-absolute w-100 h-100 rounded aboutjpg2"
-                  // src={aboutjpg}
-
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </div>
-            <div className="col-lg-7">
-              <div className="border-start border-5 border-primary ps-5 mb-5">
-                <h6 className="text-primary text-uppercase">About Us</h6>
-                <h1 className="display-5 text-uppercase mb-0">
-                  We Keep Your Pets Happy All Time
-                </h1>
-              </div>
-              <h4 className="text-body mb-4">
-                Diam dolor diam ipsum tempor sit. Clita erat ipsum et lorem stet no
-                labore lorem sit clita duo justo magna dolore
-              </h4>
-              <div className="bg-light p-4">
-                <ul
-                  className="nav nav-pills justify-content-between mb-3"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li className="nav-item w-50" role="presentation">
-                    <button
-                      className="nav-link text-uppercase w-100 active"
-                      id="pills-1-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-1"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-1"
-                      aria-selected="true"
-                    >
-                      Our Mission
-                    </button>
-                  </li>
-                  <li className="nav-item w-50" role="presentation">
-                    <button
-                      className="nav-link text-uppercase w-100"
-                      id="pills-2-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-2"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-2"
-                      aria-selected="false"
-                    >
-                      Our Vission
-                    </button>
-                  </li>
-                </ul>
-                <div className="tab-content" id="pills-tabContent">
-                  <div
-                    className="tab-pane fade show active"
-                    id="pills-1"
-                    role="tabpanel"
-                    aria-labelledby="pills-1-tab"
-                  >
-                    <p className="mb-0">
-                      Tempor erat elitr at rebum at at clita aliquyam consetetur.
-                      Diam dolor diam ipsum et, tempor voluptua sit consetetur sit.
-                      Aliquyam diam amet diam et eos sadipscing labore. Clita erat
-                      ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                      clita duo justo et tempor consetetur takimata eirmod, dolores
-                      takimata consetetur invidunt magna dolores aliquyam dolores
-                      dolore. Amet erat amet et magna
-                    </p>
-                  </div>
-                  <div
-                    className="tab-pane fade"
-                    id="pills-2"
-                    role="tabpanel"
-                    aria-labelledby="pills-2-tab"
-                  >
-                    <p className="mb-0">
-                      Tempor erat elitr at rebum at at clita aliquyam consetetur.
-                      Diam dolor diam ipsum et, tempor voluptua sit consetetur sit.
-                      Aliquyam diam amet diam et eos sadipscing labore. Clita erat
-                      ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                      clita duo justo et tempor consetetur takimata eirmod, dolores
-                      takimata consetetur invidunt magna dolores aliquyam dolores
-                      dolore. Amet erat amet et magna
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
       {/* About End */}
       {/* Services Start */}
       <div className="container-fluid py-5">
         <div className="container">
           <div
-            className="border-start border-5 border-primary ps-5 mb-5"
+            className="ps-0 mb-2"
             style={{ maxWidth: 600 }}
           >
             <h6 className="text-primary text-uppercase">Services</h6>

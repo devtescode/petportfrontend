@@ -12,7 +12,7 @@ const Narbar = () => {
     
   return (
     <>
-     <div className="container-fluid border-bottom d-none d-lg-block" style={{cursor: "pointer"}}>
+     <div className="container-fluid d-none d-lg-block" style={{cursor: "pointer"}}>
         <div className="row gx-0">
           <div className="col-lg-4 text-center py-2">
             <div className="d-inline-flex align-items-center">

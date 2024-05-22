@@ -26,14 +26,16 @@ const Signup = () => {
                 .required("Email is required"),
         }),
         onSubmit: (values) => {
-            console.log(values)
+            // console. log(values)
             axios.post("http://localhost:5000/useranimalinvest/signin", { Email: values.Email, Password: values.Password })
                 .then((response) => {
-                    alert(response.data.message)
+                    // alert(response.data.message)
                     if (response.data.status === true) {
                         // alert(response.data.message)
                         // navigate("/dashboard")
 
+                        // console.log(response.data.userData);
+                        localStorage.setItem("UserData", JSON.stringify(response.data.userData));
                         localStorage.token = response.data.token
                         navigate("/dashboard")
                         localStorage.setItem("useradminlogin", true)

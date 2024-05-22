@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../theme-assets/css/vendors.css';
 import '../theme-assets/css/plugins/charts/chartist.css';
 import '../theme-assets/css/app-lite.css'
@@ -19,7 +19,7 @@ const Dashboard = () => {
     let dropdownContent = document.getElementById("dropdownContent");
     dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
   }
-
+  const [user, setUser] = useState("")
   useEffect(() => {
     let token = localStorage.token
     axios.get(url, {
@@ -35,6 +35,7 @@ const Dashboard = () => {
         }
         else {
           console.log("welcome");
+          setUser(response.data.user)
         }
       })
   }, [])
@@ -163,10 +164,22 @@ const Dashboard = () => {
       <Sidenav />
       <div className="app-content content">
         <div className="content-wrapper">
-            <div className="content-wrapper-before" style={{ zIndex: "-20" }} />
-            <div className='shadow-lg text-white d-flex justify-content-center' style={{position:"absolute",top:"0px", height:"150px", alignItems: "center"}}>
-              tESLIMAgboola
+          <div className="content-wrapper-before" style={{ zIndex: "-20" }} />
+          <div className='shadow text-white d-flex justify-content-center' style={{ position: "absolute", top: "0px", height: "150px", alignItems: "center" }}>
+            <div>
+              <span className='fw-bold fs-2'>
+                Welcome back,
+              </span>
+              <span className='fw-bold mt-1 px-1 fs-2 '>
+                {user.Fullname}
+              </span>
+          <div className='fs-2'>
+            <span className='text-white'>Balance:</span>
+            <span className='text-white'>0</span>
+          </div>
             </div>
+          </div>
+          
           <div className="content-header row"></div>
           <div className="content-body">
             {/* Chart */}

@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+.aboutjpg{
+  background-image: url(../src/assets/img/closeup-shot-brown-guard-dog-standing-beach.jpg);
+  background-position: center;
+  background-size: cover;
+}
 
 /* Responsive */
 @media (max-width: 767px) {
@@ -218,6 +223,18 @@
 
 
 
+/* investment img */
+.investmentimg1{
+  background-image: url(../src/assets/img/pig.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  width: 450px;
+}
+
+.investmentimgcover{
+  width: 450px;
+}
 
 
 

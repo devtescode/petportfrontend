@@ -6,7 +6,8 @@ import Signup from './components/Sufolder/Signup'
 import Signin from './components/Sifolder/Signin'
 import Notfound from './components/Pagenotfoundfolder/Notfound'
 import Dashboard from './components/Dashboardfolder/Dashboard'
-import Investment from './components/Investmentfolder/Investment'
+import Product from './components/productfolder/Product'
+import Invest from './components/Inveastmentfolder/Invest'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
     )
   }
 
+  
   return (
     <>
     <Routes>
@@ -29,7 +31,8 @@ function App() {
       <Route path='signup' element={<Signup/>}/>
       <Route path='login' element={<Signin/>}/>
       <Route  path='/*' element={<DashboardLayout/>}/>
-      <Route path='investment' element={<Investment/>}/>
+      <Route path='product' element={<Product/>}/>
+      <Route path='/invest/:id' element={<Invest/>}/>
       <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>

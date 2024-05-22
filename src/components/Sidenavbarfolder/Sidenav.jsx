@@ -1,18 +1,26 @@
 import React from 'react'
 import logo from '../theme-assets/images/logo/logo.png'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 // import {logo} from '../theme-assets/images/logo/logo.png'
 
 
 
 const Sidenav = () => {
+  // const {id} = useParams()
   const navigate = useNavigate()
   const dashboardrouting=()=>{
     navigate('/dashboard')
   }
-  const investmentrouting=()=>{
-    navigate('/investment')
+  const Productrouting=()=>{
+    navigate('/product')
   }
+  const investmentrouting=()=>{
+    navigate(`/invest`)
+  }
+  const Logoutbtn=()=>{
+    navigate('/login')
+  }
+  
   return (
     <>
     <div
@@ -53,6 +61,14 @@ const Sidenav = () => {
                 </span>
               </a>
             </li>
+            <li className=" nav-ite" onClick={Productrouting}>
+              <a >
+                <i className="ft-pie-chart" />
+                <span className="menu-title" data-i18n="">
+                  Product
+                </span>
+              </a>
+            </li>
             <li className=" nav-ite" onClick={investmentrouting}>
               <a >
                 <i className="ft-pie-chart" />
@@ -81,6 +97,7 @@ const Sidenav = () => {
         </div>
         <a
           className="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1"
+          onClick={Logoutbtn}
         >
           Log out
         </a>
