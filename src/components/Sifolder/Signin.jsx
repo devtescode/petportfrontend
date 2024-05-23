@@ -3,11 +3,13 @@ import * as Yup from "yup"
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
+import Loaderpage from '../Loaderfolder/Loaderpage'
 
 const Signup = () => {
     // const [action, setaction] = useState("Sign Up")
     localStorage.removeItem("useradminlogin")
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false);
     const SignUpRouting = () => {
         navigate("/signup")
     }
@@ -27,11 +29,22 @@ const Signup = () => {
         }),
         onSubmit: (values) => {
             // console. log(values)
+            setLoading(true);
             axios.post("http://localhost:5000/useranimalinvest/signin", { Email: values.Email, Password: values.Password })
                 .then((response) => {
                     // alert(response.data.message)
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: response.data.message,
+                      });
                     if (response.data.status === true) {
                         // alert(response.data.message)
+                        Swal.fire({
+                            icon: "success",
+                            title: "Success",
+                            text: response.data.message,
+                          });
                         // navigate("/dashboard")
 
                         // console.log(response.data.userData);
@@ -41,10 +54,14 @@ const Signup = () => {
                         localStorage.setItem("useradminlogin", true)
                     }
                 })
+                setTimeout(() => {
+                    setLoading(false);
+                }, 2000);
         }
     })
     return (
         <>
+            {loading && <Loaderpage/>}
             <form action="" onSubmit={formik.handleSubmit}>
                 <div className='familycontainer'>
                     <div className="containerdiv">
