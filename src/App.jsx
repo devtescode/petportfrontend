@@ -8,6 +8,7 @@ import Notfound from './components/Pagenotfoundfolder/Notfound'
 import Dashboard from './components/Dashboardfolder/Dashboard'
 import Product from './components/productfolder/Product'
 import Invest from './components/Inveastmentfolder/Invest'
+import View from './components/Viewfolder/View'
 
 function App() {
 
@@ -27,12 +28,13 @@ function App() {
     <>
     <Routes>
       <Route path='/' element={<Landingpage/>}/>
-      <Route path='contact' element={<Contact/>}/>
-      <Route path='signup' element={<Signup/>}/>
-      <Route path='login' element={<Signin/>}/>
+      <Route path='/contact' element={<Contact/>}/>
+      <Route path='/signup' element={<Signup/>}/>
+      <Route path='/login' element={<Signin/>}/>
       <Route  path='/*' element={<DashboardLayout/>}/>
-      <Route path='product' element={<Product/>}/>
-      <Route path='/invest/:id' element={<Invest/>}/>
+      <Route path='/product' element={<Product/>}/>
+      <Route path='/invest' element={<Invest/>}/>
+      <Route path="/view/:id" element={<View/>}/>
       <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>

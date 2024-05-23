@@ -24,7 +24,7 @@ const Sidenav = () => {
   return (
     <>
     <div
-        className="border border-2 border-dark  main-menu menu-fixed menu-light menu-accordion  menu-shadow"
+        className="border border-2 main-menu menu-fixed menu-light menu-accordion  menu-shadow"
         data-scroll-to-active="true"
         data-img="theme-assets/images/backgrounds/02.jpg"
       >
@@ -90,6 +90,14 @@ const Sidenav = () => {
                 <i className="ft-layers" />
                 <span className="menu-title" data-i18n="">
                   profile
+                </span>
+              </a>
+            </li>
+            <li className=" nav-item">
+              <a >
+                <i className="ft-layers" />
+                <span className="menu-title" data-i18n="">
+                  password
                 </span>
               </a>
             </li>

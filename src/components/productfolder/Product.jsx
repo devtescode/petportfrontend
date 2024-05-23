@@ -23,7 +23,7 @@ const Product = () => {
     }, []);
 
     const handleInvestClick = (productId) => {
-        navigate(`/invest/${productId}`);
+        navigate(`/view/${productId}`);
     };
 
     return (
