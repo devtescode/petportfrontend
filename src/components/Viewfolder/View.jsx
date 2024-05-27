@@ -3,6 +3,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
+import '../theme-assets/css/vendors.css';
+import '../theme-assets/css/plugins/charts/chartist.css';
+import '../theme-assets/css/app-lite.css'
+import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
+import '../theme-assets/css/core/colors/palette-gradient.css'
+import '../theme-assets/css/pages/dashboard-ecommerce.css'
 
 const View = () => {
     const { id } = useParams();
@@ -24,16 +30,16 @@ const View = () => {
     }, [id]);
 
     useEffect(() => {
-      const getuser = JSON.parse(localStorage.getItem('UserData'));
-    //   console.log(getuser);
-    if(getuser){
-        setUser(getuser)
-    }
-    else{
-        navigate('/login')
-    }
+        const getuser = JSON.parse(localStorage.getItem('UserData'));
+        //   console.log(getuser);
+        if (getuser) {
+            setUser(getuser)
+        }
+        else {
+            navigate('/login')
+        }
     }, [])
-    
+
 
     if (loading) {
         return <p>Loading...</p>;
@@ -43,7 +49,7 @@ const View = () => {
     // const handleInvestNow =()=>{
     //     alert()
     // }
-    
+
     const handleInvestNow = async () => {
         const url = 'http://localhost:5000/useranimalinvest/investnow'
         const postuser = {
@@ -54,8 +60,8 @@ const View = () => {
         try {
             const response = await axios.post(url,
                 postuser
-           );
-        //    console.log(response.data);
+            );
+            //    console.log(response.data);
             if (response.data.message == "Successfully saved") {
                 localStorage.setItem("UserData", JSON.stringify(response.data.userData))
                 alert(response.data.message)
@@ -65,20 +71,22 @@ const View = () => {
         } catch (error) {
             console.error('Error during investment:', error);
             alert('An error occurred during investment')
-    }
-};
+        }
+    };
 
 
     return (
         <>
             <Sidenav />
-            <div style={{ width: "80%", position: "absolute", height: "100%", top: "0", right: "0" }}>
-                <div className="container border border-2 col-6">
+            <div  className='alldivcontainers'>
+                <div className="container border border-2 shadow-lg col-6" style={{alignItems:"center"}}>
                     <h2>{product.name}</h2>
                     <img src={product.image} alt={product.name} style={{ width: '100%', height: 'auto' }} />
                     <p>{product.description}</p>
                     <p>Price: ${product.price}</p>
-                    <button className='btn btn-primary text-white w-100 rounded-5 my-3' onClick={handleInvestNow}> Invest Now</button>    
+                    <div className='justify-content-center d-flex'>
+                        <button style={{ backgroundColor: "#FA7179" }} className='btn btn-primary text-white w-50 rounded-5 my-3 justify-content-center' onClick={handleInvestNow}> Invest Now</button>
+                    </div>
                 </div>
             </div>
         </>

@@ -9,8 +9,55 @@
   background-size: cover;
 }
 
+.brand-logo {
+  width: 50px;
+}
+.offcanvas-body .main-menu {
+  width: 100%;
+}
+/* @media (min-width: 992px) {
+  #offcanvasDark {
+    visibility: visible;        
+    position: relative;
+    transform: none;
+    border-right: 1px solid #dee2e6;
+  }
+  #offcanvasDark .offcanvas-body {
+    padding: 1rem;
+  }
+} */
+
+#offcanvasSidebar {
+  position: relative;
+  transform: none;
+  border-right: 1px solid #dee2e6;
+  visibility: visible !important;
+}
+#offcanvasSidebar .offcanvas-body {
+  padding: 1rem;
+}
+
+.alldivcontainers{
+  width: 80%;
+  position: absolute;
+  height: 100vh !important;
+  top: 40;
+  right: 0
+}
+
+
 /* Responsive */
 @media (max-width: 767px) {
+  /* .main-menu{
+    border: 2px solid;
+    width: 120% !important;
+  } */
+  .alldivcontainers{
+    width: 100%;
+  }
+  .smallscreensidebar{
+    display: none;
+  }
   .input{
     display: flex;
     align-items: center;

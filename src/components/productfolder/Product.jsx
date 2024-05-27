@@ -3,6 +3,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
+import '../theme-assets/css/vendors.css';
+import '../theme-assets/css/plugins/charts/chartist.css';
+import '../theme-assets/css/app-lite.css'
+import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
+import '../theme-assets/css/core/colors/palette-gradient.css'
+import '../theme-assets/css/pages/dashboard-ecommerce.css'
 
 const Product = () => {
     const [products, setProducts] = useState([]);
@@ -29,7 +35,7 @@ const Product = () => {
     return (
         <>
             <Sidenav />
-            <div style={{ width: "80%", position: "absolute", height: "100%", top: "0", right: "0" }}>
+            <div className='alldivcontainers'>
                 <div className="container">
                     <h2>Product List</h2>
                     <div className="row">

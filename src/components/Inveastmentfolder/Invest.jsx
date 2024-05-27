@@ -3,6 +3,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
+import '../theme-assets/css/vendors.css';
+import '../theme-assets/css/plugins/charts/chartist.css';
+import '../theme-assets/css/app-lite.css'
+import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
+import '../theme-assets/css/core/colors/palette-gradient.css'
+import '../theme-assets/css/pages/dashboard-ecommerce.css'
 
 const Invest = () => {
     const { id } = useParams();
@@ -26,7 +32,7 @@ const Invest = () => {
 
     useEffect(() => {
         const getuser = JSON.parse(localStorage.getItem('UserData'));
-          console.log(getuser);
+        console.log(getuser);
         if (getuser) {
             setUser(getuser)
 
@@ -79,28 +85,41 @@ const Invest = () => {
         <>
             <Sidenav />
             <div className="container">
-                <div style={{ width: "80%", position: "absolute", height: "100%", top: "0", right: "0" }}>
+                <div className='alldivcontainers'>
 
-                    <div className='mt-5 ms-3'>
+                 
 
-                        <h4>All your Investment</h4>
-                    </div>
-
-
-                    {User.products && User.products.length > 0 && (
-                        <div className="row gap-3 mx-auto text-center justify-content-center">
-                            {User.products.map(product => (
-                                <div key={product.id} className="borde rounded shadow-lg  col-sm-12 col-md-6 col-lg-3 mb-4">
-                                    <h2 className='my-2'>{product.name}</h2>
-                                    <img src={product.image} alt={product.name} style={{ width: '80%', height: '40%' }} className='img-fluid mb-3' />
-                                    <p>{product.description}</p>
-                                    <p>Price: ${product.price}</p>
-                                    <button className='btn btn-primary text-white w-100 rounded-5 mb-3' onClick={() => handleInvestNow(product.id)}>Invest Now</button>
+                    {User && User.products ? (
+                        User.products.length > 0 ? (
+                            <div>
+                                <h2 className="text-center my-4">All your Investments</h2>
+                                <div className="row gap-3 mx-auto text-center justify-content-center">
+                                    {User.products.map(product =>
+                                        product && ( // Ensure product is not null or undefined
+                                            <div key={product.id} className="border rounded shadow-lg col-sm-12 col-md-6 col-lg-3 mb-4">
+                                                <h2 className='my-2'>{product.name}</h2>
+                                                <img src={product.image} alt={product.name} style={{ width: '80%', height: '40%' }} className='img-fluid mb-3' />
+                                                <p>{product.description}</p>
+                                                <p>Price: ${product.price}</p>
+                                                {/* <button className='btn btn-primary text-white w-100 rounded-5 mb-3' onClick={() => handleInvestNow(product.id)}>Invest Now</button> */}
+                                            </div>
+                                        )
+                                    )}
                                 </div>
-                            ))}
-
+                            </div>
+                        ) : (
+                            <div className="text-center text-danger fw-bold d-flex fs-4" style={{alignItems:"center"}}>
+                                <p>No investment added yet.</p>
+                            </div>
+                        )
+                    ) : (
+                        <div className="text-center">
+                            <p>Loading investments...</p>
                         </div>
                     )}
+
+
+
                 </div>
 
 

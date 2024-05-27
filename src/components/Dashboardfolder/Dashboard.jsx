@@ -6,9 +6,9 @@ import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
 import '../theme-assets/css/core/colors/palette-gradient.css'
 import '../theme-assets/css/pages/dashboard-ecommerce.css'
 import Sidenav from '../Sidenavbarfolder/Sidenav';
-import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
 
 // ../theme-assets/images/portrait/small/avatar-s-19.png
 
@@ -41,127 +41,13 @@ const Dashboard = () => {
   }, [])
 
 
-  const LogoutBtn = () => {
-    navigate("/login")
-  }
-
+  
   return (
     <>
 
-      <nav className="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light">
-        <div className="navbar-wrapper">
-          <div className="navbar-container content">
-            <div className="collapse navbar-collapse show" id="navbar-mobile">
-              <ul className="nav navbar-nav mr-auto float-left">
-                <li className="nav-item d-block d-md-none">
-                  <a
-                    className="nav-link nav-menu-main menu-toggle hidden-xs"
-                    href="#"
-                  >
-                    <i className="ft-menu" />
-                  </a>
-                </li>
-                <li className="nav-item d-none d-md-block">
-                  <a className="nav-link nav-link-expand" href="#">
-                    <i className="ficon ft-maximize" />
-                  </a>
-                </li>
-                <li className="nav-item dropdown navbar-search">
-                  <a
-                    className="nav-link dropdown-toggle hide"
-                    data-toggle="dropdown"
-                    href="#"
-                  >
-                    <i className="ficon ft-search" />
-                  </a>
-                  <ul className="dropdown-menu">
-                    <li className="arrow_box">
-                      <form>
-                        <div className="input-group search-box">
-                          <div className="position-relative has-icon-right full-width">
-                            <input
-                              className="form-control"
-                              id="search"
-                              type="text"
-                              placeholder="Search here..."
-                            />
-                            <div className="form-control-position navbar-search-close">
-                              <i className="ft-x"> </i>
-                            </div>
-                          </div>
-                        </div>
-                      </form>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-
-              <ul className="nav navbar-nav float-right">
-                {/* <li className="dropdown dropdown-notification nav-item">
-                  <a
-                    className="nav-link nav-link-label"
-                    href="#"
-                    data-toggle="dropdown"
-                  >
-                    <i className="ficon ft-mail"> </i>
-                  </a>
-                  <div className="dropdown-menu dropdown-menu-right">
-                    <div className="arrow_box_right">
-                      <a className="dropdown-item" href="#">
-                        <i className="ft-book" /> Read Mail
-                      </a>
-                      <a className="dropdown-item" href="#">
-                        <i className="ft-bookmark" /> Read Later
-                      </a>
-                      <a className="dropdown-item" href="#">
-                        <i className="ft-check-square" /> Mark all Read{" "}
-                      </a>
-                    </div>
-                  </div>
-                </li> */}
-
-
-
-                <li className="dropdown dropdown-user nav-item">
-                  <a
-                    className="dropdown-toggle nav-link dropdown-user-link"
-                    href="#"
-                    data-toggle="dropdown"
-                  >
-                    <span className="avatar avatar-online" onClick={toggleDropdown}>
-                      <img
-                        src={profile}
-                        alt="avatar"
-                      />
-                      <i />
-                    </span>
-                  </a>
-                  <div class="dropdown-content" id="dropdownContent">
-                    <a className="dropdown-item">
-                      <i className="ft-user" /> Edit Profile
-                    </a>
-                    <a className="dropdown-item">
-                      <i className="ft-mail" /> My Inbox
-                    </a>
-                    <a className="dropdown-item">
-                      <i className="ft-check-square" /> Task
-                    </a>
-                    <a className="dropdown-item">
-                      <i className="ft-message-square" /> Chats
-                    </a>
-                    <div className="dropdown-divider" />
-                    <a className="dropdown-item" onClick={LogoutBtn}>
-                      <i className="ft-power" /> Logout
-                    </a>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+     
       <Sidenav />
+      
       <div className="app-content content">
         <div className="content-wrapper">
           <div className="content-wrapper-before" style={{ zIndex: "-20" }} />
