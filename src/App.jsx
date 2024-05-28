@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboardfolder/Dashboard'
 import Product from './components/productfolder/Product'
 import Invest from './components/Inveastmentfolder/Invest'
 import View from './components/Viewfolder/View'
+import Password from './components/Passwordfolder/Password'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
       <Route path='/product' element={<Product/>}/>
       <Route path='/invest' element={<Invest/>}/>
       <Route path="/view/:id" element={<View/>}/>
+      <Route path='/password' element={<Password/>}/>
       <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>
