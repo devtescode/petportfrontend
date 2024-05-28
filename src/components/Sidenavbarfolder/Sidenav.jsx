@@ -16,34 +16,27 @@ const Sidenav = () => {
   const navigate = useNavigate()
   const dashboardrouting = () => {
     navigate('/dashboard')
+    hideOffcanvasMenu();
+
   }
   const Productrouting = () => {
     navigate('/product')
+    hideOffcanvasMenu();
+
   }
   const investmentrouting = () => {
     navigate(`/invest`)
+    hideOffcanvasMenu();
+
   }
   const Logoutbtn = () => {
     navigate('/login')
+    hideOffcanvasMenu();
+
   }
   const LogoutBtn = () => {
     navigate("/login")
   }
-
-  const navigateToDashboard = () => {
-    navigate('/dashboard');
-    hideOffcanvasMenu();
-  };
-
-  const navigateToProduct = () => {
-    navigate('/product');
-    hideOffcanvasMenu();
-  };
-
-  const navigateToInvestment = () => {
-    navigate('/investment');
-    hideOffcanvasMenu();
-  };
 
   const navigateToLogin = () => {
     navigate('/login');

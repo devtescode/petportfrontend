@@ -34,7 +34,6 @@ const Dashboard = () => {
           navigate("/login");
         }
         else {
-          console.log("welcome");
           setUser(response.data.user)
         }
       })

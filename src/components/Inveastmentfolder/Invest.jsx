@@ -32,7 +32,7 @@ const Invest = () => {
 
     useEffect(() => {
         const getuser = JSON.parse(localStorage.getItem('UserData'));
-        console.log(getuser);
+        // console.log(getuser);
         if (getuser) {
             setUser(getuser)
 
