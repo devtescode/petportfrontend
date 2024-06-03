@@ -10,6 +10,7 @@ import Product from './components/productfolder/Product'
 import Invest from './components/Inveastmentfolder/Invest'
 import View from './components/Viewfolder/View'
 import Password from './components/Passwordfolder/Password'
+import Profile from './components/Profilepage/Profile'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
 
   
   return (
+    
     <>
     <Routes>
       <Route path='/' element={<Landingpage/>}/>
@@ -37,6 +39,7 @@ function App() {
       <Route path='/invest' element={<Invest/>}/>
       <Route path="/view/:id" element={<View/>}/>
       <Route path='/password' element={<Password/>}/>
+      <Route path='/profile' element={<Profile/>}/>
       <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>

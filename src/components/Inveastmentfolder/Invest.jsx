@@ -10,7 +10,7 @@ import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
 import '../theme-assets/css/core/colors/palette-gradient.css'
 import '../theme-assets/css/pages/dashboard-ecommerce.css'
 
-const Invest = () => {
+const Invest = ({}) => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -83,7 +83,7 @@ const Invest = () => {
 
     return (
         <>
-            <Sidenav />
+            <Sidenav/>
             <div className="container">
                 <div className='alldivcontainers'>
 

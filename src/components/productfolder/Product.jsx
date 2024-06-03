@@ -34,7 +34,7 @@ const Product = () => {
 
     return (
         <>
-            <Sidenav />
+            <Sidenav/>
             <div className='alldivcontainers'>
                 <div className="container">
                     <h2>Product List</h2>

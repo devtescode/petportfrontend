@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../../assets/8796021.jpg'
 import { useNavigate, useParams } from 'react-router'
 // import {logo} from '../theme-assets/images/logo/logo.png'
@@ -8,11 +8,13 @@ import '../theme-assets/css/app-lite.css'
 import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
 import '../theme-assets/css/core/colors/palette-gradient.css'
 import '../theme-assets/css/pages/dashboard-ecommerce.css'
-import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
+// import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
 
 
 const Sidenav = () => {
+  const [useimage, setuseimage] = useState("")
   const { id } = useParams()
+  
   const navigate = useNavigate()
   const dashboardrouting = () => {
     navigate('/dashboard')
@@ -43,6 +45,11 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   };
 
+  const profilerouting = () =>{
+    navigate('/profile')
+    hideOffcanvasMenu();
+  }
+
   const passwordrouting = () => {
     navigate('/password')
     hideOffcanvasMenu();
@@ -59,6 +66,11 @@ const Sidenav = () => {
     let dropdownContent = document.getElementById("dropdownContent");
     dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
   }
+
+  useEffect(() => {
+    setuseimage(localStorage.getItem('image'))
+  }, [])
+  
 
   return (
     <>
@@ -114,12 +126,11 @@ const Sidenav = () => {
                 <li className="dropdown dropdown-user nav-item">
                   <a
                     className="dropdown-toggle nav-link dropdown-user-link"
-                    href="#"
                     data-toggle="dropdown"
                   >
                     <span className="avatar avatar-online" onClick={toggleDropdown}>
                       <img
-                        src={profile}
+                        src={useimage}
                         alt="avatar"
                       />
                       <i />
@@ -216,7 +227,7 @@ const Sidenav = () => {
                   <li className=" nav-item my-2">
                     <a >
                       <i className="ft-layers" />
-                      <span className="menu-title mx-2" data-i18n="">
+                      <span className="menu-title mx-2" data-i18n="" onClick={profilerouting}>
                         profile
                       </span>
                     </a>
@@ -305,7 +316,7 @@ const Sidenav = () => {
                 </span>
               </a>
             </li>
-            <li className=" nav-item">
+            <li className=" nav-item" onClick={profilerouting}>
               <a >
                 <i className="ft-layers" />
                 <span className="menu-title" data-i18n="">
