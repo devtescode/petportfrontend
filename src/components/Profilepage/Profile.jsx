@@ -81,7 +81,7 @@ const Profile = () => {
             <Sidenav profile={image ? image : imagelocate}/>
             <div className='alldivcontainers'>
                 <div className=''>
-                    <h2 className="mt-">Profile</h2>
+                    <h2 className="mt-1">Profile</h2>
                     <div className='mx-auto mt-5 imgDiv'>
                         <img src={image ? image : imagelocate} className='mx-auto imgDiv border border-1 border-dark rounded-3 shadow-lg' alt="Profile" />
                     </div>

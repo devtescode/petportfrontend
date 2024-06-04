@@ -31,13 +31,12 @@ const Product = () => {
     const handleInvestClick = (productId) => {
         navigate(`/view/${productId}`);
     };
-
     return (
         <>
             <Sidenav/>
             <div className='alldivcontainers'>
                 <div className="container">
-                    <h2>Product List</h2>
+                    <h2 className='mt-1'>Product List</h2>
                     <div className="row">
                         {loading ? (
                             <p className="text-center">Loading...</p>
@@ -49,7 +48,7 @@ const Product = () => {
                                         <div className="card-body">
                                             <h3 className="card-title">{product.name}</h3>
                                             <p className="card-text">{product.description}</p>
-                                            <p className="card-text">Price: ${product.price}</p>
+                                            <p className="card-text">Price: ₦{product.price}</p>
                                             <button onClick={() => handleInvestClick(product.id)} className='btn btn-primary text-white w-100 rounded-5'>View Investment</button>
                                         </div>
                                     </div>

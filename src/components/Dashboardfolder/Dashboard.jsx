@@ -60,7 +60,7 @@ const Dashboard = () => {
               </span>
           <div className='fs-2'>
             <span className='text-white'>Balance:</span>
-            <span className='text-white'>0</span>
+            <span className='text-white'>₦{user.Balance}</span>
           </div>
             </div>
           </div>

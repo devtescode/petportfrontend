@@ -11,6 +11,7 @@ import Invest from './components/Inveastmentfolder/Invest'
 import View from './components/Viewfolder/View'
 import Password from './components/Passwordfolder/Password'
 import Profile from './components/Profilepage/Profile'
+import History from './components/Historyfolder/History'
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
       <Route path="/view/:id" element={<View/>}/>
       <Route path='/password' element={<Password/>}/>
       <Route path='/profile' element={<Profile/>}/>
+      <Route path='/history' element={<History/>}/>
       <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>

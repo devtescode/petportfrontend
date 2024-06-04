@@ -55,6 +55,11 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
+  const historyrouting = () => {
+    navigate('/history')
+    hideOffcanvasMenu();
+  }
+
   const hideOffcanvasMenu = () => {
     const offcanvasElement = document.getElementById('staticBackdrop');
     const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
@@ -329,6 +334,14 @@ const Sidenav = () => {
                 <i className="ft-layers" />
                 <span className="menu-title" data-i18n="">
                   password
+                </span>
+              </a>
+            </li>
+            <li className=" nav-item" onClick={historyrouting}>
+              <a >
+                <i className="ft-layers" />
+                <span className="menu-title" data-i18n="">
+                  History
                 </span>
               </a>
             </li>

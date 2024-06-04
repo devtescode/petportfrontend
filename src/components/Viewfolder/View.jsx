@@ -44,37 +44,33 @@ const View = () => {
     if (loading) {
         return <p>Loading...</p>;
     }
-
-
-    // const handleInvestNow =()=>{
-    //     alert()
-    // }
-
     const handleInvestNow = async () => {
-        const url = 'http://localhost:5000/useranimalinvest/investnow'
+        const url = 'http://localhost:5000/useranimalinvest/investnow';
         const postuser = {
             productId: id,
             Email: User.email
-        }
-
+        };
+    
         try {
-            const response = await axios.post(url,
-                postuser
-            );
-            //    console.log(response.data);
-            if (response.data.message == "Successfully saved") {
-                localStorage.setItem("UserData", JSON.stringify(response.data.userData))
-                alert(response.data.message)
+            const response = await axios.post(url, postuser);
+            if (response.data.message === "Successfully saved") {
+                localStorage.setItem("UserData", JSON.stringify(response.data.userData));
+                alert(response.data.message);
             } else {
                 alert('Investment failed!');
             }
         } catch (error) {
+            if (error.response) {
+                alert(`${error.response.data}`);
+            } else if (error.request) {
+                alert('No response received from server.');
+            } else {
+                alert(`Error: ${error.message}`);
+            }
             console.error('Error during investment:', error);
-            alert('An error occurred during investment')
         }
     };
-
-
+    
     return (
         <>
             <Sidenav />
