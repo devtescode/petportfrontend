@@ -14,7 +14,7 @@ import '../theme-assets/css/pages/dashboard-ecommerce.css'
 const Sidenav = () => {
   const [useimage, setuseimage] = useState("")
   const { id } = useParams()
-  
+
   const navigate = useNavigate()
   const dashboardrouting = () => {
     navigate('/dashboard')
@@ -45,7 +45,7 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   };
 
-  const profilerouting = () =>{
+  const profilerouting = () => {
     navigate('/profile')
     hideOffcanvasMenu();
   }
@@ -75,7 +75,7 @@ const Sidenav = () => {
   useEffect(() => {
     setuseimage(localStorage.getItem('image'))
   }, [])
-  
+
 
   return (
     <>
@@ -195,7 +195,7 @@ const Sidenav = () => {
                   className="navigation navigation-main"
                   id="main-menu-navigation"
                   data-menu="menu-navigation"
-                  style={{listStyle:"none"}}
+                  style={{ listStyle: "none" }}
                 >
                   <li className="activ my-2" onClick={dashboardrouting}>
                     <a>
@@ -207,7 +207,7 @@ const Sidenav = () => {
                   </li>
                   <li className=" nav-item my-2" onClick={Productrouting}>
                     <a >
-                      <i className="ft-pie-chart" />
+                      <i class="ri-product-hunt-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
                         Product
                       </span>
@@ -215,7 +215,7 @@ const Sidenav = () => {
                   </li>
                   <li className=" nav-item my-2" onClick={investmentrouting}>
                     <a >
-                      <i className="ft-pie-chart" />
+                      <i class="ri-stock-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
                         Investment
                       </span>
@@ -223,7 +223,7 @@ const Sidenav = () => {
                   </li>
                   <li className="nav-item my-2">
                     <a >
-                      <i className="ft-droplet" />
+                      <i class="ri-wallet-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
                         Wallet
                       </span>
@@ -231,24 +231,35 @@ const Sidenav = () => {
                   </li>
                   <li className=" nav-item my-2">
                     <a >
-                      <i className="ft-layers" />
+                      <i class="ri-profile-line"></i>
                       <span className="menu-title mx-2" data-i18n="" onClick={profilerouting}>
-                        profile
+                        Profile
                       </span>
                     </a>
                   </li>
                   <li className=" nav-item my-2" onClick={passwordrouting}>
                     <a >
-                      <i className="ft-layers" />
+                      <i class="ri-key-2-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
-                        password
+                        Password
+                      </span>
+                    </a>
+                  </li>
+                  <li className=" nav-item my-2" onClick={historyrouting}>
+                    <a >
+                    <i class="ri-history-line"></i>
+                      <span className="menu-title mx-2" data-i18n="">
+                        History
                       </span>
                     </a>
                   </li>
                 </ul>
               </div>
-              <a className="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1" onClick={navigateToLogin}>
-                Log out
+              <a className="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1 text-white" onClick={navigateToLogin}>
+                <i class="ri-logout-box-line fw-bold"></i>
+                <samp className='mx-1'>
+                  Log out
+                </samp>
               </a>
               <div className="navigation-background"></div>
             </div>
@@ -257,7 +268,7 @@ const Sidenav = () => {
       </div>
 
 
-  
+
 
       <div
         className="main-menu menu-fixed menu-light menu-accordion menu-shadow smallscreensidebar"
@@ -291,7 +302,7 @@ const Sidenav = () => {
           >
             <li className="activ" onClick={dashboardrouting}>
               <a>
-                <i className="ft-home" />
+                <i className="ft-home fw-bold" />
                 <span className="menu-title" data-i18n="">
                   Dashboard
                 </span>
@@ -299,7 +310,7 @@ const Sidenav = () => {
             </li>
             <li className=" nav-ite" onClick={Productrouting}>
               <a >
-                <i className="ft-pie-chart" />
+                <i class="ri-product-hunt-line"></i>
                 <span className="menu-title" data-i18n="">
                   Product
                 </span>
@@ -307,7 +318,7 @@ const Sidenav = () => {
             </li>
             <li className=" nav-ite" onClick={investmentrouting}>
               <a >
-                <i className="ft-pie-chart" />
+                <i class="ri-stock-line"></i>
                 <span className="menu-title" data-i18n="">
                   Investment
                 </span>
@@ -315,7 +326,7 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item">
               <a >
-                <i className="ft-droplet" />
+                <i class="ri-wallet-line"></i>
                 <span className="menu-title" data-i18n="">
                   Wallet
                 </span>
@@ -323,23 +334,23 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item" onClick={profilerouting}>
               <a >
-                <i className="ft-layers" />
+                <i class="ri-profile-line"></i>
                 <span className="menu-title" data-i18n="">
-                  profile
+                  Profile
                 </span>
               </a>
             </li>
             <li className=" nav-item" onClick={passwordrouting}>
               <a >
-                <i className="ft-layers" />
+                <i class="ri-key-2-line"></i>
                 <span className="menu-title" data-i18n="">
-                  password
+                  Password
                 </span>
               </a>
             </li>
             <li className=" nav-item" onClick={historyrouting}>
               <a >
-                <i className="ft-layers" />
+              <i class="ri-history-line"></i>
                 <span className="menu-title" data-i18n="">
                   History
                 </span>
@@ -348,10 +359,13 @@ const Sidenav = () => {
           </ul>
         </div>
         <a
-          className="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1"
+          className="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1 text-white"
           onClick={Logoutbtn}
         >
-          Log out
+          <i class="ri-logout-box-line fw-bold"></i>
+          <samp className='mx-1'>
+            Log out
+          </samp>
         </a>
         <div className="navigation-background" />
       </div>
