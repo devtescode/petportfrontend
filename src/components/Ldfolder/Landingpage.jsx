@@ -61,7 +61,7 @@ const Landingpage = () => {
                 <b>Register</b>
               </button>
             </div>
-            <div className='mx-3'>
+            <div className='mx-1'>
               <button className='RegisterBtn' onClick={LoginBtn}> 
                 <b>Login</b>
               </button>
