@@ -59,8 +59,11 @@
     border: 2px solid;
     width: 120% !important;
   } */
-
-  
+  .hero-header{
+    background-image: url(../src/assets/img/hero.jpg);
+    background-position-x: right !important;
+    background-size: cover !important;
+  }
 .imgDiv{
   width: 100% !important;
   margin: auto !important;

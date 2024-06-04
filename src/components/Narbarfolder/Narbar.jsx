@@ -12,11 +12,11 @@ const Narbar = () => {
     
   return (
     <>
-     <div className="container-fluid d-none d-lg-block" style={{cursor: "pointer"}}>
+     {/* <div className="container-fluid d-none d-lg-block bg-dark text-white" style={{cursor: "pointer", position:"fixed", top:"0", zIndex:"100"}}>
         <div className="row gx-0">
           <div className="col-lg-4 text-center py-2">
             <div className="d-inline-flex align-items-center">
-              <i className="bi bi-geo-alt fs-1 text-primary me-3" />
+              <i className="bi bi-geo-alt fs-1 text-primary me-3 " />
               <div className="text-start">
                 <h6 className="text-uppercase mb-1">Our Office</h6>
                 <span>25 Street, Yaoco, Filling station</span>
@@ -42,8 +42,8 @@ const Narbar = () => {
             </div>
           </div>
         </div>
-      </div>
-      <nav className="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
+      </div> */}
+      <nav className="fixed-top navbar navbar-expand-lg bg-white navbar-light p-2">
         <a onClick={Homeroute} style={{cursor: "pointer"}}  className="navbar-brand ms-lg-5">
           <h1 className="m-0 text-uppercase text-dark">
             <i className="bi bi-shop fs-1 text-primary me-3" />
@@ -59,45 +59,19 @@ const Narbar = () => {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse" style={{cursor: "pointer"}}>
-          <div className="navbar-nav ms-auto py-0">
-            <a onClick={Homeroute} className="nav-item nav-link active">
+          <div className="navbar-nav ms-auto text-center">
+            <a onClick={Homeroute} className="nav-item nav-link text-dark">
               Home
             </a>
-            <a href="about.html" className="nav-item nav-link">
+            <a className="nav-item nav-link text-dark">
               About
             </a>
-            <a href="service.html" className="nav-item nav-link">
+            <a  className="nav-item nav-link text-dark">
               Service
             </a>
-            <a href="product.html" className="nav-item nav-link">
+            <a  className="nav-item nav-link text-dark">
               Product
             </a>
-            <div className="nav-item dropdown">
-              <a
-                href="#"
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-              >
-                Pages
-              </a>
-              <div className="dropdown-menu m-0">
-                <a href="price.html" className="dropdown-item">
-                  Pricing Plan
-                </a>
-                <a href="team.html" className="dropdown-item">
-                  The Team
-                </a>
-                <a href="testimonial.html" className="dropdown-item">
-                  Testimonial
-                </a>
-                <a href="blog.html" className="dropdown-item">
-                  Blog Grid
-                </a>
-                <a href="detail.html" className="dropdown-item">
-                  Blog Detail
-                </a>
-              </div>
-            </div>
             <a
               
               className="nav-item nav-link nav-contact text-white px-5 ms-lg-5 contant-topstyle"

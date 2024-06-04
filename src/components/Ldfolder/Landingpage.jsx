@@ -18,24 +18,23 @@ const Landingpage = () => {
   return (
     <>
       <Narbar />
-      <div className="container-fluid bg-primary py-5 mb-5 hero-header">
-        <div className="container">
+      <div className=" container-fluid bg-primary py-5 mb-5 hero-header" style={{zIndex:"100"}}>
+        <div className="container my-3">
           <div className="row justify-content-start">
             <div className="col-lg-8 text-lg-start">
-              <h1 className="display-1 text-uppercase text-dark mb-lg-4">
+              <h1 className="display-4 text-uppercase text-dark ">
                 petport
               </h1>
-              <h1 className="text-uppercase text-white mb-lg-4">
+              <h1 className="text-uppercase text-white mb-lg-0">
                 Investment Where Smiles Multiply
 
               </h1>
-              <p className="fs-4 text-white mb-lg-4">
+              <p className="fs-4 text-white mb-lg-0">
                 Welcome to petport, where we explore the world of animal investments with expertise and insight.
 
               </p>
               <div className="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
                 <a
-                  href=""
                   className="btn btn-outline-light py-md-2 px-md-2 me-4"
                 >
                   Read More
@@ -56,7 +55,7 @@ const Landingpage = () => {
             </div>
           </div>
 
-          <div className='d-flex mt-4'>
+          <div className='d-flex mt-2'>
             <div className=''>
               <button className='RegisterBtn' onClick={RegisterBtn}>
                 <b>Register</b>
@@ -108,9 +107,9 @@ const Landingpage = () => {
           </div>
         </div>
       </div>
-      {/* Video Modal End */}
-      {/* About Start */}
-      <div className="container-fluid py-5">
+   
+      {/* style={{marginTop:"95vh"}} */}
+      <div className="py-5" >
         <div className="container">
           <div className="row gx-5">
             <div className="col-lg-5 mb-5 mb-lg-0" style={{ minHeight: 500 }}>
@@ -199,7 +198,7 @@ const Landingpage = () => {
       
       {/* About End */}
       {/* Services Start */}
-      <div className="container-fluid py-5">
+      <div className="container-fluid py-3">
         <div className="container">
           <div
             className="ps-0 mb-2"
