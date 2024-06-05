@@ -8,6 +8,18 @@
   background-position: center;
   background-size: cover;
 }
+.bg-offer {
+  background: url(../src/assets/img/offer.jpg) top right no-repeat;
+  background-size: cover;
+}
+.imgteams1{
+  background-image: url(../src/assets/img/team-1.jpg);
+  height: 400px;
+  width: 100% !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .brand-logo {
   width: 50px;
@@ -53,12 +65,45 @@
 }
 
 
+.imgproduct1, .imgproduct2, .imgproduct3, .imgproduct4, .imgproduct5{
+  height: 200px;
+  width: 200px;
+  /* border: 2px solid; */
+  border-radius: 150px;
+  /* background-image: url(../src/assets/img/hero.jpg); */
+  background-position: center;
+  background-size: cover;
+}
+
 /* Responsive */
+.imgproduct1{
+  background-image: url(../src/assets/img/product-1.png);
+}
+.imgproduct2{
+  background-image: url(../src/assets/img/product-2.png);
+}
+.imgproduct3{
+  background-image: url(../src/assets/img/product-3.png);
+}
+.imgproduct4{
+  background-image: url(../src/assets/img/product-4.png);
+  background-position: right;
+}
 @media (max-width: 767px) {
   /* .main-menu{
     border: 2px solid;
     width: 120% !important;
   } */
+  .imgproduct1, .imgproduct2, .imgproduct3, .imgproduct4, .imgproduct5{
+    height: 300px;
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 150px;
+    /* background-image: url(../src/assets/img/hero.jpg); */
+    background-position: center;
+    background-size: cover;
+  }
   .hero-header{
     background-image: url(../src/assets/img/hero.jpg);
     background-position-x: right !important;

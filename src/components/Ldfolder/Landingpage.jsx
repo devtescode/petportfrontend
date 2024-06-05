@@ -7,18 +7,18 @@ import Narbar from '../Narbarfolder/Narbar'
 
 const Landingpage = () => {
   const navigate = useNavigate()
-  const RegisterBtn=()=>{
+  const RegisterBtn = () => {
     navigate("/signup")
   }
 
-  const LoginBtn = ()=>{
+  const LoginBtn = () => {
     navigate("/login")
   }
 
   return (
     <>
       <Narbar />
-      <div className=" container-fluid bg-primary py-5 mb-5 hero-header" style={{zIndex:"100"}}>
+      <div className=" container-fluid bg-primary py-5 mb-5 hero-header" style={{ zIndex: "100" }}>
         <div className="container my-3">
           <div className="row justify-content-start">
             <div className="col-lg-8 text-lg-start">
@@ -45,7 +45,7 @@ const Landingpage = () => {
                   data-bs-toggle="modal"
                   data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
                   data-bs-target="#videoModal"
-                > 
+                >
                   <span />
                 </button>
                 <h5 className="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">
@@ -62,7 +62,7 @@ const Landingpage = () => {
               </button>
             </div>
             <div className='mx-1'>
-              <button className='RegisterBtn' onClick={LoginBtn}> 
+              <button className='RegisterBtn' onClick={LoginBtn}>
                 <b>Login</b>
               </button>
             </div>
@@ -107,7 +107,7 @@ const Landingpage = () => {
           </div>
         </div>
       </div>
-   
+
       {/* style={{marginTop:"95vh"}} */}
       <div className="py-5" >
         <div className="container">
@@ -130,7 +130,7 @@ const Landingpage = () => {
                 </h1>
               </div>
               <h4 className="text-body mb-2">
-              Ruff Life Crew Where every pup's got a pack and tails waggin high
+                Ruff Life Crew Where every pup's got a pack and tails waggin high
               </h4>
               <div className="shadow-lg p-4 rounded-4 border border-1 border-light">
                 <ul
@@ -175,7 +175,7 @@ const Landingpage = () => {
                     aria-labelledby="pills-1-tab"
                   >
                     <p className="mb-0 fs-5">
-                    Our mission at PETPORT is to connect dog lovers with the opportunity to invest in the well-being of our canine companions. Through transparent and accountable practices, we empower our community to support the care and happiness of dogs, fostering a world of responsible pet ownership and compassion."
+                      Our mission at PETPORT is to connect dog lovers with the opportunity to invest in the well-being of our canine companions. Through transparent and accountable practices, we empower our community to support the care and happiness of dogs, fostering a world of responsible pet ownership and compassion."
                     </p>
                   </div>
                   <div
@@ -185,7 +185,7 @@ const Landingpage = () => {
                     aria-labelledby="pills-2-tab"
                   >
                     <p className="mb-0 fs-5">
-                    Our vision at PETPORT is to create a world where every dog receives the love, care, and attention they deserve. By providing a platform for responsible investment in canine companionship, we aim to inspire a global community committed to the well-being and happiness of dogs, fostering a future where every wagging tail signifies joy and fulfillment.
+                      Our vision at PETPORT is to create a world where every dog receives the love, care, and attention they deserve. By providing a platform for responsible investment in canine companionship, we aim to inspire a global community committed to the well-being and happiness of dogs, fostering a future where every wagging tail signifies joy and fulfillment.
                     </p>
                   </div>
                 </div>
@@ -195,7 +195,7 @@ const Landingpage = () => {
         </div>
       </div>
 
-      
+
       {/* About End */}
       {/* Services Start */}
       <div className="container-fluid py-3">
@@ -211,15 +211,15 @@ const Landingpage = () => {
           </div>
           <div className="row g-5">
             <div className="col-md-6">
-              <div className="service-item bg-light d-flex p-4">
-                <i className="flaticon-house display-1 text-primary me-4" />
+              <div className="service-item shadow-lg d-flex p-4">
+                <i class="ri-store-line display-1 text-primary me-4"></i>
                 <div>
-                  <h5 className="text-uppercase mb-3">Pet Boarding</h5>
+                  <h5 className="text-uppercase mb-3 ">Pet Boarding</h5>
                   <p>
                     Kasd dolor no lorem sit tempor at justo rebum rebum stet justo
                     elitr dolor amet sit
                   </p>
-                  <a className="text-primary text-uppercase" href="">
+                  <a className="text-primary text-uppercase" >
                     Read More
                     <i className="bi bi-chevron-right" />
                   </a>
@@ -227,8 +227,9 @@ const Landingpage = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="service-item bg-light d-flex p-4">
-                <i className="flaticon-food display-1 text-primary me-4" />
+              <div className="service-item shadow-lg d-flex p-4">
+                <i className="flaticon-food" />
+                <i class="ri-restaurant-2-line  display-1 text-primary me-4"></i>
                 <div>
                   <h5 className="text-uppercase mb-3">Pet Feeding</h5>
                   <p>
@@ -243,24 +244,9 @@ const Landingpage = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="service-item bg-light d-flex p-4">
-                <i className="flaticon-grooming display-1 text-primary me-4" />
-                <div>
-                  <h5 className="text-uppercase mb-3">Pet Grooming</h5>
-                  <p>
-                    Kasd dolor no lorem sit tempor at justo rebum rebum stet justo
-                    elitr dolor amet sit
-                  </p>
-                  <a className="text-primary text-uppercase" href="">
-                    Read More
-                    <i className="bi bi-chevron-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="service-item bg-light d-flex p-4">
-                <i className="flaticon-cat display-1 text-primary me-4" />
+              <div className="service-item shadow-lg d-flex p-4">
+                <i className="flaticon-cat " />
+                <i class="ri-run-line display-1 text-primary me-4"></i>
                 <div>
                   <h5 className="text-uppercase mb-3">Pet Training</h5>
                   <p>
@@ -275,24 +261,9 @@ const Landingpage = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="service-item bg-light d-flex p-4">
-                <i className="flaticon-dog display-1 text-primary me-4" />
-                <div>
-                  <h5 className="text-uppercase mb-3">Pet Exercise</h5>
-                  <p>
-                    Kasd dolor no lorem sit tempor at justo rebum rebum stet justo
-                    elitr dolor amet sit
-                  </p>
-                  <a className="text-primary text-uppercase" href="">
-                    Read More
-                    <i className="bi bi-chevron-right" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="service-item bg-light d-flex p-4">
-                <i className="flaticon-vaccine display-1 text-primary me-4" />
+              <div className="service-item shadow-lg d-flex p-4">
+                <i className="flaticon-vaccine" />
+                <i class="ri-thermometer-line  display-1 text-primary me-4"></i>
                 <div>
                   <h5 className="text-uppercase mb-3">Pet Treatment</h5>
                   <p>
@@ -314,7 +285,7 @@ const Landingpage = () => {
       <div className="container-fluid py-5">
         <div className="container">
           <div
-            className="border-start border-5 border-primary ps-5 mb-5"
+            className="border-start border-5 border-dark ps-5 mb-5"
             style={{ maxWidth: 600 }}
           >
             <h6 className="text-primary text-uppercase">Products</h6>
@@ -322,19 +293,19 @@ const Landingpage = () => {
               Products For Your Best Friend
             </h1>
           </div>
-          <div className="product-carousel gap-4">
+          <div className="product-carousel gap-4 d-block d-sm-flex justify-content-center">
             <div className="pb-5">
               <div className="product-item position-relative bg-light d-flex flex-column text-center rounded-3">
-                <div className='border border-2 imgproduct1' >
+                <div className='imgproduct1' >
                   {/* <img className="img-fluid mb-4 " alt="" /> */}
                 </div>
-                <h6 className="text-uppercase">Quality Pet Foods</h6>
+                <h6 className="text-uppercase mt-2">Quality Pet Foods</h6>
                 <h5 className="text-primary mb-0">₦30,000</h5>
                 <div className="btn-action d-flex justify-content-center ">
-                  <a className="py-2 px-3 bg-light" href="">
+                  <a className="py-2 px-3 bg-light">
                     <i className="bi bi-cart" />
                   </a>
-                  <a className="py-2 px-3 bg-light" href="">
+                  <a className="py-2 px-3 bg-light">
                     <i className="bi bi-eye" />
                   </a>
                 </div>
@@ -343,16 +314,16 @@ const Landingpage = () => {
             <div className="pb-5">
               <div className="product-item position-relative bg-light d-flex flex-column text-center">
 
-                <div className='border border-2 imgproduct2'>
+                <div className='imgproduct2'>
                   {/* <img className="img-fluid mb-4" src="" alt="" /> */}
                 </div>
-                <h6 className="text-uppercase">Quality Pet Foods</h6>
+                <h6 className="text-uppercase mt-2">Quality Pet Foods</h6>
                 <h5 className="text-primary mb-0">₦50,000</h5>
                 <div className="btn-action d-flex justify-content-center">
-                  <a className="bg-light py-2 px-3" href="">
+                  <a className="bg-light py-2 px-3">
                     <i className="bi bi-cart" />
                   </a>
-                  <a className="bg-light py-2 px-3" href="">
+                  <a className="bg-light py-2 px-3">
                     <i className="bi bi-eye" />
                   </a>
                 </div>
@@ -360,16 +331,16 @@ const Landingpage = () => {
             </div>
             <div className="pb-5">
               <div className="product-item position-relative bg-light d-flex flex-column text-center">
-                <div className='border border-2 imgproduct3'>
+                <div className='imgproduct3'>
                   {/* <img className="img-fluid mb-4" src="img/product-3.png" alt="" /> */}
                 </div>
-                <h6 className="text-uppercase">Quality Pet Foods</h6>
+                <h6 className="text-uppercase mt-2">Quality Pet Foods</h6>
                 <h5 className="text-primary mb-0">₦20,000</h5>
                 <div className="btn-action d-flex justify-content-center">
-                  <a className="bg-light py-2 px-3" href="">
+                  <a className="bg-light py-2 px-3">
                     <i className="bi bi-cart" />
                   </a>
-                  <a className="bg-light py-2 px-3" href="">
+                  <a className="bg-light py-2 px-3">
                     <i className="bi bi-eye" />
                   </a>
                 </div>
@@ -377,33 +348,16 @@ const Landingpage = () => {
             </div>
             <div className="pb-5">
               <div className="product-item position-relative bg-light d-flex flex-column text-center">
-                <div className='border border-2 imgproduct4'>
+                <div className='imgproduct4'>
                   {/* <img className="img-fluid mb-4" src="img/product-4.png" alt="" /> */}
                 </div>
-                <h6 className="text-uppercase">Quality Pet Foods</h6>
+                <h6 className="text-uppercase mt-2">Quality Pet Foods</h6>
                 <h5 className="text-primary mb-0">₦60,000</h5>
                 <div className="btn-action d-flex justify-content-center">
-                  <a className="bg-light py-2 px-3" href="">
+                  <a className="bg-light py-2 px-3">
                     <i className="bi bi-cart" />
                   </a>
-                  <a className="bg-light py-2 px-3" href="">
-                    <i className="bi bi-eye" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="pb-5">
-              <div className="product-item position-relative bg-light d-flex flex-column text-center">
-                <div className='border border-2 imgproduct5'>
-                  {/* <img className="img-fluid mb-4" src="img/product-2.png" alt="" /> */}
-                </div>
-                <h6 className="text-uppercase">Quality Pet Foods</h6>
-                <h5 className="text-primary mb-0">₦70,000</h5>
-                <div className="btn-action d-flex justify-content-center">
-                  <a className="bg-light py-2 px-3" href="">
-                    <i className="bi bi-cart" />
-                  </a>
-                  <a className="bg-light py-2 px-3" href="">
+                  <a className="bg-light py-2 px-3">
                     <i className="bi bi-eye" />
                   </a>
                 </div>
@@ -414,26 +368,26 @@ const Landingpage = () => {
       </div>
       {/* Products End */}
       {/* Offer Start */}
-      <div className="container-fluid bg-offer my-5 py-5">
+      <div className="container-fluid bg-light bg-offer py-5">
         <div className="container py-5">
           <div className="row gx-5 justify-content-start">
             <div className="col-lg-7">
               <div className="border-start border-5 border-dark ps-5 mb-5">
-                <h6 className="text-dark text-uppercase">Special Offer</h6>
-                <h1 className="display-5 text-uppercase text-white mb-0">
+                <h6 className="text-white text-uppercase fw-bold">Special Offer</h6>
+                <h1 className="display-5 text-uppercase text-white mb-0 fw-bold">
                   Save 50% on all items your first order
                 </h1>
               </div>
-              <p className="text-white mb-4">
+              <p className="text-white mb-4 ">
                 Eirmod sed tempor lorem ut dolores sit kasd ipsum. Dolor ea et
                 dolore et at sea ea at dolor justo ipsum duo rebum sea. Eos vero eos
                 vero ea et dolore eirmod et. Dolores diam duo lorem. Elitr ut
                 dolores magna sit. Sea dolore sed et.
               </p>
-              <a href="" className="btn btn-light py-md-3 px-md-5 me-3">
+              <a className="btn btn-light py-md-2 px-md-2 me-2">
                 Shop Now
               </a>
-              <a href="" className="btn btn-outline-light py-md-3 px-md-5">
+              <a className="btn btn-light py-md-2 px-md-2">
                 Read More
               </a>
             </div>
@@ -601,10 +555,10 @@ const Landingpage = () => {
 
 
 
-      <div className="container-fluid py-5">
+      <div className="container-fluid py-5 col-lg-10">
         <div className="containerdivhero">
           <div
-            className="border-start border-5 border-primary ps-5 mb-5"
+            className="border-start border-5 border-dark ps-5 mb-5"
             style={{ maxWidth: 600 }}
           >
             <h6 className="text-primary text-uppercase">Team Members</h6>
@@ -612,7 +566,7 @@ const Landingpage = () => {
               Qualified Pets Care Professionals
             </h1>
           </div>
-          <div
+          {/* <div
             className="owl-carousel team-carousel position-relative userdiv gap-1"
           >
 
@@ -707,6 +661,93 @@ const Landingpage = () => {
                 <p className="m-0">Designation</p>
               </div>
             </div>
+          </div> */}
+          <div id="carouselExampleAutoplaying" class="carousel slide w-75 mx-auto" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                1
+                <div className="team-item">
+                  <div className="position-relative overflow-hidden">
+                    <img className="imgteams1 d-block" alt="" />
+                    <div className="team-overlay border">
+                      <div className="d-flex align-items-center justify-content-start">
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-twitter" />
+                        </a>
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-facebook" />
+                        </a>
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-linkedin" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-light text-center">
+                    <h5 className="text-uppercase">Full Name</h5>
+                    <p className="m-0">Designation</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                2
+                <div className="team-item">
+                  <div className="position-relative overflow-hidden">
+                    <img className="imgteams1 d-block" alt="" />
+                    <div className="team-overlay">
+                      <div className="d-flex align-items-center justify-content-start">
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-twitter" />
+                        </a>
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-facebook" />
+                        </a>
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-linkedin" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-light text-center p-4">
+                    <h5 className="text-uppercase">Full Name</h5>
+                    <p className="m-0">Designation</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                3
+                <div className="team-item">
+                  <div className="position-relative overflow-hidden">
+                    <img className="imgteams1 d-block" alt="" />
+                    <div className="team-overlay">
+                      <div className="d-flex align-items-center justify-content-start">
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-twitter" />
+                        </a>
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-facebook" />
+                        </a>
+                        <a className="btn btn-light btn-square mx-1" href="#">
+                          <i className="bi bi-linkedin" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-light text-center p-4">
+                    <h5 className="text-uppercase">Full Name</h5>
+                    <p className="m-0">Designation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon bg-danger p-2 rounded-3" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon bg-danger p-2 rounded-3" aria-hidden="true"></span>
+              <span class="visually-hidden bg-danger">Next</span>
+            </button>
           </div>
         </div>
       </div>
