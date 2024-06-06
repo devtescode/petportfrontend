@@ -9,6 +9,9 @@ import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
+import profile1 from '../../assets/img/hero.jpg';
+import profile2 from '../../assets/img/pig.jpg'
+import profile3 from '../../assets/img/closeup-shot-brown-guard-dog-standing-beach.jpg'
 
 // ../theme-assets/images/portrait/small/avatar-s-19.png
 
@@ -40,13 +43,13 @@ const Dashboard = () => {
   }, [])
 
 
-  
+
   return (
     <>
 
-     
+
       <Sidenav />
-      
+
       <div className="app-content content">
         <div className="content-wrapper">
           <div className="content-wrapper-before" style={{ zIndex: "-20" }} />
@@ -58,13 +61,13 @@ const Dashboard = () => {
               <span className='fw-bold mt-1 px-1 fs-2 '>
                 {user.Fullname}
               </span>
-          <div className='fs-2'>
-            <span className='text-white'>Balance:</span>
-            <span className='text-white'>₦{user.Balance}</span>
-          </div>
+              <div className='fs-2'>
+                <span className='text-white'>Balance:</span>
+                <span className='text-white'>₦{user.Balance}</span>
+              </div>
             </div>
           </div>
-          
+
           <div className="content-header row"></div>
           <div className="content-body">
             {/* Chart */}
@@ -203,50 +206,48 @@ const Dashboard = () => {
                         Carousel Card With Header &amp; Footer
                       </h6>
                     </div>
-
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                      <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                      <div className="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                       </div>
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img src={profile} class="d-block w-100" alt="Slide 1" />
+                      <div className="carousel-inner">
+                        <div className="carousel-item active">
+                          <img src={profile1} className="d-block w-100" alt="Slide 1" />
                         </div>
-                        <div class="carousel-item">
-                          <img src={profile} class="d-block w-100" alt="Slide 2" />
+                        <div className="carousel-item">
+                          <img src={profile2} className="d-block w-100" alt="Slide 2" />
                         </div>
-                        <div class="carousel-item">
-                          <img src={profile} class="d-block w-100" alt="Slide 3" />
+                        <div className="carousel-item">
+                          <img src={profile3} className="d-block w-100" alt="Slide 3" />
                         </div>
                       </div>
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                      <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
                       </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                      <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
                       </button>
                     </div>
 
-                    <div class="card-body">
-                      <a href="#" class="card-link">Card link</a>
-                      <a href="#" class="card-link">Another link</a>
+                    <div className="card-body">
+                      <a href="#" className="card-link">Card link</a>
+                      <a href="#" className="card-link">Another link</a>
                     </div>
                   </div>
                   <div className="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
                     <span className="float-left">2 days ago</span>
                     <span className="tags float-right">
-                      <span className="badge badge-pill badge-primary">
-                        Branding
-                      </span>
+                      <span className="badge badge-pill badge-primary">Branding</span>
                       <span className="badge badge-pill badge-danger">Design</span>
                     </span>
                   </div>
                 </div>
               </div>
+
 
               <div className="col-xl-4 col-lg-12">
                 <div className="card">
