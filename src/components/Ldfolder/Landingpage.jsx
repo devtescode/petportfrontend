@@ -396,166 +396,9 @@ const Landingpage = () => {
       </div>
 
 
-      {/* <div className="container-fluid py-5">
-        <div className="container">
-          <div
-            className="border-start border-5 border-primary ps-5 mb-5"
-            style={{ maxWidth: 600 }}
-          >
-            <h6 className="text-primary text-uppercase">Pricing Plan</h6>
-            <h1 className="display-5 text-uppercase mb-0">
-              Competitive Pricing For Pet Services
-            </h1>
-          </div>
-          <div className="row g-5">
-            <div className="col-lg-4">
-              <div className="bg-light text-center pt-5 mt-lg-5">
-                <h2 className="text-uppercase">Basic</h2>
-                <h6 className="text-body mb-5">The Best Choice</h6>
-                <div className="text-center bg-primary p-4 mb-2">
-                  <h1 className="display-4 text-white mb-0">
-                    <small
-                      className="align-top"
-                      style={{ fontSize: 22, lineHeight: 45 }}
-                    >
-                      $
-                    </small>
-                    49
-                    <small
-                      className="align-bottom"
-                      style={{ fontSize: 16, lineHeight: 40 }}
-                    >
-                      / Mo
-                    </small>
-                  </h1>
-                </div>
-                <div className="text-center p-4">
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>HTML5 &amp; CSS3</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Bootstrap v5</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Responsive Layout</span>
-                    <i className="bi bi-x fs-4 text-danger" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Browsers Compatibility</span>
-                    <i className="bi bi-x fs-4 text-danger" />
-                  </div>
-                  <a
-                    href=""
-                    className="btn btn-primary text-uppercase py-2 px-4 my-3"
-                  >
-                    Order Now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="bg-light text-center pt-5">
-                <h2 className="text-uppercase">Standard</h2>
-                <h6 className="text-body mb-5">The Best Choice</h6>
-                <div className="text-center bg-dark p-4 mb-2">
-                  <h1 className="display-4 text-white mb-0">
-                    <small
-                      className="align-top"
-                      style={{ fontSize: 22, lineHeight: 45 }}
-                    >
-                      $
-                    </small>
-                    99
-                    <small
-                      className="align-bottom"
-                      style={{ fontSize: 16, lineHeight: 40 }}
-                    >
-                      / Mo
-                    </small>
-                  </h1>
-                </div>
-                <div className="text-center p-4">
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>HTML5 &amp; CSS3</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Bootstrap v5</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Responsive Layout</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Browsers Compatibility</span>
-                    <i className="bi bi-x fs-4 text-danger" />
-                  </div>
-                  <a
-                    href=""
-                    className="btn btn-primary text-uppercase py-2 px-4 my-3"
-                  >
-                    Order Now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="bg-light text-center pt-5 mt-lg-5">
-                <h2 className="text-uppercase">Extended</h2>
-                <h6 className="text-body mb-5">The Best Choice</h6>
-                <div className="text-center bg-primary p-4 mb-2">
-                  <h1 className="display-4 text-white mb-0">
-                    <small
-                      className="align-top"
-                      style={{ fontSize: 22, lineHeight: 45 }}
-                    >
-                      $
-                    </small>
-                    149
-                    <small
-                      className="align-bottom"
-                      style={{ fontSize: 16, lineHeight: 40 }}
-                    >
-                      / Mo
-                    </small>
-                  </h1>
-                </div>
-                <div className="text-center p-4">
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>HTML5 &amp; CSS3</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Bootstrap v5</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Responsive Layout</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span>Browsers Compatibility</span>
-                    <i className="bi bi-check2 fs-4 text-primary" />
-                  </div>
-                  <a
-                    href=""
-                    className="btn btn-primary text-uppercase py-2 px-4 my-3"
-                  >
-                    Order Now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
 
-
-      <div className="container-fluid py-5 col-lg-10">
+      <div className="container-fluid col-lg-10 mt-5">
         <div className="containerdivhero">
           <div
             className="border-start border-5 border-dark ps-5 mb-5"
@@ -566,193 +409,8 @@ const Landingpage = () => {
               Qualified Pets Care Professionals
             </h1>
           </div>
-          {/* <div
-            className="owl-carousel team-carousel position-relative userdiv gap-1"
-          >
-
-            <div className="team-item">
-              <div className="position-relative overflow-hidden">
-                <img className="imgteams1 " alt="" />
-                <div className="team-overlay">
-                  <div className="d-flex align-items-center justify-content-start">
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-twitter" />
-                    </a>
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-facebook" />
-                    </a>
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-linkedin" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-light text-center p-4">
-                <h5 className="text-uppercase">Full Name</h5>
-                <p className="m-0">Designation</p>
-              </div>
-            </div>
-
-            <div className="team-item">
-              <div className="position-relative overflow-hidden">
-                <img className="imgteams1" alt="" />
-                <div className="team-overlay">
-                  <div className="d-flex align-items-center justify-content-start">
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-twitter" />
-                    </a>
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-facebook" />
-                    </a>
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-linkedin" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-light text-center p-4">
-                <h5 className="text-uppercase">Full Name</h5>
-                <p className="m-0">Designation</p>
-              </div>
-            </div>
-
-            <div className="team-item">
-              <div className="position-relative overflow-hidden">
-                <img className="imgteams1" alt="" />
-                <div className="team-overlay">
-                  <div className="d-flex align-items-center justify-content-start">
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-twitter" />
-                    </a>
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-facebook" />
-                    </a>
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-linkedin" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-light text-center p-4">
-                <h5 className="text-uppercase">Full Name</h5>
-                <p className="m-0">Designation</p>
-              </div>
-            </div>
-
-            <div className="team-item">
-              <div className="position-relative overflow-hidden">
-                <img className="imgteams1" alt="" />
-                <div className="team-overlay">
-                  <div className="d-flex align-items-center justify-content-start">
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-twitter" />
-                    </a>
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-facebook" />
-                    </a>
-                    <a className="btn btn-light btn-square mx-1" href="#">
-                      <i className="bi bi-linkedin" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-light text-center p-4">
-                <h5 className="text-uppercase">Full Name</h5>
-                <p className="m-0">Designation</p>
-              </div>
-            </div>
-          </div> */}
-          <div id="carouselExampleAutoplaying" class="carousel slide w-75 mx-auto" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                1
-                <div className="team-item">
-                  <div className="position-relative overflow-hidden">
-                    <img className="imgteams1 d-block" alt="" />
-                    <div className="team-overlay border">
-                      <div className="d-flex align-items-center justify-content-start">
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-twitter" />
-                        </a>
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-facebook" />
-                        </a>
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-linkedin" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-light text-center">
-                    <h5 className="text-uppercase">Full Name</h5>
-                    <p className="m-0">Designation</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                2
-                <div className="team-item">
-                  <div className="position-relative overflow-hidden">
-                    <img className="imgteams1 d-block" alt="" />
-                    <div className="team-overlay">
-                      <div className="d-flex align-items-center justify-content-start">
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-twitter" />
-                        </a>
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-facebook" />
-                        </a>
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-linkedin" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-light text-center p-4">
-                    <h5 className="text-uppercase">Full Name</h5>
-                    <p className="m-0">Designation</p>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                3
-                <div className="team-item">
-                  <div className="position-relative overflow-hidden">
-                    <img className="imgteams1 d-block" alt="" />
-                    <div className="team-overlay">
-                      <div className="d-flex align-items-center justify-content-start">
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-twitter" />
-                        </a>
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-facebook" />
-                        </a>
-                        <a className="btn btn-light btn-square mx-1" href="#">
-                          <i className="bi bi-linkedin" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-light text-center p-4">
-                    <h5 className="text-uppercase">Full Name</h5>
-                    <p className="m-0">Designation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon bg-danger p-2 rounded-3" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-              <span class="carousel-control-next-icon bg-danger p-2 rounded-3" aria-hidden="true"></span>
-              <span class="visually-hidden bg-danger">Next</span>
-            </button>
-          </div>
         </div>
       </div>
-
-
       <div className='row col-md-10 mx-auto gap-5'>
 
         <div className="card bg-primary">
@@ -771,13 +429,13 @@ const Landingpage = () => {
               <circle cx="8.5" cy="12.5" r="1.5" />
               <circle cx="15.5" cy="12.5" r="1.5" />
             </svg> */}
-            <svg 
-         
-            className='text-white'
-            width={24}
-            height={24}
-            style={{ fill: "rgba(255, 255, 255, 1)", transform: "", msfilter: "" }}
-            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.9571 15.564C17.6154 16.6219 19.5726 19.0639 19.9387 22H4.0625C4.42862 19.0639 6.38587 16.6219 9.04417 15.564L12.0006 20L14.9571 15.564ZM18.0006 2V8C18.0006 11.3137 15.3143 14 12.0006 14C8.6869 14 6.00061 11.3137 6.00061 8V2H18.0006ZM16.0006 8H8.00061C8.00061 10.2091 9.79147 12 12.0006 12C14.2098 12 16.0006 10.2091 16.0006 8Z"></path></svg>
+            <svg
+
+              className='text-white'
+              width={24}
+              height={24}
+              style={{ fill: "rgba(255, 255, 255, 1)", transform: "", msfilter: "" }}
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.9571 15.564C17.6154 16.6219 19.5726 19.0639 19.9387 22H4.0625C4.42862 19.0639 6.38587 16.6219 9.04417 15.564L12.0006 20L14.9571 15.564ZM18.0006 2V8C18.0006 11.3137 15.3143 14 12.0006 14C8.6869 14 6.00061 11.3137 6.00061 8V2H18.0006ZM16.0006 8H8.00061C8.00061 10.2091 9.79147 12 12.0006 12C14.2098 12 16.0006 10.2091 16.0006 8Z"></path></svg>
           </figure>
           <div className="card__info">
             <span className="card__name">
@@ -849,9 +507,9 @@ const Landingpage = () => {
         <div className="card bg-primary">
           <span className="card__hover card__hover2" >Favour Thomas</span>
           <figure className="card__figure">
-          <svg xmlns="http://www.w3.org/2000/svg"
-          className='text-white'
-           viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 3V5H6V9C6 11.2091 7.79086 13 10 13C12.2091 13 14 11.2091 14 9V5H12V3H15C15.5523 3 16 3.44772 16 4V9C16 11.9727 13.8381 14.4405 11.0008 14.9169L11 16.5C11 18.433 12.567 20 14.5 20C15.9973 20 17.275 19.0598 17.7749 17.7375C16.7283 17.27 16 16.2201 16 15C16 13.3431 17.3431 12 19 12C20.6569 12 22 13.3431 22 15C22 16.3711 21.0802 17.5274 19.824 17.8854C19.2102 20.252 17.0592 22 14.5 22C11.4624 22 9 19.5376 9 16.5L9.00019 14.9171C6.16238 14.4411 4 11.9731 4 9V4C4 3.44772 4.44772 3 5 3H8ZM19 14C18.4477 14 18 14.4477 18 15C18 15.5523 18.4477 16 19 16C19.5523 16 20 15.5523 20 15C20 14.4477 19.5523 14 19 14Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              className='text-white'
+              viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M8 3V5H6V9C6 11.2091 7.79086 13 10 13C12.2091 13 14 11.2091 14 9V5H12V3H15C15.5523 3 16 3.44772 16 4V9C16 11.9727 13.8381 14.4405 11.0008 14.9169L11 16.5C11 18.433 12.567 20 14.5 20C15.9973 20 17.275 19.0598 17.7749 17.7375C16.7283 17.27 16 16.2201 16 15C16 13.3431 17.3431 12 19 12C20.6569 12 22 13.3431 22 15C22 16.3711 21.0802 17.5274 19.824 17.8854C19.2102 20.252 17.0592 22 14.5 22C11.4624 22 9 19.5376 9 16.5L9.00019 14.9171C6.16238 14.4411 4 11.9731 4 9V4C4 3.44772 4.44772 3 5 3H8ZM19 14C18.4477 14 18 14.4477 18 15C18 15.5523 18.4477 16 19 16C19.5523 16 20 15.5523 20 15C20 14.4477 19.5523 14 19 14Z"></path></svg>
           </figure>
           <div className="card__info">
             <span className="card__name">
@@ -922,9 +580,9 @@ const Landingpage = () => {
         <div className="card bg-primary">
           <span className="card__hover card__hover3">Josh</span>
           <figure className="card__figure">
-          <svg xmlns="http://www.w3.org/2000/svg" 
-          className='text-white'
-          viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M11 19V13.8889L3 5V3H21V5L13 13.8889V19H18V21H6V19H11ZM7.49073 7H16.5093L18.3093 5H5.69072L7.49073 7Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              className='text-white'
+              viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M11 19V13.8889L3 5V3H21V5L13 13.8889V19H18V21H6V19H11ZM7.49073 7H16.5093L18.3093 5H5.69072L7.49073 7Z"></path></svg>
           </figure>
           <div className="card__info">
             <span className="card__name">
@@ -993,9 +651,9 @@ const Landingpage = () => {
         <div className="card bg-primary">
           <span className="card__hover card__hover4">Mercy</span>
           <figure className="card__figure">
-          <svg xmlns="http://www.w3.org/2000/svg" 
-          className='text-white'
-          viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17 5V7C18.6569 7 20 8.34315 20 10V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V10C4 8.34315 5.34315 7 7 7V5H17ZM13 11H11V13H9V15H10.999L11 17H13L12.999 15H15V13H13V11ZM19 2V4H5V2H19Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              className='text-white'
+              viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17 5V7C18.6569 7 20 8.34315 20 10V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V10C4 8.34315 5.34315 7 7 7V5H17ZM13 11H11V13H9V15H10.999L11 17H13L12.999 15H15V13H13V11ZM19 2V4H5V2H19Z"></path></svg>
           </figure>
           <div className="card__info">
             <span className="card__name">
