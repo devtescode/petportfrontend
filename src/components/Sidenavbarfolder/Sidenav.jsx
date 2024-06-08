@@ -60,6 +60,11 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
+  const walletrouting = () =>{
+    navigate('/wallet')
+    hideOffcanvasMenu();
+  }
+
   const hideOffcanvasMenu = () => {
     const offcanvasElement = document.getElementById('staticBackdrop');
     const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
@@ -221,7 +226,7 @@ const Sidenav = () => {
                       </span>
                     </a>
                   </li>
-                  <li className="nav-item my-2">
+                  <li className="nav-item my-2" onClick={walletrouting}>
                     <a >
                       <i class="ri-wallet-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
@@ -324,7 +329,7 @@ const Sidenav = () => {
                 </span>
               </a>
             </li>
-            <li className=" nav-item">
+            <li className=" nav-item" onClick={walletrouting}>
               <a >
                 <i class="ri-wallet-line"></i>
                 <span className="menu-title" data-i18n="">
