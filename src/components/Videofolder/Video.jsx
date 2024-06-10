@@ -1,32 +1,21 @@
-import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
 
 const Video = () => {
-    const [show, setShow] = useState(false);
     const [videoSrc, setVideoSrc] = useState('');
-    const handleShow = () => {
-        setVideoSrc('https://www.youtube.com/embed/VZsHFormuGg');
-        setShow(true);
-    };
 
-    const handleClose = () => {
-        setShow(false);
-        setVideoSrc('');
-    };
+    useEffect(() => {
+        setVideoSrc('https://www.youtube.com/embed/VZsHFormuGg');
+
+        return () => {
+            setVideoSrc(''); // Clear the video source when the component is unmounted
+        };
+    }, []);
+
     return (
         <>
-        <div>
-            <Button className="btn-play me-4 border" onClick={handleShow} style={{zIndex:"100"}}>
-                Play Video
-            </Button>
-        </div>
-
-            <Modal show={show} onHide={handleClose} centered size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>YouTube Video</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className="embed-responsive embed-responsive-16by9">
+            {videoSrc && (
+                <div className="mt-3">
+                    <div className="embed-responsive embed-responsive-16by9 border" style={{ width: "100%" }}>
                         <iframe
                             id="video"
                             className="embed-responsive-item"
@@ -35,10 +24,10 @@ const Video = () => {
                             title="YouTube Video"
                         ></iframe>
                     </div>
-                </Modal.Body>
-            </Modal>
+                </div>
+            )}
         </>
-    )
-}
+    );
+};
 
-export default Video
+export default Video;

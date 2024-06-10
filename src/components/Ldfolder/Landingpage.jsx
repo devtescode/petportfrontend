@@ -1,10 +1,7 @@
-import React from 'react'
 import { useNavigate } from 'react-router'
 import Narbar from '../Narbarfolder/Narbar'
-// import {aboutjpg} from '../../assets/img/hero.jpg'
-// import { aboutjpg } from '/src/assets/hero.jpg';
 import Video from '../Videofolder/Video'
-
+import React, { useEffect, useState } from 'react';
 
 const Landingpage = () => {
   const navigate = useNavigate()
@@ -16,6 +13,17 @@ const Landingpage = () => {
     navigate("/login")
   }
 
+  const [show, setShow] = useState(false);
+    useEffect(() => {
+        const handleModalClose = () => {
+            setShow(false);
+        };
+        const modalElement = document.getElementById('videoModal');
+        modalElement.addEventListener('hidden.bs.modal', handleModalClose);
+        return () => {
+            modalElement.removeEventListener('hidden.bs.modal', handleModalClose);
+        };
+    }, []);
   return (
     <>
       <Narbar />
@@ -44,8 +52,8 @@ const Landingpage = () => {
                   type="button"
                   className="btn-play me-4"
                   data-bs-toggle="modal"
-                  data-src="https://www.youtube.com/watch?v=VZsHFormuGg"
                   data-bs-target="#videoModal"
+                  onClick={() => setShow(true)}
                 >
                   <span />
                 </button>
@@ -73,42 +81,33 @@ const Landingpage = () => {
 
 
       <div
-        className="modal fade"
-        id="videoModal"
-        tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content rounded-0">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Youtube Video
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              />
-              <Video/>
+                className="modal fade"
+                id="videoModal"
+                tabIndex={-1}
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+            >
+                <div className="modal-dialog">
+                    <div className="modal-content rounded-4">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">
+                                Video
+                            </h5>
+                            <button
+                                type="button"
+                                className="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            />
+                        </div>
+                        <div className="modal-body">
+                            <div className="ratio ratio-16x9 ">
+                                {show && <Video />}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="modal-body">
-              {/* 16:9 aspect ratio */}
-              <div className="ratio ratio-16x9">
-                <iframe
-                  className="embed-responsive-item"
-                  src=""
-                  id="video"
-                  allowFullScreen=""
-                  allowscriptaccess="always"
-                  allow="autoplay"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* style={{marginTop:"95vh"}} */}
       <div className="py-5" >
