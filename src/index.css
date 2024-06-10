@@ -4,6 +4,39 @@
   box-sizing: border-box;
 }
 
+.imgblog1{
+  height: 300px !important;
+  background-image: url(../src/assets/img/blog-1.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.imgblog2{
+  height: 300px !important;
+  background-image: url(../src/assets/img/blog-2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.imgdog1{
+  height: 100px;
+  width: 100px;
+  background-image: url(../src/assets/img/testimonial-1.jpg);
+  background-size: contain;
+}
+
+.imgdog2{
+  height: 100px;
+  width: 100px;
+  background-image: url(../src/assets/img/testimonial-2.jpg);
+  background-size: contain;
+}
+
+.bg-testimonial{
+  background-image: url(../src/assets/img/testimonial.jpg);
+  background-size: cover;
+}
+
 .card__hover1{
   background-image: url(../src/assets/img/team-5.jpg);
 }

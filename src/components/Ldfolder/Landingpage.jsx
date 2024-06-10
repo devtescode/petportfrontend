@@ -753,7 +753,7 @@ const Landingpage = () => {
                     labore et tempor diam tempor erat. Erat dolor rebum sit ipsum.
                   </p>
                   <hr className="w-25 mx-auto" />
-                  <h5 className="text-uppercase">Client Name</h5>
+                  <h5 className="text-uppercase fw-bold">Client Name</h5>
                   <span>Profession</span>
                 </div>
                 <div className="testimonial-item text-center mt-4">
@@ -775,7 +775,7 @@ const Landingpage = () => {
                     labore et tempor diam tempor erat. Erat dolor rebum sit ipsum.
                   </p>
                   <hr className="w-25 mx-auto" />
-                  <h5 className="text-uppercase">Client Name</h5>
+                  <h5 className="text-uppercase fw-bold">Client Name</h5>
                   <span>Profession</span>
                 </div>
               </div>
@@ -787,7 +787,7 @@ const Landingpage = () => {
       <div className="container-fluid py-5">
         <div className="container">
           <div
-            className="border-start border-5 border-primary ps-5 mb-5"
+            className="border-start border-5 border-dark ps-5 mb-5"
             style={{ maxWidth: 600 }}
           >
             <h6 className="text-primary text-uppercase">Latest Blog</h6>
@@ -799,7 +799,7 @@ const Landingpage = () => {
             <div className="col-lg-6">
               <div className="blog-item">
                 <div className="row g-0 bg-light overflow-hidden">
-                  <div className="col-12 col-sm-5 h-100">
+                  <div className="col-12 col-sm-5 d-flex" style={{alignItems:"center"}}>
                     <img
                       className="imgblog1 h-100 w-100"
                     />
@@ -835,7 +835,7 @@ const Landingpage = () => {
             <div className="col-lg-6">
               <div className="blog-item">
                 <div className="row g-0 bg-light overflow-hidden">
-                  <div className="col-12 col-sm-5 h-100">
+                  <div className="col-12 col-sm-5 d-flex" style={{alignItems:"center"}}>
                     <img
                       className="imgblog2 h-100 w-100"
                     />
@@ -877,7 +877,7 @@ const Landingpage = () => {
         <div className="container pt-5">
           <div className="row g-5">
             <div className="col-lg-3 col-md-6">
-              <h5 className="text-uppercase border-start border-5 border-primary ps-3 mb-4">
+              <h5 className="text-uppercase border-start border-5 border-dark ps-3 mb-4">
                 Get In Touch
               </h5>
               <p className="mb-4">
@@ -898,7 +898,7 @@ const Landingpage = () => {
               </p>
             </div>
             <div className="col-lg-3 col-md-6">
-              <h5 className="text-uppercase border-start border-5 border-primary ps-3 mb-4">
+              <h5 className="text-uppercase border-start border-5 border-dark ps-3 mb-4">
                 Quick Links
               </h5>
               <div className="d-flex flex-column justify-content-start">
@@ -929,7 +929,7 @@ const Landingpage = () => {
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
-              <h5 className="text-uppercase border-start border-5 border-primary ps-3 mb-4">
+              <h5 className="text-uppercase border-start border-5 border-dark ps-3 mb-4">
                 Popular Links
               </h5>
               <div className="d-flex flex-column justify-content-start">
@@ -960,19 +960,17 @@ const Landingpage = () => {
               </div>
             </div>
             <div className="col-lg-3 col-md-6">
-              <h5 className="text-uppercase border-start border-5 border-primary ps-3 mb-4">
+              <h5 className="text-uppercase border-start border-5 border-dark ps-3 mb-4">
                 Newsletter
               </h5>
-              <form action="">
                 <div className="input-group">
                   <input
                     type="text"
-                    className="form-control p-3"
+                    className="form-control p-1"
                     placeholder="Your Email"
                   />
                   <button className="btn btn-primary">Sign Up</button>
                 </div>
-              </form>
               <h6 className="text-uppercase mt-4 mb-3">Follow Us</h6>
               <div className="d-flex">
                 <a className="btn btn-outline-primary btn-square me-2" href="#">
@@ -1031,10 +1029,10 @@ const Landingpage = () => {
             </div>
             <div className="col-md-6 text-center text-md-end">
               <p className="mb-0">
+                <span className="text-white" href="https://htmlcodex.com">
                 Designed by
-                <a className="text-white" href="https://htmlcodex.com">
                   PetPort
-                </a>
+                </span>
               </p>
             </div>
           </div>
@@ -1042,7 +1040,7 @@ const Landingpage = () => {
       </div>
       {/* Footer End */}
       {/* Back to Top */}
-      <a href="#" className="btn btn-primary py-3 fs-4 back-to-top">
+      <a href="#" className="btn btn-primary py-2 px-2 back-to-top" style={{position:"fixed", bottom:"0", right:"0px"}}>
         <i className="bi bi-arrow-up" />
       </a>
       {/* JavaScript Libraries */}
