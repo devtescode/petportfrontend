@@ -13,6 +13,7 @@ import Password from './components/Passwordfolder/Password'
 import Profile from './components/Profilepage/Profile'
 import History from './components/Historyfolder/History'
 import Wallet from './components/Walletfolder/Wallet'
+import Video from './components/Videofolder/Video'
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
       <Route path='/profile' element={<Profile/>}/>
       <Route path='/history' element={<History/>}/>
       <Route path='/wallet' element={<Wallet/>}/>
+      <Route path='/vid' element={<Video/>}/>
       <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>

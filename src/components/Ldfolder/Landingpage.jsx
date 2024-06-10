@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import Narbar from '../Narbarfolder/Narbar'
 // import {aboutjpg} from '../../assets/img/hero.jpg'
 // import { aboutjpg } from '/src/assets/hero.jpg';
+import Video from '../Videofolder/Video'
 
 
 const Landingpage = () => {
@@ -43,7 +44,7 @@ const Landingpage = () => {
                   type="button"
                   className="btn-play me-4"
                   data-bs-toggle="modal"
-                  data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
+                  data-src="https://www.youtube.com/watch?v=VZsHFormuGg"
                   data-bs-target="#videoModal"
                 >
                   <span />
@@ -90,6 +91,7 @@ const Landingpage = () => {
                 data-bs-dismiss="modal"
                 aria-label="Close"
               />
+              <Video/>
             </div>
             <div className="modal-body">
               {/* 16:9 aspect ratio */}
