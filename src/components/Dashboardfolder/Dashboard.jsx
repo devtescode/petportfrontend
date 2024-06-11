@@ -88,7 +88,7 @@ const Dashboard = () => {
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted danger position-absolute p-1">
-                      Total Earning
+                      Total Investment
                     </h5>
                     <div>
                       <i className="ft-pie-chart danger font-large-1 float-right p-1" />
@@ -99,6 +99,10 @@ const Dashboard = () => {
                         id="progress-stats-line-chart"
                         className="progress-stats-shadow"
                       />
+                      <div className='text-center mt-4'>
+
+                      <h1>{user.Totalinvest}</h1>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -516,57 +520,9 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            {/*/ Statistics */}
           </div>
         </div>
       </div>
-      {/* ////////////////////////////////////////////////////////////////////////////*/}
-      <footer className="footer footer-static footer-light navbar-border navbar-shadow">
-        <div className="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
-          <span className="float-md-left d-block d-md-inline-block">
-            2018 © Copyright{" "}
-            <a
-              className="text-bold-800 grey darken-2"
-              href="https://themeselection.com"
-              target="_blank"
-            >
-              ThemeSelection
-            </a>
-          </span>
-          <ul className="list-inline float-md-right d-block d-md-inline-blockd-none d-lg-block mb-0">
-            <li className="list-inline-item">
-              <a
-                className="my-1"
-                href="https://themeselection.com/"
-                target="_blank"
-              >
-                {" "}
-                More themes
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a
-                className="my-1"
-                href="https://themeselection.com/support"
-                target="_blank"
-              >
-                {" "}
-                Support
-              </a>
-            </li>
-            <li className="list-inline-item">
-              <a
-                className="my-1"
-                href="https://themeselection.com/products/chameleon-admin-modern-bootstrap-webapp-dashboard-html-template-ui-kit/"
-                target="_blank"
-              >
-                {" "}
-                Purchase
-              </a>
-            </li>
-          </ul>
-        </div>
-      </footer>
     </>
 
   )

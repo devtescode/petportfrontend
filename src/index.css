@@ -52,7 +52,7 @@
   background-image: url(../src/assets/img/team-4.jpg) !important;
 }
 /* Card Styles */
-.card {
+.cardstyle {
   width: 500px;
   height: 400px;
   padding: 15px;
@@ -65,10 +65,8 @@
   backdrop-filter: blur(20px);
   text-align: center;
   border: 1px solid #fff;
-  /* Transform Propertys */
   --rotate-animation: rotate(45deg);
   --scale-animation: scale(0);
-  /* Backgrounds - Social Media Hover */
   --bg-facebook: blue;
   --bg-instagram: linear-gradient(to right, #8a2387, #e94057, #f27121);
   --bg-twitter: rgb(25, 173, 206);
@@ -76,7 +74,7 @@
   margin: auto;
 }
 
-.card::before {
+.cardstyle::before {
   content: '';
   height: 110%;
   width: 110%;
@@ -110,7 +108,7 @@
   transition: transform 500ms;
 }
 
-.card:hover .card__hover {
+.cardstyle:hover .card__hover {
   transform: scale(0);
 }
 
@@ -123,7 +121,7 @@
   transition: transform 600ms ease 100ms;
 }
 
-.card:hover .card__figure {
+.cardstyle:hover .card__figure {
   --rotate-animation: rotate(0);
   --scale-animation: scale(1);
 }
@@ -142,7 +140,7 @@
   transition: transform 600ms ease 100ms;
 }
 
-.card:hover .card__info {
+.cardstyle:hover .card__info {
   --scale-animation: scale(1);
 }
 

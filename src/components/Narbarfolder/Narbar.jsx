@@ -10,6 +10,14 @@ const Narbar = () => {
     navigate('/')
   }
 
+  const registerBtn =()=>{
+    navigate('/signup')
+  }
+
+  const loginBtn =()=>{
+    navigate('/login')
+  }
+
   return (
     <>
       {/* <div className="container-fluid d-none d-lg-block bg-dark text-white" style={{cursor: "pointer", position:"fixed", top:"0", zIndex:"100"}}>
@@ -72,10 +80,10 @@ const Narbar = () => {
             <a className="nav-item nav-link text-dark">
               Product
             </a>
-            <a className="nav-item nav-link text-dark fw-bold ">
+            <a className="nav-item nav-link text-dark fw-bold" onClick={registerBtn}>
               Register
             </a>
-            <a className="nav-item nav-link text-dark fw-bold">
+            <a className="nav-item nav-link text-dark fw-bold" onClick={loginBtn}>
               Login
             </a>
 

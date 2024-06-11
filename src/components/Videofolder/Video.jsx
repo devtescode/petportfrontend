@@ -15,7 +15,7 @@ const Video = () => {
         <>
             {videoSrc && (
                 <div className="mt-3">
-                    <div className="embed-responsive embed-responsive-16by9 border" style={{ width: "100%" }}>
+                    <div className="embed-responsive embed-responsive-16by9" style={{ width: "100%" }}>
                         <iframe
                             id="video"
                             className="embed-responsive-item"
@@ -31,3 +31,4 @@ const Video = () => {
 };
 
 export default Video;
+ 

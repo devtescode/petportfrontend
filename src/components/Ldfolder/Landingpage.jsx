@@ -414,7 +414,7 @@ const Landingpage = () => {
       </div>
       <div className='row col-md-10 mx-auto gap-5'>
 
-        <div className="card bg-primary">
+        <div className="cardstyle bg-primary">
           <div className=''>
             <span className="card__hover card__hover1" >Jackson Williams</span>
           </div>
@@ -505,7 +505,7 @@ const Landingpage = () => {
 
 
 
-        <div className="card bg-primary">
+        <div className="cardstyle bg-primary">
           <span className="card__hover card__hover2" >Favour Thomas</span>
           <figure className="card__figure">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -578,7 +578,7 @@ const Landingpage = () => {
         </div>
 
 
-        <div className="card bg-primary">
+        <div className="cardstyle bg-primary">
           <span className="card__hover card__hover3">Josh</span>
           <figure className="card__figure">
             <svg xmlns="http://www.w3.org/2000/svg"
@@ -649,7 +649,7 @@ const Landingpage = () => {
             </span>
           </div>
         </div>
-        <div className="card bg-primary">
+        <div className="cardstyle bg-primary">
           <span className="card__hover card__hover4">Mercy</span>
           <figure className="card__figure">
             <svg xmlns="http://www.w3.org/2000/svg"
