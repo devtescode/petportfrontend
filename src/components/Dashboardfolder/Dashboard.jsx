@@ -130,13 +130,16 @@ const Dashboard = () => {
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted warning position-absolute p-1">
-                      Active Investment
+                      Total Amount Investment
                     </h5>
                     <div>
                       <i className="ft-shopping-cart warning font-large-1 float-right p-1" />
                     </div>
                     <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                       <div id="progress-stats-bar-chart2" />
+                      <div className='text-center mt-4'>
+                        <h1>₦{user.Amountinvest}</h1>
+                      </div>
                       <div
                         id="progress-stats-line-chart2"
                         className="progress-stats-shadow"
