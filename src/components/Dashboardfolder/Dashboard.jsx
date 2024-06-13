@@ -130,7 +130,7 @@ const Dashboard = () => {
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted warning position-absolute p-1">
-                      Total Amount Investment
+                    Total Amount Investment
                     </h5>
                     <div>
                       <i className="ft-shopping-cart warning font-large-1 float-right p-1" />

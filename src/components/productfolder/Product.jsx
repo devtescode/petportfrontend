@@ -42,7 +42,7 @@ const Product = () => {
                             <p className="text-center">Loading...</p>
                         ) : (
                             products.map(product => (
-                                <div key={product.id} className="col-md-4 mb-4">
+                                <div key={product.id} className="col-md-4">
                                     <div className="card"> 
                                         <img src={product.image} className="card-img-top" alt={product.name} style={{ height: "350px" }} />
                                         <div className="card-body">

@@ -14,7 +14,7 @@ const Signup = () => {
         navigate("/signup")
     }
     const ForgetRouting = () => {
-        alert("Forget password confirmation")
+        navigate("/emailpage")
     }
     const formik = useFormik({
         initialValues: {
