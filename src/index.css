@@ -65,6 +65,7 @@
   width: var(--width-of-input);
   margin: auto;
   top: 30%;
+  width: 95%;
 }
 
 .mailinput {
@@ -102,20 +103,10 @@ input:focus~.input-border1 {
 }
 
 @media (max-width:688px) {
-  .mymaildiv {
-      display: block;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      margin-top: 15% !important;
-      width: 100% !important;
-      border: 2px solid#5891ff;
-      border-radius: 15px !important;
-  }
+  
   .mymaileachdiv2 {
       width: 100% !important; 
       border: none;
-      margin-top: 10%;
   }
   .mymaileachdiv {
      display: none;
@@ -129,7 +120,7 @@ input:focus~.input-border1 {
       position: relative;
       width: var(--width-of-input);
       margin: auto;
-      top: 30%;
+      /* top: 30%; */
   }
   .MailBtnStyle2 {
       width: 20vh !important;

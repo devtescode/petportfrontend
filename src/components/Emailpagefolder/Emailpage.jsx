@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import * as Yup from "yup"
 import { Navigate, useNavigate } from 'react-router'
+import Loader from '../Loaderfolder/Loaderpage'
 
 const Emailpage = () => {
     const navigate = useNavigate()
@@ -33,26 +34,23 @@ const Emailpage = () => {
              
 
                 setTimeout(() => {
-                    swal({
+                    Swal.fire({
                         title: "",
                         text: successMessage,
                         icon: response.data.status ? "success" : "warning",
                         button: response.data.status ? "Okay" : "Aww yiss!",
                     });
-                    if (response.data.status == true) {
-                       
-                        navigate("/forgetpassword")
+                    if (response.data.status == true) {  
+                        // navigate("/forgetpassword")
                     }
-                    
                 }, 6000);
 
             })
             .catch((err) => {
                 console.log(err);
                 errorMessage = err.response ? err.response.data.message : "An error occurred";
-
                 setTimeout(() => {
-                    swal({
+                    Swal.fire({
                         title: "",
                         text: errorMessage,
                         icon: "error",
@@ -67,6 +65,7 @@ const Emailpage = () => {
     })
     return (
         <>
+        {loading && <Loader/>}
          <form onSubmit={formik.handleSubmit}>
             <div className='coverupemail'>
                 <div className='mymaildiv'>

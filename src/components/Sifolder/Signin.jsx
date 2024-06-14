@@ -37,14 +37,14 @@ const Signup = () => {
                         icon: "error",
                         title: "Oops...",
                         text: response.data.message,
-                      });
+                    });
                     if (response.data.status === true) {
                         // alert(response.data.message)
                         Swal.fire({
                             icon: "success",
                             title: "Success",
                             text: response.data.message,
-                          });
+                        });
                         // navigate("/dashboard")
 
                         // console.log(response.data.userData);
@@ -54,14 +54,14 @@ const Signup = () => {
                         localStorage.setItem("useradminlogin", true)
                     }
                 })
-                setTimeout(() => {
-                    setLoading(false);
-                }, 2000);
+            setTimeout(() => {
+                setLoading(false);
+            }, 2000);
         }
     })
     return (
         <>
-            {loading && <Loaderpage/>}
+            {loading && <Loaderpage />}
             <form action="" onSubmit={formik.handleSubmit}>
                 <div className='familycontainer'>
                     <div className="containerdiv">
