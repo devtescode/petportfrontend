@@ -14,6 +14,7 @@ import Profile from './components/Profilepage/Profile'
 import History from './components/Historyfolder/History'
 import Wallet from './components/Walletfolder/Wallet'
 import Emailpage from './components/Emailpagefolder/Emailpage'
+import Forgetpassword from './components/Forgetpasswordfolder/Forgetpassword'
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
       <Route path='/history' element={<History/>}/>
       <Route path='/wallet' element={<Wallet/>}/>
       <Route path='/emailpage' element={<Emailpage/>}/>
+      <Route path='forgetpassword' element={<Forgetpassword/>}/>
       <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>

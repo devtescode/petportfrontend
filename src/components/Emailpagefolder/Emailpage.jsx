@@ -41,7 +41,7 @@ const Emailpage = () => {
                         button: response.data.status ? "Okay" : "Aww yiss!",
                     });
                     if (response.data.status == true) {  
-                        // navigate("/forgetpassword")
+                        navigate("/forgetpassword")
                     }
                 }, 6000);
 
