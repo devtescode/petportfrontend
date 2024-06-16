@@ -16,7 +16,9 @@ const Forgetpassword = () => {
             forgetemailpage3: "",
         },
         validationSchema: Yup.object({
-            forgetemailpage1: Yup.string().required('Required'),
+            forgetemailpage1: Yup.string()
+            .matches(/^[0-9]+$/, "Must be only digits")
+            .required('Required'),
             forgetemailpage2: Yup.string().required('Required'),
             forgetemailpage3: Yup.string().required('Required'),
         }),
