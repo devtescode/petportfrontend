@@ -64,9 +64,50 @@ const Forgetpassword = () => {
                             <p>We have sent a code to your email</p>
                         </div>
                         <div className='input-container mx-auto forgetinputwidthdiv mt-4'>
-                            <input className='forgetinputwidth form-control my-2 mx-auto' onChange={formik.handleChange} name='forgetemailpage1' value={formik.values.forgetemailpage1} maxLength={4} type="text" placeholder='OTP' />
-                            <input className='forgetinputwidth form-control my-2 mx-auto' onChange={formik.handleChange} name='forgetemailpage2' value={formik.values.forgetemailpage2} type="text" placeholder='Password' />
-                            <input className='forgetinputwidth form-control my-2 mx-auto' onChange={formik.handleChange} name='forgetemailpage3' value={formik.values.forgetemailpage3} type="text" placeholder='Confirm Password' />
+                            <input
+                            maxLength={4} 
+                            className={`forgetinputwidth form-control my-2 mx-auto ${(formik.values.forgetemailpage1 && !formik.errors.forgetemailpage1) ||
+                                (formik.touched.forgetemailpage1 && formik.values.forgetemailpage1 && formik.errors.forgetemailpage1 && formik.touched.forgetemailpage1 && formik.values.forgetemailpage1)
+                                ? 'is-valid'
+                                : formik.values.forgetemailpage1 || formik.touched.forgetemailpage1
+                                    ? 'is-invalid'
+                                    : ''
+                                }`}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            name="forgetemailpage1"
+                            value={formik.values.forgetemailpage1}
+                              type="text" placeholder='OTP' />
+
+
+                            <input 
+                            className={`forgetinputwidth form-control my-2 mx-auto ${(formik.values.forgetemailpage2 && !formik.errors.forgetemailpage2) ||
+                                (formik.touched.forgetemailpage2 && formik.values.forgetemailpage2 && formik.errors.forgetemailpage2 && formik.touched.forgetemailpage2 && formik.values.forgetemailpage2)
+                                ? 'is-valid'
+                                : formik.values.forgetemailpage2 || formik.touched.forgetemailpage2
+                                    ? 'is-invalid'
+                                    : ''
+                                }`}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            name="forgetemailpage2"
+                            value={formik.values.forgetemailpage2}
+                            type="text" placeholder='Password' />
+
+
+                            <input 
+                            className={`forgetinputwidth form-control my-2 mx-auto ${(formik.values.forgetemailpage3 && !formik.errors.forgetemailpage3) ||
+                                (formik.touched.forgetemailpage3 && formik.values.forgetemailpage3 && formik.errors.forgetemailpage3 && formik.touched.forgetemailpage3 && formik.values.forgetemailpage3)
+                                ? 'is-valid'
+                                : formik.values.forgetemailpage3 || formik.touched.forgetemailpage3
+                                    ? 'is-invalid'
+                                    : ''
+                                }`}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            name="forgetemailpage3"
+                            value={formik.values.forgetemailpage3} 
+                            type="text" placeholder='Confirm Password' />
                         </div>
                         <div className='text-center'>
                             <button className='btn btn-dark styleBtn' type="submit">Verify Account</button>
