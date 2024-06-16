@@ -63,7 +63,7 @@ const Emailpage = () => {
                                     {formik.errors.emailpage}
                                 </div>
                                 <div className='mt-5 MailBtnStyle'>
-                                    <button className='btn btn-dark MailBtnStyle2'>Submit</button>
+                                    <button className='btn btn-dark MailBtnStyle2' >Submit</button>
                                 </div>
                             </div>
                         </div>
