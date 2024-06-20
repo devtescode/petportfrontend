@@ -60,7 +60,7 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
-  const walletrouting = () =>{
+  const walletrouting = () => {
     navigate('/wallet')
     hideOffcanvasMenu();
   }
@@ -135,16 +135,17 @@ const Sidenav = () => {
 
                 <li className="dropdown dropdown-user nav-item">
                   <a
-                    className="dropdown-toggle nav-link dropdown-user-link"
-                    data-toggle="dropdown"
+                  
                   >
-                    <span className="avatar avatar-online" onClick={toggleDropdown}>
-                      <img
-                        src={useimage}
-                        alt="avatar"
-                      />
-                      <i />
-                    </span>
+                    <div>
+                      <span className="avatar avatar-online avatarprofile" onClick={toggleDropdown}>
+                        <img
+                          src={useimage}
+                          alt="avatar"
+                        />
+                        <i />
+                      </span>
+                    </div>
                   </a>
                   <div class="dropdown-content" id="dropdownContent">
                     <a className="dropdown-item">
@@ -252,7 +253,7 @@ const Sidenav = () => {
                   </li>
                   <li className=" nav-item my-2" onClick={historyrouting}>
                     <a >
-                    <i class="ri-history-line"></i>
+                      <i class="ri-history-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
                         History
                       </span>
@@ -355,7 +356,7 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item" onClick={historyrouting}>
               <a >
-              <i class="ri-history-line"></i>
+                <i class="ri-history-line"></i>
                 <span className="menu-title" data-i18n="">
                   History
                 </span>
