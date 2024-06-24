@@ -100,7 +100,7 @@ const Invest = ({}) => {
                                                 <h2 className='my-2'>{product.name}</h2>
                                                 <img src={product.image} alt={product.name} style={{ width: '80%', height: '40%' }} className='img-fluid mb-3' />
                                                 <p>{product.description}</p>
-                                                <p>Price: ${product.price}</p>
+                                                <p>Price: ₦{product.price}</p>
                                                 {/* <button className='btn btn-primary text-white w-100 rounded-5 mb-3' onClick={() => handleInvestNow(product.id)}>Invest Now</button> */}
                                             </div>
                                         )
