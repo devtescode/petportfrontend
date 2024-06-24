@@ -50,7 +50,7 @@ const View = () => {
             productId: id,
             Email: User.email
         };
-    
+
         try {
             const response = await axios.post(url, postuser);
             if (response.data.message === "Successfully saved") {
@@ -70,18 +70,20 @@ const View = () => {
             console.error('Error during investment:', error);
         }
     };
-    
+
     return (
         <>
             <Sidenav />
-            <div  className='alldivcontainers'>
-                <div className="container border border-2 shadow-lg col-6" style={{alignItems:"center"}}>
+            <div className='alldivcontainers d-flex shadow-lg' style={{ alignItems: "center" }}>
+                <div className="container bg-white col-md-6 rounded-3 p-1 p-sm-2" style={{ alignItems: "center" }}>
                     <h2>{product.name}</h2>
-                    <img src={product.image} alt={product.name} style={{ width: '100%', height: 'auto' }} />
-                    <p>{product.description}</p>
-                    <p>Price: ${product.price}</p>
+                    <img src={product.image} alt={product.name} className='card-img-top mx-auto d-block col-6 bg-dark' />
+                    <div className='mt-2 text-center'>
+                        <p>{product.description}</p>
+                        <p>Price: ₦{product.price}</p>
+                    </div>
                     <div className='justify-content-center d-flex'>
-                        <button style={{ backgroundColor: "#FA7179" }} className='btn btn-primary text-white w-50 rounded-5 my-3 justify-content-center' onClick={handleInvestNow}> Invest Now</button>
+                        <button style={{ backgroundColor: "#FA7179" }} className='btn btn-primary text-white justify-content-center' onClick={handleInvestNow}> Invest Now</button>
                     </div>
                 </div>
             </div>
