@@ -83,8 +83,19 @@ const Sidenav = () => {
   }
 
   useEffect(() => {
-    setuseimage(localStorage.getItem('image'))
-  }, [])
+    const fetchUserImage = () => {
+        const storedImage = localStorage.getItem('image');
+        if (storedImage) {
+          setuseimage(storedImage);
+        }
+    };
+    fetchUserImage();
+    const interval = setInterval(fetchUserImage, 2000); 
+    return () => clearInterval(interval);
+}, []); 
+
+
+  
 
 
   return (
