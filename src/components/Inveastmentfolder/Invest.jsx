@@ -86,9 +86,6 @@ const Invest = ({}) => {
             <Sidenav/>
             <div className="container">
                 <div className='alldivcontainers'>
-
-                 
-
                     {User && User.products ? (
                         User.products.length > 0 ? (
                             <div>
