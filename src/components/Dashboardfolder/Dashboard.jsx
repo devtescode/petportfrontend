@@ -38,10 +38,14 @@ const Dashboard = () => {
         }
         else {
           setUser(response.data.user)
+          localStorage.setItem('image', response.data.user.Uploadimg)
+          console.log(response.data.user);
         }
       })
   }, [])
 
+
+  
 
 
   return (

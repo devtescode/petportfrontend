@@ -33,16 +33,21 @@ const Sidenav = () => {
   }
   const Logoutbtn = () => {
     navigate('/login')
+  localStorage.removeItem('image')
     hideOffcanvasMenu();
+
 
   }
   const LogoutBtn = () => {
     navigate("/login")
+    localStorage.removeItem('image')
   }
 
   const navigateToLogin = () => {
     navigate('/login');
+    localStorage.removeItem('image')
     hideOffcanvasMenu();
+    
   };
 
   const profilerouting = () => {

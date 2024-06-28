@@ -1,6 +1,6 @@
 import { useFormik } from 'formik'
 import * as Yup from "yup"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import Loaderpage from '../Loaderfolder/Loaderpage'
@@ -59,6 +59,8 @@ const Signup = () => {
             }, 2000);
         }
     })
+
+  
     return (
         <>
             {loading && <Loaderpage />}
