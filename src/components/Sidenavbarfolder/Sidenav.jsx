@@ -33,7 +33,7 @@ const Sidenav = () => {
   }
   const Logoutbtn = () => {
     navigate('/login')
-  localStorage.removeItem('image')
+    localStorage.removeItem('image')
     hideOffcanvasMenu();
 
 
@@ -47,7 +47,7 @@ const Sidenav = () => {
     navigate('/login');
     localStorage.removeItem('image')
     hideOffcanvasMenu();
-    
+
   };
 
   const profilerouting = () => {
@@ -65,7 +65,7 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
-  const walletrouting = () =>{
+  const walletrouting = () => {
     navigate('/wallet')
     hideOffcanvasMenu();
   }
@@ -84,18 +84,15 @@ const Sidenav = () => {
 
   useEffect(() => {
     const fetchUserImage = () => {
-        const storedImage = localStorage.getItem('image');
-        if (storedImage) {
-          setuseimage(storedImage);
-        }
+      const storedImage = localStorage.getItem('image');
+      if (storedImage) {
+        setuseimage(storedImage);
+      }
     };
     fetchUserImage();
-    const interval = setInterval(fetchUserImage, 2000); 
+    const interval = setInterval(fetchUserImage, 2000);
     return () => clearInterval(interval);
-}, []); 
-
-
-  
+  }, []);
 
 
   return (
@@ -151,8 +148,8 @@ const Sidenav = () => {
 
                 <li className="dropdown dropdown-user nav-item">
                   <a
-                    // className="dropdown-toggle nav-link dropdown-user-link"
-                    // data-toggle="dropdown"
+                  // className="dropdown-toggle nav-link dropdown-user-link"
+                  // data-toggle="dropdown"
                   >
                     <span className="avatar avatar-online avatar-profile" onClick={toggleDropdown}>
                       <img
@@ -268,9 +265,36 @@ const Sidenav = () => {
                   </li>
                   <li className=" nav-item my-2" onClick={historyrouting}>
                     <a >
-                    <i class="ri-history-line"></i>
+                      <i class="ri-history-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
                         History
+                      </span>
+                    </a>
+                  </li>
+                  {/* <div className='mx-2 border border-1 border-light shadow-lg rounded-1 w-25'>
+                    <p>Admin</p>
+                  </div> */}
+                  <li className="nav-item" >
+                    <a className='d-flex'>
+                      <i class="ri-admin-line"></i>
+                      <span className="menu-title" data-i18n="" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <p class="d-inline-flex gap-1 mx-2">
+                          Admin page
+                        </p>
+                        <div class="collapse" id="collapseExample">
+                          <div class="card card-body border border-white w-100">
+                            <div>
+                              <button className='btn btn-dark'>
+                                Login
+                              </button>
+                            </div>
+                            <div>
+                              <button className='btn btn-dark my-1'>
+                                Register
+                              </button>
+                            </div>
+                          </div>
+                        </div>
                       </span>
                     </a>
                   </li>
@@ -371,14 +395,43 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item" onClick={historyrouting}>
               <a >
-              <i class="ri-history-line"></i>
+                <i class="ri-history-line"></i>
                 <span className="menu-title" data-i18n="">
                   History
                 </span>
               </a>
             </li>
+            {/* <div className='mx-2 border border-1 border-light shadow-lg rounded-1'>
+              <p>Admin</p>
+            </div> */}
+            <li className="nav-item" >
+              <a className='d-flex'>
+                <i class="ri-admin-line"></i>
+                <span className="menu-title" data-i18n="" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  <p class="d-inline-flex gap-1">
+                    Admin page
+                  </p>
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body border border-white w-100">
+                      <div>
+                        <button className='btn btn-dark'>
+                          Login
+                        </button>
+                      </div>
+                      <div>
+                        <button className='btn btn-dark my-1'>
+                          Register
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </a>
+            </li>
           </ul>
+
         </div>
+
         <a
           className="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1 text-white"
           onClick={Logoutbtn}

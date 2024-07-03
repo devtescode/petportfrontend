@@ -18,6 +18,9 @@ const Narbar = () => {
     navigate('/login')
   }
 
+  const AdminPanelRegister = () =>{
+    navigate('/adminreg')
+  }
   return (
     <>
       {/* <div className="container-fluid d-none d-lg-block bg-dark text-white" style={{cursor: "pointer", position:"fixed", top:"0", zIndex:"100"}}>
@@ -74,8 +77,8 @@ const Narbar = () => {
             <a className="nav-item nav-link text-dark">
               About
             </a>
-            <a className="nav-item nav-link text-dark">
-              Service
+            <a className="nav-item nav-link text-dark fw-bold" onClick={AdminPanelRegister}>
+              Admin
             </a>
             <a className="nav-item nav-link text-dark">
               Product

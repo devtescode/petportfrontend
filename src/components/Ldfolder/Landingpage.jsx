@@ -397,8 +397,6 @@ const Landingpage = () => {
       </div>
 
 
-
-
       <div className="container-fluid col-lg-10 mt-5">
         <div className="containerdivhero">
           <div

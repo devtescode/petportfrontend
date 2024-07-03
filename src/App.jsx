@@ -15,8 +15,24 @@ import History from './components/Historyfolder/History'
 import Wallet from './components/Walletfolder/Wallet'
 import Emailpage from './components/Emailpagefolder/Emailpage'
 import Forgetpassword from './components/Forgetpasswordfolder/Forgetpassword'
+import Investperformance from './components/InvestmentPerfolder/Investperformance'
+import Adminregister from './components/Adminfolder/Adminregister'
+import AdminDashboard from './components/AdminDashboardfolder/AdminDashboard'
 
 function App() {
+
+  const admintoken = localStorage.getItem('adminToken');
+  // const AdminLayout = () => {
+  //   return (
+  //   <Routes>
+  //     <Route path='admin/' element={admintoken ? <Outlet/> : <Navigate to={'/adminreg'} />}>
+  //       <Route path="" element={<AdminDashboard/>} />
+  //     </Route>
+  //   </Routes>
+  //   )
+  // }
+
+
 
   const DashboardLayout = () => {
     let token = localStorage.token
@@ -47,7 +63,11 @@ function App() {
       <Route path='/history' element={<History/>}/>
       <Route path='/wallet' element={<Wallet/>}/>
       <Route path='/emailpage' element={<Emailpage/>}/>
-      <Route path='forgetpassword' element={<Forgetpassword/>}/>
+      <Route path='/forgetpassword' element={<Forgetpassword/>}/>
+      <Route path='/investper' element={<Investperformance/>}/>
+      <Route path='/adminreg' element={<Adminregister/>}/>
+      {/* <Route path='/*'  element={<AdminLayout/>}/> */}
+            
       <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>

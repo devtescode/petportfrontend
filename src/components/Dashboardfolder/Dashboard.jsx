@@ -12,6 +12,7 @@ import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
 import profile1 from '../../assets/img/hero.jpg';
 import profile2 from '../../assets/img/pig.jpg'
 import profile3 from '../../assets/img/closeup-shot-brown-guard-dog-standing-beach.jpg'
+import InvestmentPerformance from '../InvestmentPerfolder/Investperformance.jsx'
 
 // ../theme-assets/images/portrait/small/avatar-s-19.png
 
@@ -153,10 +154,10 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            {/*/ eCommerce statistic */}
-            {/* Statistics */}
+         
+         
             <div className="row match-height">
-              <div className="col-xl-4 col-lg-12">
+              {/* <div className="col-xl-4 col-lg-12">
                 <div className="card">
                   <div className="card-header">
                     <h4 className="card-title" id="heading-multiple-thumbnails">
@@ -207,7 +208,7 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="col-xl-4 col-lg-12">
                 <div className="card">
                   <div className="card-content">
@@ -284,7 +285,7 @@ const Dashboard = () => {
                           <span className="avatar avatar-md avatar-online">
                             <img
                               className="media-object rounded-circle"
-                              src="theme-assets/images/portrait/small/avatar-s-7.png"
+                              src={profile}
                               alt="Generic placeholder image"
                             />
                             <i />
@@ -303,7 +304,7 @@ const Dashboard = () => {
                             >
                               <img
                                 className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-1.jpg"
+                                src={profile}
                                 alt="Avatar"
                               />
                             </li>
@@ -315,7 +316,7 @@ const Dashboard = () => {
                             >
                               <img
                                 className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-2.jpg"
+                                src={profile}
                                 alt="Avatar"
                               />
                             </li>
@@ -327,7 +328,7 @@ const Dashboard = () => {
                             >
                               <img
                                 className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-4.jpg"
+                                src={profile}
                                 alt="Avatar"
                               />
                             </li>
@@ -345,7 +346,7 @@ const Dashboard = () => {
                           <span className="avatar avatar-md avatar-away">
                             <img
                               className="media-object rounded-circle"
-                              src="theme-assets/images/portrait/small/avatar-s-8.png"
+                              src={profile}
                               alt="Generic placeholder image"
                             />
                             <i />
@@ -364,7 +365,7 @@ const Dashboard = () => {
                             >
                               <img
                                 className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-5.jpg"
+                                src={profile3}
                                 alt="Avatar"
                               />
                             </li>
@@ -376,7 +377,7 @@ const Dashboard = () => {
                             >
                               <img
                                 className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-6.jpg"
+                                src={profile3}
                                 alt="Avatar"
                               />
                             </li>
@@ -394,7 +395,7 @@ const Dashboard = () => {
                           <span className="avatar avatar-md avatar-busy">
                             <img
                               className="media-object rounded-circle"
-                              src="theme-assets/images/portrait/small/avatar-s-9.png"
+                              src={profile}
                               alt="Generic placeholder image"
                             />
                             <i />
@@ -413,7 +414,7 @@ const Dashboard = () => {
                             >
                               <img
                                 className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-2.jpg"
+                                src={profile3}
                                 alt="Avatar"
                               />
                             </li>
@@ -425,7 +426,7 @@ const Dashboard = () => {
                             >
                               <img
                                 className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-5.jpg"
+                                src={profile3}
                                 alt="Avatar"
                               />
                             </li>
@@ -443,54 +444,7 @@ const Dashboard = () => {
                           <span className="avatar avatar-md avatar-online">
                             <img
                               className="media-object rounded-circle"
-                              src="theme-assets/images/portrait/small/avatar-s-10.png"
-                              alt="Generic placeholder image"
-                            />
-                            <i />
-                          </span>
-                        </div>
-                        <div className="media-body w-100">
-                          <span className="list-group-item-heading">Roy Clark</span>
-                          <ul className="list-unstyled users-list m-0 float-right">
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 1"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-6.jpg"
-                                alt="Avatar"
-                              />
-                            </li>
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 2"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-1.jpg"
-                                alt="Avatar"
-                              />
-                            </li>
-                          </ul>
-                          <p className="list-group-item-text mb-0">
-                            <span className="blue-grey lighten-2 font-small-3">
-                              {" "}
-                              #INV-12335{" "}
-                            </span>
-                          </p>
-                        </div>
-                      </a>
-                      <a href="#" className="media border-0">
-                        <div className="media-left pr-1">
-                          <span className="avatar avatar-md avatar-online">
-                            <img
-                              className="media-object rounded-circle"
-                              src="theme-assets/images/portrait/small/avatar-s-11.png"
+                              src={profile}
                               alt="Generic placeholder image"
                             />
                             <i />
@@ -509,7 +463,7 @@ const Dashboard = () => {
                             >
                               <img
                                 className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src="theme-assets/images/portfolio/portfolio-5.jpg"
+                                src={profile2}
                                 alt="Avatar"
                               />
                             </li>
@@ -529,6 +483,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+      <InvestmentPerformance/>
       </div>
     </>
 
