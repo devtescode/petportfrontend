@@ -4,6 +4,34 @@
   box-sizing: border-box;
 }
 
+.Admindashboardcon{
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  /* background-color: #ffffff transparent;
+  color: white; */
+}
+
+.Adminparentdiv{
+  display: flex;
+}
+
+.Admininnerfirstdiv{
+  width: 18%;
+ 
+   
+}
+
+.Admininnerseconddiv{
+  width: 82%;
+}
+
+.Admininnerfirstdiv, .Admininnerseconddiv{
+  border: 1px solid ;
+  height: 100vh;
+}
+
 .AdminContainer{
   background-color: #6967CE;
   position: absolute;

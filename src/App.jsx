@@ -21,19 +21,20 @@ import AdminDashboard from './components/AdminDashboardfolder/AdminDashboard'
 
 function App() {
 
-  const admintoken = localStorage.getItem('adminToken');
+  // const admintoken = localStorage.getItem('adminToken');
   // const AdminLayout = () => {
-  //   return (
-  //   <Routes>
-  //     <Route path='admin/' element={admintoken ? <Outlet/> : <Navigate to={'/adminreg'} />}>
-  //       <Route path="" element={<AdminDashboard/>} />
-  //     </Route>
-  //   </Routes>
-  //   )
-  // }
-
-
-
+    //   return (
+      //   <Routes>
+      //     <Route path='admin/' element={admintoken ? <Outlet/> : <Navigate to={'/adminreg'} />}>
+      //       <Route path="" element={<AdminDashboard/>} />
+      //     </Route>
+      //   </Routes>
+      //   )
+      // }
+      
+      
+      
+      let admintoken = localStorage.admintoken
   const DashboardLayout = () => {
     let token = localStorage.token
     return (
@@ -66,6 +67,7 @@ function App() {
       <Route path='/forgetpassword' element={<Forgetpassword/>}/>
       <Route path='/investper' element={<Investperformance/>}/>
       <Route path='/adminreg' element={<Adminregister/>}/>
+      <Route path='/admindb' element={<AdminDashboard/>}/>
       {/* <Route path='/*'  element={<AdminLayout/>}/> */}
             
       <Route  path='*' element={<Notfound/>}/>
