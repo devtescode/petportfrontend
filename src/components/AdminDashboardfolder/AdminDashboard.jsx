@@ -16,9 +16,9 @@ const AdminDashboard = () => {
           </div>
           <div className='Admininnerseconddiv'>
            
-            <div class="container text-center">
-              <div class="row gap-2" style={{ height: "100px" }}>
-                <div class="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
+            <div class="container text-center p-5 shadow-lg">
+              <div class="row gap-2" style={{ height: "200px" }}>
+                <div class="col border d-flex justify-content-center rounded-3 bg-light" style={{ alignItems: "center" }}>
                   user
                 </div>
                 <div class="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>

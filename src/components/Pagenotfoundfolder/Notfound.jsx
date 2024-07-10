@@ -6,6 +6,9 @@ const Notfound = () => {
     <h1>
         Not found page
     </h1>
+    <div className='bg-danher'>
+      Not found
+    </div>
     </>
   )
 }

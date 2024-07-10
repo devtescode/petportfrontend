@@ -51,7 +51,7 @@ const Adminregister = () => {
                 })
             setTimeout(() => {
                 setLoading(false);
-            }, 6000);
+            }, 4000);
         }
     })
     // const handleSubmit = async (e) => {

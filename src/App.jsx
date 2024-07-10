@@ -4,7 +4,6 @@ import Landingpage from './components/Ldfolder/Landingpage'
 import Contact from './components/Contactfolder/Contact'
 import Signup from './components/Sufolder/Signup'
 import Signin from './components/Sifolder/Signin'
-import Notfound from './components/Pagenotfoundfolder/Notfound'
 import Dashboard from './components/Dashboardfolder/Dashboard'
 import Product from './components/productfolder/Product'
 import Invest from './components/Inveastmentfolder/Invest'
@@ -18,6 +17,7 @@ import Forgetpassword from './components/Forgetpasswordfolder/Forgetpassword'
 import Investperformance from './components/InvestmentPerfolder/Investperformance'
 import Adminregister from './components/Adminfolder/Adminregister'
 import AdminDashboard from './components/AdminDashboardfolder/AdminDashboard'
+import Notfound from './components/Pagenotfoundfolder/Notfound'
 
 function App() {
 
@@ -68,9 +68,9 @@ function App() {
       <Route path='/investper' element={<Investperformance/>}/>
       <Route path='/adminreg' element={<Adminregister/>}/>
       <Route path='/admindb' element={<AdminDashboard/>}/>
+      <Route path='*' element={<Notfound/>}/>
       {/* <Route path='/*'  element={<AdminLayout/>}/> */}
             
-      <Route  path='*' element={<Notfound/>}/>
     </Routes>     
     </>
   )

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Offcanvas, Button, Navbar, Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'remixicon/fonts/remixicon.css';
 
@@ -8,6 +9,10 @@ const Adminsidebar = () => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const navigate = useNavigate()
+    const LogoutBtn = () => {
+        navigate("/adminreg")
+    }
 
     function AdminPanelContent() {
         return (
@@ -17,23 +22,23 @@ const Adminsidebar = () => {
                     <span className='mx-1'>Home</span>
                 </Button>
                 <Button variant="outline-primary" className='d-flex align-items-center my-1'>
-                    <i className="ri-home-line"></i>
-                    <span className='mx-1'>Home</span>
+                <i class="ri-settings-line"></i>
+                    <span className='mx-1'>Setting</span>
                 </Button>
                 <Button variant="outline-primary" className='d-flex align-items-center my-1'>
-                    <i className="ri-home-line"></i>
-                    <span className='mx-1'>Home</span>
+                    <i class="ri-profile-line"></i>
+                    <span className='mx-1'>profile</span>
                 </Button>
                 <Button variant="outline-primary" className='d-flex align-items-center my-1'>
-                    <i className="ri-home-line"></i>
-                    <span className='mx-1'>Home</span>
+                    <i class="ri-notification-line"></i>
+                    <span className='mx-1'>Notificaion</span>
                 </Button>
-                <Button variant="outline-primary" className='d-flex align-items-center my-1'>
-                    <i className="ri-home-line"></i>
-                    <span className='mx-1'>Home</span>
+                <Button variant="outline-primary" className='d-flex align-items-center my-1' onClick={LogoutBtn}>
+                    <i class="ri-logout-box-r-line"></i>
+                    <span className='mx-1'>Log-out</span>
                 </Button>
             </div>
-            
+
         );
     }
 
