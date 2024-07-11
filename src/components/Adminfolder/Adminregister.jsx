@@ -28,7 +28,7 @@ const Adminregister = () => {
             setLoading(true);
             axios.post("http://localhost:5000/useranimalinvest/adminlogin", { Email: values.Email, password: values.password })
                 .then((response) => {
-                    console.log(response);
+                    // console.log(response);
                     swal.fire({
                         title: "",
                         text: response.data.message,

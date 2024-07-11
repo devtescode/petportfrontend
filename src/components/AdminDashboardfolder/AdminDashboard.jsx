@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
@@ -7,6 +7,7 @@ import axios from 'axios'
 const AdminDashboard = () => {
   let admintoken = localStorage.admintoken
   let navigate = useNavigate()
+  const [admin, setadmin] = useState("")
   let url = "http://localhost:5000/useranimalinvest/Admindb"
   useEffect(() => {
     axios.get(url, {
@@ -21,6 +22,10 @@ const AdminDashboard = () => {
         if (!localStorage.adminlogin || response.data.status === false) {
           navigate("/adminreg")
         }
+        else{
+          setadmin(response.data.user)
+          console.log(response.data.user.Fullname);
+        }   
       }).catch(err => {
         console.log(err);
       })
@@ -36,15 +41,18 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className='Admininnerseconddiv'>
-            <div class="container text-center p-5 shadow-lg">
-              <div class="row gap-2" style={{ height: "200px" }}>
-                <div class="col border d-flex justify-content-center rounded-3 bg-light" style={{ alignItems: "center" }}>
+            <div className="container text-center p-5 shadow-lg">
+              <div className='text-start fw-bold'>
+                <p>Welcome back, {admin && admin?.Fullname}</p>
+              </div>
+              <div className="row gap-2" style={{ height: "200px" }}>
+                <div className="col border d-flex justify-content-center rounded-3 bg-light" style={{ alignItems: "center" }}>
                   user
                 </div>
-                <div class="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
+                <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
                   Column
                 </div>
-                <div class="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
+                <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
                   Column
                 </div>
               </div>
