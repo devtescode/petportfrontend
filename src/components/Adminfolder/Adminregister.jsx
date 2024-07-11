@@ -26,7 +26,6 @@ const Adminregister = () => {
         }),
         onSubmit: values => {
             setLoading(true);
-            // Username: values.username, Password: values.password 
             axios.post("http://localhost:5000/useranimalinvest/adminlogin", { Email: values.Email, password: values.password })
                 .then((response) => {
                     console.log(response);
@@ -54,39 +53,9 @@ const Adminregister = () => {
             }, 4000);
         }
     })
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await axios.post('http://localhost:5000/useranimalinvest/adminlogin', { Email, password });
-
-    //         console.log('Response:', response);
-
-    //         const { admintoken, role } = response.data;
-    //         if (role === 'admin') {
-    //             localStorage.setItem('adminToken', admintoken);
-    //             alert('Admin login successful');
-    //             navigate('/admindb')
-    //         } else {
-    //             localStorage.setItem('userToken', admintoken);
-    //             alert('User login successful');
-    //             console.log(admintoken);
-    //         }
-    //         setToken(token);   
-    //     } catch (error) {
-    //         console.error('Error during login:', error);
-    //         if (error.response) {
-    //             setError(error.response.data);
-    //         } else {
-    //             setError('An error occurred during login');
-    //         }
-    //     }
-    // };
-
+   
     return (
         <>
-            {/* <input type="text" />
-    <input type="text" />
-    <input type="text" /> */}
             {loading && <Loader />}
             <div className='AdminContainer'>
                 <div className='AdminInner'>
