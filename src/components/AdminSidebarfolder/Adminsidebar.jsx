@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router';
 
 const Adminsidebar = () => {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const navigate = useNavigate()
@@ -14,12 +13,24 @@ const Adminsidebar = () => {
         navigate("/adminreg")
     }
 
+    const UserBtn = ()=>{
+        navigate("/adminuser")
+    }
+
+    const Adminhome =()=>{
+        navigate("/admindb")
+    }
+
     function AdminPanelContent() {
         return (
             <div className='d-flex flex-column fs-3 p-3'>
-                <Button variant="outline-primary" className='d-flex align-items-center my-1'>
+                <Button onClick={Adminhome} variant="outline-primary" className='d-flex align-items-center my-1'>
                     <i className="ri-home-line"></i>
                     <span className='mx-1'>Home</span>
+                </Button>
+                <Button onClick={UserBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
+                <i class="ri-profile-line"></i>
+                    <span className='mx-1'>User</span>
                 </Button>
                 <Button variant="outline-primary" className='d-flex align-items-center my-1'>
                 <i class="ri-settings-line"></i>

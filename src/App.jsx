@@ -18,6 +18,7 @@ import Investperformance from './components/InvestmentPerfolder/Investperformanc
 import Adminregister from './components/Adminfolder/Adminregister'
 import AdminDashboard from './components/AdminDashboardfolder/AdminDashboard'
 import Notfound from './components/Pagenotfoundfolder/Notfound'
+import Adminuser from './components/Adminuserfolder/Adminuser'
 
 function App() {
 
@@ -68,6 +69,7 @@ function App() {
       <Route path='/investper' element={<Investperformance/>}/>
       <Route path='/adminreg' element={<Adminregister/>}/>
       <Route path='/admindb' element={<AdminDashboard/>}/>
+      <Route path='/adminuser' element={<Adminuser/>}/>
       <Route path='*' element={<Notfound/>}/>
       {/* <Route path='/*'  element={<AdminLayout/>}/> */}
             

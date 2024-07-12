@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
@@ -22,10 +22,10 @@ const AdminDashboard = () => {
         if (!localStorage.adminlogin || response.data.status === false) {
           navigate("/adminreg")
         }
-        else{
+        else {
           setadmin(response.data.user)
           console.log(response.data.user.Fullname);
-        }   
+        }
       }).catch(err => {
         console.log(err);
       })
@@ -47,7 +47,9 @@ const AdminDashboard = () => {
               </div>
               <div className="row gap-2" style={{ height: "200px" }}>
                 <div className="col border d-flex justify-content-center rounded-3 bg-light" style={{ alignItems: "center" }}>
-                  user
+                  <div>
+                    <h1>User 1</h1>
+                  </div>
                 </div>
                 <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
                   Column
