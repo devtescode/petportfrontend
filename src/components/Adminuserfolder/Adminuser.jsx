@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar'
 import axios from 'axios';
 
-const Adminuser = () => {
+const Adminuser = ({onEdit}) => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:5000/useranimalinvest/getallusers")
@@ -13,6 +13,8 @@ const Adminuser = () => {
                 console.error('There was an error fetching the users!', err);
             })
     }, [])
+
+    
 
     return (
         <>
@@ -54,10 +56,11 @@ const Adminuser = () => {
                                                             <strong>Product Name:</strong> {investment.productName}<br />
                                                             <strong>Product Price:</strong> {investment.productPrice}<br />
                                                             <strong>Investment Date:</strong> {new Date(investment.investmentDate).toLocaleString()}
-                                                        </li>
+                                                        </li>   
                                                     ))}
                                                 </ul>
-                                                <button onClick={() => onEdit(user)} className="btn btn-primary mt-3">Edit</button>
+                                                <button onClick={() => onEdit(user)} className="btn btn-primary mt-3">Edit User</button>
+                                            
                                             </li>
                                         ))}
                                     </ul>

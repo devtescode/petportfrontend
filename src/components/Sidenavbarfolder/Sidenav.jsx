@@ -94,6 +94,10 @@ const Sidenav = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const adminBtnPage = ()=>{
+    navigate('/adminreg')
+    hideOffcanvasMenu();
+  }
 
   return (
     <>
@@ -413,14 +417,10 @@ const Sidenav = () => {
                   </p>
                   <div class="collapse" id="collapseExample">
                     <div class="card card-body border border-white w-100">
+                     
                       <div>
-                        <button className='btn btn-dark'>
-                          Login
-                        </button>
-                      </div>
-                      <div>
-                        <button className='btn btn-dark my-1'>
-                          Register
+                        <button className='btn btn-dark my-1' onClick={adminBtnPage}>
+                          Login  
                         </button>
                       </div>
                     </div>
