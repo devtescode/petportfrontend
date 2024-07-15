@@ -13,3 +13,7 @@
     opacity: 0;
     transform: translateY(-20px);
 }
+ul.no-bullets {
+    list-style-type: none;
+    padding: 0;
+}

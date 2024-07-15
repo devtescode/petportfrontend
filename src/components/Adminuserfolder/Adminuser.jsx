@@ -3,6 +3,7 @@ import Adminsidebar from '../AdminSidebarfolder/Adminsidebar'
 import UserList from '../AdminUserListFolder/UserAdmin'
 import UserForm from '../UserFormFolder/UserForm'
 import axios from 'axios'
+// import "../UserFormFolder/UserForm.css"
 
 const Adminuser = () => {
     const [selectedUser, setSelectedUser] = useState(null);
@@ -53,11 +54,12 @@ const Adminuser = () => {
                                 </div>
                                 <div className="card-body">
                                     {/* <UserList onEdit={handleEdit}/>  */}
-                                  {/* <UserForm user={editingUser} onSave={handleSave} /> */}
-                                    <ul>
-                                        {users.map(user => (
+                                    {/* <UserForm user={editingUser} onSave={handleSave} /> */}
+                                    {/* list-style-type: none; */}
+                                    <ul style={{listStyleType:"none", padding:"0"}}>
+                                        {users.map((user, index) => (
                                             <li key={user._id}>
-                                                {user.Fullname} ({user.Email})
+                                                {index + 1}, {user.Fullname} {user.Email}
                                                 <button onClick={() => handleEdit(user)} className='btn btn-success'>Edit</button>
                                             </li>
                                         ))}
