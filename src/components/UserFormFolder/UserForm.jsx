@@ -118,7 +118,7 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
                 <form onSubmit={handleSubmit}>
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-6 col-sm-12">
+                            <div className="col-md-6 col-sm-12 mx-auto border border-1 border-light p-2">
                                 <div>
                                     <label>Full Name</label>
                                     <input type="text" name="Fullname" className='form-control' value={formData.Fullname} onChange={handleChange} required />
