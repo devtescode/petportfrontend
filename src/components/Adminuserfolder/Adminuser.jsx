@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar'
 import UserList from '../AdminUserListFolder/UserAdmin'
+import UserForm from '../UserFormFolder/UserForm'
 import axios from 'axios';
 
 const Adminuser = () => {
@@ -8,6 +9,10 @@ const Adminuser = () => {
 
     const handleEdit = (user) => {
         setEditingUser(user);
+    };
+
+    const handleSave = (savedUser) => {
+        setEditingUser(null);
     };
 
     return (
@@ -27,6 +32,7 @@ const Adminuser = () => {
                         </div>
                                 <div className="card-body">
                                   <UserList onEdit={handleEdit}/> 
+                                  <UserForm user={editingUser} onSave={handleSave} />
                                 </div>
                             </div>
                         </div>
