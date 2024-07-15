@@ -56,14 +56,31 @@ const Adminuser = () => {
                                     {/* <UserList onEdit={handleEdit}/>  */}
                                     {/* <UserForm user={editingUser} onSave={handleSave} /> */}
                                     {/* list-style-type: none; */}
-                                    <ul style={{listStyleType:"none", padding:"0"}}>
-                                        {users.map((user, index) => (
-                                            <li key={user._id} className='my-1'>
-                                                {index + 1}, {user.Fullname} {user.Email}
-                                                <button onClick={() => handleEdit(user)} className='btn btn-success'>Edit</button>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    
+                                    <table className="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Full Name</th>
+                                                <th>Email</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {users.map((user, index) => (
+                                                <tr key={user._id}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{user.Fullname}</td>
+                                                    <td>{user.Email}</td>
+                                                    <td>
+                                                        <button onClick={() => handleEdit(user)} className="btn btn-primary">
+                                                            <i className="ri-edit-box-line"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
                                     {formVisible && (
                                         <UserForm user={selectedUser} onSave={handleSave} isVisible={formVisible} onClose={handleCloseForm} />
                                     )}
