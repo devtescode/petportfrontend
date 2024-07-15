@@ -18,13 +18,13 @@ const AdminDashboard = () => {
       }
     })
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         if (!localStorage.adminlogin || response.data.status === false) {
           navigate("/adminreg")
-        }
+        } 
         else {
           setadmin(response.data.user)
-          console.log(response.data.user.Fullname);
+          // console.log(response.data.user.Fullname);
         }
       }).catch(err => {
         console.log(err);

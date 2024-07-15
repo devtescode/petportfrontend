@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 const UserForm = ({ user, onSave }) => {
+    // const [formData, setFormData] = useState({
+    //     Fullname: '',
+    //     Number: '',
+    //     Email: '',
+    //     Password: '',
+    //     Product: [],
+    //     Balance: 0,
+    //     Uploadimg: '',
+    //     Totalinvest: 0,
+    //     Amountinvest: 0,
+    //     Codetoken: '',
+    //     tokenGenerationAttempts: 0,
+    //     firstAttemptTimestamp: '',
+    //     history: [],
+    //     role: 'user'
+    // });
     const [formData, setFormData] = useState({
         Fullname: '',
         Number: '',
@@ -21,28 +37,71 @@ const UserForm = ({ user, onSave }) => {
     useEffect(() => {
         if (user) {
             setFormData(user);
+        } else {
+            setFormData({
+                Fullname: '',
+                Number: '',
+                Email: '',
+                Password: '',
+                Product: [],
+                Balance: 0,
+                Uploadimg: '',
+                Totalinvest: 0,
+                Amountinvest: 0,
+                Codetoken: '',
+                tokenGenerationAttempts: 0,
+                firstAttemptTimestamp: '',
+                history: [],
+                role: 'user'
+            });
+        }
+    }, [user]);
+
+
+    useEffect(() => {
+        if (user) {
+            setFormData(user);
         }
     }, [user]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        let parsedValue = value;
+        if (name === 'Number' || name === 'Balance' || name === 'Totalinvest' || name === 'Amountinvest' || name === 'Codetoken' || name === 'tokenGenerationAttempts') {
+            parsedValue = parseFloat(value) || 0;
+        }
+        // console.log(`Field: ${name}, Value: ${parsedValue}`);
+        setFormData({ ...formData, [name]: parsedValue });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log('Submitting form data:', formData);
         if (user && user._id) {
-            axios.put(`http://localhost:5000/useranimalinvest/getallusers${user._id}`, formData)
+            axios.put(`http://localhost:5000/useranimalinvest/putall/${user._id}`, formData)
                 .then(response => {
                     onSave(response.data);
+                    // console.log('Update re   sponse:', response.data.Balance);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: `₦${response.data.Balance} Is Successfully Fund To ${response.data.Fullname} Account`,
+                    });
                 })
                 .catch(error => {
                     console.error('There was an error updating the user!', error);
                 });
         } else {
-            axios.post('http://localhost:5000/useranimalinvest/getallusers', formData)
+            axios.post('http://localhost:5000/useranimalinvest/postall', formData)
                 .then(response => {
                     onSave(response.data);
+                    // console.log('Create response:', response.data);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: "Successfully Updated",
+                    });
+                    alert("Successfully")
                 })
                 .catch(error => {
                     console.error('There was an error creating the user!', error);
@@ -75,6 +134,7 @@ const UserForm = ({ user, onSave }) => {
                             <div>
                                 <label>Balance</label>
                                 <input type="number" name="Balance" className='form-control' value={formData.Balance} onChange={handleChange} />
+
                             </div>
                             <div>
                                 <label>Upload Image</label>
@@ -107,7 +167,7 @@ const UserForm = ({ user, onSave }) => {
                                     <option value="admin">Admin</option>
                                 </select>
                             </div>
-                            {/* Add fields for Product and history if needed */}
+                            {/* Add fields for Product and  tory if needed */}
                             <div>
 
                             </div>

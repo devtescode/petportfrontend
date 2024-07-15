@@ -10,10 +10,10 @@ const Adminuser = () => {
     const handleEdit = (user) => {
         setEditingUser(user);
     };
-
     const handleSave = (savedUser) => {
         setEditingUser(null);
     };
+    
 
     return (
         <>
