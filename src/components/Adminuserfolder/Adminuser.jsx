@@ -6,14 +6,16 @@ import axios from 'axios'
 // import "../UserFormFolder/UserForm.css"
 
 const Adminuser = () => {
-    const [selectedUser, setSelectedUser] = useState(null);
     const [users, setUsers] = useState([]);
-    // const [selectedUser, setSelectedUser] = useState(null);
+    const [filteredUsers, setFilteredUsers] = useState([]);
+    const [selectedUser, setSelectedUser] = useState(null);
     const [formVisible, setFormVisible] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
     useEffect(() => {
         axios.get("http://localhost:5000/useranimalinvest/getallusers")
             .then(response => {
                 setUsers(response.data)
+                setFilteredUsers(response.data); 
             })
             .catch(err => {
                 console.error('There was an error fetching the users!', err);
@@ -28,14 +30,30 @@ const Adminuser = () => {
 
 
     const handleSave = (updatedUser) => {
-        setUsers(users.map(user => (user._id === updatedUser._id ? updatedUser : user)));
+        const updatedUsers = users.map(user => (user._id === updatedUser._id ? updatedUser : user));
+        setUsers(updatedUsers);
+        setFilteredUsers(updatedUsers);
         setFormVisible(false);
     };
+
 
     const handleCloseForm = () => {
         setFormVisible(false);
         setSelectedUser(null);
     };
+
+    const handleSearch = (e) => {
+        const query = e.target.value;
+        setSearchQuery(query);
+        const filtered = users.filter(user =>
+            user.Fullname.toLowerCase().includes(query.toLowerCase()) || 
+            user.Email.toLowerCase().includes(query.toLowerCase())
+        );
+        setFilteredUsers(filtered);
+    };
+
+
+    
 
     return (
         <>
@@ -56,7 +74,16 @@ const Adminuser = () => {
                                     {/* <UserList onEdit={handleEdit}/>  */}
                                     {/* <UserForm user={editingUser} onSave={handleSave} /> */}
                                     {/* list-style-type: none; */}
-                                    
+                                    <div className="mb-3">
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Search by Fullname or Email"
+                                            value={searchQuery}
+                                            onChange={handleSearch}
+                                        />
+                                    </div>
+
                                     <table className="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -67,7 +94,7 @@ const Adminuser = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {users.map((user, index) => (
+                                            {filteredUsers.map((user, index) => (
                                                 <tr key={user._id}>
                                                     <td>{index + 1}</td>
                                                     <td>{user.Fullname}</td>
