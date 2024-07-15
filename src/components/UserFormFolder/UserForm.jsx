@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-const UserForm = ({ user, onSave }) => {
+import './UserForm.css';
+const UserForm = ({ user, onSave, isVisible, onClose }) => {
     // const [formData, setFormData] = useState({
     //     Fullname: '',
     //     Number: '',
@@ -81,7 +82,7 @@ const UserForm = ({ user, onSave }) => {
             axios.put(`http://localhost:5000/useranimalinvest/putall/${user._id}`, formData)
                 .then(response => {
                     onSave(response.data);
-                    // console.log('Update re   sponse:', response.data.Balance);
+                    onClose();
                     Swal.fire({
                         icon: "success",
                         title: "Success",
@@ -95,6 +96,7 @@ const UserForm = ({ user, onSave }) => {
             axios.post('http://localhost:5000/useranimalinvest/postall', formData)
                 .then(response => {
                     onSave(response.data);
+                    onClose();
                     // console.log('Create response:', response.data);
                     Swal.fire({
                         icon: "success",
@@ -110,76 +112,79 @@ const UserForm = ({ user, onSave }) => {
     };
     return (
         <>
+            <div className={`user-form-container ${isVisible ? 'visible' : 'hidden'}`}>
 
-            <form onSubmit={handleSubmit}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 col-sm-12">
-                            <div>
-                                <label>Full Name</label>
-                                <input type="text" name="Fullname" className='form-control' value={formData.Fullname} onChange={handleChange} required />
-                            </div>
-                            <div>
-                                <label>Number</label>
-                                <input type="number" name="Number" className='form-control' value={formData.Number} onChange={handleChange} required />
-                            </div>
-                            <div>
-                                <label>Email</label>
-                                <input type="email" name="Email" className='form-control' value={formData.Email} onChange={handleChange} required />
-                            </div>
-                            <div>
-                                <label>Password</label>
-                                <input type="password" name="Password" className='form-control' value={formData.Password} onChange={handleChange} required />
-                            </div>
-                            <div>
-                                <label>Balance</label>
-                                <input type="number" name="Balance" className='form-control' value={formData.Balance} onChange={handleChange} />
+
+                <form onSubmit={handleSubmit}>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-6 col-sm-12">
+                                <div>
+                                    <label>Full Name</label>
+                                    <input type="text" name="Fullname" className='form-control' value={formData.Fullname} onChange={handleChange} required />
+                                </div>
+                                <div>
+                                    <label>Number</label>
+                                    <input type="number" name="Number" className='form-control' value={formData.Number} onChange={handleChange} required />
+                                </div>
+                                <div>
+                                    <label>Email</label>
+                                    <input type="email" name="Email" className='form-control' value={formData.Email} onChange={handleChange} required />
+                                </div>
+                                <div>
+                                    <label>Password</label>
+                                    <input type="password" name="Password" className='form-control' value={formData.Password} onChange={handleChange} required />
+                                </div>
+                                <div>
+                                    <label>Balance</label>
+                                    <input type="number" name="Balance" className='form-control' value={formData.Balance} onChange={handleChange} />
+
+                                </div>
+                                <div>
+                                    <label>Upload Image</label>
+                                    <input type="text" name="Uploadimg" className='form-control' value={formData.Uploadimg} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>Total Invest</label>
+                                    <input type="number" name="Totalinvest" className='form-control' value={formData.Totalinvest} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>Amount Invest</label>
+                                    <input type="number" name="Amountinvest" className='form-control' value={formData.Amountinvest} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>Code Token</label>
+                                    <input type="number" name="Codetoken" className='form-control' value={formData.Codetoken} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>Token Generation Attempts</label>
+                                    <input type="number" name="tokenGenerationAttempts" className='form-control' value={formData.tokenGenerationAttempts} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>First Attempt Timestamp</label>
+                                    <input type="datetime-local" name="firstAttemptTimestamp" className='form-control' value={formData.firstAttemptTimestamp} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>Role</label>
+                                    <select name="role" className='form-control' value={formData.role} onChange={handleChange}>
+                                        <option value="user">User</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                </div>
+                                {/* Add fields for Product and  tory if needed */}
+                                <div>
+
+                                </div>
+                                <div className='text-center gap-2 d-flex my-2 justify-content-center'>
+                                    <button type="submit" className='btn btn-success'>Save</button>
+                                    <button type="button" onClick={onClose} className='btn btn-danger'>Cancel</button>
+                                </div>
 
                             </div>
-                            <div>
-                                <label>Upload Image</label>
-                                <input type="text" name="Uploadimg" className='form-control' value={formData.Uploadimg} onChange={handleChange} />
-                            </div>
-                            <div>
-                                <label>Total Invest</label>
-                                <input type="number" name="Totalinvest" className='form-control' value={formData.Totalinvest} onChange={handleChange} />
-                            </div>
-                            <div>
-                                <label>Amount Invest</label>
-                                <input type="number" name="Amountinvest" className='form-control' value={formData.Amountinvest} onChange={handleChange} />
-                            </div>
-                            <div>
-                                <label>Code Token</label>
-                                <input type="number" name="Codetoken" className='form-control' value={formData.Codetoken} onChange={handleChange} />
-                            </div>
-                            <div>
-                                <label>Token Generation Attempts</label>
-                                <input type="number" name="tokenGenerationAttempts" className='form-control' value={formData.tokenGenerationAttempts} onChange={handleChange} />
-                            </div>
-                            <div>
-                                <label>First Attempt Timestamp</label>
-                                <input type="datetime-local" name="firstAttemptTimestamp" className='form-control' value={formData.firstAttemptTimestamp} onChange={handleChange} />
-                            </div>
-                            <div>
-                                <label>Role</label>
-                                <select name="role" className='form-control' value={formData.role} onChange={handleChange}>
-                                    <option value="user">User</option>
-                                    <option value="admin">Admin</option>
-                                </select>
-                            </div>
-                            {/* Add fields for Product and  tory if needed */}
-                            <div>
-
-                            </div>
-                            <div className='text-center'>
-                                <button type="submit" className='btn btn-success my-2'>Save</button>
-                            </div>
-
                         </div>
                     </div>
-                </div>
-            </form>
-
+                </form>
+            </div>
         </>
     )
 }
