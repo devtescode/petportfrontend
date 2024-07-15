@@ -58,7 +58,7 @@ const Adminuser = () => {
                                     {/* list-style-type: none; */}
                                     <ul style={{listStyleType:"none", padding:"0"}}>
                                         {users.map((user, index) => (
-                                            <li key={user._id}>
+                                            <li key={user._id} className='my-1'>
                                                 {index + 1}, {user.Fullname} {user.Email}
                                                 <button onClick={() => handleEdit(user)} className='btn btn-success'>Edit</button>
                                             </li>
