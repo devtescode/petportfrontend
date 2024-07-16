@@ -113,8 +113,6 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
     return (
         <>
             <div className={`user-form-container ${isVisible ? 'visible' : 'hidden'}`}>
-
-
                 <form onSubmit={handleSubmit}>
                     <div className="container">
                         <div className="row">
