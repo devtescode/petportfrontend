@@ -7,7 +7,7 @@ import axios from 'axios'
 import Loaderpage from '../Loaderfolder/Loaderpage'
 
 const Signup = () => {
-    const [action, setaction] = useState("Sign Up")
+    // const [action, setaction] = useState("Sign Up")
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
     const LoginRouting = () => {
