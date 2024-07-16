@@ -15,12 +15,27 @@ const Adminuser = () => {
         axios.get("http://localhost:5000/useranimalinvest/getallusers")
             .then(response => {
                 setUsers(response.data)
-                setFilteredUsers(response.data); 
+                setFilteredUsers(response.data);
             })
             .catch(err => {
                 console.error('There was an error fetching the users!', err);
             })
     }, [])
+
+
+    const handleDelete = async (userId) => {
+        if (window.confirm('Are you sure you want to delete this user?')) {
+            try {
+                await axios.delete(`http://localhost:5000/useranimalinvest/delecteachuser/${userId}`);
+                const updatedUsers = users.filter(user => user._id !== userId);
+                setUsers(updatedUsers);
+                setFilteredUsers(updatedUsers);
+            } catch (error) {
+                console.error('There was an error deleting the user!', error);
+            }
+        }
+    };
+
 
 
     const handleEdit = (user) => {
@@ -46,14 +61,16 @@ const Adminuser = () => {
         const query = e.target.value;
         setSearchQuery(query);
         const filtered = users.filter(user =>
-            user.Fullname.toLowerCase().includes(query.toLowerCase()) || 
+            user.Fullname.toLowerCase().includes(query.toLowerCase()) ||
             user.Email.toLowerCase().includes(query.toLowerCase())
         );
         setFilteredUsers(filtered);
     };
 
+    const DelectUser = ()=>{
+        alert("Dfv")
+    }
 
-    
 
     return (
         <>
@@ -99,10 +116,17 @@ const Adminuser = () => {
                                                     <td>{index + 1}</td>
                                                     <td>{user.Fullname}</td>
                                                     <td>{user.Email}</td>
-                                                    <td>
-                                                        <button onClick={() => handleEdit(user)} className="btn btn-primary">
-                                                            <i className="ri-edit-box-line"></i>
-                                                        </button>
+                                                    <td className='gap-2 d-flex'>
+                                                        <div>
+                                                            <button onClick={() => handleEdit(user)} className="btn btn-primary">
+                                                                <i className="ri-edit-box-line"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => handleDelete(user._id)}  className="btn btn-danger">
+                                                                <i class="ri-delete-bin-line"></i>
+                                                            </button>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             ))}
@@ -111,6 +135,7 @@ const Adminuser = () => {
                                     {formVisible && (
                                         <UserForm user={selectedUser} onSave={handleSave} isVisible={formVisible} onClose={handleCloseForm} />
                                     )}
+
                                 </div>
                             </div>
                         </div>
