@@ -112,77 +112,96 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
     };
     return (
         <>
-            <div className={`user-form-container ${isVisible ? 'visible' : 'hidden'}`}>
-                <form onSubmit={handleSubmit}>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-6 col-sm-12 mx-auto border border-1 border-light p-2">
-                                <div>
-                                    <label>Full Name</label>
-                                    <input type="text" name="Fullname" className='form-control' value={formData.Fullname} onChange={handleChange} required />
-                                </div>
-                                <div>
-                                    <label>Number</label>
-                                    <input type="number" name="Number" className='form-control' value={formData.Number} onChange={handleChange} required />
-                                </div>
-                                <div>
-                                    <label>Email</label>
-                                    <input type="email" name="Email" className='form-control' value={formData.Email} onChange={handleChange} required />
-                                </div>
-                                <div>
-                                    <label>Password</label>
-                                    <input type="password" name="Password" className='form-control' value={formData.Password} onChange={handleChange} required />
-                                </div>
-                                <div>
-                                    <label>Balance</label>
-                                    <input type="number" name="Balance" className='form-control' value={formData.Balance} onChange={handleChange} />
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div className={`user-form-container ${isVisible ? 'visible' : 'hidden'}`}>
+                                <form onSubmit={handleSubmit}>
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-md-12 col-sm-12 mx-auto border border-1 border-light p-2">
+                                                <div>
+                                                    <label>Full Name</label>
+                                                    <input type="text" name="Fullname" className='form-control' value={formData.Fullname} onChange={handleChange} required />
+                                                </div>
+                                                <div>
+                                                    <label>Number</label>
+                                                    <input type="number" name="Number" className='form-control' value={formData.Number} onChange={handleChange} required />
+                                                </div>
+                                                <div>
+                                                    <label>Email</label>
+                                                    <input type="email" name="Email" className='form-control' value={formData.Email} onChange={handleChange} required />
+                                                </div>
+                                                <div>
+                                                    <label>Password</label>
+                                                    <input type="password" name="Password" className='form-control' value={formData.Password} onChange={handleChange} required />
+                                                </div>
+                                                <div>
+                                                    <label>Balance</label>
+                                                    <input type="number" name="Balance" className='form-control' value={formData.Balance} onChange={handleChange} />
 
-                                </div>
-                                <div>
-                                    <label>Upload Image</label>
-                                    <input type="text" name="Uploadimg" className='form-control' value={formData.Uploadimg} onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label>Total Invest</label>
-                                    <input type="number" name="Totalinvest" className='form-control' value={formData.Totalinvest} onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label>Amount Invest</label>
-                                    <input type="number" name="Amountinvest" className='form-control' value={formData.Amountinvest} onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label>Code Token</label>
-                                    <input type="number" name="Codetoken" className='form-control' value={formData.Codetoken} onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label>Token Generation Attempts</label>
-                                    <input type="number" name="tokenGenerationAttempts" className='form-control' value={formData.tokenGenerationAttempts} onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label>First Attempt Timestamp</label>
-                                    <input type="datetime-local" name="firstAttemptTimestamp" className='form-control' value={formData.firstAttemptTimestamp} onChange={handleChange} />
-                                </div>
-                                <div>
-                                    <label>Role</label>
-                                    <select name="role" className='form-control' value={formData.role} onChange={handleChange}>
-                                        <option value="user">User</option>
-                                        <option value="admin">Admin</option>
-                                    </select>
-                                </div>
-                                {/* Add fields for Product and  tory if needed */}
-                                <div>
+                                                </div>
+                                                <div>
+                                                    <label>Upload Image</label>
+                                                    <input type="text" name="Uploadimg" className='form-control' value={formData.Uploadimg} onChange={handleChange} />
+                                                </div>
+                                                <div>
+                                                    <label>Total Invest</label>
+                                                    <input type="number" name="Totalinvest" className='form-control' value={formData.Totalinvest} onChange={handleChange} />
+                                                </div>
+                                                <div>
+                                                    <label>Amount Invest</label>
+                                                    <input type="number" name="Amountinvest" className='form-control' value={formData.Amountinvest} onChange={handleChange} />
+                                                </div>
+                                                <div>
+                                                    <label>Code Token</label>
+                                                    <input type="number" name="Codetoken" className='form-control' value={formData.Codetoken} onChange={handleChange} />
+                                                </div>
+                                                <div>
+                                                    <label>Token Generation Attempts</label>
+                                                    <input type="number" name="tokenGenerationAttempts" className='form-control' value={formData.tokenGenerationAttempts} onChange={handleChange} />
+                                                </div>
+                                                <div>
+                                                    <label>First Attempt Timestamp</label>
+                                                    <input type="datetime-local" name="firstAttemptTimestamp" className='form-control' value={formData.firstAttemptTimestamp} onChange={handleChange} />
+                                                </div>
+                                                <div>
+                                                    <label>Role</label>
+                                                    <select name="role" className='form-control' value={formData.role} onChange={handleChange}>
+                                                        <option value="user">User</option>
+                                                        <option value="admin">Admin</option>
+                                                    </select>
+                                                </div>
+                                                {/* Add fields for Product and  tory if needed */}
+                                                <div>
 
-                                </div>
-                                <div className='text-center gap-2 d-flex my-2 justify-content-center'>
-                                    <button type="submit" className='btn btn-success'>Save</button>
-                                    <button type="button" onClick={onClose} className='btn btn-danger'>Cancel</button>
-                                </div>
+                                                </div>
+                                                <div className='text-center gap-2 d-flex my-2 justify-content-center'>
+                                                    <button type="submit" className='btn btn-success'>Save</button>
+                                                    {/* <button type="button" onClick={onClose} className='btn btn-danger'>Cancel</button> */}
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            {/* <button type="button" class="btn btn-primary">Save changes</button> */}
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
+
+
         </>
     )
 }

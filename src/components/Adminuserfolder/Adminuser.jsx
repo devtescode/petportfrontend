@@ -143,7 +143,9 @@ const Adminuser = () => {
                                                     <td>{user.Email}</td>
                                                     <td className='gap-2 d-flex'>
                                                         <div>
-                                                            <button onClick={() => handleEdit(user)} className="btn btn-primary">
+
+                                                        
+                                                            <button onClick={() => handleEdit(user)} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
                                                                 <i className="ri-edit-box-line"></i>
                                                             </button>
                                                         </div>
