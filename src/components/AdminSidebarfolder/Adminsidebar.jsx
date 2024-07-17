@@ -59,7 +59,7 @@ const Adminsidebar = () => {
             <Navbar bg="light" expand="lg" className="d-lg-none">
                 <Container fluid>
                     <Button variant="primary" onClick={handleShow}>
-                        Open Admin Panel
+                        Open
                     </Button>
                 </Container>
             </Navbar>
