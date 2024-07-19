@@ -10,6 +10,8 @@ const AdminDashboard = () => {
   const [admin, setadmin] = useState("")
   const [userCount, setUserCount] = useState(0);
   const [totalBalance, setTotalBalance] = useState(0);
+  const [totalAmountInvested, setTotalAmountInvested] = useState(0);
+  const [Totalinvested, setTotalInvest] = useState(0);
   let url = "http://localhost:5000/useranimalinvest/Admindb"
   useEffect(() => {
     axios.get(url, {
@@ -58,6 +60,36 @@ const AdminDashboard = () => {
       }).catch(err => {
         console.log(err);
       });
+
+
+    axios.get('http://localhost:5000/useranimalinvest/totalamountinvested', {
+      headers: {
+        "Authorization": `Bearer ${admintoken}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }
+    })
+      .then((response) => {
+        setTotalAmountInvested(response.data.totalAmountInvested);
+      }).catch(err => {
+        console.log(err);
+      });
+
+      
+    axios.get('http://localhost:5000/useranimalinvest/Totalinvest', {
+      headers: {
+        "Authorization": `Bearer ${admintoken}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }
+    })
+      .then((response) => {
+        setTotalInvest(response.data.totalinvesttogether);
+      }).catch(err => {
+        console.log(err);
+      });
+
+      
   }, [admintoken, navigate])
 
   return (
@@ -81,14 +113,23 @@ const AdminDashboard = () => {
                     Users
                   </div>
                 </div>
-                <div className="col border d-flex justify-content-center rounded-3 shadow-lg" style={{ alignItems: "center" }}>
+                <div className="col border d-flex justify-content-center rounded-3 shadow-lg  " style={{ alignItems: "center" }}>
                   <div>
                     <h1>₦{totalBalance}</h1>
                     Total Balance
                   </div>
                 </div>
                 <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
-                  Column
+                  <div>
+                    <h1>₦{totalAmountInvested}</h1>
+                    Total Amount Invested
+                  </div>
+                </div>
+                <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
+                  <div>
+                    <h1>{Totalinvested}</h1>
+                    Total Value Inv ested
+                  </div>
                 </div>
               </div>
             </div>
