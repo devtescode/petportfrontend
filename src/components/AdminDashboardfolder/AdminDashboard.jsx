@@ -94,41 +94,46 @@ const AdminDashboard = () => {
 
   return (
     <>
-      <div className='Admindashboardcon'>
-        <div className='Adminparentdiv'>
-          <div className='Admininnerfirstdiv bg-light fw-bold'>
-            <div className=''>
-              <Adminsidebar />
+    <div className='Admindashboardcon'>
+      <div className='Adminparentdiv'>
+        <div className='Admininnerfirstdiv bg-light fw-bold'>
+          <Adminsidebar />
+        </div>
+        <div className='Admininnerseconddiv' >
+          <div className="container text-center p-5 shadow-lg">
+            <div className='text-start fw-bold'>
+              <p>Welcome back, {admin && admin?.Fullname}</p>
             </div>
-          </div>
-          <div className='Admininnerseconddiv'>
-            <div className="container text-center p-5 shadow-lg">
-              <div className='text-start fw-bold'>
-                <p>Welcome back, {admin && admin?.Fullname}</p>
-              </div>
-              <div className="row gap-2" style={{ height: "200px" }}>
-                <div className="col border d-flex justify-content-center rounded-3 shadow-lg" style={{ alignItems: "center" }}>
+            <div className="row g-3" style={{height:"80vh"}}>
+              <div className="col-md-6 col-lg-6">
+                <div className="border d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100" >
                   <div>
                     <h1>{userCount}</h1>
                     Users
                   </div>
                 </div>
-                <div className="col border d-flex justify-content-center rounded-3 shadow-lg  " style={{ alignItems: "center" }}>
+              </div>
+              <div className="col-md-6 col-lg-6">
+                <div className="border d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
                   <div>
                     <h1>₦{totalBalance}</h1>
                     Total Balance
                   </div>
                 </div>
-                <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
+              </div>
+              <div className="col-md-6 col-lg-6">
+                <div className="border d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
                   <div>
                     <h1>₦{totalAmountInvested}</h1>
                     Total Amount Invested
                   </div>
                 </div>
-                <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
+              </div>
+              <div className="col-md-6 col-lg-6">
+                <div className="border d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
                   <div>
                     <h1>{Totalinvested}</h1>
-                    Total Value Inv ested
+                    Total Value Invested
                   </div>
                 </div>
               </div>
@@ -136,6 +141,7 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
+    </div>
     </>
   )
 }
