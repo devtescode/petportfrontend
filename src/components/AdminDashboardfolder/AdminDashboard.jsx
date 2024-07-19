@@ -9,6 +9,7 @@ const AdminDashboard = () => {
   let navigate = useNavigate()
   const [admin, setadmin] = useState("")
   const [userCount, setUserCount] = useState(0);
+  const [totalBalance, setTotalBalance] = useState(0);
   let url = "http://localhost:5000/useranimalinvest/Admindb"
   useEffect(() => {
     axios.get(url, {
@@ -44,6 +45,19 @@ const AdminDashboard = () => {
       .catch(err => {
         console.log(err);
       });
+
+    axios.get('http://localhost:5000/useranimalinvest/totalbalance', {
+      headers: {
+        "Authorization": `Bearer ${admintoken}`,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      }
+    })
+      .then((response) => {
+        setTotalBalance(response.data.totalBalance);
+      }).catch(err => {
+        console.log(err);
+      });
   }, [admintoken, navigate])
 
   return (
@@ -67,8 +81,11 @@ const AdminDashboard = () => {
                     Users
                   </div>
                 </div>
-                <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
-                  Column
+                <div className="col border d-flex justify-content-center rounded-3 shadow-lg" style={{ alignItems: "center" }}>
+                  <div>
+                    <h1>₦{totalBalance}</h1>
+                    Total Balance
+                  </div>
                 </div>
                 <div className="col border d-flex justify-content-center rounded-3" style={{ alignItems: "center" }}>
                   Column
