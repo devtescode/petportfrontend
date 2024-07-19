@@ -23,6 +23,7 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
     useEffect(() => {
         if (user) {
             setFormData(user);
+            fetchUserHistory(user.Email);
         } else {
             setFormData({
                 Fullname: '',
@@ -91,6 +92,19 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
         }
     };
 
+    const fetchUserHistory = (email) => {
+        axios.post('http://localhost:5000/useranimalinvest/getHistory', { email })
+            .then(response => {
+                setFormData(prevData => ({
+                    ...prevData,
+                    history: response.data.history
+                }));
+            })
+            .catch(error => {
+                console.error('There was an error fetching the user history!', error);
+            });
+    };
+
     return (
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -154,6 +168,20 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
                                                 <option value="user">User</option>
                                                 <option value="admin">Admin</option>
                                             </select>
+                                        </div>
+                                        <div className=' my-2'>
+                                            <label className=''>History</label>
+                                            <div className='text-start'>
+                                            <ul>
+                                                    {formData.history.length > 0 ? formData.history.map((entry, index) => (
+                                                        <li key={index}>
+                                                            <strong>Date:</strong> {new Date(entry.investmentDate).toLocaleString()} <br />
+                                                            <strong>Product Name:</strong> {entry.productName} <br />
+                                                            <strong>Price:</strong> ₦{entry.productPrice}
+                                                        </li>
+                                                    )) : <li>No investment history available.</li>}
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
