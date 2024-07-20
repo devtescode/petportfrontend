@@ -79,7 +79,7 @@ const Adminsidebar = () => {
             </Offcanvas>
 
             {/* Sidebar for large screens */}
-            <div className="d-none d-lg-block position-fixed bg-light vh-100" style={{ width: '18%' }}>
+            <div className="d-none d-lg-block position-fixed bg-white vh-100 border border-1 border-light" style={{ width: '18%' }}>
                 <div className="fs-3">
                     <p>Admin Panel</p>
                 </div>
