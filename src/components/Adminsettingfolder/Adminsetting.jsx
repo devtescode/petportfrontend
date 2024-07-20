@@ -2,6 +2,7 @@ import React from 'react'
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar'
 
 const Adminsetting = () => {
+    
     return (
         <>
             <Adminsidebar />
