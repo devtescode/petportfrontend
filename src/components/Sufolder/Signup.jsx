@@ -50,6 +50,14 @@ const Signup = () => {
                         navigate("/login")
                     }
                 })
+                .catch(error => {
+                    console.error('There was an error occured', error);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "There was an error occured",
+                    });
+                });
             setTimeout(() => {
                 setLoading(false);
             }, 2000);
