@@ -19,6 +19,7 @@ import Adminregister from './components/Adminfolder/Adminregister'
 import AdminDashboard from './components/AdminDashboardfolder/AdminDashboard'
 import Notfound from './components/Pagenotfoundfolder/Notfound'
 import Adminuser from './components/Adminuserfolder/Adminuser'
+import Adminsetting from './components/Adminsettingfolder/Adminsetting'
 
 function App() {
 
@@ -70,6 +71,7 @@ function App() {
       <Route path='/adminreg' element={<Adminregister/>}/>
       <Route path='/admindb' element={<AdminDashboard/>}/>
       <Route path='/adminuser' element={<Adminuser/>}/>
+      <Route path='/adminsetting' element={<Adminsetting/>}/>
       <Route path='*' element={<Notfound/>}/>
       {/* <Route path='/*'  element={<AdminLayout/>}/> */}
             
