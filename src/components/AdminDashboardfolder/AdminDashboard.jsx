@@ -104,9 +104,9 @@ const AdminDashboard = () => {
             <div className='text-start fw-bold'>
               <p>Welcome back, {admin && admin?.Fullname}</p>
             </div>
-            <div className="row g-3" style={{height:"80vh"}}>
+            <div className="row g-4" style={{height:"80vh"}}>
               <div className="col-md-6 col-lg-6">
-                <div className="border d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100" >
+                <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100" >
                   <div>
                     <h1>{userCount}</h1>
                     Users
@@ -114,7 +114,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
               <div className="col-md-6 col-lg-6">
-                <div className="border d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
                   <div>
                     <h1>₦{totalBalance}</h1>
                     Total Balance
@@ -122,7 +122,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
               <div className="col-md-6 col-lg-6">
-                <div className="border d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
                   <div>
                     <h1>₦{totalAmountInvested}</h1>
                     Total Amount Invested
@@ -130,7 +130,7 @@ const AdminDashboard = () => {
                 </div>
               </div>
               <div className="col-md-6 col-lg-6">
-                <div className="border d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
                   <div>
                     <h1>{Totalinvested}</h1>
                     Total Value Invested
