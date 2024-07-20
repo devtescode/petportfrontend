@@ -32,33 +32,37 @@ const Signup = () => {
             setLoading(true);
             axios.post("http://localhost:5000/useranimalinvest/signin", { Email: values.Email, Password: values.Password })
                 .then((response) => {
-                    // alert(response.data.message)
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
                         text: response.data.message,
                     });
                     if (response.data.status === true) {
-                        // alert(response.data.message)
                         Swal.fire({
                             icon: "success",
                             title: "Success",
                             text: response.data.message,
                         });
-                        // navigate("/dashboard")
-
-                        // console.log(response.data.userData);
                         localStorage.setItem("UserData", JSON.stringify(response.data.userData));
                         localStorage.token = response.data.token
                         navigate("/dashboard")
                         localStorage.setItem("useradminlogin", true)
                     }
                 })
+                .catch(error => {
+                    console.error('There was an error occured', error);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "There was an error occured",
+                    });
+                });
             setTimeout(() => {
                 setLoading(false);
             }, 2000);
         }
     })
+    
 
   
     return (
