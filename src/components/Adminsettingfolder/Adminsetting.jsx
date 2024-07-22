@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar';
 import { useNavigate } from 'react-router';
@@ -9,6 +9,12 @@ const Adminsetting = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
 
+    useEffect(() => {
+        const admintoken = localStorage.getItem('admintoken');
+        if (!admintoken) {
+            navigate('/adminreg');
+        }
+    }, [navigate]);
     const handlePasswordChange = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -40,9 +46,12 @@ const Adminsetting = () => {
                     icon: 'success',
                     title: 'Success',
                     text: response.data.message,
-                });
-                navigate("/adminreg")
-                localStorage.removeItem("adminlogin")
+                })
+                
+                    localStorage.removeItem('admintoken');
+                    navigate("/adminreg")
+             
+               
 
             } else {
                 Swal.fire({
