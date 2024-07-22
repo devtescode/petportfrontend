@@ -50,7 +50,7 @@ const Adminregister = () => {
                 })
             setTimeout(() => {
                 setLoading(false);
-            }, 4000);
+            }, 2000);
         }
     })
    

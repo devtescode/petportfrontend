@@ -25,57 +25,57 @@ function App() {
 
   // const admintoken = localStorage.getItem('adminToken');
   // const AdminLayout = () => {
-    //   return (
-      //   <Routes>
-      //     <Route path='admin/' element={admintoken ? <Outlet/> : <Navigate to={'/adminreg'} />}>
-      //       <Route path="" element={<AdminDashboard/>} />
-      //     </Route>
-      //   </Routes>
-      //   )
-      // }
-      
-      
-      
-      let admintoken = localStorage.admintoken
+  //   return (
+  //   <Routes>
+  //     <Route path='admin/' element={admintoken ? <Outlet/> : <Navigate to={'/adminreg'} />}>
+  //       <Route path="" element={<AdminDashboard/>} />
+  //     </Route>
+  //   </Routes>
+  //   )
+  // }
+
+
+
+  let admintoken = localStorage.admintoken
   const DashboardLayout = () => {
     let token = localStorage.token
     return (
       <Routes>
-        <Route path='dashboard/' element={token ? <Outlet/> : <Navigate to={'/login'} />}>
+        <Route path='dashboard/' element={token ? <Outlet /> : <Navigate to={'/login'} />}>
           <Route path="" element={<Dashboard />} />
         </Route>
       </Routes>
     )
   }
 
-  
+
   return (
-    
+
     <>
-    <Routes>
-      <Route path='/' element={<Landingpage/>}/>
-      <Route path='/contact' element={<Contact/>}/>
-      <Route path='/signup' element={<Signup/>}/>
-      <Route path='/login' element={<Signin/>}/>
-      <Route  path='/*' element={<DashboardLayout/>}/>
-      <Route path='/product' element={<Product/>}/>
-      <Route path='/invest' element={<Invest/>}/>
-      <Route path="/view/:id" element={<View/>}/>
-      <Route path='/password' element={<Password/>}/>
-      <Route path='/profile' element={<Profile/>}/>
-      <Route path='/history' element={<History/>}/>
-      <Route path='/wallet' element={<Wallet/>}/>
-      <Route path='/emailpage' element={<Emailpage/>}/>
-      <Route path='/forgetpassword' element={<Forgetpassword/>}/>
-      <Route path='/investper' element={<Investperformance/>}/>
-      <Route path='/adminreg' element={<Adminregister/>}/>
-      <Route path='/admindb' element={<AdminDashboard/>}/>
-      <Route path='/adminuser' element={<Adminuser/>}/>
-      <Route path='/adminsetting' element={<Adminsetting/>}/>
-      <Route path='*' element={<Notfound/>}/>
-      {/* <Route path='/*'  element={<AdminLayout/>}/> */}
-            
-    </Routes>     
+      <Routes>
+        <Route path='/' element={<Landingpage />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Signin />} />
+        <Route path='/*' element={<DashboardLayout />} />
+        <Route path='/product' element={<Product />} />
+        <Route path='/invest' element={<Invest />} />
+        <Route path="/view/:id" element={<View />} />
+        <Route path='/password' element={<Password />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/history' element={<History />} />
+        <Route path='/wallet' element={<Wallet />} />
+        <Route path='/emailpage' element={<Emailpage />} />
+        <Route path='/forgetpassword' element={<Forgetpassword />} />
+        <Route path='/investper' element={<Investperformance />} />
+        <Route path='/adminreg' element={<Adminregister />} />
+        <Route path='/admindb' element={<AdminDashboard />} />
+        <Route path='/adminuser' element={<Adminuser />} />
+        <Route path='/adminsetting' element={<Adminsetting />} />
+        <Route path='*' element={<Notfound />} />
+        {/* <Route path='/*'  element={<AdminLayout/>}/> */}
+
+      </Routes>
     </>
   )
 }
