@@ -11,6 +11,7 @@ const Adminsidebar = () => {
     const navigate = useNavigate()
     const LogoutBtn = () => {
         navigate("/adminreg")
+        localStorage.removeItem('admintoken');     
     }
 
     const UserBtn = ()=>{

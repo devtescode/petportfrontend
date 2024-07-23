@@ -48,7 +48,7 @@ const Adminsetting = () => {
                     text: response.data.message,
                 })
                 
-                    localStorage.removeItem('admintoken');
+                    localStorage.removeItem('admintoken');      
                     navigate("/adminreg")
              
                

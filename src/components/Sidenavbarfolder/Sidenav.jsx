@@ -41,11 +41,14 @@ const Sidenav = () => {
   const LogoutBtn = () => {
     navigate("/login")
     localStorage.removeItem('image')
+    localStorage.removeItem('token')
   }
 
   const navigateToLogin = () => {
     navigate('/login');
     localStorage.removeItem('image')
+    localStorage.removeItem('token')
+
     hideOffcanvasMenu();
 
   };

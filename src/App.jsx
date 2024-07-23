@@ -35,6 +35,8 @@ function App() {
   // }
 
 
+  // const isAdmin = localStorage.getItem('admintoken'); 
+  // const isUser = localStorage.getItem('token');
 
   let admintoken = localStorage.admintoken
   const DashboardLayout = () => {
