@@ -25,6 +25,10 @@ const Adminsidebar = () => {
     const AdminsettingBtn = ()=>{
         navigate("/adminsetting")
     }
+    
+    const PlanBtn = ()=>{
+        navigate("/plan")
+    }
 
     function AdminPanelContent() {
         return (
@@ -40,6 +44,10 @@ const Adminsidebar = () => {
                 <Button onClick={AdminsettingBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
                 <i class="ri-settings-line"></i>
                     <span className='mx-1'>Setting</span>
+                </Button>
+                <Button onClick={PlanBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
+                <i class="ri-building-3-line"></i>
+                    <span className='mx-1'>Plan</span>
                 </Button>
                 <Button variant="outline-primary" className='d-flex align-items-center my-1'>
                     <i class="ri-profile-line"></i>

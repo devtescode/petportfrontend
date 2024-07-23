@@ -35,8 +35,6 @@ const Sidenav = () => {
     navigate('/login')
     localStorage.removeItem('image')
     hideOffcanvasMenu();
-
-
   }
   const LogoutBtn = () => {
     navigate("/login")
@@ -56,6 +54,10 @@ const Sidenav = () => {
   const profilerouting = () => {
     navigate('/profile')
     hideOffcanvasMenu();
+  }
+
+  const Productrouting2 = ()=>{
+    navigate("/userplan")
   }
 
   const passwordrouting = () => {
@@ -238,6 +240,14 @@ const Sidenav = () => {
                       </span>
                     </a>
                   </li>
+                  <li className=" nav-item my-2" onClick={Productrouting2}>
+                    <a >
+                      <i class="ri-product-hunt-line"></i>
+                      <span className="menu-title mx-2" data-i18n="">
+                        Product2
+                      </span>
+                    </a>
+                  </li>
                   <li className=" nav-item my-2" onClick={investmentrouting}>
                     <a >
                       <i class="ri-stock-line"></i>
@@ -365,6 +375,14 @@ const Sidenav = () => {
                 <i class="ri-product-hunt-line"></i>
                 <span className="menu-title" data-i18n="">
                   Product
+                </span>
+              </a>
+            </li>
+            <li className=" nav-ite" onClick={Productrouting2}>
+              <a >
+                <i class="ri-product-hunt-line"></i>
+                <span className="menu-title" data-i18n="">
+                  Product2
                 </span>
               </a>
             </li>

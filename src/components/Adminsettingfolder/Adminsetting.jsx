@@ -74,7 +74,6 @@ const Adminsetting = () => {
 
     return (
         <>
-            <Adminsidebar />
             <div className='Admindashboardcon'>
                 <div className='Adminparentdiv'>
                     <div className='Admininnerfirstdiv bg-light fw-bold'>
