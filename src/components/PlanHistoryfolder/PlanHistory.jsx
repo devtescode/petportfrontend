@@ -180,7 +180,7 @@ const PlanHistory = () => {
                                             <tr key={plan._id}>
                                                 <td>{index + 1}</td>
                                                 <td>{plan.name}</td>
-                                                <td>{plan.description}</td>
+                                                <td className='border'>{plan.description}</td>
                                                 <td>₦{plan.price}</td>
                                                 <td>
                                                     <button 

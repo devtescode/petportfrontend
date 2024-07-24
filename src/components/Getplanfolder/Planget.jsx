@@ -10,6 +10,7 @@ const Planget = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Function to fetch plans
         const fetchPlans = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/useranimalinvest/getuserplans');
@@ -20,12 +21,22 @@ const Planget = () => {
                 setLoading(false);
             }
         };
+
+        // Initial fetch
         fetchPlans();
+
+        // Set up polling
+        const intervalId = setInterval(() => {
+            fetchPlans();
+        }, 5000); // Poll every 5 seconds
+
+        // Clean up interval on component unmount
+        return () => clearInterval(intervalId);
     }, []);
 
     const handleInvestClick = (planId) => {
         navigate(`/view/${planId}`);
-    };  
+    };
 
     return (
         <>
