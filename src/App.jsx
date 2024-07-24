@@ -22,6 +22,7 @@ import Adminuser from './components/Adminuserfolder/Adminuser'
 import Adminsetting from './components/Adminsettingfolder/Adminsetting'
 import Plan from './components/Planfolder/Plan'
 import Planget from './components/Getplanfolder/Planget'
+import PlanHistory from './components/PlanHistoryfolder/PlanHistory'
 
 function App() {
 
@@ -78,6 +79,7 @@ function App() {
         <Route path='/adminsetting' element={<Adminsetting />} />
        <Route path='/plan' element={<Plan/>}/>
        <Route path='/userplan' element={<Planget/>}/>
+       <Route path='/planhistory' element={<PlanHistory/>}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 

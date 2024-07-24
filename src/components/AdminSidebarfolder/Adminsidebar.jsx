@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Offcanvas, Button, Navbar, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
+import './AdminSidebar.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'remixicon/fonts/remixicon.css';
 
@@ -11,56 +12,66 @@ const Adminsidebar = () => {
     const navigate = useNavigate()
     const LogoutBtn = () => {
         navigate("/adminreg")
-        localStorage.removeItem('admintoken');     
+        localStorage.removeItem('admintoken');
     }
 
-    const UserBtn = ()=>{
+    const UserBtn = () => {
         navigate("/adminuser")
     }
 
-    const Adminhome =()=>{
+    const Adminhome = () => {
         navigate("/admindb")
     }
 
-    const AdminsettingBtn = ()=>{
+    const AdminsettingBtn = () => {
         navigate("/adminsetting")
     }
-    
-    const PlanBtn = ()=>{
+
+    const PlanBtn = () => {
         navigate("/plan")
+    }
+
+    const PlanHistoryBtn = () => {
+        navigate("/planhistory")
     }
 
     function AdminPanelContent() {
         return (
-            <div className='d-flex flex-column fs-3 p-3'>
-                <Button onClick={Adminhome} variant="outline-primary" className='d-flex align-items-center my-1'>
-                    <i className="ri-home-line"></i>
-                    <span className='mx-1'>Home</span>
-                </Button>
-                <Button onClick={UserBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
-                <i class="ri-profile-line"></i>
-                    <span className='mx-1'>User</span>
-                </Button>
-                <Button onClick={AdminsettingBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
-                <i class="ri-settings-line"></i>
-                    <span className='mx-1'>Setting</span>
-                </Button>
-                <Button onClick={PlanBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
-                <i class="ri-building-3-line"></i>
-                    <span className='mx-1'>Plan</span>
-                </Button>
-                <Button variant="outline-primary" className='d-flex align-items-center my-1'>
-                    <i class="ri-profile-line"></i>
-                    <span className='mx-1'>profile</span>
-                </Button>
-                <Button variant="outline-primary" className='d-flex align-items-center my-1'>
-                    <i class="ri-notification-line"></i>
-                    <span className='mx-1'>Notificaion</span>
-                </Button>
-                <Button variant="outline-primary" className='d-flex align-items-center my-1' onClick={LogoutBtn}>
-                    <i class="ri-logout-box-r-line"></i>
-                    <span className='mx-1'>Log-out</span>
-                </Button>
+            <div className='sidebar-container'>
+                <div className='sidebar-content d-flex flex-column fs-3 p-3'>
+                    <Button onClick={Adminhome} variant="outline-primary" className='d-flex align-items-center my-1'>
+                        <i className="ri-home-line"></i>
+                        <span className='mx-1'>Home</span>
+                    </Button>
+                    <Button onClick={UserBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
+                        <i className="ri-profile-line"></i>
+                        <span className='mx-1'>User</span>
+                    </Button>
+                    <Button onClick={AdminsettingBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
+                        <i className="ri-settings-line"></i>
+                        <span className='mx-1'>Setting</span>
+                    </Button>
+                    <Button onClick={PlanBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
+                        <i className="ri-building-3-line"></i>
+                        <span className='mx-1'>Plan</span>
+                    </Button>
+                    <Button onClick={PlanHistoryBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
+                        <i className="ri-history-line"></i>
+                        <span className='mx-1'>Plan History</span>
+                    </Button>
+                    <Button variant="outline-primary" className='d-flex align-items-center my-1'>
+                        <i className="ri-profile-line"></i>
+                        <span className='mx-1'>Profile</span>
+                    </Button>
+                    <Button variant="outline-primary" className='d-flex align-items-center my-1'>
+                        <i className="ri-notification-line"></i>
+                        <span className='mx-1'>Notification</span>
+                    </Button>
+                    <Button variant="outline-primary" className='d-flex align-items-center my-1' onClick={LogoutBtn}>
+                        <i className="ri-logout-box-r-line"></i>
+                        <span className='mx-1'>Log-out</span>
+                    </Button>
+                </div>
             </div>
 
         );
@@ -69,7 +80,7 @@ const Adminsidebar = () => {
     return (
         <>
             {/* Navbar for small screens */}
-            <Navbar bg="light" expand="lg" className="d-lg-none">
+            <Navbar bg="" expand="lg" className="d-lg-none">
                 <Container fluid>
                     <Button variant="primary" onClick={handleShow}>
                         Open
