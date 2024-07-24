@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar';
 import axios from 'axios';
-
+import './Plan.css';
 const Plan = () => {
     const [planName, setPlanName] = useState('');
     const [planDescription, setPlanDescription] = useState('');
     const [planPrice, setPlanPrice] = useState('');
+    const [file, setFile] = useState('');
     const [loading, setLoading] = useState(false);
 
     const handleCreatePlan = async (e) => {
@@ -17,6 +18,7 @@ const Plan = () => {
                 name: planName,
                 description: planDescription,
                 price: planPrice,
+                file
             });
 
             if (response.data.success) {
@@ -28,6 +30,7 @@ const Plan = () => {
                 setPlanName('');
                 setPlanDescription('');
                 setPlanPrice('');
+                setFile('');
             } else {
                 Swal.fire({
                     icon: 'error',
@@ -47,6 +50,15 @@ const Plan = () => {
         setLoading(false);
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            setFile(reader.result);
+        };
+    };
+
     return (
         <>
             <div className='Admindashboardcon'>
@@ -56,18 +68,18 @@ const Plan = () => {
                             <Adminsidebar />
                         </div>
                     </div>
-                    <div className='Admininnerseconddiv shadow-lg'>
-                        <div>
-                            <div className='text-center'>
-                                <h1>Create Plan</h1>
-                            </div>
-                            <div className='border border-1 border-light rounded-3 h-100 p-4 w-75 mx-auto row'>
+                    <div className='Admininnerseconddiv'>
+                        <div className='admin-content bg-light'>
+                            <div className='plan-form-container shadow-lg p-4'>
+                                <div className='text-center mb-4'>
+                                    <h1>Create Plan</h1>
+                                </div>
                                 <form onSubmit={handleCreatePlan}>
                                     <div className='mb-3'>
                                         <label className='form-label'>Plan Name</label>
                                         <input
                                             type='text'
-                                            className='form-control p-2 '
+                                            className='form-control'
                                             value={planName}
                                             onChange={(e) => setPlanName(e.target.value)}
                                             required
@@ -86,10 +98,18 @@ const Plan = () => {
                                         <label className='form-label'>Plan Price</label>
                                         <input
                                             type='number'
-                                            className='form-control p-2             '
+                                            className='form-control'
                                             value={planPrice}
                                             onChange={(e) => setPlanPrice(e.target.value)}
                                             required
+                                        />
+                                    </div>
+                                    <div className='mb-3'>
+                                        <label className='form-label'>Plan Image</label>
+                                        <input
+                                            type='file'
+                                            className='form-control'
+                                            onChange={handleFileChange}
                                         />
                                     </div>
                                     <div className='text-center'>
@@ -105,6 +125,6 @@ const Plan = () => {
             </div>
         </>
     );
-}
+};
 
 export default Plan;

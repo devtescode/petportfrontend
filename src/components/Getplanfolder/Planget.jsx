@@ -1,13 +1,12 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 
 const Planget = () => {
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-
 
     useEffect(() => {
         const fetchPlans = async () => {
@@ -22,6 +21,7 @@ const Planget = () => {
         };
         fetchPlans();
     }, []);
+
     const handleInvestClick = (planId) => {
         navigate(`/view/${planId}`);
     };
@@ -39,6 +39,9 @@ const Planget = () => {
                             plans.map(plan => (
                                 <div key={plan._id} className="col-md-4">
                                     <div className="card">
+                                        {plan.image && (
+                                            <img src={plan.image} className="card-img-top" alt={plan.name} />
+                                        )}
                                         <div className="card-body">
                                             <h3 className="card-title">{plan.name}</h3>
                                             <p className="card-text">{plan.description}</p>
@@ -53,7 +56,7 @@ const Planget = () => {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default Planget
+export default Planget;
