@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
+import './planget.css'; // Import the CSS file
 
 const Planget = () => {
     const [plans, setPlans] = useState([]);
@@ -41,9 +42,9 @@ const Planget = () => {
                             ) : (
                                 plans.map(plan => (
                                     <div key={plan._id} className="col-md-4">
-                                        <div className="card">
+                                        <div className="card mb-4">
                                             {plan.image && (
-                                                <img src={plan.image} className="card-img-top" alt={plan.name} />
+                                                <img src={plan.image} className="card-img-top border" alt={plan.name} />
                                             )}
                                             <div className="card-body">
                                                 <h3 className="card-title">{plan.name}</h3>
@@ -59,7 +60,6 @@ const Planget = () => {
                     </div>
                 </div>
             </div>
-
         </>
     );
 }
