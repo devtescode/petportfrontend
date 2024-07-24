@@ -7,7 +7,6 @@ const PlanHistory = () => {
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPlan, setCurrentPlan] = useState(null);
-    const [showModal, setShowModal] = useState(false);
     const [formValues, setFormValues] = useState({
         name: '',
         description: '',
@@ -94,11 +93,13 @@ const PlanHistory = () => {
             price: plan.price,
             image: plan.image || '' // Assuming image is a URL or empty string
         });
-        setShowModal(true);
+        const modal = new bootstrap.Modal(document.getElementById('editPlanModal'));
+        modal.show();
     };
 
     const handleModalClose = () => {
-        setShowModal(false);
+        const modal = bootstrap.Modal.getInstance(document.getElementById('editPlanModal'));
+        modal.hide();
         setCurrentPlan(null);
     };
 
@@ -167,6 +168,7 @@ const PlanHistory = () => {
                                 <table className='table table-striped'>
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Name</th>
                                             <th>Description</th>
                                             <th>Price</th>
@@ -174,11 +176,12 @@ const PlanHistory = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {plans.map((plan) => (
+                                        {plans.map((plan, index) => (
                                             <tr key={plan._id}>
+                                                <td>{index + 1}</td>
                                                 <td>{plan.name}</td>
                                                 <td>{plan.description}</td>
-                                                <td>{plan.price}</td>
+                                                <td>₦{plan.price}</td>
                                                 <td>
                                                     <button 
                                                         className='btn btn-warning mx-1' 
@@ -202,7 +205,7 @@ const PlanHistory = () => {
             </div>
 
             {/* Edit Plan Modal */}
-            <div className={`modal fade ${showModal ? 'show d-block' : ''}`} tabIndex="-1" aria-labelledby="editPlanModalLabel" aria-hidden={!showModal}>
+            <div className="modal fade" id="editPlanModal" tabIndex="-1" aria-labelledby="editPlanModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
