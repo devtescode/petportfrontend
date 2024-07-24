@@ -2,9 +2,18 @@ import React, { useState, useEffect } from 'react';
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar';
 import axios from 'axios';
 import './PlanHistory.css'; 
+
 const PlanHistory = () => {
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [currentPlan, setCurrentPlan] = useState(null);
+    const [showModal, setShowModal] = useState(false);
+    const [formValues, setFormValues] = useState({
+        name: '',
+        description: '',
+        price: '',
+        image: ''
+    });
 
     useEffect(() => {
         fetchPlans();
@@ -35,37 +44,103 @@ const PlanHistory = () => {
     };
 
     const handleDelete = async (id) => {
-        setLoading(true);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                setLoading(true);
+                try {
+                    const response = await axios.delete(`http://localhost:5000/useranimalinvest/adminplansdelect/${id}`);
+                    if (response.data.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Deleted',
+                            text: 'Plan deleted successfully',
+                        });
+                        // Refresh the plans list
+                        const updatedPlans = plans.filter(plan => plan._id !== id);
+                        setPlans(updatedPlans);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Failed to delete plan',
+                        });
+                    }
+                } catch (err) {
+                    console.error('There was an error deleting the plan!', err);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'An error occurred while deleting the plan.',
+                    });
+                }
+                setLoading(false);
+            }
+        });
+    };
+
+    const handleEdit = (plan) => {
+        setCurrentPlan(plan);
+        setFormValues({
+            name: plan.name,
+            description: plan.description,
+            price: plan.price,
+            image: plan.image || '' // Assuming image is a URL or empty string
+        });
+        setShowModal(true);
+    };
+
+    const handleModalClose = () => {
+        setShowModal(false);
+        setCurrentPlan(null);
+    };
+
+    const handleFormChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({
+            ...formValues,
+            [name]: value
+        });
+    };
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
         try {
-            const response = await axios.delete(`http://localhost:5000/useranimalinvest/adminplansdelect/${id}`);
+            const response = await axios.put(`http://localhost:5000/useranimalinvest/updateplan/${currentPlan._id}`, formValues);
             if (response.data.success) {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Deleted',
-                    text: 'Plan deleted successfully',
+                    title: 'Success',
+                    text: 'Plan updated successfully',
                 });
-                fetchPlans(); // Refresh the plans list
+                // Refresh the plans list
+                const updatedPlans = plans.map(plan =>
+                    plan._id === currentPlan._id ? { ...plan, ...formValues } : plan
+                );
+                setPlans(updatedPlans);
+                handleModalClose();
             } else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Failed to delete plan',
+                    text: 'Failed to update plan',
                 });
             }
-        } catch (err) {
-            console.error('There was an error deleting the plan!', err);
+        } catch (error) {
+            console.error('There was an error updating the plan!', error);
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'An error occurred while deleting the plan.',
+                text: 'An error occurred while updating the plan.',
             });
         }
-        setLoading(false);
-    };
-
-    const handleEdit = (id) => {
-        // Implement edit functionality here
-        console.log(`Edit plan with ID: ${id}`);
     };
 
     return (
@@ -107,7 +182,7 @@ const PlanHistory = () => {
                                                 <td>
                                                     <button 
                                                         className='btn btn-warning mx-1' 
-                                                        onClick={() => handleEdit(plan._id)}>
+                                                        onClick={() => handleEdit(plan)}>
                                                         Edit
                                                     </button>
                                                     <button 
@@ -122,6 +197,72 @@ const PlanHistory = () => {
                                 </table>
                             )}
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Edit Plan Modal */}
+            <div className={`modal fade ${showModal ? 'show d-block' : ''}`} tabIndex="-1" aria-labelledby="editPlanModalLabel" aria-hidden={!showModal}>
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="editPlanModalLabel">Edit Plan</h5>
+                            <button type="button" className="btn-close" onClick={handleModalClose}></button>
+                        </div>
+                        <form onSubmit={handleFormSubmit}>
+                            <div className="modal-body">
+                                <div className="mb-3">
+                                    <label htmlFor="name" className="form-label">Plan Name</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="name"
+                                        name="name"
+                                        value={formValues.name}
+                                        onChange={handleFormChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="description" className="form-label">Description</label>
+                                    <textarea
+                                        className="form-control"
+                                        id="description"
+                                        name="description"
+                                        value={formValues.description}
+                                        onChange={handleFormChange}
+                                        required
+                                    ></textarea>
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="price" className="form-label">Price</label>
+                                    <input
+                                        type="number"
+                                        className="form-control"
+                                        id="price"
+                                        name="price"
+                                        value={formValues.price}
+                                        onChange={handleFormChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="image" className="form-label">Image URL</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="image"
+                                        name="image"
+                                        value={formValues.image}
+                                        onChange={handleFormChange}
+                                    />
+                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" onClick={handleModalClose}>Close</button>
+                                <button type="submit" className="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

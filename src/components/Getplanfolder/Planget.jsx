@@ -25,7 +25,7 @@ const Planget = () => {
 
     const handleInvestClick = (planId) => {
         navigate(`/view/${planId}`);
-    };
+    };  
 
     return (
         <>
@@ -44,7 +44,7 @@ const Planget = () => {
                                     <div key={plan._id} className="col-md-4">
                                         <div className="card mb-4">
                                             {plan.image && (
-                                                <img src={plan.image} className="card-img-top border" alt={plan.name} />
+                                                <img src={plan.image} className="card-img-top" alt={plan.name} />
                                             )}
                                             <div className="card-body">
                                                 <h3 className="card-title">{plan.name}</h3>
