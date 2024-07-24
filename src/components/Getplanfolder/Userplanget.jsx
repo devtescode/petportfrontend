@@ -2,15 +2,14 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
-import './planget.css'; // Import the CSS file
+import './planget.css';
 
-const Planget = () => {
+const Userplanget = () => {
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Function to fetch plans
         const fetchPlans = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/useranimalinvest/getuserplans');
@@ -22,20 +21,15 @@ const Planget = () => {
             }
         };
 
-        // Initial fetch
         fetchPlans();
-
-        // Set up polling
         const intervalId = setInterval(() => {
             fetchPlans();
-        }, 5000); // Poll every 5 seconds
-
-        // Clean up interval on component unmount
+        }, 5000); 
         return () => clearInterval(intervalId);
-    }, []);
+    }, []); 
 
     const handleInvestClick = (planId) => {
-        navigate(`/view/${planId}`);
+        navigate(`/userview/${planId}`);
     };
 
     return (
@@ -75,4 +69,4 @@ const Planget = () => {
     );
 }
 
-export default Planget;
+export default Userplanget;

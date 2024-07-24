@@ -21,8 +21,9 @@ import Notfound from './components/Pagenotfoundfolder/Notfound'
 import Adminuser from './components/Adminuserfolder/Adminuser'
 import Adminsetting from './components/Adminsettingfolder/Adminsetting'
 import Plan from './components/Planfolder/Plan'
-import Planget from './components/Getplanfolder/Planget'
+import Planget from './components/Getplanfolder/Userplanget'
 import PlanHistory from './components/PlanHistoryfolder/PlanHistory'
+import Userview from './components/Planviewfolder/Userview'
 
 function App() {
 
@@ -77,9 +78,10 @@ function App() {
         <Route path='/admindb' element={<AdminDashboard />} />
         <Route path='/adminuser' element={<Adminuser />} />
         <Route path='/adminsetting' element={<Adminsetting />} />
-       <Route path='/plan' element={<Plan/>}/>
-       <Route path='/userplan' element={<Planget/>}/>
-       <Route path='/planhistory' element={<PlanHistory/>}/>
+        <Route path='/plan' element={<Plan />} />
+        <Route path='/userplan' element={<Planget />} />
+        <Route path='/planhistory' element={<PlanHistory />} />
+        <Route path='/userview/:id' element={<Userview/>}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 
