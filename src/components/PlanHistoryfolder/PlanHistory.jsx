@@ -258,6 +258,7 @@ const PlanHistory = () => {
                                         name="image"
                                         value={formValues.image}
                                         onChange={handleFormChange}
+                                        disabled
                                     />
                                 </div>
                             </div>

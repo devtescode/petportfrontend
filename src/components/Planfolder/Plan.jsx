@@ -110,6 +110,7 @@ const Plan = () => {
                                             type='file'
                                             className='form-control'
                                             onChange={handleFileChange}
+                                            
                                         />
                                     </div>
                                     <div className='text-center'>

@@ -18,7 +18,7 @@ const Adminregister = () => {
             password: "",
         },
         validationSchema: Yup.object({
-            Email: Yup.string()
+            Email: Yup.string()         
                 .required('Required'),
             password: Yup.string()
                 .required('Required'),
