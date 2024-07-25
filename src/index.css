@@ -166,7 +166,20 @@ input:focus~.input-border1 {
 }
 
 @media (max-width:688px) {
-  
+  .eachDiv{
+    width: 100%;
+  }
+  .eachDiv2{
+    display: none;
+  }
+  .AdminInner{
+    background-color: white;
+    display: block;
+    width: 100% !important;
+    margin: auto;
+    height: 80%;
+    align-items: center;
+  }
   .mymaileachdiv2 {
       width: 100% !important; 
       border: none;
