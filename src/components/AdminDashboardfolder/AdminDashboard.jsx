@@ -75,7 +75,7 @@ const AdminDashboard = () => {
         console.log(err);
       });
 
-      
+
     axios.get('http://localhost:5000/useranimalinvest/Totalinvest', {
       headers: {
         "Authorization": `Bearer ${admintoken}`,
@@ -89,51 +89,52 @@ const AdminDashboard = () => {
         console.log(err);
       });
 
-      
+
   }, [admintoken, navigate])
 
   return (
     <>
-    <div className='Admindashboardcon'>
-      <div className='Adminparentdiv'>
-        <div className='Admininnerfirstdiv bg-light fw-bold'>
-          <Adminsidebar />
-        </div>
-        <div className='Admininnerseconddiv' >
-          <div className="container text-center p-5 shadow-lg">
-            <div className='text-start fw-bold'>
-              <p>Welcome back, {admin && admin?.Fullname}</p>
-            </div>
-            <div className="row g-4" style={{height:"80vh"}}>
-              <div className="col-md-6 col-lg-6">
-                <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100" >
-                  <div>
-                    <h1>{userCount}</h1>
-                    Users
+      <div className='Admindashboardcon'>
+        <div className='Adminparentdiv'>
+          <div className='Admininnerfirstdiv bg-light fw-bold'>
+            <Adminsidebar />
+          </div>
+          <div className='Admininnerseconddiv' >
+            <div className="container text-center p-5 shadow-lg">
+              <div className='text-start fw-bold'>
+                <p>Welcome back, {admin && admin?.Fullname}</p>
+              </div>
+              <div className="row g-4" style={{ height: "80vh" }}>
+                <div className="col-md-6 col-lg-6">
+                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100" >
+                    <div>
+                      <h1>{userCount}</h1>
+                       Users
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-6 col-lg-6">
-                <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
-                  <div>
-                    <h1>₦{totalBalance}</h1>
-                    Total Balance
+                <div className="col-md-6 col-lg-6">
+                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                    <div>
+                      <h1>₦{totalBalance}</h1>
+                      Total users Balance
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-6 col-lg-6">
-                <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
-                  <div>
-                    <h1>₦{totalAmountInvested}</h1>
-                    Total Amount Invested
+                <div className="col-md-6 col-lg-6">
+                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                    <div>
+                      <h1>₦{totalAmountInvested}</h1>
+                      Total Amount Invested
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="col-md-6 col-lg-6">
-                <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
-                  <div>
-                    <h1>{Totalinvested}</h1>
-                    Total Value Invested
+                <div className="col-md-6 col-lg-6">
+                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                    <div>
+                      <h1>{Totalinvested}</h1>
+                      Total Value Invested
+                    </div>
                   </div>
                 </div>
               </div>
@@ -141,7 +142,6 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
-    </div>
     </>
   )
 }
