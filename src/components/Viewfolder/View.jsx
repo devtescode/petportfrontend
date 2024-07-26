@@ -42,7 +42,7 @@ const View = () => {
 
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <p className='text-center'>Loading...</p>;
     }
     const handleInvestNow = async () => {
         const url = 'http://localhost:5000/useranimalinvest/investnow';

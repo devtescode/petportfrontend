@@ -26,11 +26,11 @@ const Sidenav = () => {
     hideOffcanvasMenu();
 
   }
-  const investmentrouting = () => {
-    navigate(`/invest`)
-    hideOffcanvasMenu();
+  // const investmentrouting = () => {
+  //   navigate(`/invest`)
+  //   hideOffcanvasMenu();
+  // }
 
-  }
   const Logoutbtn = () => {
     navigate('/login')
     localStorage.removeItem('image')
@@ -46,7 +46,6 @@ const Sidenav = () => {
     navigate('/login');
     localStorage.removeItem('image')
     localStorage.removeItem('token')
-
     hideOffcanvasMenu();
 
   };
@@ -56,8 +55,9 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
-  const Productrouting2 = ()=>{
+  const Productrouting2 = () => {
     navigate("/userplan")
+    hideOffcanvasMenu();
   }
 
   const passwordrouting = () => {
@@ -99,7 +99,7 @@ const Sidenav = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const adminBtnPage = ()=>{
+  const adminBtnPage = () => {
     navigate('/adminreg')
     hideOffcanvasMenu();
   }
@@ -232,30 +232,31 @@ const Sidenav = () => {
                       </span>
                     </a>
                   </li>
-                  <li className=" nav-item my-2" onClick={Productrouting}>
+                  {/* <li className=" nav-item my-2" onClick={Productrouting}>
                     <a >
                       <i class="ri-product-hunt-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
-                        Product
+                        Investment
                       </span>
                     </a>
-                  </li>
+                  </li> */}
                   <li className=" nav-item my-2" onClick={Productrouting2}>
                     <a >
                       <i class="ri-product-hunt-line"></i>
-                      <span className="menu-title mx-2" data-i18n="">
-                        Product2
-                      </span>
-                    </a>
-                  </li>
-                  <li className=" nav-item my-2" onClick={investmentrouting}>
-                    <a >
-                      <i class="ri-stock-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
                         Investment
                       </span>
                     </a>
                   </li>
+                  {/* <li className=" nav-item my-2" onClick={investmentrouting}>
+                    <a >
+                      <i class="ri-stock-line"></i>
+                      <span className="menu-title mx-2" data-i18n="">
+                        
+                      </span>
+                    </a>
+                  </li> */}
+
                   <li className="nav-item my-2" onClick={walletrouting}>
                     <a >
                       <i class="ri-wallet-line"></i>
@@ -370,30 +371,31 @@ const Sidenav = () => {
                 </span>
               </a>
             </li>
-            <li className=" nav-ite" onClick={Productrouting}>
+            {/* <li className=" nav-ite" onClick={Productrouting}>
               <a >
                 <i class="ri-product-hunt-line"></i>
                 <span className="menu-title" data-i18n="">
-                  Product
+                  Investment
                 </span>
               </a>
-            </li>
+            </li> */}
             <li className=" nav-ite" onClick={Productrouting2}>
               <a >
                 <i class="ri-product-hunt-line"></i>
-                <span className="menu-title" data-i18n="">
-                  Product2
-                </span>
-              </a>
-            </li>
-            <li className=" nav-ite" onClick={investmentrouting}>
-              <a >
-                <i class="ri-stock-line"></i>
                 <span className="menu-title" data-i18n="">
                   Investment
                 </span>
               </a>
             </li>
+            {/* <li className=" nav-ite" onClick={investmentrouting}>
+              <a >
+                <i class="ri-stock-line"></i>
+                <span className="menu-title" data-i18n="">
+                   comment out
+                </span>
+              </a>
+            </li> */}
+
             <li className=" nav-item" onClick={walletrouting}>
               <a >
                 <i class="ri-wallet-line"></i>
@@ -438,10 +440,10 @@ const Sidenav = () => {
                   </p>
                   <div class="collapse" id="collapseExample">
                     <div class="card card-body border border-white w-100">
-                     
+
                       <div>
                         <button className='btn btn-dark my-1' onClick={adminBtnPage}>
-                          Login  
+                          Login
                         </button>
                       </div>
                     </div>

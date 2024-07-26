@@ -13,7 +13,7 @@ const View = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState(null);  // Ensure this is null initially
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -46,7 +46,8 @@ const View = () => {
         const url = 'http://localhost:5000/useranimalinvest/planinvestnow';
         const postUser = {
             planId: id,
-            email: user.email
+            email: user.email,
+            productImage: product.image // Include product image
         };
 
         try {
