@@ -132,7 +132,7 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
                                         </div>
                                         <div>
                                             <label>Password</label>
-                                            <input type="password" name="Password" className='form-control' value={formData.Password} onChange={handleChange} required />
+                                            <input type="password" name="Password" className='form-control' disabled value={formData.Password} onChange={handleChange} required />
                                         </div>
                                         <div>
                                             <label>Balance</label>
@@ -140,7 +140,7 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
                                         </div>
                                         <div>
                                             <label>Upload Image</label>
-                                            <input type="text" name="Uploadimg" className='form-control' value={formData.Uploadimg} onChange={handleChange} />
+                                            <input type="text" disabled name="Uploadimg" className='form-control' value={formData.Uploadimg} onChange={handleChange} />
                                         </div>
                                         <div>
                                             <label>Total Invest</label>

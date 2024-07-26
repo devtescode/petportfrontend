@@ -17,36 +17,73 @@ import InvestmentPerformance from '../InvestmentPerfolder/Investperformance.jsx'
 // ../theme-assets/images/portrait/small/avatar-s-19.png
 
 const Dashboard = () => {
-  let url = "http://localhost:5000/useranimalinvest/dashboard"
-  const navigate = useNavigate()
+  // let url = "http://localhost:5000/useranimalinvest/dashboard"
+  // const navigate = useNavigate()
+  // const toggleDropdown = () => {
+  //   let dropdownContent = document.getElementById("dropdownContent");
+  //   dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
+  // }
+  // const [user, setUser] = useState("")
+  // useEffect(() => {
+  //   let token = localStorage.token
+  //   axios.get(url, {
+  //     headers: {
+  //       "Authorization": `Bearers ${token}`,
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (!localStorage.useradminlogin || response.data.status == false) {
+  //         navigate("/login");
+  //       }
+  //       else {
+  //         setUser(response.data.user)
+  //         localStorage.setItem('image', response.data.user.Uploadimg)
+  //         console.log(response.data.user);
+  //       }
+  //     })
+  // }, []) 
+
+  let url = "http://localhost:5000/useranimalinvest/dashboard";
+  const navigate = useNavigate();
+  const [user, setUser] = useState("");
+  const [totalInvestment, setTotalInvestment] = useState(0);
+  const [investmentCount, setInvestmentCount] = useState(0);
+  const [uniqueProductCount, setUniqueProductCount] = useState(0);
+
   const toggleDropdown = () => {
     let dropdownContent = document.getElementById("dropdownContent");
     dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
-  }
-  const [user, setUser] = useState("")
+  };
+
   useEffect(() => {
-    let token = localStorage.token
+    let token = localStorage.token;
     axios.get(url, {
       headers: {
-        "Authorization": `Bearers ${token}`,
+        "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
-      .then((response) => {
-        if (!localStorage.useradminlogin || response.data.status == false) {
-          navigate("/login");
-        }
-        else {
-          setUser(response.data.user)
-          localStorage.setItem('image', response.data.user.Uploadimg)
-          console.log(response.data.user);
-        }
-      })
-  }, [])
+    .then((response) => {
+      if (!localStorage.useradminlogin || response.data.status === false) {
+        navigate("/login");
+      } else {
+        setUser(response.data.user);
+        setTotalInvestment(response.data.user.Totalinvest);
+        setInvestmentCount(response.data.user.Amountinvest);
+        setUniqueProductCount(response.data.user.uniqueProductCount);
+        localStorage.setItem('image', response.data.user.Uploadimg);
+        console.log(response.data.user);
+      }
+    }).catch(err => {
+      console.log(err);
+    });
+  }, [navigate]);
 
 
-  
+
 
 
   return (
@@ -93,7 +130,8 @@ const Dashboard = () => {
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted danger position-absolute p-1">
-                      Total Investment
+                      <h5 className="card-title">Total Number Invested</h5>
+                      
                     </h5>
                     <div>
                       <i className="ft-pie-chart danger font-large-1 float-right p-1" />
@@ -105,8 +143,8 @@ const Dashboard = () => {
                         className="progress-stats-shadow"
                       />
                       <div className='text-center mt-4'>
-
-                      <h1>{user.Totalinvest}</h1>
+                        {/* <h1 className="card-text"> {uniqueProductCount}</h1> */}
+                        <h1 className="card-text"> {investmentCount}</h1>
                       </div>
                     </div>
                   </div>
@@ -135,7 +173,7 @@ const Dashboard = () => {
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted warning position-absolute p-1">
-                    Total Amount Investment
+                      Total Amount Investment
                     </h5>
                     <div>
                       <i className="ft-shopping-cart warning font-large-1 float-right p-1" />
@@ -143,7 +181,8 @@ const Dashboard = () => {
                     <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                       <div id="progress-stats-bar-chart2" />
                       <div className='text-center mt-4'>
-                        <h1>₦{user.Amountinvest}</h1>
+                        {/* <h1>₦{user.Amountinvest}</h1> */}
+                        <h1 className="card-text">₦{totalInvestment}</h1>
                       </div>
                       <div
                         id="progress-stats-line-chart2"
@@ -154,8 +193,8 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-         
-         
+
+
             <div className="row match-height">
               {/* <div className="col-xl-4 col-lg-12">
                 <div className="card">
@@ -483,7 +522,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-      <InvestmentPerformance/>
+        <InvestmentPerformance />
       </div>
     </>
 
