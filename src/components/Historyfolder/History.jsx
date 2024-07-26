@@ -89,7 +89,7 @@ const History = () => {
                                             <td>{time(investment.investmentDate)}</td>
                                             <td>
                                                 <button className='btn btn-primary' onClick={() => handleShowModal(investment)}>
-                                                    Show
+                                                <i class="ri-file-image-line"></i>
                                                 </button>
                                             </td>
                                         </tr>
