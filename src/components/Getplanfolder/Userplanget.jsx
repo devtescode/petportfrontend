@@ -20,7 +20,6 @@ const Userplanget = () => {
                 setLoading(false);
             }
         };
-
         fetchPlans();
         const intervalId = setInterval(() => {
             fetchPlans();

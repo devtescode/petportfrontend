@@ -14,6 +14,7 @@ const View = () => {
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
+    const [investmentPeriod, setInvestmentPeriod] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -39,15 +40,21 @@ const View = () => {
     }, [navigate]);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <p className='text-center'>Loading...</p>;
     }
 
     const handleInvestNow = async () => {
+        if (!investmentPeriod) {
+            alert('Please select an investment period.');
+            return;
+        }
+
         const url = 'http://localhost:5000/useranimalinvest/planinvestnow';
         const postUser = {
             planId: id,
             email: user.email,
-            productImage: product.image // Include product image
+            productImage: product.image,
+            investmentPeriod
         };
 
         try {
@@ -75,19 +82,33 @@ const View = () => {
             <Sidenav />
             <div className="alldivcontainers d-flex shadow-lg" style={{ alignItems: 'center' }}>
                 <div className="container bg-white col-md-6 rounded-3 p-1 p-sm-2" style={{ alignItems: 'center' }}>
-                    <h2>{product.name}</h2>
-                    <img src={product.image} alt={product.name} className="card-img-top mx-auto d-block col-6 bg-dark" />
+                    <h2 className=''>{product.name}</h2>
+                    <img src={product.image} alt={product.name} className="card-img-top mx-auto d-block col-12" />
                     <div className="mt-2 text-center">
                         <p>{product.description}</p>
                         <p>Price: ₦{product.price}</p>
                     </div>
-                    <div className="justify-content-center d-flex">
-                        <button style={{ backgroundColor: '#FA7179' }} className="btn btn-primary text-white justify-content-center" onClick={handleInvestNow}>Invest Now</button>
+                    <select
+                        name="investmentPeriod"
+                        id="investmentPeriod"
+                        className='form-control my-2'
+                        value={investmentPeriod}
+                        onChange={(e) => setInvestmentPeriod(e.target.value)}
+                    >
+                        <option value="">Select Investment Period</option>
+                        <option value='3-month'>3-month: ₦{product.investmentPeriods['3-month']}</option>
+                        <option value='6-month'>6-month: ₦{product.investmentPeriods['6-month']}</option>
+                        <option value='9-month'>9-month: ₦{product.investmentPeriods['9-month']}</option>
+                    </select>
+                    <div className="text-center">
+                        <button className="btn btn-primary" onClick={handleInvestNow}>
+                            Invest Now
+                        </button>
                     </div>
                 </div>
             </div>
         </>
     );
-}
+};
 
 export default View;

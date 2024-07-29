@@ -177,7 +177,8 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
                                                         <li key={index}>
                                                             <strong>Date:</strong> {new Date(entry.investmentDate).toLocaleString()} <br />
                                                             <strong>Product Name:</strong> {entry.productName} <br />
-                                                            <strong>Price:</strong> ₦{entry.productPrice}
+                                                            <strong>Price:</strong> ₦{entry.productPrice}<br/>
+                                                            <strong>investmentPeriod:</strong> ₦{entry.investmentPeriod}
                                                         </li>
                                                     )) : <li>No investment history available.</li>}
                                                 </ul>

@@ -105,7 +105,7 @@ const History = () => {
                 </div>
             </div>
 
-            <Modal show={showModal} onHide={handleCloseModal} className='shadow-lg'>
+            <Modal show={showModal} onHide={handleCloseModal} className='shadow-lg '>
                 <Modal.Header closeButton>
                     <Modal.Title>Investment Details</Modal.Title>
                 </Modal.Header>

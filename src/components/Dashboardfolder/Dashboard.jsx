@@ -100,12 +100,12 @@ const Dashboard = () => {
               <span className='fw-bold fs-2'>
                 Welcome back,
               </span>
-              <span className='fw-bold mt-1 px-1 fs-2 '>
+              <span className='fw-bold mt-1 fs-2' style={{marginLeft:"8px"}}>
                 {user.Fullname}
               </span>
               <div className='fs-2'>
                 <span className='text-white'>Balance:</span>
-                <span className='text-white'>₦{user.Balance}</span>
+                <span className='text-white'  style={{marginLeft:"8px"}}>₦{user.Balance}</span>
               </div>
             </div>
           </div>

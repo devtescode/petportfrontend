@@ -562,7 +562,7 @@ input:focus~.input-border1 {
 .alldivcontainers {
   width: 80%;
   position: absolute;
-  height: 100vh !important;
+  /* height: 100vh !important; */
   top: 40;
   right: 0
 }

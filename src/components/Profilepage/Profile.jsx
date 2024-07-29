@@ -83,7 +83,7 @@ const Profile = () => {
                 <div className=''>
                     <h2 className="mt-1">Profile</h2>
                     <div className='mx-auto mt-5 imgDiv'>
-                        <img src={image ? image : imagelocate} className='mx-auto imgDiv border border-1 border-dark rounded-3 shadow-lg' alt="Profile" />
+                        <img src={image ? image : imagelocate} style={{height:"400px", borderRadius:"100vh" }} className='mx-auto imgDiv shadow-lg' alt="Profile" />
                     </div>
                     <div className='text-center mt-1'>
                         <input type="file" onChange={getFile} />
