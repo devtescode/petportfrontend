@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar';
 import axios from 'axios';
 import './Plan.css';
-// import Swal from 'sweetalert2';
+
 
 const Plan = () => {
     const [planName, setPlanName] = useState('');

@@ -178,7 +178,12 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
                                                             <strong>Date:</strong> {new Date(entry.investmentDate).toLocaleString()} <br />
                                                             <strong>Product Name:</strong> {entry.productName} <br />
                                                             <strong>Price:</strong> ₦{entry.productPrice}<br/>
-                                                            <strong>investmentPeriod:</strong> ₦{entry.investmentPeriod}
+                                                            <strong>InvestmentPeriod:</strong> {entry.investmentPeriod}
+                                                            <br/>
+                                                            <strong>Investment URL:</strong> {entry.productImage}
+                                                            <br/>
+                                                            <strong>Investment Earn:</strong> {entry.investmentPrice}
+                                                            <br/>
                                                         </li>
                                                     )) : <li>No investment history available.</li>}
                                                 </ul>

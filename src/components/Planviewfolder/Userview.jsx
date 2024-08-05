@@ -49,13 +49,17 @@ const View = () => {
             return;
         }
 
+        const [period, price] = investmentPeriod.split('-₦'); // Split the selected value
+
         const url = 'http://localhost:5000/useranimalinvest/planinvestnow';
         const postUser = {
             planId: id,
             email: user.email,
             productImage: product.image,
-            investmentPeriod
+            investmentPeriod: period, // Use the period part
+            investmentPrice: price // Use the price part
         };
+        console.log(postUser.investmentPeriod, postUser.investmentPrice); // Log both
 
         try {
             const response = await axios.post(url, postUser);
@@ -96,10 +100,10 @@ const View = () => {
                         onChange={(e) => setInvestmentPeriod(e.target.value)}
                     >
                         <option value="">Select Investment Period</option>
-                        <option value='3-month'>3-month: ₦{product.investmentPeriods['3-month']}</option>
-                        <option value='6-month'>6-month: ₦{product.investmentPeriods['6-month']}</option>
-                        <option value='9-month'>9-month: ₦{product.investmentPeriods['9-month']}</option>
-                    </select>
+                        <option value={`3-month-₦${product.investmentPeriods['3-month']}`}>3-month ₦{product.investmentPeriods['3-month']}</option>
+                        <option value={`6-month-₦${product.investmentPeriods['6-month']}`}>6-month ₦{product.investmentPeriods['6-month']}</option>
+                        <option value={`9-month-₦${product.investmentPeriods['9-month']}`}>9-month ₦{product.investmentPeriods['9-month']}</option>
+                    </select>   
                     <div className="text-center">
                         <button className="btn btn-primary" onClick={handleInvestNow}>
                             Invest Now
