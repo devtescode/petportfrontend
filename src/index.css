@@ -8,6 +8,7 @@
   position: absolute;
   width: 100%;
   background-color: #262D47;
+  position: fixed;
 }
 
 .passwordadmin_responsive{

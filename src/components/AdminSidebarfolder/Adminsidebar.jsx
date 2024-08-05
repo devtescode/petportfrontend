@@ -85,7 +85,7 @@ const Adminsidebar = () => {
     return (
         <>
             {/* Navbar for small screens */}
-            <Navbar bg="" expand="lg" className="d-lg-none NavberFOrAdminREs">
+            <Navbar bg="" expand="lg" className="d-lg-none NavberFOrAdminREs ">
                 <Container fluid>
                     <Button variant="" class="btn text-white" onClick={handleShow}>
                         <i className="ri-menu-2-line text-white"></i>
