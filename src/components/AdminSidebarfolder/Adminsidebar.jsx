@@ -37,39 +37,39 @@ const Adminsidebar = () => {
 
     function AdminPanelContent() {
         return (
-            <div className='sidebar-container'>
+            <div className='sidebar-container '>
                 <div className='sidebar-content d-flex flex-column fs-3 p-3'>
                     <Button onClick={Adminhome} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-home-line"></i>
-                        <span className='' style={{marginLeft:"5px"}}>Home</span>
+                        <span className='' style={{ marginLeft: "5px" }}>Home</span>
                     </Button>
                     <Button onClick={UserBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-profile-line"></i>
-                        <span className='' style={{marginLeft:"5px"}}>User</span>
+                        <span className='' style={{ marginLeft: "5px" }}>User</span>
                     </Button>
                     <Button onClick={AdminsettingBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-settings-line"></i>
-                        <span className='' style={{marginLeft:"5px"}}>Setting</span>
+                        <span className='' style={{ marginLeft: "5px" }}>Setting</span>
                     </Button>
                     <Button onClick={PlanBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-building-3-line"></i>
-                        <span className='' style={{marginLeft:"5px"}}>Plan</span>
+                        <span className='' style={{ marginLeft: "5px" }}>Plan</span>
                     </Button>
                     <Button onClick={PlanHistoryBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-history-line"></i>
-                        <span className='' style={{marginLeft:"5px"}}>Plan History</span>
+                        <span className='' style={{ marginLeft: "5px" }}>Plan History</span>
                     </Button>
                     <Button variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-profile-line"></i>
-                        <span className='' style={{marginLeft:"5px"}}>Profile</span>
+                        <span className='' style={{ marginLeft: "5px" }}>Profile</span>
                     </Button>
                     <Button variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-notification-line"></i>
-                        <span className='' style={{marginLeft:"5px"}}>Notification</span>
+                        <span className='' style={{ marginLeft: "5px" }}>Notification</span>
                     </Button>
                     <Button variant="outline-primary" className='d-flex align-items-center my-1' onClick={LogoutBtn}>
                         <i className="ri-logout-box-r-line"></i>
-                        <span className='' style={{marginLeft:"5px"}}>Log-out</span>
+                        <span className='' style={{ marginLeft: "5px" }}>Log-out</span>
                     </Button>
                 </div>
             </div>
@@ -83,7 +83,7 @@ const Adminsidebar = () => {
             <Navbar bg="" expand="lg" className="d-lg-none">
                 <Container fluid>
                     <Button variant="primary" onClick={handleShow}>
-                        Open
+                        <i className="ri-menu-2-line"></i>
                     </Button>
                 </Container>
             </Navbar>
