@@ -106,16 +106,13 @@ const Adminuser = () => {
                             <Adminsidebar />
                         </div>
                     </div>
-                    <div className='Admininnerseconddiv'>
+                    <div className='Admininnerseconddiv mt-5 mt-sm-0'>
                         <div className="container">
                             <div className="card shadow-lg">
                                 <div className='text-center'>
                                     <h2>USER-LIST</h2>
                                 </div>
                                 <div className="card-body">
-                                    {/* <UserList onEdit={handleEdit}/>  */}
-                                    {/* <UserForm user={editingUser} onSave={handleSave} /> */}
-                                    {/* list-style-type: none; */}
                                     <div className="mb-3">
                                         <input
                                             type="text"
@@ -126,39 +123,39 @@ const Adminuser = () => {
                                         />
                                     </div>
 
-                                    <table className="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Full Name</th>
-                                                <th>Email</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {filteredUsers.map((user, index) => (
-                                                <tr key={user._id}>
-                                                    <td>{index + 1}</td>
-                                                    <td>{user.Fullname}</td>
-                                                    <td>{user.Email}</td>
-                                                    <td className='gap-2 d-flex'>
-                                                        <div>
-
-                                                        
-                                                            <button onClick={() => handleEdit(user)} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
-                                                                <i className="ri-edit-box-line"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div>
-                                                            <button onClick={() => handleDelete(user._id)}  className="btn btn-danger">
-                                                                <i class="ri-delete-bin-line"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
+                                    <div className="table-responsive table-bordered border-white">
+                                        <table className="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th> Name</th>
+                                                    <th>Email</th>
+                                                    <th>Actions</th>
                                                 </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                {filteredUsers.map((user, index) => (
+                                                    <tr key={user._id}>
+                                                        <td>{index + 1}</td>
+                                                        <td>{user.Fullname}</td>
+                                                        <td>{user.Email}</td>
+                                                        <td className='gap-2 d-flex'>
+                                                            <div>
+                                                                <button onClick={() => handleEdit(user)} className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button">
+                                                                    <i className="ri-edit-box-line"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div>
+                                                                <button onClick={() => handleDelete(user._id)} className="btn btn-danger">
+                                                                    <i className="ri-delete-bin-line"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     {formVisible && (
                                         <UserForm user={selectedUser} onSave={handleSave} isVisible={formVisible} onClose={handleCloseForm} />
                                     )}

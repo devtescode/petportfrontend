@@ -81,7 +81,7 @@ const Adminsetting = () => {
                             <Adminsidebar />
                         </div>
                     </div>
-                    <div className='Admininnerseconddiv shadow-lg' >
+                    <div className='Admininnerseconddiv shadow-lg mt-2 mt-sm-0' >
                         <div className='bg-light passwordadmin_responsive' style={{height:"100vh"}} >
                             <div className='bg-white rounded-3 mx-auto col-md-7 col-sm-12 h-75 d-flex' style={{ alignItems: "center" }}>
                                 <div className='w-100'>

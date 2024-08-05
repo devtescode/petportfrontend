@@ -99,8 +99,8 @@ const AdminDashboard = () => {
           <div className='Admininnerfirstdiv bg-light fw-bold'>
             <Adminsidebar />
           </div>
-          <div className='Admininnerseconddiv' >
-            <div className="container text-center p-5 shadow-lg">
+          <div className='Admininnerseconddiv'>
+            <div className="container text-center p-5 mt-sm-0 mt-3">
               <div className='text-start fw-bold'>
                 <p>Welcome back, {admin && admin?.Fullname}</p>
               </div>
@@ -109,7 +109,7 @@ const AdminDashboard = () => {
                   <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100" >
                     <div>
                       <h1>{userCount}</h1>
-                       Users
+                      Users
                     </div>
                   </div>
                 </div>

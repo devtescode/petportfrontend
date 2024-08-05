@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar';
 import axios from 'axios';
-import './PlanHistory.css'; 
+import './PlanHistory.css';
 
 const PlanHistory = () => {
     const [plans, setPlans] = useState([]);
@@ -153,11 +153,11 @@ const PlanHistory = () => {
                             <Adminsidebar />
                         </div>
                     </div>
-                    <div className='Admininnerseconddiv'>
+                    <div className='Admininnerseconddiv mt-5 mt-sm-0'>
                         <div className='text-center p-3'>
                             <h1>Plan History</h1>
                         </div>
-                        <div className='table-responsive p-3'>
+                        <div className='table-responsive'>
                             {loading ? (
                                 <div className="text-center">
                                     <div className="spinner-border" role="status">
@@ -182,16 +182,17 @@ const PlanHistory = () => {
                                                 <td>{plan.name}</td>
                                                 <td>{plan.description}</td>
                                                 <td>₦{plan.price}</td>
-                                                <td>
-                                                    <button 
-                                                        className='btn btn-warning mx-1' 
+                                                
+                                                <td className=' flex-column flex-md-row'>
+                                                    <button
+                                                        className='btn btn-success mx-1 mb-2 mb-md-0'
                                                         onClick={() => handleEdit(plan)}>
-                                                        Edit
+                                                        <i className="ri-edit-box-line"></i>
                                                     </button>
-                                                    <button 
-                                                        className='btn btn-danger mx-1' 
+                                                    <button
+                                                        className='btn btn-danger mx-1'
                                                         onClick={() => handleDelete(plan._id)}>
-                                                        Delete
+                                                        <i className="ri-delete-bin-line"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -200,6 +201,7 @@ const PlanHistory = () => {
                                 </table>
                             )}
                         </div>
+
                     </div>
                 </div>
             </div>

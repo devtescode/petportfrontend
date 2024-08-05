@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.NavberFOrAdminREs{
+  position: absolute;
+  width: 100%;
+  background-color: #262D47;
+}
+
 .passwordadmin_responsive{
   align-items: center !important;
   display: flex;
@@ -36,7 +42,8 @@
 }
 
 .AdminContainer{
-  background-color: #6967CE;
+  /* background-color: #6967CE; */
+  background-color: #262D47;
   position: absolute;
   top: 0px;
   width: 100%;
@@ -48,7 +55,7 @@
 .eachDiv, .eachDiv2{
   width: 80%;
   height: 100%;
-  border: 1px solid #3c3ac5;
+  border: 1px solid #262D47;
   align-items: center !important;
   display: flex;
 }
@@ -62,7 +69,6 @@
   background-color: white;
   display: flex;
   width: 80% !important;
-  border: 2px solid #3c3ac5;
   margin: auto;
   height: 80%;
   align-items: center;
@@ -172,13 +178,12 @@ input:focus~.input-border1 {
   .Admininnerfirstdiv{
     width: 0%;
     z-index: 100;
-    /* border: 2px solid red; */
   }
   
   .Admininnerseconddiv{
     width: 100%;
-    /* border: 2px solid ; */
-  
+    /* border: 2px solid red; */
+    /* margin-top: 52px; */
   }
   .eachDiv{
     width: 100%;

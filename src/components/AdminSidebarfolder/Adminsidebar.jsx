@@ -35,9 +35,14 @@ const Adminsidebar = () => {
         navigate("/planhistory")
     }
 
+    const AdminLogOutTologin = () =>{
+        navigate("/adminreg")
+        localStorage.removeItem('admintoken');
+    }
+
     function AdminPanelContent() {
         return (
-            <div className='sidebar-container '>
+            <div className='sidebar-container'>
                 <div className='sidebar-content d-flex flex-column fs-3 p-3'>
                     <Button onClick={Adminhome} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-home-line"></i>
@@ -80,11 +85,18 @@ const Adminsidebar = () => {
     return (
         <>
             {/* Navbar for small screens */}
-            <Navbar bg="" expand="lg" className="d-lg-none">
+            <Navbar bg="" expand="lg" className="d-lg-none NavberFOrAdminREs">
                 <Container fluid>
-                    <Button variant="primary" onClick={handleShow}>
-                        <i className="ri-menu-2-line"></i>
+                    <Button variant="" class="btn text-white" onClick={handleShow}>
+                        <i className="ri-menu-2-line text-white"></i>
                     </Button>
+                   
+                    <Button variant="" class="btn text-white" onClick={AdminLogOutTologin}>
+                        <i className="ri-logout-circle-line text-white"></i>
+                    </Button>
+
+
+
                 </Container>
             </Navbar>
 

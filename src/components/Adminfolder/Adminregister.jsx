@@ -18,7 +18,7 @@ const Adminregister = () => {
             password: "",
         },
         validationSchema: Yup.object({
-            Email: Yup.string()         
+            Email: Yup.string()
                 .required('Required'),
             password: Yup.string()
                 .required('Required'),
@@ -53,7 +53,7 @@ const Adminregister = () => {
             }, 2000);
         }
     })
-   
+
     return (
         <>
             {loading && <Loader />}
@@ -61,14 +61,21 @@ const Adminregister = () => {
                 <div className='AdminInner'>
                     <div className='eachDiv'>
                         <div className='w-100'>
-                            <div className='fs-2 text-center'>
+                            <div className='fs-1 text-center'>
                                 <b>Admin-Panal</b>
                             </div>
-                            <div className='p-0 p-sm-2'>
+                            <div className='p-0 p-sm-2 mt-5 mt-sm-0'>
                                 <form action="" onSubmit={formik.handleSubmit}>
                                     <div>
-                                        <input type="text" placeholder='Email-Address' className='form-control my-2' onChange={formik.handleChange} name='Email' value={formik.values.Email} />
-                                        <input type="text" placeholder='Password' className='form-control my-2' onChange={formik.handleChange} name='password' value={formik.values.password} />
+                                        <div className='mb-2'>
+                                            <label htmlFor="">Email-Address</label>
+                                            <input type="text" placeholder='Email-Address' className='form-control p-2' onChange={formik.handleChange} name='Email' value={formik.values.Email} />
+                                        </div>
+
+                                        <div className='mb-2'>
+                                            <label htmlFor="">Password</label>
+                                            <input type="text" placeholder='Password' className='form-control  p-2' onChange={formik.handleChange} name='password' value={formik.values.password} />
+                                        </div>
                                     </div>
                                     {error && <p>{error}</p>}
                                     <div className='text-center'>

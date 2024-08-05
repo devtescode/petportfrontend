@@ -133,8 +133,8 @@ const Plan = () => {
                                             onChange={handleFileChange}
                                         />
                                     </div>
-                                        <label className='form-label'>Investment Periods Prices</label>
-                                    <div className='mb-3 justify-content-center d-sm-flex d-block gap-2'>
+                                    <label className='form-label'>Investment Periods Prices</label>
+                                    <div className='mb-3 justify-content-center d-sm-flex d-block gap-2 '>
                                         <div>
                                             <label>
                                                 3-month:
