@@ -1,5 +1,100 @@
-/* In your CSS file (e.g., styles.css) */
 .card-img-top {
-    height: 400px; /* Adjust the height as needed */
-    object-fit: cover; /* Ensure the image covers the entire area */
+    object-fit: cover;
+    height: 400px;
+    transition: transform 0.5s ease; 
+    width: 100%; 
+    z-index: 1; /* Ensure the image is on top */
+}
+
+.imgbgstylingcon {
+    border: 2px solid #007bff;
+}
+
+.imgbgstyling {
+    overflow: hidden; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgbgstyling:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.imgbgstyling:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+}
+
+.imgstybg {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Ensure the content stays within the bounds */
+}
+
+.imgstybg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay on the image */
+    z-index: 0; /* Place the overlay behind the image */
+    transition: background-color 0.5s ease; /* Smooth transition for background color */
+}
+
+.imgbgstyling:hover .imgstybg::before {
+    background-color: rgba(0, 0, 0, 0.6); /* Darken the overlay on hover */
+}
+
+
+
+
+.card-body {
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background to make text stand out */
+    border-radius: 0 0 25px 25px; /* Match the card's border-radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700; /* Bold title */
+    color: #333; /* Darker color for emphasis */
+    margin-bottom: 10px;
+    text-transform: capitalize; /* Capitalize the title */
+    letter-spacing: 0.5px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555; /* Slightly lighter color for body text */
+    line-height: 1.6; /* Increase line spacing for readability */
+    margin-bottom: 15px;
+}
+
+.card-text:last-child {
+    font-weight: bold;
+    color: #007bff; /* Accent color for price */
+    font-size: 1.2rem;
+}
+
+.investBtn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    background-color: #007bff; /* Consistent with your primary color */
+    border: none;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.investBtn:hover {
+    background-color: #0056b3; /* Darken button on hover */
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2); /* Add shadow on hover */
+}
+
+.investBtn:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus ring */
 }

@@ -75,6 +75,10 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
+  const notificationrouting = ()=>{
+    navigate('/Usernotification')
+  }
+
   const hideOffcanvasMenu = () => {
     const offcanvasElement = document.getElementById('staticBackdrop');
     const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
@@ -417,6 +421,14 @@ const Sidenav = () => {
                 <i class="ri-key-2-line"></i>
                 <span className="menu-title" data-i18n="">
                   Password
+                </span>
+              </a>
+            </li>
+            <li className=" nav-item" onClick={notificationrouting}>
+              <a >
+              <i class="ri-notification-line"></i>
+                <span className="menu-title" data-i18n="">
+                  Notification 
                 </span>
               </a>
             </li>

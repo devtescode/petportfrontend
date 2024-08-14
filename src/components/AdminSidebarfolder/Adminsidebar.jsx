@@ -40,6 +40,9 @@ const Adminsidebar = () => {
         localStorage.removeItem('admintoken');
     }
 
+    const NotificationBtn = ()=>{
+        navigate("/AdNotification")
+    }
     function AdminPanelContent() {
         return (
             <div className='sidebar-container'>
@@ -68,7 +71,7 @@ const Adminsidebar = () => {
                         <i className="ri-profile-line"></i>
                         <span className='' style={{ marginLeft: "5px" }}>Profile</span>
                     </Button>
-                    <Button variant="outline-primary" className='d-flex align-items-center my-1'>
+                    <Button onClick={NotificationBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-notification-line"></i>
                         <span className='' style={{ marginLeft: "5px" }}>Notification</span>
                     </Button>

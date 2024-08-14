@@ -23,9 +23,9 @@ const Userplanget = () => {
         fetchPlans();
         const intervalId = setInterval(() => {
             fetchPlans();
-        }, 5000); 
+        }, 5000);
         return () => clearInterval(intervalId);
-    }, []); 
+    }, []);
 
     const handleInvestClick = (planId) => {
         navigate(`/userview/${planId}`);
@@ -46,21 +46,26 @@ const Userplanget = () => {
                             ) : (
                                 plans.map(plan => (
                                     <div key={plan._id} className="col-md-4">
-                                        <div className="card mb-4">
-                                            {plan.image && (
-                                                <img src={plan.image} className="card-img-top" alt={plan.name} />
-                                            )}
+                                        <div className="card mb-4 imgbgstylingcon">
+                                            <div className="imgbgstyling">
+                                                <div className="imgstybg">
+                                                    {plan.image && (
+                                                        <img src={plan.image} className="card-img-top" alt={plan.name} />
+                                                    )}
+                                                </div>
+                                            </div>
                                             <div className="card-body">
-                                                <h3 className="card-title">{plan.name}</h3>
-                                                <p className="card-text">{plan.description}</p>
+                                                <h3 className="card-title">Animal Name: {plan.name}</h3>
+                                                <p className="card-text">Description: {plan.description}</p>
                                                 <p className="card-text">Price: ₦{plan.price}</p>
-                                                <button onClick={() => handleInvestClick(plan._id)} className='btn btn-primary text-white w-100 rounded-5'>View Investment</button>
+                                                <button onClick={() => handleInvestClick(plan._id)} className="investBtn btn btn-primary text-white w-100 rounded-5">View Investment</button>
                                             </div>
                                         </div>
                                     </div>
                                 ))
                             )
                         )}
+
                     </div>
                 </div>
             </div>

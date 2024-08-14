@@ -25,6 +25,8 @@ import Planget from './components/Getplanfolder/Userplanget'
 import PlanHistory from './components/PlanHistoryfolder/PlanHistory'
 import Userview from './components/Planviewfolder/Userview'
 import Displayinvest from './components/Displayuserinvestfolder/Displayinvest'
+import Notification from './components/Notificationfolder/Notification'
+import Usernotification from './components/UserNotificationfolder/Usernotification'
 
 function App() {
 
@@ -84,6 +86,8 @@ function App() {
         <Route path='/planhistory' element={<PlanHistory />} />
         <Route path='/userview/:id' element={<Userview/>}/>
         <Route path='/displayinvest' element={<Displayinvest/>}/>
+        <Route path='/AdNotification' element={<Notification/>}/>
+        <Route path='/usernotification' element={<Usernotification/>}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 
