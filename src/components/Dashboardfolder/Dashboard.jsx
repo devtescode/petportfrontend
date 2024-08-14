@@ -66,20 +66,20 @@ const Dashboard = () => {
         Accept: "application/json",
       },
     })
-    .then((response) => {
-      if (!localStorage.useradminlogin || response.data.status === false) {
-        navigate("/login");
-      } else {
-        setUser(response.data.user);
-        setTotalInvestment(response.data.user.Totalinvest);
-        setInvestmentCount(response.data.user.Amountinvest);
-        setUniqueProductCount(response.data.user.uniqueProductCount);
-        localStorage.setItem('image', response.data.user.Uploadimg);
-        // console.log(response.data.user);
-      }
-    }).catch(err => {
-      console.log(err);
-    });
+      .then((response) => {
+        if (!localStorage.useradminlogin || response.data.status === false) {
+          navigate("/login");
+        } else {
+          setUser(response.data.user);
+          setTotalInvestment(response.data.user.Totalinvest);
+          setInvestmentCount(response.data.user.Amountinvest);
+          setUniqueProductCount(response.data.user.uniqueProductCount);
+          localStorage.setItem('image', response.data.user.Uploadimg);
+          // console.log(response.data.user);
+        }
+      }).catch(err => {
+        console.log(err);
+      });
   }, [navigate]);
 
 
@@ -99,12 +99,12 @@ const Dashboard = () => {
               <span className='fw-bold fs-2'>
                 Welcome back,
               </span>
-              <span className='fw-bold mt-1 fs-2' style={{marginLeft:"8px"}}>
+              <span className='fw-bold mt-1 fs-2' style={{ marginLeft: "8px" }}>
                 {user.Fullname}
               </span>
               <div className='fs-2'>
                 <span className='text-white'>Balance:</span>
-                <span className='text-white'  style={{marginLeft:"8px"}}>₦{user.Balance}</span>
+                <span className='text-white' style={{ marginLeft: "8px" }}>₦{user.Balance}</span>
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@ const Dashboard = () => {
                   <div className="card-content ecom-card2 height-180">
                     <h5 className="text-muted danger position-absolute p-1">
                       <h5 className="card-title">Total Number Invested</h5>
-                      
+
                     </h5>
                     <div>
                       <i className="ft-pie-chart danger font-large-1 float-right p-1" />
@@ -149,25 +149,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-4 col-lg-6 col-md-12">
-                <div className="card pull-up ecom-card-1 bg-white">
-                  <div className="card-content ecom-card2 height-180">
-                    <h5 className="text-muted info position-absolute p-1">
-                      Next End of Cycle Date
-                    </h5>
-                    <div>
-                      <i className="ft-activity info font-large-1 float-right p-1" />
-                    </div>
-                    <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3">
-                      <div id="progress-stats-bar-chart1" />
-                      <div
-                        id="progress-stats-line-chart1"
-                        className="progress-stats-shadow"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+
               <div className="col-xl-4 col-lg-12">
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
@@ -185,6 +167,29 @@ const Dashboard = () => {
                       </div>
                       <div
                         id="progress-stats-line-chart2"
+                        className="progress-stats-shadow"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-xl-4 col-lg-6 col-md-12">
+                <div className="card pull-up ecom-card-1 bg-white">
+                  <div className="card-content ecom-card2 height-180">
+                    <h5 className="text-muted info position-absolute p-1">
+                      Next End of Cycle Date
+                    </h5>
+                    <div>
+                      <i className="ft-activity info font-large-1 float-right p-1" />
+                    </div>
+                    <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3">
+                      <div id="progress-stats-bar-chart1" />
+                      <div className='text-center mt-4'>
+                        <h1 className="card-text">Add</h1>
+                      </div>
+                      <div
+                        id="progress-stats-line-chart1"
                         className="progress-stats-shadow"
                       />
                     </div>
@@ -252,9 +257,9 @@ const Dashboard = () => {
                   <div className="card-content">
                     <div className="card-body">
                       <h4 className="card-title">Recent products</h4>
-                      <h6 className="card-subtitle text-muted">
+                      {/* <h6 className="card-subtitle text-muted">
                         Carousel Card With Header &amp; Footer
-                      </h6>
+                      </h6> */}
                     </div>
                     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                       <div className="carousel-indicators">
@@ -283,26 +288,20 @@ const Dashboard = () => {
                       </button>
                     </div>
 
-                    <div className="card-body">
-                      <a href="#" className="card-link">Card link</a>
-                      <a href="#" className="card-link">Another link</a>
-                    </div>
+
                   </div>
                   <div className="card-footer border-top-blue-grey border-top-lighten-5 text-muted">
-                    <span className="float-left">2 days ago</span>
-                    <span className="tags float-right">
-                      <span className="badge badge-pill badge-primary">Branding</span>
-                      <span className="badge badge-pill badge-danger">Design</span>
-                    </span>
+                    <span className="float-left">Products</span>
+
                   </div>
                 </div>
               </div>
 
 
-              <div className="col-xl-4 col-lg-12">
+              <div className="col-xl-4 col-lg-12 border bg-dark">
                 <div className="card">
                   <div className="card-header">
-                    <h4 className="card-title">Recent Buyers</h4>
+                    <h4 className="card-title">Recent Invest</h4>
                     <a className="heading-elements-toggle">
                       <i className="fa fa-ellipsis-v font-medium-3" />
                     </a>
@@ -318,165 +317,6 @@ const Dashboard = () => {
                   </div>
                   <div className="card-content">
                     <div id="recent-buyers" className="media-list">
-                      <a href="#" className="media border-0">
-                        <div className="media-left pr-1">
-                          <span className="avatar avatar-md avatar-online">
-                            <img
-                              className="media-object rounded-circle"
-                              src={profile}
-                              alt="Generic placeholder image"
-                            />
-                            <i />
-                          </span>
-                        </div>
-                        <div className="media-body w-100">
-                          <span className="list-group-item-heading">
-                            Kristopher Candy
-                          </span>
-                          <ul className="list-unstyled users-list m-0 float-right">
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 1"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src={profile}
-                                alt="Avatar"
-                              />
-                            </li>
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 2"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src={profile}
-                                alt="Avatar"
-                              />
-                            </li>
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 3"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src={profile}
-                                alt="Avatar"
-                              />
-                            </li>
-                          </ul>
-                          <p className="list-group-item-text mb-0">
-                            <span className="blue-grey lighten-2 font-small-3">
-                              {" "}
-                              #INV-12332{" "}
-                            </span>
-                          </p>
-                        </div>
-                      </a>
-                      <a href="#" className="media border-0">
-                        <div className="media-left pr-1">
-                          <span className="avatar avatar-md avatar-away">
-                            <img
-                              className="media-object rounded-circle"
-                              src={profile}
-                              alt="Generic placeholder image"
-                            />
-                            <i />
-                          </span>
-                        </div>
-                        <div className="media-body w-100">
-                          <span className="list-group-item-heading">
-                            Lawrence Fowler
-                          </span>
-                          <ul className="list-unstyled users-list m-0 float-right">
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 1"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src={profile3}
-                                alt="Avatar"
-                              />
-                            </li>
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 2"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src={profile3}
-                                alt="Avatar"
-                              />
-                            </li>
-                          </ul>
-                          <p className="list-group-item-text mb-0">
-                            <span className="blue-grey lighten-2 font-small-3">
-                              {" "}
-                              #INV-12333{" "}
-                            </span>
-                          </p>
-                        </div>
-                      </a>
-                      <a href="#" className="media border-0">
-                        <div className="media-left pr-1">
-                          <span className="avatar avatar-md avatar-busy">
-                            <img
-                              className="media-object rounded-circle"
-                              src={profile}
-                              alt="Generic placeholder image"
-                            />
-                            <i />
-                          </span>
-                        </div>
-                        <div className="media-body w-100">
-                          <span className="list-group-item-heading">
-                            Linda Olson
-                          </span>
-                          <ul className="list-unstyled users-list m-0 float-right">
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 1"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src={profile3}
-                                alt="Avatar"
-                              />
-                            </li>
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 2"
-                              className="avatar avatar-sm pull-up"
-                            >
-                              <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src={profile3}
-                                alt="Avatar"
-                              />
-                            </li>
-                          </ul>
-                          <p className="list-group-item-text mb-0">
-                            <span className="blue-grey lighten-2 font-small-3">
-                              {" "}
-                              #INV-12334{" "}
-                            </span>
-                          </p>
-                        </div>
-                      </a>
                       <a href="#" className="media border-0">
                         <div className="media-left pr-1">
                           <span className="avatar avatar-md avatar-online">
