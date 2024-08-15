@@ -41,7 +41,7 @@ const Userplanget = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/useranimalinvest/likeplan', { userId, planId });
+            const response = await axios.post('http://localhost:5000/useranimalinvest/likeplan', {userId, planId });
             setPlans(plans.map(plan =>
                 plan._id === planId
                     ? {
@@ -51,6 +51,8 @@ const Userplanget = () => {
                     }
                     : plan
             ));
+            console.log(response.data.likes);
+            
         } catch (error) {
             console.error('Error liking plan:', error);
         }
