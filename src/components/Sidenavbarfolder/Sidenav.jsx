@@ -44,7 +44,7 @@ const Sidenav = () => {
 
   const navigateToLogin = () => {
     navigate('/login');
-    localStorage.removeItem('image')
+    localStorage.removeItem('image')  
     localStorage.removeItem('token')
     hideOffcanvasMenu();
 

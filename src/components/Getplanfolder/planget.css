@@ -134,3 +134,18 @@
     margin: auto;
     border-radius: 100px;
 }
+
+.comment_profile2{
+    width: 76px;
+    height: 76px;
+    margin: auto;
+    border-radius: 100px;
+    object-fit: cover;
+    background-size: cover;
+}
+
+.styborder{
+    justify-content: center !important;
+    text-align: center !important;
+    display: flex !important;
+}

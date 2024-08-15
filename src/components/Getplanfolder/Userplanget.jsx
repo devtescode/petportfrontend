@@ -43,7 +43,10 @@ const Userplanget = () => {
                 ...prevComments,
                 [planId]: response.data.comments
             }));
-            console.log(response.data.comments);
+            // console.log(response.data.comments);
+            // response.data.comments.forEach(comment => {
+            //     console.log(comment.userId.Uploadimg); 
+            // });
         } catch (error) {
             console.error('Error fetching comments:', error);
         }
@@ -173,7 +176,7 @@ const Userplanget = () => {
                 </div>
             </div>
             {/* Offcanvas for Comments */}
-            <div className="shadow-lg offcanvas offcanvas-bottom offcansav_commnent_container" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style={{height:"450px"}}>
+            <div className="shadow-lg offcanvas offcanvas-bottom offcansav_commnent_container" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style={{ height: "450px" }}>
                 <div className="offcanvas-header ">
                     {/* <h5 className="offcanvas-title" id="offcanvasBottomLabel">Comments</h5> */}
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -196,7 +199,7 @@ const Userplanget = () => {
                                     placeholder="Add a comment..."
                                     className="form-control p-2"
                                 />
-                                <button onClick={() => handleAddComment(currentPlanId)} className="btn btn-primary" style={{backgroundColor:"#0056B3"}}><i class="ri-send-plane-2-fill"></i></button>
+                                <button onClick={() => handleAddComment(currentPlanId)} className="btn btn-primary" style={{ backgroundColor: "#0056B3" }}><i class="ri-send-plane-2-fill"></i></button>
                             </div>
                         </div>
 
@@ -207,11 +210,18 @@ const Userplanget = () => {
                         {(comments[currentPlanId] || []).map(comment => (
                             <div key={comment._id} className="comment mb-3">
                                 <div className='comment_profile'>
+                                <img src={comment.userId.Uploadimg} className='comment_profile2' alt=""/>
+
                                 </div>
                                 <p className='fs-3'>{comment.userId.Fullname}</p>
                                 {/* <p>{comment.userId.Email}</p> */}
                                 <p className='fs-5'>{comment.commentText}</p>
                                 <span>{new Date(comment.createdAt).toLocaleString()}</span>
+                                <div className='styborder'>
+
+                                    <div className='mt-2 border-light' style={{ border: "1px solid", width: "50%" }}>
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
