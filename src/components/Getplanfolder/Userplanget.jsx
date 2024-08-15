@@ -217,11 +217,10 @@ const Userplanget = () => {
                                 {/* <p>{comment.userId.Email}</p> */}
                                 <p className='fs-5'>{comment.commentText}</p>
                                 <span>{new Date(comment.createdAt).toLocaleString()}</span>
-                                <div className='styborder'>
-
+                                {/* <div className='styborder'>
                                     <div className='mt-2 border-light' style={{ border: "1px solid", width: "50%" }}>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         ))}
                     </div>

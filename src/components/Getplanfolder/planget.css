@@ -133,6 +133,8 @@
     height: 80px;
     margin: auto;
     border-radius: 100px;
+    background-image: url(../../assets/user.png);
+    background-size: cover;
 }
 
 .comment_profile2{
