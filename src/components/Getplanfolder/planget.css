@@ -95,3 +95,34 @@
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus ring */
 }
+
+
+.comment-list {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 5px;
+    max-height: 300px;
+    text-align: center;
+}
+
+.comment {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.Add-comment-container{
+    /* border: 3px solid; */
+}
+
+.add-comment{
+    margin: auto !important;
+}
+
+.offcansav_commnent_container{
+    
+}

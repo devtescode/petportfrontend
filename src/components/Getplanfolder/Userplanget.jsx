@@ -7,6 +7,9 @@ import './planget.css';
 const Userplanget = () => {
     const [plans, setPlans] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [comments, setComments] = useState({});
+    const [newCommentText, setNewCommentText] = useState('');
+    const [currentPlanId, setCurrentPlanId] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -15,17 +18,36 @@ const Userplanget = () => {
                 const response = await axios.get('http://localhost:5000/useranimalinvest/getuserplans');
                 setPlans(response.data.plans);
                 setLoading(false);
+
+                // Fetch comments for all plans after loading the plans
+                response.data.plans.forEach(plan => {
+                    fetchComments(plan._id);
+                });
             } catch (error) {
                 console.error('Error fetching plans:', error);
                 setLoading(false);
             }
         };
         fetchPlans();
+
         const intervalId = setInterval(() => {
             fetchPlans();
         }, 5000);
         return () => clearInterval(intervalId);
     }, []);
+
+    const fetchComments = async (planId) => {
+        try {
+            const response = await axios.get(`http://localhost:5000/useranimalinvest/getcomments/${planId}`);
+            setComments(prevComments => ({
+                ...prevComments,
+                [planId]: response.data.comments
+            }));
+            console.log(response.data.comments);
+        } catch (error) {
+            console.error('Error fetching comments:', error);
+        }
+    };
 
     const handleInvestClick = (planId) => {
         navigate(`/userview/${planId}`);
@@ -41,7 +63,7 @@ const Userplanget = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/useranimalinvest/likeplan', {userId, planId });
+            const response = await axios.post('http://localhost:5000/useranimalinvest/likeplan', { userId, planId });
             setPlans(plans.map(plan =>
                 plan._id === planId
                     ? {
@@ -52,10 +74,37 @@ const Userplanget = () => {
                     : plan
             ));
             console.log(response.data.likes);
-            
+
         } catch (error) {
             console.error('Error liking plan:', error);
         }
+    };
+
+    const handleAddComment = async (planId) => {
+        const userData = JSON.parse(localStorage.getItem("UserData"));
+        const userId = userData.userId;
+
+        try {
+            const response = await axios.post('http://localhost:5000/useranimalinvest/addcomment', {
+                userId,
+                planId,
+                commentText: newCommentText
+            });
+
+            setComments(prevComments => ({
+                ...prevComments,
+                [planId]: [...(prevComments[planId] || []), response.data.comment]
+            }));
+
+            setNewCommentText('');
+        } catch (error) {
+            console.error('Error adding comment:', error);
+        }
+    };
+
+    const handleCommentIconClick = (planId) => {
+        setCurrentPlanId(planId);
+        fetchComments(planId);  // Fetch comments again for the selected plan
     };
 
     return (
@@ -104,7 +153,13 @@ const Userplanget = () => {
                                                         </div>
 
                                                         <div>
-                                                            <i className="ri-chat-4-line"  style={{ fontSize: '2rem', marginRight: '0.5rem', cursor: 'pointer' }} ></i>
+                                                            <i
+                                                                className="ri-chat-4-line"
+                                                                style={{ fontSize: '2rem', marginRight: '0.5rem', cursor: 'pointer' }}
+                                                                data-bs-toggle="offcanvas"
+                                                                data-bs-target="#offcanvasBottom"
+                                                                onClick={() => handleCommentIconClick(plan._id)}
+                                                            ></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -117,6 +172,49 @@ const Userplanget = () => {
                     </div>
                 </div>
             </div>
+            {/* Offcanvas for Comments */}
+            <div className="offcanvas offcanvas-bottom offcansav_commnent_container" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style={{height:"450px"}}>
+                <div className="offcanvas-header ">
+                    {/* <h5 className="offcanvas-title" id="offcanvasBottomLabel">Comments</h5> */}
+                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div className="offcanvas-body small">
+                    <div className="add-comment mb-3 col-md-7 col-sm-12">
+                        <div className='w-100'>
+                            <div>
+                                <label htmlFor="Add comment">
+                                    <b className='fs-5'>
+                                        Add Comment
+                                    </b>
+                                </label>
+                            </div>
+                            <div className='d-flex'>
+                                <input
+                                    type="text"
+                                    value={newCommentText}
+                                    onChange={(e) => setNewCommentText(e.target.value)}
+                                    placeholder="Add a comment..."
+                                    className="form-control p-2"
+                                />
+                                <button onClick={() => handleAddComment(currentPlanId)} className="btn btn-primary" style={{backgroundColor:"#0056B3"}}><i class="ri-send-plane-2-fill"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    {/* Comment list */}
+                    <div className="comment-list">
+                        {(comments[currentPlanId] || []).map(comment => (
+                            <div key={comment._id} className="comment mb-3">
+                                <strong>{comment.userId.fullName}</strong>
+                                <p>{comment.commentText}</p>
+                                <span>{new Date(comment.createdAt).toLocaleString()}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
         </>
     );
 }
