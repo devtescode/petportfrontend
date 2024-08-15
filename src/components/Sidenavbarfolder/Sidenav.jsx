@@ -75,7 +75,7 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
-  const notificationrouting = ()=>{
+  const notificationrouting = () => {
     navigate('/Usernotification')
   }
 
@@ -285,6 +285,14 @@ const Sidenav = () => {
                       </span>
                     </a>
                   </li>
+                  <li className=" nav-item my-2" onClick={notificationrouting}>
+                    <a >
+                      <i class="ri-notification-line"></i>
+                      <span className="menu-title mx-2" data-i18n="">
+                        Notification
+                      </span>
+                    </a>
+                  </li>
                   <li className=" nav-item my-2" onClick={historyrouting}>
                     <a >
                       <i class="ri-history-line"></i>
@@ -426,9 +434,9 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item" onClick={notificationrouting}>
               <a >
-              <i class="ri-notification-line"></i>
+                <i class="ri-notification-line"></i>
                 <span className="menu-title" data-i18n="">
-                  Notification 
+                  Notification
                 </span>
               </a>
             </li>
