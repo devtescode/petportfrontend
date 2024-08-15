@@ -98,7 +98,7 @@
 
 
 .comment-list {
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     padding: 1rem;
     border-radius: 5px;
     max-height: 300px;
@@ -108,7 +108,7 @@
 .comment {
     margin-bottom: 1rem;
     padding: 0.5rem;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 1px solid #ccc; */
 }
 
 .comment:last-child {
@@ -125,4 +125,12 @@
 
 .offcansav_commnent_container{
     
+}
+
+.comment_profile{
+    border: 2px solid;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 100px;
 }

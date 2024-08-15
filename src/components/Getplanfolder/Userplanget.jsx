@@ -173,12 +173,12 @@ const Userplanget = () => {
                 </div>
             </div>
             {/* Offcanvas for Comments */}
-            <div className="offcanvas offcanvas-bottom offcansav_commnent_container" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style={{height:"450px"}}>
+            <div className="shadow-lg offcanvas offcanvas-bottom offcansav_commnent_container" tabIndex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" style={{height:"450px"}}>
                 <div className="offcanvas-header ">
                     {/* <h5 className="offcanvas-title" id="offcanvasBottomLabel">Comments</h5> */}
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
-                <div className="offcanvas-body small">
+                <div className="offcanvas-body small ">
                     <div className="add-comment mb-3 col-md-7 col-sm-12">
                         <div className='w-100'>
                             <div>
@@ -203,11 +203,14 @@ const Userplanget = () => {
                     </div>
 
                     {/* Comment list */}
-                    <div className="comment-list">
+                    <div className="comment-list ">
                         {(comments[currentPlanId] || []).map(comment => (
                             <div key={comment._id} className="comment mb-3">
-                                <strong>{comment.userId.fullName}</strong>
-                                <p>{comment.commentText}</p>
+                                <div className='comment_profile'>
+                                </div>
+                                <p className='fs-3'>{comment.userId.Fullname}</p>
+                                {/* <p>{comment.userId.Email}</p> */}
+                                <p className='fs-5'>{comment.commentText}</p>
                                 <span>{new Date(comment.createdAt).toLocaleString()}</span>
                             </div>
                         ))}
