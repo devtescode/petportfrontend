@@ -4,19 +4,32 @@
   box-sizing: border-box;
 }
 
-.NavberFOrAdminREs{
+.badge {
+  background-color: red;
+  /* background-color: red; */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  right: 40px !important;
+}
+
+
+.NavberFOrAdminREs {
   position: absolute;
   width: 100%;
   background-color: #262D47;
   position: fixed;
 }
 
-.passwordadmin_responsive{
+.passwordadmin_responsive {
   align-items: center !important;
   display: flex;
 }
 
-.Admindashboardcon{
+.Admindashboardcon {
   position: absolute;
   top: 0px;
   /* height: 100%; */
@@ -25,24 +38,25 @@
   color: white; */
 }
 
-.Adminparentdiv{
+.Adminparentdiv {
   display: flex;
 }
 
-.Admininnerfirstdiv{
+.Admininnerfirstdiv {
   width: 18%;
 }
 
-.Admininnerseconddiv{
+.Admininnerseconddiv {
   width: 82%;
 
 }
 
-.Admininnerfirstdiv, .Admininnerseconddiv{
+.Admininnerfirstdiv,
+.Admininnerseconddiv {
   /* height: 100vh; */
 }
 
-.AdminContainer{
+.AdminContainer {
   /* background-color: #6967CE; */
   background-color: #262D47;
   position: absolute;
@@ -53,7 +67,8 @@
   display: flex;
 }
 
-.eachDiv, .eachDiv2{
+.eachDiv,
+.eachDiv2 {
   width: 80%;
   height: 100%;
   border: 1px solid #262D47;
@@ -61,12 +76,12 @@
   display: flex;
 }
 
-.eachDiv2{
+.eachDiv2 {
   background-image: url(../src/assets/3071357.jpg);
   background-size: cover;
 }
 
-.AdminInner{
+.AdminInner {
   background-color: white;
   display: flex;
   width: 80% !important;
@@ -75,13 +90,14 @@
   align-items: center;
 }
 
-.avatarprofile{
+.avatarprofile {
   width: 50px;
   height: 50px;
   overflow: hidden;
 }
+
 /* Emialpage */
-.coverupemail{
+.coverupemail {
   background-color: #5891ff;
   height: 100vh;
   position: absolute;
@@ -176,23 +192,31 @@ input:focus~.input-border1 {
 }
 
 @media (max-width:688px) {
-  .Admininnerfirstdiv{
+
+  .badge {
+    right: 60px;
+  }
+
+  .Admininnerfirstdiv {
     width: 0%;
     z-index: 100;
   }
-  
-  .Admininnerseconddiv{
+
+  .Admininnerseconddiv {
     width: 100%;
     /* border: 2px solid red; */
     /* margin-top: 52px; */
   }
-  .eachDiv{
+
+  .eachDiv {
     width: 100%;
   }
-  .eachDiv2{
+
+  .eachDiv2 {
     display: none;
   }
-  .AdminInner{
+
+  .AdminInner {
     background-color: white;
     display: block;
     width: 100% !important;
@@ -200,48 +224,54 @@ input:focus~.input-border1 {
     height: 80%;
     align-items: center;
   }
+
   .mymaileachdiv2 {
-      width: 100% !important; 
-      border: none;
+    width: 100% !important;
+    border: none;
   }
+
   .mymaileachdiv {
-     display: none;
+    display: none;
   }
+
   .mailform {
-      --width-of-input: 95%;
-      --border-height: 1px;
-      --border-before-color: rgba(221, 221, 221, 0.39);
-      --border-after-color: #5891ff;
-      --input-hovered-color: #4985e01f;
-      position: relative;
-      width: var(--width-of-input);
-      margin: auto;
-      /* top: 30%; */
+    --width-of-input: 95%;
+    --border-height: 1px;
+    --border-before-color: rgba(221, 221, 221, 0.39);
+    --border-after-color: #5891ff;
+    --input-hovered-color: #4985e01f;
+    position: relative;
+    width: var(--width-of-input);
+    margin: auto;
+    /* top: 30%; */
   }
+
   .MailBtnStyle2 {
-      width: 20vh !important;
-      padding: 10px;
-      background-color: #5891ff;
+    width: 20vh !important;
+    padding: 10px;
+    background-color: #5891ff;
   }
+
   .MailBtnStyle {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  
+
 }
 
 
 /* forgetpassword */
-.mycondiv{
+.mycondiv {
   display: flex;
   height: 80vh !important;
   justify-content: center !important;
   /* border: 2px solid; */
   width: 100%;
 }
-.Forgetpassdiv{
+
+.Forgetpassdiv {
   height: 100vh;
   position: absolute;
   width: 100%;
@@ -250,73 +280,83 @@ input:focus~.input-border1 {
   display: flex;
   background-color: #5891ff;
 }
-.myeachdiv, .myeachdiv2{
+
+.myeachdiv,
+.myeachdiv2 {
   border: 1px solid;
   border-color: #5891ff;
   width: 35%;
 }
 
-.forgetinputwidth{
+.forgetinputwidth {
   width: 95% !important;
   font-size: 18px !important;
 }
 
-.forgetinputwidthdiv{
+.forgetinputwidthdiv {
   /* border: 1px solid ; */
   text-align: center !important;
 }
 
-.myeachdiv2{
+.myeachdiv2 {
   background-color: white;
 }
 
-.styleBtn{
+.styleBtn {
   background-color: #5891ff;
 
 }
 
-.myeachdiv{
+.myeachdiv {
   background-color: #4F46E5;
   background-image: url(../src/assets/Forgot\ password.gif);
   background-position: center;
 }
 
-.taketop{
+.taketop {
   margin-top: 10% !important;
 }
+
 @media (max-width:688px) {
-  .fordivone{
-      width: 100%;
+  .fordivone {
+    width: 100%;
   }
-  .mycondiv{
-      display: block;
-      height: 70vh !important;
-      display: flex;
-      align-items: center;
-      background-color: #4F46E5;
-      padding: 5px;
-      border: 2px solid blue;
-      margin-top: 30%;
-     
+
+  .mycondiv {
+    display: block;
+    height: 70vh !important;
+    display: flex;
+    align-items: center;
+    background-color: #4F46E5;
+    padding: 5px;
+    border: 2px solid blue;
+    margin-top: 30%;
+
   }
-  .forgetinputwidth{
-      width: 100% !important;
-      font-size: 15px !important;
+
+  .forgetinputwidth {
+    width: 100% !important;
+    font-size: 15px !important;
   }
-  .myeachdiv2{
-      padding: 20px;
+
+  .myeachdiv2 {
+    padding: 20px;
   }
-  .myeachdiv, .myeachdiv2{
-      border-color: #4F46E5;
-      background-color: whitesmoke;
-      border-radius: 10px;
-      width: 100%;
+
+  .myeachdiv,
+  .myeachdiv2 {
+    border-color: #4F46E5;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 100%;
   }
-  .myeachdiv{
-      display: none;
+
+  .myeachdiv {
+    display: none;
   }
-  .taketop{
-      margin-top: 5% !important;
+
+  .taketop {
+    margin-top: 5% !important;
   }
 }
 
@@ -324,53 +364,55 @@ input:focus~.input-border1 {
 
 
 
-.imgblog1{
+.imgblog1 {
   height: 300px !important;
   background-image: url(../src/assets/img/blog-1.jpg);
   background-size: cover;
   background-position: center;
 }
 
-.imgblog2{
+.imgblog2 {
   height: 300px !important;
   background-image: url(../src/assets/img/blog-2.jpg);
   background-size: cover;
   background-position: center;
 }
 
-.imgdog1{
+.imgdog1 {
   height: 100px;
   width: 100px;
   background-image: url(../src/assets/img/testimonial-1.jpg);
   background-size: contain;
 }
 
-.imgdog2{
+.imgdog2 {
   height: 100px;
   width: 100px;
   background-image: url(../src/assets/img/testimonial-2.jpg);
   background-size: contain;
 }
 
-.bg-testimonial{
+.bg-testimonial {
   background-image: url(../src/assets/img/testimonial.jpg);
   background-size: cover;
 }
 
-.card__hover1{
+.card__hover1 {
   background-image: url(../src/assets/img/team-5.jpg);
 }
-.card__hover2{
+
+.card__hover2 {
   background-image: url(../src/assets/img/team-2.jpg) !important;
 }
 
-.card__hover3{
+.card__hover3 {
   background-image: url(../src/assets/img/team-3.jpg) !important;
 }
 
-.card__hover4{
+.card__hover4 {
   background-image: url(../src/assets/img/team-4.jpg) !important;
 }
+
 /* Card Styles */
 .cardstyle {
   width: 500px;

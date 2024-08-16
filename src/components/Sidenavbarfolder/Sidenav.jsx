@@ -8,11 +8,13 @@ import '../theme-assets/css/app-lite.css'
 import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
 import '../theme-assets/css/core/colors/palette-gradient.css'
 import '../theme-assets/css/pages/dashboard-ecommerce.css'
+import axios from 'axios';
 // import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
 
 
 const Sidenav = () => {
   const [useimage, setuseimage] = useState("")
+  const [notificationCount, setNotificationCount] = useState(0);
   const { id } = useParams()
 
   const navigate = useNavigate()
@@ -44,7 +46,7 @@ const Sidenav = () => {
 
   const navigateToLogin = () => {
     navigate('/login');
-    localStorage.removeItem('image')  
+    localStorage.removeItem('image')
     localStorage.removeItem('token')
     hideOffcanvasMenu();
 
@@ -107,6 +109,21 @@ const Sidenav = () => {
     navigate('/adminreg')
     hideOffcanvasMenu();
   }
+
+  useEffect(() => {
+    const fetchNotificationCount = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/useranimalinvest/getusernotificationcount'); // Adjust this endpoint according to your backend
+        setNotificationCount(response.data.count); // Assuming the API returns { count: number }
+        console.log(response.data.count);
+
+      } catch (error) {
+        console.error('Error fetching notification count:', error);
+      }
+    };
+
+    fetchNotificationCount();
+  }, []);
 
   return (
     <>
@@ -285,12 +302,15 @@ const Sidenav = () => {
                       </span>
                     </a>
                   </li>
-                  <li className=" nav-item my-2" onClick={notificationrouting}>
-                    <a >
-                      <i class="ri-notification-line"></i>
+                  <li className="nav-item my-2" onClick={notificationrouting}>
+                    <a>
+                      <i className="ri-notification-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
                         Notification
                       </span>
+                      {notificationCount > 0 && (
+                        <span className="badge badge-danger">{notificationCount}</span>
+                      )}
                     </a>
                   </li>
                   <li className=" nav-item my-2" onClick={historyrouting}>
@@ -432,12 +452,23 @@ const Sidenav = () => {
                 </span>
               </a>
             </li>
-            <li className=" nav-item" onClick={notificationrouting}>
+            {/* <li className=" nav-item" onClick={notificationrouting}>
               <a >
                 <i class="ri-notification-line"></i>
                 <span className="menu-title" data-i18n="">
-                  Notification 
+                  Notification 2
                 </span>
+              </a>
+            </li> */}
+            <li className="nav-item" onClick={notificationrouting}>
+              <a>
+                <i className="ri-notification-line"></i>
+                <span className="menu-title" data-i18n="">
+                  Notification
+                </span>
+                {notificationCount > 0 && (
+                  <span className="badge badge-danger">{notificationCount}</span>
+                )}
               </a>
             </li>
             <li className=" nav-item" onClick={historyrouting}>

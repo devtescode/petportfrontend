@@ -38,7 +38,7 @@ const Notification = () => {
         try {
             const response = await axios.post('http://localhost:5000/useranimalinvest/adnotification', { message, userId });
             console.log('Response:', response);
-    
+
             // Check if the response status is within the success range
             if (response.status >= 200 && response.status < 300) {
                 setStatus(`Notification sent successfully to ${userId === 'all' ? 'all users' : `user ${userId}`}`);
@@ -54,7 +54,7 @@ const Notification = () => {
             setStatus('Error sending notification');
         }
     };
-    
+
 
     const handleDeleteNotification = async (id) => {
         try {
@@ -116,40 +116,66 @@ const Notification = () => {
                                         required
                                     ></textarea>
                                 </div>
-                                <div className='text-center'>
+                                <div className='text-center d-flex gap-2 justify-content-center'>
                                     <button type='submit' className='btn btn-primary'>
-                                        Send Notification
+                                        Send
+                                    </button>
+
+                                    {/* <button className='btn btn-secondary'>View</button> */}
+
+                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        View
                                     </button>
                                 </div>
                             </form>
                             {status && <p className='mt-3'>{status}</p>}
                         </div>
 
-                        <div className='mt-4'>
-                            <h3>Sent Notifications</h3>
-                            <ul className='list-group'>
-                                {notifications.map(notification => (
-                                    <li key={notification._id} className='list-group-item d-flex justify-content-between align-items-center'>
-                                        <div className='fs-4'>
-                                            <p>{notification.message}</p>
-                                            <small>
-                                                {notification.userId === 'all'
-                                                    ? "Sent to: All Users"
-                                                    : `Sent to: ${getUserFullnameById(notification.userId)}`}
-                                            </small>
-                                            <br />
-                                            <small>{new Date(notification.createdAt).toLocaleString()}</small>
+
+
+
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog border border-light border-1  shadow-lg bg-dark">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Sent Notifications</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div className=''>
+                                            <ul className='list-group'>
+                                                {notifications.map(notification => (
+                                                    <li key={notification._id} className='list-group-item d-flex justify-content-between align-items-center'>
+                                                        <div className='fs-4'>
+                                                            <p>{notification.message}</p>
+                                                            <small>
+                                                                {notification.userId === 'all'
+                                                                    ? "Sent to: All Users"
+                                                                    : `Sent to: ${getUserFullnameById(notification.userId)}`}
+                                                            </small>
+                                                            <br />
+                                                            <small>{new Date(notification.createdAt).toLocaleString()}</small>
+                                                        </div>
+                                                        <button
+                                                            className='btn btn-danger btn-sm'
+                                                            onClick={() => handleDeleteNotification(notification._id)}
+                                                        >
+                                                            Delete
+                                                        </button>
+                                                    </li>
+                                                ))}
+                                            </ul>
                                         </div>
-                                        <button 
-                                            className='btn btn-danger btn-sm'
-                                            onClick={() => handleDeleteNotification(notification._id)}
-                                        >
-                                            Delete
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        {/* <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="ri-close-circle-line"></i></button> */}
+                                        {/* <button type="button" class="btn btn-primary">Understood</button> */}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
