@@ -436,7 +436,7 @@ const Sidenav = () => {
               <a >
                 <i class="ri-notification-line"></i>
                 <span className="menu-title" data-i18n="">
-                  Notification
+                  Notification 
                 </span>
               </a>
             </li>

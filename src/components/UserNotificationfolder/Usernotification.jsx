@@ -43,7 +43,7 @@ const Usernotification = () => {
             <div className='alldivcontainers'>
                 <div className=''>
                     <h2 className="mt-1">Notifications</h2>
-                    <ul className="notification-list">
+                    <ul className="notification-list shadow-lg p-4">
                         {notifications.length > 0 ? (
                             notifications.map(notification => (
                                 <li key={notification._id} className="notification-item">

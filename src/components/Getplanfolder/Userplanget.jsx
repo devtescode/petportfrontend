@@ -122,55 +122,57 @@ const Userplanget = () => {
                         ) : (
                             plans.length === 0 ? (
                                 <p className="text-center text-danger fw-bold">There are no plans added yet.</p>
-                            ) : (
-                                plans.map(plan => {
-                                    const userData = JSON.parse(localStorage.getItem("UserData"));
-                                    const userId = userData.userId;
+                            ) :
+                                (
+                                    plans.map(plan => {
+                                        const userData = JSON.parse(localStorage.getItem("UserData"));
 
-                                    // Ensure `plan.likes` is an array or default to an empty array
-                                    const isLiked = Array.isArray(plan.likes) && plan.likes.includes(userId);
+                                        const userId = userData ? userData.userId : null;
 
-                                    return (
-                                        <div key={plan._id} className="col-md-4">
-                                            <div className="card mb-4 imgbgstylingcon">
-                                                <div className="imgbgstyling">
-                                                    <div className="imgstybg">
-                                                        {plan.image && (
-                                                            <img src={plan.image} className="card-img-top" alt={plan.name} />
-                                                        )}
-                                                    </div>
-                                                </div>
-                                                <div className="card-body">
-                                                    <h3 className="card-title">Animal Name: {plan.name}</h3>
-                                                    <p className="card-text">Description: {plan.description}</p>
-                                                    <p className="card-text">Price: ₦{plan.price}</p>
-                                                    <button onClick={() => handleInvestClick(plan._id)} className="investBtn btn btn-primary text-white w-100 rounded-5">View Investment</button>
-                                                    <div className='d-flex justify-content-around mt-2'>
-                                                        <div className='' style={{ display: 'flex', alignItems: 'center', fontSize: '1.5rem' }}>
-                                                            <i
-                                                                className={`ri-thumb-up-${isLiked ? 'fill' : 'line'} text-primary`}
-                                                                onClick={() => handleLikeClick(plan._id, plan.likesCount)}
-                                                                style={{ fontSize: '2rem', marginRight: '0.5rem', cursor: 'pointer' }} // Increased size and added margin
-                                                            ></i>
-                                                            <span>{plan.likesCount || 0}</span>
+                                        // Ensure `plan.likes` is an array or default to an empty array
+                                        const isLiked = Array.isArray(plan.likes) && plan.likes.includes(userId);
+
+                                        return (
+                                            <div key={plan._id} className="col-md-4">
+                                                <div className="card mb-4 imgbgstylingcon">
+                                                    <div className="imgbgstyling">
+                                                        <div className="imgstybg">
+                                                            {plan.image && (
+                                                                <img src={plan.image} className="card-img-top" alt={plan.name} />
+                                                            )}
                                                         </div>
+                                                    </div>
+                                                    <div className="card-body">
+                                                        <h3 className="card-title">Animal Name: {plan.name}</h3>
+                                                        <p className="card-text">Description: {plan.description}</p>
+                                                        <p className="card-text">Price: ₦{plan.price}</p>
+                                                        <button onClick={() => handleInvestClick(plan._id)} className="investBtn btn btn-primary text-white w-100 rounded-5">View Investment</button>
+                                                        <div className='d-flex justify-content-around mt-2'>
+                                                            <div className='' style={{ display: 'flex', alignItems: 'center', fontSize: '1.5rem' }}>
+                                                                <i
+                                                                    className={`ri-thumb-up-${isLiked ? 'fill' : 'line'} text-primary`}
+                                                                    onClick={() => handleLikeClick(plan._id, plan.likesCount)}
+                                                                    style={{ fontSize: '2rem', marginRight: '0.5rem', cursor: 'pointer' }} // Increased size and added margin
+                                                                ></i>
+                                                                <span>{plan.likesCount || 0}</span>
+                                                            </div>
 
-                                                        <div>
-                                                            <i
-                                                                className="ri-chat-4-line"
-                                                                style={{ fontSize: '2rem', marginRight: '0.5rem', cursor: 'pointer' }}
-                                                                data-bs-toggle="offcanvas"
-                                                                data-bs-target="#offcanvasBottom"
-                                                                onClick={() => handleCommentIconClick(plan._id)}
-                                                            ></i>
+                                                            <div>
+                                                                <i
+                                                                    className="ri-chat-4-line"
+                                                                    style={{ fontSize: '2rem', marginRight: '0.5rem', cursor: 'pointer' }}
+                                                                    data-bs-toggle="offcanvas"
+                                                                    data-bs-target="#offcanvasBottom"
+                                                                    onClick={() => handleCommentIconClick(plan._id)}
+                                                                ></i>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    );
-                                })
-                            )
+                                        );
+                                    })
+                                )
                         )}
                     </div>
                 </div>
@@ -205,25 +207,25 @@ const Userplanget = () => {
 
                     </div>
 
-                    {/* Comment list */}
                     <div className="comment-list ">
                         {(comments[currentPlanId] || []).map(comment => (
                             <div key={comment._id} className="comment mb-3">
                                 <div className='comment_profile'>
-                                <img src={comment.userId.Uploadimg} className='comment_profile2' alt=""/>
-
+                                    {comment.userId && comment.userId.Uploadimg ? (
+                                        <img src={comment.userId.Uploadimg} className='comment_profile2' alt="User profile" />
+                                    ) : (
+                                        // <img src="path-to-placeholder-image.jpg" className='comment_profile2' alt="Placeholder" />
+                                        <div  className='comment_profile2' >
+                                        </div>
+                                    )}
                                 </div>
-                                <p className='fs-3'>{comment.userId.Fullname}</p>
-                                {/* <p>{comment.userId.Email}</p> */}
+                                <p className='fs-3'>{comment.userId?.Fullname || "Unknown User"}</p>
                                 <p className='fs-5'>{comment.commentText}</p>
                                 <span>{new Date(comment.createdAt).toLocaleString()}</span>
-                                {/* <div className='styborder'>
-                                    <div className='mt-2 border-light' style={{ border: "1px solid", width: "50%" }}>
-                                    </div>
-                                </div> */}
                             </div>
                         ))}
                     </div>
+
                 </div>
             </div>
 
