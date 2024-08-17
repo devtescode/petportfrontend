@@ -60,21 +60,12 @@ const Dashboard = () => {
       });
   }, [navigate]);
 
-  const [data, setData] = useState(null);
 
   // useEffect(() => {
   //   fetchData()
   //     .then(data => setData(data))
   //     .catch(error => console.error(error));
   // }, []);
-
-  useEffect(() => {
-    fetch("https://petportbackend.onrender.com/useranimalinvest/testdb")
-      .then(response => response.json())
-      .then(data => setData(data)) // Update the state with the fetched data.
-      .catch(error => console.error('Error fetching data:', error));
-      
-  }, []);
 
   // useEffect(() => {
   //   Swal.fire({
@@ -103,11 +94,7 @@ const Dashboard = () => {
   return (
     <>
 
-      {data ? (
-        <div>{JSON.stringify(data)}</div>
-      ) : (
-        <div>Loading...</div>
-      )}
+    
       <Sidenav />
       <div className="app-content content">
         <div className="content-wrapper">
