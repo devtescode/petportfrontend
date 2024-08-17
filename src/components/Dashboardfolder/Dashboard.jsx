@@ -44,19 +44,18 @@ const Dashboard = () => {
   //       }
   //     })
   // }, []) 
-  
-  // http://localhost:5000
-  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
+// https://petportbackend.onrender.com
+  let url = "http://localhost:5000/useranimalinvest/dashboard";
   const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [totalInvestment, setTotalInvestment] = useState(0);
   const [investmentCount, setInvestmentCount] = useState(0);
   const [uniqueProductCount, setUniqueProductCount] = useState(0);
 
-  const toggleDropdown = () => {
-    let dropdownContent = document.getElementById("dropdownContent");
-    dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
-  };
+  // const toggleDropdown = () => {
+  //   let dropdownContent = document.getElementById("dropdownContent");
+  //   dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
+  // };
 
   useEffect(() => {
     let token = localStorage.token;
@@ -76,7 +75,7 @@ const Dashboard = () => {
           setInvestmentCount(response.data.user.Amountinvest);
           setUniqueProductCount(response.data.user.uniqueProductCount);
           localStorage.setItem('image', response.data.user.Uploadimg);
-          // console.log(response.data.user);
+          console.log(response.data.user);
         }
       }).catch(err => {
         console.log(err);
