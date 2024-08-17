@@ -21,7 +21,6 @@ const Dashboard = () => {
   // 
   // http://localhost:5000
   let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
-  console.log(url);
   
   const navigate = useNavigate();
   const [user, setUser] = useState("");
@@ -52,8 +51,10 @@ const Dashboard = () => {
           setInvestmentCount(response.data.user.Amountinvest);
           setUniqueProductCount(response.data.user.uniqueProductCount);
           localStorage.setItem('image', response.data.user.Uploadimg);
-          console.log(response.data.user);
+          // console.log(response.data.user);
         }
+        console.log(response);
+        
       }).catch(err => {
         console.log(err);
       });
@@ -88,8 +89,7 @@ const Dashboard = () => {
 
 
       <Sidenav />
-      <h1>wowwowwwwwwwwwww</h1>
-      {/* <div className="app-content content">
+      <div className="app-content content">
         <div className="content-wrapper">
           <div className="content-wrapper-before" style={{ zIndex: "-20" }} />
           <div className='shadow text-white d-flex justify-content-center' style={{ position: "absolute", top: "0px", height: "150px", alignItems: "center" }}>
@@ -302,7 +302,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
         {/* <InvestmentPerformance /> */}
     </>
 
