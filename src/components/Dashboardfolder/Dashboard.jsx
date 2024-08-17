@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   // 
   // http://localhost:5000
-  let url = "http://localhost:5000/useranimalinvest/dashboard";
+  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
 
   const navigate = useNavigate();
   const [user, setUser] = useState("");
@@ -69,7 +69,7 @@ const Dashboard = () => {
   // }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/useranimalinvest/testdb")
+    fetch("https://petportbackend.onrender.com/useranimalinvest/testdb")
       .then(response => response.json())
       .then(data => setData(data)) // Update the state with the fetched data.
       .catch(error => console.error('Error fetching data:', error));
