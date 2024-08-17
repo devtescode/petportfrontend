@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
 import { useFormik } from 'formik';
@@ -51,9 +51,22 @@ const UserPasswordChange = () => {
                 });
         }
     });
+    const [data, setData] = useState(null);
 
+    useEffect(() => {
+        fetch("https://petportbackend.onrender.com/useranimalinvest/testdb")
+            .then(response => response.json())
+            .then(data => setData(data)) // Update the state with the fetched data.
+            .catch(error => console.error('Error fetching data:', error));
+
+    }, []);
     return (
         <>
+            {data ? (
+                <div>{JSON.stringify(data)}</div>
+            ) : (
+                <div>Loading...</div>
+            )}
             <Sidenav />
             <form onSubmit={formik.handleSubmit}>
                 <div className='alldivcontainers'>
