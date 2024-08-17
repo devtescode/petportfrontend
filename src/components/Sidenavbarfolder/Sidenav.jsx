@@ -115,7 +115,7 @@ const Sidenav = () => {
       try {
         const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getusernotificationcount'); // Adjust this endpoint according to your backend
         setNotificationCount(response.data.count); // Assuming the API returns { count: number }
-        console.log(response.data.count);
+        // console.log(response.data.count);
 
       } catch (error) {
         console.error('Error fetching notification count:', error);
@@ -328,11 +328,11 @@ const Sidenav = () => {
                     <a className='d-flex'>
                       <i class="ri-admin-line"></i>
                       <span className="menu-title" data-i18n="" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <p class="d-inline-flex gap-1 mx-2">
+                        <p className="d-inline-flex gap-1 mx-2">
                           Admin page
                         </p>
-                        <div class="collapse" id="collapseExample">
-                          <div class="card card-body border border-white w-100">
+                        <div className="collapse" id="collapseExample">
+                          <div className="card card-body border border-white w-100">
                             <div>
                               <button className='btn btn-dark'>
                                 Login
@@ -413,7 +413,7 @@ const Sidenav = () => {
             </li> */}
             <li className=" nav-ite" onClick={Productrouting2}>
               <a >
-                <i class="ri-product-hunt-line"></i>
+                <i className="ri-product-hunt-line"></i>
                 <span className="menu-title" data-i18n="">
                   Investment
                 </span>
@@ -430,7 +430,7 @@ const Sidenav = () => {
 
             <li className=" nav-item" onClick={walletrouting}>
               <a >
-                <i class="ri-wallet-line"></i>
+                <i className="ri-wallet-line"></i>
                 <span className="menu-title" data-i18n="">
                   Wallet
                 </span>
@@ -438,7 +438,7 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item" onClick={profilerouting}>
               <a >
-                <i class="ri-profile-line"></i>
+                <i className="ri-profile-line"></i>
                 <span className="menu-title" data-i18n="">
                   Profile
                 </span>
@@ -446,7 +446,7 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item" onClick={passwordrouting}>
               <a >
-                <i class="ri-key-2-line"></i>
+                <i className="ri-key-2-line"></i>
                 <span className="menu-title" data-i18n="">
                   Password
                 </span>
@@ -473,7 +473,7 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item" onClick={historyrouting}>
               <a >
-                <i class="ri-history-line"></i>
+                <i className="ri-history-line"></i>
                 <span className="menu-title" data-i18n="">
                   History
                 </span>
@@ -484,13 +484,13 @@ const Sidenav = () => {
             </div> */}
             <li className="nav-item" >
               <a className='d-flex'>
-                <i class="ri-admin-line"></i>
+                <i className="ri-admin-line"></i>
                 <span className="menu-title" data-i18n="" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                  <p class="d-inline-flex gap-1">
+                  <p className="d-inline-flex gap-1">
                     Admin page
                   </p>
-                  <div class="collapse" id="collapseExample">
-                    <div class="card card-body border border-white w-100">
+                  <div className="collapse" id="collapseExample">
+                    <div className="card card-body border border-white w-100">
 
                       <div>
                         <button className='btn btn-dark my-1' onClick={adminBtnPage}>
@@ -510,7 +510,7 @@ const Sidenav = () => {
           className="btn btn-danger btn-block btn-glow btn-upgrade-pro mx-1 text-white"
           onClick={Logoutbtn}
         >
-          <i class="ri-logout-box-line fw-bold"></i>
+          <i className="ri-logout-box-line fw-bold"></i>
           <samp className='mx-1'>
             Log out
           </samp>

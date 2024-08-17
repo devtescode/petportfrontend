@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-// import '../theme-assets/css/vendors.css';
-// import '../theme-assets/css/plugins/charts/chartist.css';
-// import '../theme-assets/css/app-lite.css'
-// import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
-// import '../theme-assets/css/core/colors/palette-gradient.css'
-// import '../theme-assets/css/pages/dashboard-ecommerce.css'
-// import Sidenav from '../Sidenavbarfolder/Sidenav';
+import '../theme-assets/css/vendors.css';
+import '../theme-assets/css/plugins/charts/chartist.css';
+import '../theme-assets/css/app-lite.css'
+import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
+import '../theme-assets/css/core/colors/palette-gradient.css'
+import '../theme-assets/css/pages/dashboard-ecommerce.css'
+import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
@@ -20,8 +20,8 @@ const Dashboard = () => {
 
   // 
   // http://localhost:5000
-  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
-  
+  let url = "http://localhost:5000/useranimalinvest/dashboard";
+
   const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [totalInvestment, setTotalInvestment] = useState(0);
@@ -53,8 +53,8 @@ const Dashboard = () => {
           localStorage.setItem('image', response.data.user.Uploadimg);
           // console.log(response.data.user);
         }
-        console.log(response);
-        
+        // console.log(response);
+
       }).catch(err => {
         console.log(err);
       });
@@ -119,31 +119,28 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-         
+
             <div className="row">
               <div className="col-xl-4 col-lg-6 col-md-12">
                 <div className="card pull-up ecom-card-1 bg-white">
                   <div className="card-content ecom-card2 height-180">
-                    <h5 className="text-muted danger position-absolute p-1">
-                      <h5 className="card-title">Total Number Invested</h5>
-
+                    <h5 className="text-muted danger position-absolute p-1 card-title">
+                      Total Number Invested
                     </h5>
                     <div>
                       <i className="ft-pie-chart danger font-large-1 float-right p-1" />
                     </div>
-                    <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3  ">
+                    <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                       <div id="progress-stats-bar-chart" />
-                      <div
-                        id="progress-stats-line-chart"
-                        className="progress-stats-shadow"
-                      />
+                      <div id="progress-stats-line-chart" className="progress-stats-shadow" />
                       <div className='text-center mt-4'>
-                        <h1 className="card-text"> {investmentCount}</h1>
+                        <h1 className="card-text">{investmentCount}</h1>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
 
               <div className="col-xl-4 col-lg-12">
                 <div className="card pull-up ecom-card-1 bg-white">
@@ -194,13 +191,13 @@ const Dashboard = () => {
 
 
             <div className="row match-height">
-              
+
               <div className="col-xl-4 col-lg-12">
                 <div className="card">
                   <div className="card-content">
                     <div className="card-body">
                       <h4 className="card-title">Recent products</h4>
-                     
+
                     </div>
                     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                       <div className="carousel-indicators">
@@ -303,7 +300,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-        {/* <InvestmentPerformance /> */}
+      {/* <InvestmentPerformance /> */}
     </>
 
   )
