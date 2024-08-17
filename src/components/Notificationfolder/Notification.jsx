@@ -11,7 +11,7 @@ const Notification = () => {
 
     const fetchNotifications = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/useranimalinvest/getallnotifications');
+            const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getallnotifications');
             setNotifications(response.data.notifications);
         } catch (error) {
             console.error('Error fetching notifications:', error);
@@ -21,7 +21,7 @@ const Notification = () => {
         // Fetch the list of users when the component mounts
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/useranimalinvest/fetchUsersNotifications');
+                const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/fetchUsersNotifications');
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -36,7 +36,7 @@ const Notification = () => {
     const handleNotificationSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/useranimalinvest/adnotification', { message, userId });
+            const response = await axios.post('https://petportbackend.onrender.com/useranimalinvest/adnotification', { message, userId });
             console.log('Response:', response);
 
             // Check if the response status is within the success range
@@ -58,7 +58,7 @@ const Notification = () => {
 
     const handleDeleteNotification = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/useranimalinvest/deletenotification/${id}`);
+            await axios.delete(`https://petportbackend.onrender.com/deletenotification/${id}`);
             setNotifications(notifications.filter(notification => notification._id !== id));
             setStatus('Notification deleted successfully');
         } catch (error) {

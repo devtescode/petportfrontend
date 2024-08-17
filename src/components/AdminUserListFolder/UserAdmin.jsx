@@ -4,7 +4,7 @@ import axios from 'axios';
 const UserAdmin = ({ onEdit }) => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        axios.get("http://localhost:5000/useranimalinvest/getallusers")
+        axios.get("https://petportbackend.onrender.com/useranimalinvest/getallusers")
             .then(response => {
                 setUsers(response.data)
             })

@@ -57,7 +57,7 @@ const Invest = ({}) => {
     // }
 
     const handleInvestNow = async () => {
-        const url = 'http://localhost:5000/useranimalinvest/investnow'
+        const url = 'https://petportbackend.onrender.com/useranimalinvest/investnow'
         const postuser = {
             productId: id,
             Email: User.email

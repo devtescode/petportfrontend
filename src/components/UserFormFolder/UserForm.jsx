@@ -62,7 +62,7 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
         };
 
         if (user && user._id) {
-            axios.put(`http://localhost:5000/useranimalinvest/putall/${user._id}`, formData)
+            axios.put(`https://petportbackend.onrender.com/useranimalinvest/putall/${user._id}`, formData)
                 .then(response => {
                     onSave(response.data);
                     hideModal();
@@ -76,7 +76,7 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
                     console.error('There was an error updating the user!', error);
                 });
         } else {
-            axios.post('http://localhost:5000/useranimalinvest/postall', formData)
+            axios.post('https://petportbackend.onrender.com/useranimalinvest/postall', formData)
                 .then(response => {
                     onSave(response.data);
                     hideModal();
@@ -93,7 +93,7 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
     };
 
     const fetchUserHistory = (email) => {
-        axios.post('http://localhost:5000/useranimalinvest/getHistory', { email })
+        axios.post('https://petportbackend.onrender.com/useranimalinvest/getHistory', { email })
             .then(response => {
                 setFormData(prevData => ({
                     ...prevData,

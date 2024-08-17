@@ -21,7 +21,7 @@ const PlanHistory = () => {
     const fetchPlans = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:5000/useranimalinvest/getuserplans');
+            const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getuserplans');
             if (response.data.success) {
                 setPlans(response.data.plans);
             } else {
@@ -55,7 +55,7 @@ const PlanHistory = () => {
             if (result.isConfirmed) {
                 setLoading(true);
                 try {
-                    const response = await axios.delete(`http://localhost:5000/useranimalinvest/adminplansdelect/${id}`);
+                    const response = await axios.delete(`https://petportbackend.onrender.com/useranimalinvest/adminplansdelect/${id}`);
                     if (response.data.success) {
                         Swal.fire({
                             icon: 'success',
@@ -114,7 +114,7 @@ const PlanHistory = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:5000/useranimalinvest/updateplan/${currentPlan._id}`, formValues);
+            const response = await axios.put(`https://petportbackend.onrender.com/useranimalinvest/updateplan/${currentPlan._id}`, formValues);
             if (response.data.success) {
                 Swal.fire({
                     icon: 'success',

@@ -10,8 +10,8 @@ const Profile = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const url1 = "http://localhost:5000/useranimalinvest/dashboard";
-    const url = "http://localhost:5000/useranimalinvest/profile";
+    const url1 = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
+    const url = "https://petportbackend.onrender.com/useranimalinvest/profile";
 
     const getFile = (e) => {
         const myFile = e.target.files[0];

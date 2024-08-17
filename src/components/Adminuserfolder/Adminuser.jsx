@@ -12,7 +12,7 @@ const Adminuser = () => {
     const [formVisible, setFormVisible] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     useEffect(() => {
-        axios.get("http://localhost:5000/useranimalinvest/getallusers")
+        axios.get("https://petportbackend.onrender.com/useranimalinvest/getallusers")
             .then(response => {
                 setUsers(response.data)
                 setFilteredUsers(response.data);
@@ -45,7 +45,7 @@ const Adminuser = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axios.delete(`http://localhost:5000/useranimalinvest/delecteachuser/${userId}`);
+                    await axios.delete(`https://petportbackend.onrender.com/useranimalinvest/delecteachuser/${userId}`);
                     const updatedUsers = users.filter(user => user._id !== userId);
                     setUsers(updatedUsers);
                     setFilteredUsers(updatedUsers);

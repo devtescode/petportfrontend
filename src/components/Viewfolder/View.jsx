@@ -19,7 +19,7 @@ const View = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/useranimalinvest/productid/${id}`);
+                const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/productid/${id}`);
                 setProduct(response.data);
                 setLoading(false);
             } catch (error) {
@@ -45,7 +45,7 @@ const View = () => {
         return <p className='text-center'>Loading...</p>;
     }
     const handleInvestNow = async () => {
-        const url = 'http://localhost:5000/useranimalinvest/investnow';
+        const url = 'https://petportbackend.onrender.com/useranimalinvest/investnow';
         const postuser = {
             productId: id,
             Email: User.email

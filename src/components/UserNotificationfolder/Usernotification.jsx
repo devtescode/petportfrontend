@@ -17,7 +17,7 @@ const Usernotification = () => {
                         
                 // const response = await axios.get(`http://localhost:5000/useranimalinvest/getusernotification`, );
 
-                const response = await axios.get(`http://localhost:5000/useranimalinvest/getusernotification`, {
+                const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/getusernotification`, {
                     params: { userId }  // Pass userId as a query parameter
                 });
 

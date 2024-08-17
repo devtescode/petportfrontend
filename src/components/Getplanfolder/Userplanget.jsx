@@ -15,7 +15,7 @@ const Userplanget = () => {
     useEffect(() => {
         const fetchPlans = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/useranimalinvest/getuserplans');
+                const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getuserplans');
                 setPlans(response.data.plans);
                 setLoading(false);
 
@@ -38,7 +38,7 @@ const Userplanget = () => {
 
     const fetchComments = async (planId) => {
         try {
-            const response = await axios.get(`http://localhost:5000/useranimalinvest/getcomments/${planId}`);
+            const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/getcomments/${planId}`);
             setComments(prevComments => ({
                 ...prevComments,
                 [planId]: response.data.comments
@@ -66,7 +66,7 @@ const Userplanget = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/useranimalinvest/likeplan', { userId, planId });
+            const response = await axios.post('https://petportbackend.onrender.com/useranimalinvest/likeplan', { userId, planId });
             setPlans(plans.map(plan =>
                 plan._id === planId
                     ? {
@@ -88,7 +88,7 @@ const Userplanget = () => {
         const userId = userData.userId;
 
         try {
-            const response = await axios.post('http://localhost:5000/useranimalinvest/addcomment', {
+            const response = await axios.post('https://petportbackend.onrender.com/useranimalinvest/addcomment', {
                 userId,
                 planId,
                 commentText: newCommentText

@@ -21,7 +21,7 @@ const Plan = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:5000/useranimalinvest/createplan', {
+            const response = await axios.post('https://petportbackend.onrender.com/useranimalinvest/createplan', {
                 name: planName,
                 description: planDescription,
                 price: planPrice,

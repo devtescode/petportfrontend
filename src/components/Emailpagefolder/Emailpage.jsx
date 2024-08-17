@@ -18,7 +18,7 @@ const Emailpage = () => {
         }),
         onSubmit: values => {
             setLoading(true);
-            axios.post("http://localhost:5000/useranimalinvest/emailpage", { Emailpage: values.emailpage}).then((response) => {
+            axios.post("https://petportbackend.onrender.com/useranimalinvest/emailpage", { Emailpage: values.emailpage}).then((response) => {
                 const { status, message } = response.data;
                 setLoading(false);
                 Swal.fire({

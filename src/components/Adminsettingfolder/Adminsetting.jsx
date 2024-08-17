@@ -33,7 +33,7 @@ const Adminsetting = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/useranimalinvest/changePasswordAdmin', {
+            const response = await axios.post('https://petportbackend.onrender.com/changePasswordAdmin', {
                 email: adminEmail,
                 oldPassword,
                 newPassword,

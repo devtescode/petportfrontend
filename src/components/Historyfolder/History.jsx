@@ -21,7 +21,7 @@ const History = () => {
         const getUser = JSON.parse(localStorage.getItem('UserData'));
         const token = localStorage.getItem('UserData');
         if (getUser && token) {
-            const url = "http://localhost:5000/useranimalinvest/getHistory";
+            const url = "https://petportbackend.onrender.com/useranimalinvest/getHistory";
             let email = getUser.email;
 
             axios.post(url, { email })

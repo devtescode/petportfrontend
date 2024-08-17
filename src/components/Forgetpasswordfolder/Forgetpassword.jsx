@@ -24,7 +24,7 @@ const Forgetpassword = () => {
         }),
         onSubmit: values => {
             setLoading(true);
-            axios.post("http://localhost:5000/useranimalinvest/forgetpass", {
+            axios.post("https://petportbackend.onrender.com/useranimalinvest/forgetpass", {
                 Forgetmailone: values.forgetemailpage1,
                 Forgetmailtwo: values.forgetemailpage2,
                 Forgetmailthree: values.forgetemailpage3

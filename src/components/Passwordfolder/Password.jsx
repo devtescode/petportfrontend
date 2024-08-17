@@ -26,7 +26,7 @@ const UserPasswordChange = () => {
                 });
                 return;
             }
-            axios.post("http://localhost:5000/useranimalinvest/changepassword", { OldPassword: values.OldPassword, NewPassword: values.NewPassword, token })
+            axios.post("https://petportbackend.onrender.com/useranimalinvest/changepassword", { OldPassword: values.OldPassword, NewPassword: values.NewPassword, token })
                 .then((response) => {
                     if (response.data.status) {
                         Swal.fire({

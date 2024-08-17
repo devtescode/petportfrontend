@@ -7,7 +7,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, T
 const Investperformance = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/useranimalinvest/investperform')
+        axios.get('https://petportbackend.onrender.com/useranimalinvest/investperform')
             .then(response => {
                 setData(response.data);
             })

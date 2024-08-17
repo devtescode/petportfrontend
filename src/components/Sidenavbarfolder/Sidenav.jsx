@@ -113,7 +113,7 @@ const Sidenav = () => {
   useEffect(() => {
     const fetchNotificationCount = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/useranimalinvest/getusernotificationcount'); // Adjust this endpoint according to your backend
+        const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getusernotificationcount'); // Adjust this endpoint according to your backend
         setNotificationCount(response.data.count); // Assuming the API returns { count: number }
         console.log(response.data.count);
 

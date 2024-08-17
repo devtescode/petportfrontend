@@ -12,7 +12,7 @@ const AdminDashboard = () => {
   const [totalBalance, setTotalBalance] = useState(0);
   const [totalAmountInvested, setTotalAmountInvested] = useState(0);
   const [Totalinvested, setTotalInvest] = useState(0);
-  let url = "http://localhost:5000/useranimalinvest/Admindb"
+  let url = "https://petportbackend.onrender.com/useranimalinvest/Admindb"
   useEffect(() => {
     axios.get(url, {
       headers: {
@@ -34,7 +34,7 @@ const AdminDashboard = () => {
         console.log(err);
       })
 
-    axios.get('http://localhost:5000/useranimalinvest/getuseranimalinvest', {
+    axios.get('https://petportbackend.onrender.com/useranimalinvest/getuseranimalinvest', {
       headers: {
         "Authorization": `Bearers ${admintoken}`,
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const AdminDashboard = () => {
         console.log(err);
       });
 
-    axios.get('http://localhost:5000/useranimalinvest/totalbalance', {
+    axios.get('https://petportbackend.onrender.com/useranimalinvest/totalbalance', {
       headers: {
         "Authorization": `Bearer ${admintoken}`,
         "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const AdminDashboard = () => {
       });
 
 
-    axios.get('http://localhost:5000/useranimalinvest/totalamountinvested', {
+    axios.get('https://petportbackend.onrender.com/useranimalinvest/totalamountinvested', {
       headers: {
         "Authorization": `Bearer ${admintoken}`,
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const AdminDashboard = () => {
       });
 
 
-    axios.get('http://localhost:5000/useranimalinvest/Totalinvest', {
+    axios.get('https://petportbackend.onrender.com/useranimalinvest/Totalinvest', {
       headers: {
         "Authorization": `Bearer ${admintoken}`,
         "Content-Type": "application/json",
