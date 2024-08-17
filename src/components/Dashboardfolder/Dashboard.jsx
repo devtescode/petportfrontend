@@ -226,7 +226,7 @@ const Dashboard = () => {
                                                 </div>
                                                 <div className="media-body w-100">
                                                     <span className="list-group-item-heading">
-                                                        Kristopher Candy
+                                                        Kristopher Cand
                                                     </span>
                                                     <ul className="list-unstyled users-list m-0 float-right">
                                                         <li
