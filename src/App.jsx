@@ -51,8 +51,8 @@ function App() {
     let token = localStorage.token
     return (
       <Routes>
-        <Route path='dashboard/' element={token ? <Outlet /> : <Navigate to={'/login'} />}>
-          <Route path="" element={<Dashboard />} />
+        <Route path='db/' element={token ? <Outlet /> : <Navigate to={'/login'} />}>
+          <Route path="" element={<BackupDb/>} />
         </Route>
       </Routes>
     )
@@ -67,7 +67,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
-        <Route path='/*' element={<DashboardLayout />} />
+        {/* <Route path='/*' element={<DashboardLayout />} /> */}
         <Route path='/product' element={<Product />} />
         <Route path='/invest' element={<Invest />} />
         <Route path="/view/:id" element={<View />} />
@@ -89,7 +89,7 @@ function App() {
         <Route path='/displayinvest' element={<Displayinvest/>}/>
         <Route path='/AdNotification' element={<Notification/>}/>
         <Route path='/usernotification' element={<Usernotification/>}/>
-        <Route path='/db' element={<BackupDb/>}/>
+        <Route path='/*' element={<DashboardLayout />}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 
