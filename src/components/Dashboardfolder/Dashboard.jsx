@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 // import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
 // import '../theme-assets/css/core/colors/palette-gradient.css'
 // import '../theme-assets/css/pages/dashboard-ecommerce.css'
-import Sidenav from '../Sidenavbarfolder/Sidenav';
+// import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
@@ -88,7 +88,7 @@ const Dashboard = () => {
     <>
 
 
-      <Sidenav />
+      {/* <Sidenav /> */}
       <div className="app-content content">
         <div className="content-wrapper">
           <div className="content-wrapper-before" style={{ zIndex: "-20" }} />
