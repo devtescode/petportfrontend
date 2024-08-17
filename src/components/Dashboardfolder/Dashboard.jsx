@@ -28,10 +28,10 @@ const Dashboard = () => {
   const [investmentCount, setInvestmentCount] = useState(0);
   const [uniqueProductCount, setUniqueProductCount] = useState(0);
 
-  const toggleDropdown = () => {
-    let dropdownContent = document.getElementById("dropdownContent");
-    dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
-  };
+  // const toggleDropdown = () => {
+  //   let dropdownContent = document.getElementById("dropdownContent");
+  //   dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
+  // };
 
   useEffect(() => {
     let token = localStorage.token;
