@@ -88,7 +88,8 @@ const Dashboard = () => {
 
 
       <Sidenav />
-      <div className="app-content content">
+      <h1>wowwowwwwwwwwwww</h1>
+      {/* <div className="app-content content">
         <div className="content-wrapper">
           <div className="content-wrapper-before" style={{ zIndex: "-20" }} />
           <div className='shadow text-white d-flex justify-content-center' style={{ position: "absolute", top: "0px", height: "150px", alignItems: "center" }}>
@@ -108,7 +109,6 @@ const Dashboard = () => {
 
           <div className="content-header row"></div>
           <div className="content-body">
-            {/* Chart */}
             <div className="row match-height">
               <div className="col-12">
                 <div className="">
@@ -119,8 +119,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            {/* Chart */}
-            {/* eCommerce statistic */}
+         
             <div className="row">
               <div className="col-xl-4 col-lg-6 col-md-12">
                 <div className="card pull-up ecom-card-1 bg-white">
@@ -139,7 +138,6 @@ const Dashboard = () => {
                         className="progress-stats-shadow"
                       />
                       <div className='text-center mt-4'>
-                        {/* <h1 className="card-text"> {uniqueProductCount}</h1> */}
                         <h1 className="card-text"> {investmentCount}</h1>
                       </div>
                     </div>
@@ -159,7 +157,6 @@ const Dashboard = () => {
                     <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                       <div id="progress-stats-bar-chart2" />
                       <div className='text-center mt-4'>
-                        {/* <h1>₦{user.Amountinvest}</h1> */}
                         <h1 className="card-text">₦{totalInvestment}</h1>
                       </div>
                       <div
@@ -203,9 +200,7 @@ const Dashboard = () => {
                   <div className="card-content">
                     <div className="card-body">
                       <h4 className="card-title">Recent products</h4>
-                      {/* <h6 className="card-subtitle text-muted">
-                        Carousel Card With Header &amp; Footer
-                      </h6> */}
+                     
                     </div>
                     <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
                       <div className="carousel-indicators">
@@ -307,8 +302,8 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+      </div> */}
         {/* <InvestmentPerformance /> */}
-      </div>
     </>
 
   )
