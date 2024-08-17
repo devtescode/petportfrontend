@@ -51,7 +51,7 @@ const Dashboard = () => {
           setInvestmentCount(response.data.user.Amountinvest);
           setUniqueProductCount(response.data.user.uniqueProductCount);
           localStorage.setItem('image', response.data.user.Uploadimg);
-          // console.log(response.data.user);
+          console.log(response.data.user);
         }
         // console.log(response);
 
