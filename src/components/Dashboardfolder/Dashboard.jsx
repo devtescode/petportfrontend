@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import '../theme-assets/css/vendors.css';
-import '../theme-assets/css/plugins/charts/chartist.css';
-import '../theme-assets/css/app-lite.css'
-import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
-import '../theme-assets/css/core/colors/palette-gradient.css'
-import '../theme-assets/css/pages/dashboard-ecommerce.css'
+// import '../theme-assets/css/vendors.css';
+// import '../theme-assets/css/plugins/charts/chartist.css';
+// import '../theme-assets/css/app-lite.css'
+// import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
+// import '../theme-assets/css/core/colors/palette-gradient.css'
+// import '../theme-assets/css/pages/dashboard-ecommerce.css'
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
