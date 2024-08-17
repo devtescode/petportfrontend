@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   // 
   // http://localhost:5000
-  let url = "http://localhost:5000/useranimalinvest/dashboard";
+  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
 
   const navigate = useNavigate();
   const [user, setUser] = useState("");
