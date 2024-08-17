@@ -19,7 +19,7 @@ const Sidenav = () => {
 
   const navigate = useNavigate()
   const dashboardrouting = () => {
-    navigate('/db')
+    navigate('/dashboard')
     hideOffcanvasMenu();
 
   }
