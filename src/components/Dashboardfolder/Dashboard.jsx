@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   // 
   // http://localhost:5000
-  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
+  let url = "http://localhost:5000/useranimalinvest/dashboard";
 
   const navigate = useNavigate();
   const [user, setUser] = useState("");
@@ -28,10 +28,10 @@ const Dashboard = () => {
   const [investmentCount, setInvestmentCount] = useState(0);
   const [uniqueProductCount, setUniqueProductCount] = useState(0);
 
-  // const toggleDropdown = () => {
-  //   let dropdownContent = document.getElementById("dropdownContent");
-  //   dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
-  // };
+  const toggleDropdown = () => {
+    let dropdownContent = document.getElementById("dropdownContent");
+    dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
+  };
 
   useEffect(() => {
     let token = localStorage.token;
@@ -60,6 +60,22 @@ const Dashboard = () => {
       });
   }, [navigate]);
 
+  const [data, setData] = useState(null);
+
+  // useEffect(() => {
+  //   fetchData()
+  //     .then(data => setData(data))
+  //     .catch(error => console.error(error));
+  // }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/useranimalinvest/testdb")
+      .then(response => response.json())
+      .then(data => setData(data)) // Update the state with the fetched data.
+      .catch(error => console.error('Error fetching data:', error));
+      
+  }, []);
+
   // useEffect(() => {
   //   Swal.fire({
   //     title: "Custom animation with Animate.css",
@@ -87,7 +103,11 @@ const Dashboard = () => {
   return (
     <>
 
-
+      {data ? (
+        <div>{JSON.stringify(data)}</div>
+      ) : (
+        <div>Loading...</div>
+      )}
       <Sidenav />
       <div className="app-content content">
         <div className="content-wrapper">
