@@ -1,11 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Sidenav from './src/components/Sidenavbarfolder/Sidenav'
+import { useNavigate } from 'react-router';
+import axios from 'axios';
 // import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
 // import profile1 from '../../assets/img/hero.jpg';
 // import profile2 from '../../assets/img/pig.jpg'
 // import profile3 from '../../assets/img/closeup-shot-brown-guard-dog-standing-beach.jpg'
 
 const BackupDb = () => {
+    const navigate = useNavigate();
+    const [user, setUser] = useState("");
+    const [totalInvestment, setTotalInvestment] = useState(0);
+    const [investmentCount, setInvestmentCount] = useState(0);
+    const [uniqueProductCount, setUniqueProductCount] = useState(0);
+
+    useEffect(() => {
+        let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
+        let token = localStorage.token;
+        axios.get(url, {
+          headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (!localStorage.useradminlogin || response.data.status === false) {
+              navigate("/login");
+            } else {
+              setUser(response.data.user);
+              setTotalInvestment(response.data.user.Totalinvest);
+              setInvestmentCount(response.data.user.Amountinvest);
+              setUniqueProductCount(response.data.user.uniqueProductCount);
+              localStorage.setItem('image', response.data.user.Uploadimg);
+              console.log(response.data.user);
+            }
+            // console.log(response);
+    
+          }).catch(err => {
+            console.log(err);
+          });
+      }, [navigate]);
+
     return (
         <>
             <Sidenav />
@@ -18,12 +54,12 @@ const BackupDb = () => {
                                 Welcome back,
                             </span>
                             <span className='fw-bold mt-1 fs-2' style={{ marginLeft: "8px" }}>
-                                {/* {user.Fullname} */}
+                                {user.Fullname}
                             </span>
                             <div className='fs-2'>
                                 <span className='text-white'>Balance:</span>
                                 <span className='text-white' style={{ marginLeft: "8px" }}>
-                                    {/* ₦{user.Balance} */}
+                                    ₦{user.Balance}
                                     </span>
                             </div>
                         </div>
