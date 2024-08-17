@@ -17,46 +17,22 @@ import InvestmentPerformance from '../InvestmentPerfolder/Investperformance.jsx'
 // ../theme-assets/images/portrait/small/avatar-s-19.png
 
 const Dashboard = () => {
-  // let url = "http://localhost:5000/useranimalinvest/dashboard"
-  // const navigate = useNavigate()
-  // const toggleDropdown = () => {
-  //   let dropdownContent = document.getElementById("dropdownContent");
-  //   dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
-  // }
-  // const [user, setUser] = useState("")
-  // useEffect(() => {
-  //   let token = localStorage.token
-  //   axios.get(url, {
-  //     headers: {
-  //       "Authorization": `Bearers ${token}`,
-  //       "Content-Type": "application/json",
-  //       Accept: "application/json",
-  //     },
-  //   })
-  //     .then((response) => {
-  //       if (!localStorage.useradminlogin || response.data.status == false) {
-  //         navigate("/login");
-  //       }
-  //       else {
-  //         setUser(response.data.user)
-  //         localStorage.setItem('image', response.data.user.Uploadimg)
-  //         console.log(response.data.user);
-  //       }
-  //     })
-  // }, []) 
+
   // 
   // http://localhost:5000
   let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
+  console.log(url);
+  
   const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [totalInvestment, setTotalInvestment] = useState(0);
   const [investmentCount, setInvestmentCount] = useState(0);
   const [uniqueProductCount, setUniqueProductCount] = useState(0);
 
-  // const toggleDropdown = () => {
-  //   let dropdownContent = document.getElementById("dropdownContent");
-  //   dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
-  // };
+  const toggleDropdown = () => {
+    let dropdownContent = document.getElementById("dropdownContent");
+    dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
+  };
 
   useEffect(() => {
     let token = localStorage.token;
@@ -221,58 +197,7 @@ const Dashboard = () => {
 
 
             <div className="row match-height">
-              {/* <div className="col-xl-4 col-lg-12">
-                <div className="card">
-                  <div className="card-header">
-                    <h4 className="card-title" id="heading-multiple-thumbnails">
-                      Multiple Thumbnail
-                    </h4>
-                    <a className="heading-elements-toggle">
-                      <i className="la la-ellipsis-v font-medium-3" />
-                    </a>
-                    <div className="heading-elements">
-                      <span className="avatar">
-                        <img
-                          src={profile}
-                          alt="avatar"
-                        />
-                      </span>
-                      <span className="avatar">
-                        <img
-                          src={profile}
-                          alt="avatar"
-                        />
-                      </span>
-                      <span className="avatar">
-                        <img
-                          src={profile}
-                          alt="avatar"
-                        />
-                      </span>
-                    </div>
-                  </div>
-                  <div className="card-content">
-                    <div className="card-body">
-                      <h4 className="card-title">Content title</h4>
-                      <p className="card-text">
-                        Jelly beans sugar plum cheesecake cookie oat cake
-                        soufflé.Tootsie roll bonbon liquorice tiramisu pie
-                        powder.Donut sweet roll marzipan pastry cookie cake tootsie
-                        roll oat cake cookie.Jelly beans sugar plum cheesecake
-                        cookie oat cake soufflé. Tart lollipop carrot cake sugar
-                        plum.{" "}
-                      </p>
-                      <p className="card-text">
-                        Sweet roll marzipan pastry halvah. Cake bear claw sweet.
-                        Tootsie roll pie marshmallow lollipop chupa chups donut
-                        fruitcake cake.Jelly beans sugar plum cheesecake cookie oat
-                        cake soufflé. Tart lollipop carrot cake sugar plum.
-                        Marshmallow wafer tiramisu jelly beans.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
+              
               <div className="col-xl-4 col-lg-12">
                 <div className="card">
                   <div className="card-content">
