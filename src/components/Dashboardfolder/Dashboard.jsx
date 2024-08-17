@@ -44,8 +44,9 @@ const Dashboard = () => {
   //       }
   //     })
   // }, []) 
-// https://petportbackend.onrender.com
-  let url = "http://localhost:5000/useranimalinvest/dashboard";
+  // 
+  // http://localhost:5000
+  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
   const navigate = useNavigate();
   const [user, setUser] = useState("");
   const [totalInvestment, setTotalInvestment] = useState(0);
@@ -101,7 +102,7 @@ const Dashboard = () => {
   //     }
   //   });
   // }, [])
-  
+
 
 
 
