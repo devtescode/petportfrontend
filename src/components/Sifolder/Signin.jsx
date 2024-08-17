@@ -47,7 +47,7 @@ const Signup = () => {
                         });
                         localStorage.setItem("UserData", JSON.stringify(response.data.userData));
                         localStorage.token = response.data.token
-                        navigate("/backupDB")
+                        navigate("/dashboard")
                         localStorage.setItem("useradminlogin", true)
                     }
                 })
