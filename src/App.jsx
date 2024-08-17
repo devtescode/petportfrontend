@@ -47,7 +47,8 @@ function App() {
 
   let admintoken = localStorage.admintoken
   const DashboardLayout = () => {
-    let token = localStorage.token
+    // let token = localStorage.token
+    let token = localStorage.getItem('token');
     return (
       <Routes>
         <Route path='dashboard/' element={token ? <Outlet /> : <Navigate to={'/login'} />}>
