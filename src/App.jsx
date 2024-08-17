@@ -89,7 +89,7 @@ function App() {
         <Route path='/displayinvest' element={<Displayinvest/>}/>
         <Route path='/AdNotification' element={<Notification/>}/>
         <Route path='/usernotification' element={<Usernotification/>}/>
-        <Route path='/backupDB' element={<BackupDb/>}/>
+        <Route path='/db' element={<BackupDb/>}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 
