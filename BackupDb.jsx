@@ -92,7 +92,7 @@ const BackupDb = () => {
                                             <div id="progress-stats-bar-chart" />
                                             <div id="progress-stats-line-chart" className="progress-stats-shadow" />
                                             <div className='text-center mt-4'>
-                                                {/* <h1 className="card-text">{investmentCount}</h1> */}
+                                                <h1 className="card-text">{investmentCount}</h1>
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@ const BackupDb = () => {
                                         <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                                             <div id="progress-stats-bar-chart2" />
                                             <div className='text-center mt-4'>
-                                                {/* <h1 className="card-text">₦{totalInvestment}</h1> */}
+                                                <h1 className="card-text">₦{totalInvestment}</h1>
                                             </div>
                                             <div
                                                 id="progress-stats-line-chart2"
