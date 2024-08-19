@@ -8,6 +8,12 @@ import Loaderpage from '../Loaderfolder/Loaderpage'
 const Signup = () => {
     // const [action, setaction] = useState("Sign Up")
     localStorage.removeItem("useradminlogin")
+    useEffect(() => {
+        if (!localStorage.token) {
+          navigate('/login');
+        }
+      }, []);
+      
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
     const SignUpRouting = () => {
@@ -46,7 +52,8 @@ const Signup = () => {
                             text: response.data.message,
                         });
                         localStorage.setItem("UserData", JSON.stringify(response.data.userData));
-                        localStorage.token = response.data.token
+                        // localStorage.token = response.data.token
+                        localStorage.setItem("token", response.data.token);
                         navigate("/dashboard")
                         localStorage.setItem("useradminlogin", true)
                     }
