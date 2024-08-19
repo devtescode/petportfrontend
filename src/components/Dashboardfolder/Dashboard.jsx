@@ -63,11 +63,6 @@ const Dashboard = () => {
   useEffect(() => {
     let token = localStorage.token;
   
-    // Debugging: Log the token and URL
-    // console.log("Token:", token);
-    // console.log("Request URL:", url);
-  
-    // Ensure the token exists before making the request
     if (!token) {
       console.warn("No token found, redirecting to login.");
       navigate("/login");
