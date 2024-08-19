@@ -64,8 +64,8 @@ const Dashboard = () => {
     let token = localStorage.token;
   
     // Debugging: Log the token and URL
-    console.log("Token:", token);
-    console.log("Request URL:", url);
+    // console.log("Token:", token);
+    // console.log("Request URL:", url);
   
     // Ensure the token exists before making the request
     if (!token) {
@@ -83,6 +83,8 @@ const Dashboard = () => {
     })
       .then((response) => {
         // Debugging: Log the full response
+        console.log(response);
+        
         console.log("Response Data:", response.data);
   
         if (!localStorage.useradminlogin || response.data.status === false) {
