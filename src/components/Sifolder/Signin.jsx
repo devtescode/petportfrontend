@@ -52,7 +52,7 @@ const Signup = () => {
                             text: response.data.message,
                         });
                         localStorage.setItem("UserData", JSON.stringify(response.data.userData));
-                        // localStorage.token = response.data.token
+                        localStorage.token = response.data.token
                         localStorage.setItem("token", response.data.token);
                         navigate("/dashboard")
                         localStorage.setItem("useradminlogin", true)

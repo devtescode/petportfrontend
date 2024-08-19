@@ -20,7 +20,6 @@ const Dashboard = () => {
 
   // 
   // http://localhost:5000
-  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
 
   const navigate = useNavigate();
   const [user, setUser] = useState("");
@@ -33,8 +32,48 @@ const Dashboard = () => {
     dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
   };
 
+  // useEffect(() => {
+  //   let token = localStorage.token;
+  //   axios.get(url, {
+  //     headers: {
+  //       "Authorization": `Bearer ${token}`,
+  //       "Content-Type": "application/json",
+  //       Accept: "application/json",
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (!localStorage.useradminlogin || response.data.status === false) {
+  //         navigate("/login");
+  //       } else {
+  //         setUser(response.data.user);
+  //         setTotalInvestment(response.data.user.Totalinvest);
+  //         setInvestmentCount(response.data.user.Amountinvest);
+  //         setUniqueProductCount(response.data.user.uniqueProductCount);
+  //         localStorage.setItem('image', response.data.user.Uploadimg);
+  //         console.log(response.data.user);
+  //       }
+  //       // console.log(response);
+
+  //     }).catch(err => {
+  //       console.log(err);
+  //     });
+  // }, [navigate]);
+
+  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
   useEffect(() => {
     let token = localStorage.token;
+  
+    // Debugging: Log the token and URL
+    console.log("Token:", token);
+    console.log("Request URL:", url);
+  
+    // Ensure the token exists before making the request
+    if (!token) {
+      console.warn("No token found, redirecting to login.");
+      navigate("/login");
+      return;
+    }
+  
     axios.get(url, {
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -43,29 +82,41 @@ const Dashboard = () => {
       },
     })
       .then((response) => {
+        // Debugging: Log the full response
+        console.log("Response Data:", response.data);
+  
         if (!localStorage.useradminlogin || response.data.status === false) {
+          console.warn("User not logged in or invalid status, redirecting to login.");
           navigate("/login");
         } else {
+          // Successfully received data, updating state
           setUser(response.data.user);
           setTotalInvestment(response.data.user.Totalinvest);
           setInvestmentCount(response.data.user.Amountinvest);
           setUniqueProductCount(response.data.user.uniqueProductCount);
           localStorage.setItem('image', response.data.user.Uploadimg);
-          console.log(response.data.user);
+  
+          // Debugging: Log user data
+          console.log("User Data:", response.data.user);
         }
-        // console.log(response);
-
-      }).catch(err => {
-        console.log(err);
+      })
+      .catch((err) => {
+        // Handle different types of errors
+        if (err.response) {
+          // Server responded with a status other than 2xx
+          console.error("Error Response:", err.response.data);
+        } else if (err.request) {
+          // Request was made but no response was received
+          console.error("No Response:", err.request);
+        } else {
+          // Something happened in setting up the request that triggered an error
+          console.error("Error:", err.message);
+        }
+  
+        // Optionally navigate to an error page or show an error message
       });
   }, [navigate]);
-
-
-  // useEffect(() => {
-  //   fetchData()
-  //     .then(data => setData(data))
-  //     .catch(error => console.error(error));
-  // }, []);
+  
 
   // useEffect(() => {
   //   Swal.fire({
