@@ -47,16 +47,16 @@ function App() {
   // const isUser = localStorage.getItem('token');
 
   let admintoken = localStorage.admintoken
-  // const DashboardLayout = () => {
-  //   let token = localStorage.token
-  //   return (
-  //     <Routes>
-  //       <Route path='dashboard/' element={token ? <Outlet /> : <Navigate to={'/login'} />}>
-  //         <Route path="" element={<Dashboard />} />
-  //       </Route>
-  //     </Routes>
-  //   )
-  // }
+  const DashboardLayout = () => {
+    let token = localStorage.token
+    return (
+      <Routes>
+        <Route path='dashboard/' element={token ? <Outlet /> : <Navigate to={'/login'} />}>
+          <Route path="" element={<Dashboard />} />
+        </Route>
+      </Routes>
+    )
+  }
 
 
   return (
@@ -67,8 +67,8 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Signin />} />
-        {/* <Route path='/*' element={<DashboardLayout />} /> */}
-        <Route path='dashboard' element={<Dashboard/>}/>
+        <Route path='/*' element={<DashboardLayout />} />
+        {/* <Route path='dashboard' element={<Dashboard/>}/> */}
         <Route path='/product' element={<Product />} />
         <Route path='/invest' element={<Invest />} />
         <Route path="/view/:id" element={<View />} />

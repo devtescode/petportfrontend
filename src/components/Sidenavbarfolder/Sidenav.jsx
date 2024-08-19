@@ -87,7 +87,6 @@ const Sidenav = () => {
     offcanvasInstance.hide();
   };
 
-
   const toggleDropdown = () => {
     let dropdownContent = document.getElementById("dropdownContent");
     dropdownContent.style.display === "block" ? dropdownContent.style.display = "none" : dropdownContent.style.display = "block";
@@ -113,7 +112,7 @@ const Sidenav = () => {
   useEffect(() => {
     const fetchNotificationCount = async () => {
       try {
-        const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getusernotificationcount'); // Adjust this endpoint according to your backend
+        const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getusernotificationcount'); 
         setNotificationCount(response.data.count); // Assuming the API returns { count: number }
         // console.log(response.data.count);
 
