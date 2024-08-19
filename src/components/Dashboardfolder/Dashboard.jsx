@@ -78,9 +78,9 @@ const Dashboard = () => {
     })
       .then((response) => {
         // Debugging: Log the full response
-        console.log(response);
+        // console.log(response);
         
-        console.log("Response Data:", response.data); 
+        // console.log("Response Data:", response.data); 
   
         if (!localStorage.useradminlogin || response.data.status === false) {
           console.warn("User not logged in or invalid status, redirecting to login.");
