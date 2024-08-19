@@ -13,44 +13,72 @@ const Userplanget = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        let isMounted = true;
+
         const fetchPlans = async () => {
             try {
                 const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getuserplans');
-                setPlans(response.data.plans);
-                setLoading(false);
+                if (isMounted) {
+                    setPlans(response.data.plans);
+                    setLoading(false);
 
-                // Fetch comments for all plans after loading the plans
-                response.data.plans.forEach(plan => {
-                    fetchComments(plan._id);
-                });
+                    response.data.plans.forEach(plan => {
+                        fetchComments(plan._id);
+                    });
+                }
             } catch (error) {
-                console.error('Error fetching plans:', error);
-                setLoading(false);
+                if (isMounted) {
+                    console.error('Error fetching plans:', error);
+                    setLoading(false);
+                }
             }
         };
         fetchPlans();
 
         const intervalId = setInterval(() => {
-            fetchPlans();
+            if (isMounted) fetchPlans();
         }, 5000);
-        return () => clearInterval(intervalId);
+
+        return () => {
+            isMounted = false;
+            clearInterval(intervalId);
+        };
     }, []);
+
+
+    // const fetchComments = async (planId) => {
+    //     try {
+    //         const response = await axios.get(`http://localhost:5000/useranimalinvest/getcomments/${planId}`);
+    //         setComments(prevComments => ({
+    //             ...prevComments,
+    //             [planId]: response.data.comments
+    //         }));
+    //         // console.log(response.data.comments);
+    //         // response.data.comments.forEach(comment => {
+    //         //     console.log(comment.userId.Uploadimg); 
+    //         // });
+    //     } catch (error) {
+    //         console.error('Error fetching comments:', error);
+    //     }
+    // };
 
     const fetchComments = async (planId) => {
         try {
             const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/getcomments/${planId}`);
+            const commentCount = response.data.comments.length;
+
             setComments(prevComments => ({
                 ...prevComments,
-                [planId]: response.data.comments
+                [planId]: {
+                    comments: response.data.comments,
+                    count: commentCount
+                }
             }));
-            // console.log(response.data.comments);
-            // response.data.comments.forEach(comment => {
-            //     console.log(comment.userId.Uploadimg); 
-            // });
         } catch (error) {
             console.error('Error fetching comments:', error);
         }
     };
+
 
     const handleInvestClick = (planId) => {
         navigate(`/userview/${planId}`);
@@ -83,6 +111,27 @@ const Userplanget = () => {
         }
     };
 
+    // const handleAddComment = async (planId) => {
+    //     const userData = JSON.parse(localStorage.getItem("UserData"));
+    //     const userId = userData.userId;
+
+    //     try {
+    //         const response = await axios.post('http://localhost:5000/useranimalinvest/addcomment', {
+    //             userId,
+    //             planId,
+    //             commentText: newCommentText
+    //         });
+
+    //         setComments(prevComments => ({
+    //             ...prevComments,
+    //             [planId]: [...(prevComments[planId] || []), response.data.comment]
+    //         }));
+
+    //         setNewCommentText('');
+    //     } catch (error) {
+    //         console.error('Error adding comment:', error);
+    //     }
+    // };
     const handleAddComment = async (planId) => {
         const userData = JSON.parse(localStorage.getItem("UserData"));
         const userId = userData.userId;
@@ -96,14 +145,17 @@ const Userplanget = () => {
 
             setComments(prevComments => ({
                 ...prevComments,
-                [planId]: [...(prevComments[planId] || []), response.data.comment]
+                [planId]: {
+                    comments: [...(prevComments[planId]?.comments || []), response.data.comment],
+                    count: (prevComments[planId]?.count || 0) + 1
+                }
             }));
-
             setNewCommentText('');
         } catch (error) {
             console.error('Error adding comment:', error);
         }
     };
+
 
     const handleCommentIconClick = (planId) => {
         setCurrentPlanId(planId);
@@ -157,7 +209,7 @@ const Userplanget = () => {
                                                                 <span>{plan.likesCount || 0}</span>
                                                             </div>
 
-                                                            <div>
+                                                            <div className='' style={{ display: 'flex', alignItems: 'center', fontSize: '1.5rem' }}>
                                                                 <i
                                                                     className="ri-chat-4-line"
                                                                     style={{ fontSize: '2rem', marginRight: '0.5rem', cursor: 'pointer' }}
@@ -165,6 +217,7 @@ const Userplanget = () => {
                                                                     data-bs-target="#offcanvasBottom"
                                                                     onClick={() => handleCommentIconClick(plan._id)}
                                                                 ></i>
+                                                                <span>{comments[plan._id]?.count || 0}</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -207,16 +260,14 @@ const Userplanget = () => {
 
                     </div>
 
-                    <div className="comment-list ">
-                        {(comments[currentPlanId] || []).map(comment => (
+                    <div className="comment-list">
+                        {(comments[currentPlanId]?.comments || []).map(comment => (
                             <div key={comment._id} className="comment mb-3">
                                 <div className='comment_profile'>
                                     {comment.userId && comment.userId.Uploadimg ? (
                                         <img src={comment.userId.Uploadimg} className='comment_profile2' alt="User profile" />
                                     ) : (
-                                        // <img src="path-to-placeholder-image.jpg" className='comment_profile2' alt="Placeholder" />
-                                        <div  className='comment_profile2' >
-                                        </div>
+                                        <div className='comment_profile2'></div>
                                     )}
                                 </div>
                                 <p className='fs-3'>{comment.userId?.Fullname || "Unknown User"}</p>
@@ -225,6 +276,7 @@ const Userplanget = () => {
                             </div>
                         ))}
                     </div>
+
 
                 </div>
             </div>
