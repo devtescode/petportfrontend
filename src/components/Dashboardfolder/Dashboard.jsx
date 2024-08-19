@@ -94,7 +94,7 @@ const Dashboard = () => {
           localStorage.setItem('image', response.data.user.Uploadimg);
   
           // Debugging: Log user data
-          console.log("User Data:", response.data.user);
+          // console.log("User Data:", response.data.user);
         }
       })
       .catch((err) => {
