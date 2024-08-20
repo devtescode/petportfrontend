@@ -75,8 +75,8 @@ const Comment = () => {
                                                 <th>Comment</th>
                                                 <th>Date</th>
                                                 <th>User Image</th>
-                                                <th>Likes</th>
                                                 <th>Plan Image</th>
+                                                <th>Likes</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -98,6 +98,19 @@ const Comment = () => {
                                                             <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: '#ccc    ' }} />
                                                         )}
                                                     </td>
+                                                  
+                                                    <td>
+                                                        {comment.planId?.image ? (
+                                                            <img
+                                                                src={comment.planId.image}
+                                                                alt="Plan"
+                                                                className="plan-image"
+                                                                style={{ width: '50px', height: '50px' }}
+                                                            />
+                                                        ) : (
+                                                            'No Image'
+                                                        )}
+                                                    </td>
                                                     <td>
                                                         {comment.planId ? (
                                                             <div>
@@ -116,18 +129,6 @@ const Comment = () => {
                                                             </div>
                                                         ) : (
                                                             'No Plan Info'
-                                                        )}
-                                                    </td>
-                                                    <td>
-                                                        {comment.planId?.image ? (
-                                                            <img
-                                                                src={comment.planId.image}
-                                                                alt="Plan"
-                                                                className="plan-image"
-                                                                style={{ width: '50px', height: '50px' }}
-                                                            />
-                                                        ) : (
-                                                            'No Image'
                                                         )}
                                                     </td>
                                                     <td>
