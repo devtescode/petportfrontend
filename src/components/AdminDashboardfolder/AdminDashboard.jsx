@@ -76,7 +76,7 @@ const AdminDashboard = () => {
       });
 
 
-    axios.get('http://localhost:5000/useranimalinvest/Totalinvest', {
+    axios.get('https://petportbackend.onrender.com/useranimalinvest/Totalinvest', {
       headers: {
         "Authorization": `Bearer ${admintoken}`,
         "Content-Type": "application/json",
