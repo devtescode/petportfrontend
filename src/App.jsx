@@ -28,6 +28,7 @@ import Displayinvest from './components/Displayuserinvestfolder/Displayinvest'
 import Notification from './components/Notificationfolder/Notification'
 import Usernotification from './components/UserNotificationfolder/Usernotification'
 import BackupDb from '../BackupDb'
+import Comment from './components/Commentfolder/Comment'
 
 function App() {
 
@@ -91,6 +92,7 @@ function App() {
         <Route path='/AdNotification' element={<Notification/>}/>
         <Route path='/usernotification' element={<Usernotification/>}/>
         <Route path='/db' element={<BackupDb/>}/>
+        <Route path='/commentdb' element={<Comment/>}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 

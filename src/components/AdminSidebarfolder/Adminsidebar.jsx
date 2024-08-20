@@ -31,6 +31,10 @@ const Adminsidebar = () => {
         navigate("/plan")
     }
 
+    const CommentBtn = ()=>{
+        navigate("/commentdb")
+    }
+
     const PlanHistoryBtn = () => {
         navigate("/planhistory")
     }
@@ -62,6 +66,10 @@ const Adminsidebar = () => {
                     <Button onClick={PlanBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-building-3-line"></i>
                         <span className='' style={{ marginLeft: "5px" }}>Plan</span>
+                    </Button>
+                    <Button onClick={CommentBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
+                        <i class="ri-chat-new-line"></i>
+                        <span className='' style={{ marginLeft: "5px" }}>Comment</span>
                     </Button>
                     <Button onClick={PlanHistoryBtn} variant="outline-primary" className='d-flex align-items-center my-1'>
                         <i className="ri-history-line"></i>

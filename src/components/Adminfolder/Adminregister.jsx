@@ -26,7 +26,7 @@ const Adminregister = () => {
         }),
         onSubmit: values => {
             setLoading(true);
-            axios.post("https://petportbackend.onrender.com/useranimalinvest/adminlogin", { Email: values.Email, password: values.password })
+            axios.post("http://localhost:5000/useranimalinvest/adminlogin", { Email: values.Email, password: values.password })
                 .then((response) => {
                     // console.log(response);
                     swal.fire({

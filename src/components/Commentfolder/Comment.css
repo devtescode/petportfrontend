@@ -1,0 +1,8 @@
+.user-image {
+    object-fit: cover;
+}
+
+.plan-image {
+    object-fit: cover;
+    border-radius: 5px;
+}
