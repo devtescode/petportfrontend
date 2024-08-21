@@ -100,11 +100,11 @@ const AdminDashboard = () => {
             <Adminsidebar />
           </div>
           <div className='Admininnerseconddiv'>
-            <div className="container text-center mt-sm-3 p-2 mt-3">
+            <div className="container text-center mt-sm-0 p-1 p-sm-3 mt-3">
               <div className='text-start fw-bold mt-2 mt-sm-0'>
                 <p>Welcome back, {admin && admin?.Fullname}</p>
               </div>
-              <div className="row ">
+              <div className="row">
                 <div className="col-md-6 col-lg-6 mt-0 mt-sm-2">
                   <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg dbcontainer_ht" style={{backgroundColor:"#262D47", color:"white"}}>
                     <div>
