@@ -62,7 +62,7 @@ const Adminregister = () => {
                     <div className='eachDiv'>
                         <div className='w-100'>
                             <div className='fs-1 text-center'>
-                                <b>Admin-Panel</b>
+                                <b style={{color:"#262D47"}}>Admin-Panel</b>
                             </div>
                             <div className='p-0 p-sm-2 mt-5 mt-sm-0'>
                                 <form action="" onSubmit={formik.handleSubmit}>
@@ -73,7 +73,7 @@ const Adminregister = () => {
                                         </div>
 
                                         <div className='mb-2'>
-                                            <label htmlFor="">Password</label>
+                                            <label htmlFor="" >Password</label>
                                             <input type="text" placeholder='Password' className='form-control  p-2' onChange={formik.handleChange} name='password' value={formik.values.password} />
                                         </div>
                                     </div>
