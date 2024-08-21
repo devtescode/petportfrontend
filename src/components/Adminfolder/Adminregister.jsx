@@ -79,7 +79,7 @@ const Adminregister = () => {
                                     </div>
                                     {error && <p>{error}</p>}
                                     <div className='text-center'>
-                                        <button className='btn btn-secondary' type="submit">Login</button>
+                                        <button className='btn btn-secondary' type="submit" style={{backgroundColor:"#262D47"}}>Login</button>
                                     </div>
                                 </form>
                             </div>
