@@ -62,7 +62,7 @@ const Adminregister = () => {
                     <div className='eachDiv'>
                         <div className='w-100'>
                             <div className='fs-1 text-center'>
-                                <b>Admin-Panal</b>
+                                <b>Admin-Panel</b>
                             </div>
                             <div className='p-0 p-sm-2 mt-5 mt-sm-0'>
                                 <form action="" onSubmit={formik.handleSubmit}>
