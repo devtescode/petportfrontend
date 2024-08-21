@@ -100,39 +100,39 @@ const AdminDashboard = () => {
             <Adminsidebar />
           </div>
           <div className='Admininnerseconddiv'>
-            <div className="container text-center p-5 mt-sm-0 mt-3">
-              <div className='text-start fw-bold'>
+            <div className="container text-center mt-sm-3 p-2 mt-3">
+              <div className='text-start fw-bold mt-2 mt-sm-0'>
                 <p>Welcome back, {admin && admin?.Fullname}</p>
               </div>
-              <div className="row g-4" style={{ height: "80vh" }}>
-                <div className="col-md-6 col-lg-6">
-                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100" >
+              <div className="row ">
+                <div className="col-md-6 col-lg-6 mt-0 mt-sm-2">
+                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg dbcontainer_ht" style={{backgroundColor:"#262D47", color:"white"}}>
                     <div>
-                      <h1>{userCount}</h1>
+                      <h1 className='text-white'>{userCount}</h1>
                       Users
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 col-lg-6">
-                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                <div className="col-md-6 col-lg-6 mt-2">
+                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg dbcontainer_ht" style={{backgroundColor:"#262D47", color:"white"}}>
                     <div>
-                      <h1>₦{totalBalance}</h1>
+                      <h1 className='text-white'>₦{totalBalance}</h1>
                       Total users Balance
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 col-lg-6">
-                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                <div className="col-md-6 col-lg-6 mt-2">
+                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg dbcontainer_ht" style={{backgroundColor:"#262D47", color:"white"}}>
                     <div>
-                      <h1>₦{totalAmountInvested}</h1>
+                      <h1 className='text-white'>₦{totalAmountInvested}</h1>
                       Total Amount Invested
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 col-lg-6">
-                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg h-100">
+                <div className="col-md-6 col-lg-6 mt-2">
+                  <div className="border border-1 border-light d-flex justify-content-center align-items-center rounded-3 shadow-lg dbcontainer_ht" style={{backgroundColor:"#262D47", color:"white"}}>
                     <div>
-                      <h1>{Totalinvested}</h1>
+                      <h1 className='text-white'>{Totalinvested}</h1>
                       Total Value Invested
                     </div>
                   </div>
