@@ -232,7 +232,7 @@ const Dashboard = () => {
                     <div className="progress-stats-container ct-golden-section height-75 position-relative pt-3">
                       <div id="progress-stats-bar-chart1" />
                       <div className='text-center mt-4'>
-                        <h1 className="card-text">Add</h1>
+                        {/* <h1 className="card-text">Monthly</h1> */}
                       </div>
                       <div
                         id="progress-stats-line-chart1"

@@ -333,15 +333,11 @@ const Sidenav = () => {
                         <div className="collapse" id="collapseExample">
                           <div className="card card-body border border-white w-100">
                             <div>
-                              <button className='btn btn-dark'>
+                              <button className='btn btn-dark' onClick={adminBtnPage}>
                                 Login
                               </button>
                             </div>
-                            <div>
-                              <button className='btn btn-dark my-1'>
-                                Register
-                              </button>
-                            </div>
+                           
                           </div>
                         </div>
                       </span>
