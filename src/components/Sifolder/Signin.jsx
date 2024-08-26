@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router'
 import axios from 'axios'
 import Loaderpage from '../Loaderfolder/Loaderpage'
 
-const Signup = () => {
+const Signin = () => {
     // const [action, setaction] = useState("Sign Up")
     localStorage.removeItem("useradminlogin")
     useEffect(() => {
@@ -150,4 +150,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default Signin
