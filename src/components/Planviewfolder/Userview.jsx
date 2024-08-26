@@ -108,7 +108,7 @@ const View = () => {
                     <img src={product.image} alt={product.name} className="card-img-top mx-auto d-block col-12" />
                     <div className="mt-2 text-center">
                         <p>{product.description}</p>
-                        <p>Price: ₦{product.price}</p>
+                        {/* <p>Price: g₦{product.price}</p> */}
                     </div>
                     <select
                         name="investmentPeriod"

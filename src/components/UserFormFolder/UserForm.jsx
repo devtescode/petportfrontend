@@ -182,7 +182,7 @@ const UserForm = ({ user, onSave, isVisible, onClose }) => {
                                                             <br/>
                                                             <strong>Investment URL:</strong> {entry.productImage}
                                                             <br/>
-                                                            <strong>Investment Earn:</strong> {entry.investmentPrice}
+                                                            <strong>Investment Earn:</strong> {entry.investmentPrice} must be cash out
                                                             <br/>
                                                         </li>
                                                     )) : <li>No investment history available.</li>}

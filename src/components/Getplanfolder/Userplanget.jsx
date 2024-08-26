@@ -197,7 +197,7 @@ const Userplanget = () => {
                                                     <div className="card-body">
                                                         <h3 className="card-title">Animal Name: {plan.name}</h3>
                                                         <p className="card-text">Description: {plan.description}</p>
-                                                        <p className="card-text">Price: ₦{plan.price}</p>
+                                                        {/* <p className="card-text">Price: ₦{plan.price}</p> */}
                                                         <button onClick={() => handleInvestClick(plan._id)} className="investBtn btn btn-primary text-white w-100 rounded-5">View Investment</button>
                                                         <div className='d-flex justify-content-around mt-2'>
                                                             <div className='' style={{ display: 'flex', alignItems: 'center', fontSize: '1.5rem' }}>
