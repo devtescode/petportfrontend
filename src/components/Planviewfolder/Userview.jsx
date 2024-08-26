@@ -22,7 +22,7 @@ const View = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/useranimalinvest/getplan/${id}`);
+                const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/getplan/${id}`);
                 setProduct(response.data.plan);
                 setLoading(false);
             } catch (error) {
@@ -69,7 +69,7 @@ const View = () => {
 
         const [period, price] = investmentPeriod.split('-₦');
 
-        const url = 'http://localhost:5000/useranimalinvest/planinvestnow';
+        const url = 'https://petportbackend.onrender.com/useranimalinvest/planinvestnow';
         const postUser = {
             planId: id,
             email: user.email,
