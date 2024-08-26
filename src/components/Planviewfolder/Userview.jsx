@@ -15,12 +15,14 @@ const View = () => {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState(null);
     const [investmentPeriod, setInvestmentPeriod] = useState('');
+    const [percentage, setPercentage] = useState('');
+    const [investmentPrice, setInvestmentPrice] = useState(0); // State for the selected investment price
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/getplan/${id}`);
+                const response = await axios.get(`http://localhost:5000/useranimalinvest/getplan/${id}`);
                 setProduct(response.data.plan);
                 setLoading(false);
             } catch (error) {
@@ -39,6 +41,22 @@ const View = () => {
         }
     }, [navigate]);
 
+    useEffect(() => {
+        // Update percentage and price based on investment period
+        if (investmentPeriod.includes('3-month')) {
+            setPercentage('10%');
+        } else if (investmentPeriod.includes('6-month')) {
+            setPercentage('20%');
+        } else if (investmentPeriod.includes('9-month')) {
+            setPercentage('30%');
+        } else {
+            setPercentage('');
+        }
+
+        const selectedPrice = investmentPeriod.split('-₦')[1];
+        setInvestmentPrice(selectedPrice ? parseFloat(selectedPrice) : 0); // Update the investment price based on selection
+    }, [investmentPeriod]);
+
     if (loading) {
         return <p className='text-center'>Loading...</p>;
     }
@@ -49,17 +67,17 @@ const View = () => {
             return;
         }
 
-        const [period, price] = investmentPeriod.split('-₦'); // Split the selected value
+        const [period, price] = investmentPeriod.split('-₦');
 
-        const url = 'https://petportbackend.onrender.com/useranimalinvest/planinvestnow';
+        const url = 'http://localhost:5000/useranimalinvest/planinvestnow';
         const postUser = {
             planId: id,
             email: user.email,
             productImage: product.image,
-            investmentPeriod: period, // Use the period part
-            investmentPrice: price // Use the price part
+            investmentPeriod: period,
+            investmentPrice: investmentPrice // Use the selected investment price
         };
-        console.log(postUser.investmentPeriod, postUser.investmentPrice); // Log both
+        console.log(postUser.investmentPeriod, postUser.investmentPrice);
 
         try {
             const response = await axios.post(url, postUser);
@@ -103,7 +121,11 @@ const View = () => {
                         <option value={`3-month-₦${product.investmentPeriods['3-month']}`}>3-month ₦{product.investmentPeriods['3-month']}</option>
                         <option value={`6-month-₦${product.investmentPeriods['6-month']}`}>6-month ₦{product.investmentPeriods['6-month']}</option>
                         <option value={`9-month-₦${product.investmentPeriods['9-month']}`}>9-month ₦{product.investmentPeriods['9-month']}</option>
-                    </select>   
+                    </select>  
+                    <select name="" id="" className='form-control my-2' disabled>
+                        <option value="">{percentage}</option> 
+                    </select> 
+
                     <div className="text-center">
                         <button className="btn btn-primary" onClick={handleInvestNow}>
                             Invest Now
