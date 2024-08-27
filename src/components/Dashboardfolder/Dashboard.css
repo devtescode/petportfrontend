@@ -1,0 +1,70 @@
+
+
+  /* Dashboard.css */
+
+.dashboard-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .recent-investments {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-height: 215px; /* Set maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .section-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px; /* Reduced margin for better fit */
+    color: #333;
+  }
+  
+  .investment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduced gap to fit within the height */
+  }
+  
+  .investment-card {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+    height: 100px; /* Set fixed height for each card */
+  }
+  
+  .investment-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .investment-image {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .investment-details {
+    padding: 10px;
+    flex: 1;
+    overflow: hidden; /* Ensure content does not overflow */
+  }
+  
+  .investment-name {
+    font-size: 16px; /* Adjusted font size */
+    font-weight: 500;
+    margin: 0 0 5px; /* Adjusted margin */
+    color: #333;
+  }
+  
+  .investment-date,
+  .investment-amount {
+    margin: 0;
+    color: #555;
+  }
+  

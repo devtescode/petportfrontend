@@ -46,21 +46,6 @@ const Userplanget = () => {
     }, []);
 
 
-    // const fetchComments = async (planId) => {
-    //     try {
-    //         const response = await axios.get(`http://localhost:5000/useranimalinvest/getcomments/${planId}`);
-    //         setComments(prevComments => ({
-    //             ...prevComments,
-    //             [planId]: response.data.comments
-    //         }));
-    //         // console.log(response.data.comments);
-    //         // response.data.comments.forEach(comment => {
-    //         //     console.log(comment.userId.Uploadimg); 
-    //         // });
-    //     } catch (error) {
-    //         console.error('Error fetching comments:', error);
-    //     }
-    // };
 
     const fetchComments = async (planId) => {
         try {
@@ -111,27 +96,7 @@ const Userplanget = () => {
         }
     };
 
-    // const handleAddComment = async (planId) => {
-    //     const userData = JSON.parse(localStorage.getItem("UserData"));
-    //     const userId = userData.userId;
 
-    //     try {
-    //         const response = await axios.post('http://localhost:5000/useranimalinvest/addcomment', {
-    //             userId,
-    //             planId,
-    //             commentText: newCommentText
-    //         });
-
-    //         setComments(prevComments => ({
-    //             ...prevComments,
-    //             [planId]: [...(prevComments[planId] || []), response.data.comment]
-    //         }));
-
-    //         setNewCommentText('');
-    //     } catch (error) {
-    //         console.error('Error adding comment:', error);
-    //     }
-    // };
     const handleAddComment = async (planId) => {
         const userData = JSON.parse(localStorage.getItem("UserData"));
         const userId = userData.userId;
@@ -159,7 +124,7 @@ const Userplanget = () => {
 
     const handleCommentIconClick = (planId) => {
         setCurrentPlanId(planId);
-        fetchComments(planId);  // Fetch comments again for the selected plan
+        fetchComments(planId);  
     };
 
     return (
@@ -181,7 +146,7 @@ const Userplanget = () => {
 
                                         const userId = userData ? userData.userId : null;
 
-                                        // Ensure `plan.likes` is an array or default to an empty array
+                                        
                                         const isLiked = Array.isArray(plan.likes) && plan.likes.includes(userId);
 
                                         return (

@@ -13,6 +13,7 @@ import profile1 from '../../assets/img/hero.jpg';
 import profile2 from '../../assets/img/pig.jpg'
 import profile3 from '../../assets/img/closeup-shot-brown-guard-dog-standing-beach.jpg'
 import InvestmentPerformance from '../InvestmentPerfolder/Investperformance.jsx'
+import "./Dashboard.css"
 
 // ../theme-assets/images/portrait/small/avatar-s-19.png
 
@@ -62,13 +63,13 @@ const Dashboard = () => {
   let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
   useEffect(() => {
     let token = localStorage.token;
-  
+
     if (!token) {
       console.warn("No token found, redirecting to login.");
       navigate("/login");
       return;
     }
-  
+
     axios.get(url, {
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -79,9 +80,9 @@ const Dashboard = () => {
       .then((response) => {
         // Debugging: Log the full response
         // console.log(response);
-        
+
         // console.log("Response Data:", response.data); 
-  
+
         if (!localStorage.useradminlogin || response.data.status === false) {
           console.warn("User not logged in or invalid status, redirecting to login.");
           navigate("/login");
@@ -92,7 +93,7 @@ const Dashboard = () => {
           setInvestmentCount(response.data.user.Amountinvest);
           setUniqueProductCount(response.data.user.uniqueProductCount);
           localStorage.setItem('image', response.data.user.Uploadimg);
-  
+
           // Debugging: Log user data
           // console.log("User Data:", response.data.user);
         }
@@ -109,11 +110,11 @@ const Dashboard = () => {
           // Something happened in setting up the request that triggered an error
           console.error("Error:", err.message);
         }
-  
+
         // Optionally navigate to an error page or show an error message
       });
   }, [navigate]);
-  
+
 
   // useEffect(() => {
   //   Swal.fire({
@@ -135,6 +136,28 @@ const Dashboard = () => {
   //   });
   // }, [])
 
+  const [recentInvestments, setRecentInvestments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchRecentInvestments = async () => {
+      try {
+        const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getallinvest');
+        setRecentInvestments(response.data.investments);
+        console.log(response.data.investments);
+      } catch (error) {
+        console.error('Error fetching recent investments:', error);
+        setError('Failed to fetch recent investments');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchRecentInvestments();
+  }, []);
+
+  if (loading) return <p className='text-center'>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
 
 
@@ -142,7 +165,7 @@ const Dashboard = () => {
   return (
     <>
 
-    
+
       <Sidenav />
       <div className="app-content content">
         <div className="content-wrapper">
@@ -291,7 +314,7 @@ const Dashboard = () => {
               </div>
 
 
-              <div className="col-xl-4 col-lg-12 border bg-dark">
+              <div className="col-xl-8 col-lg-12">
                 <div className="card">
                   <div className="card-header">
                     <h4 className="card-title">Recent Invest</h4>
@@ -308,45 +331,33 @@ const Dashboard = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="card-content">
-                    <div id="recent-buyers" className="media-list">
-                      <a href="#" className="media border-0">
-                        <div className="media-left pr-1">
-                          <span className="avatar avatar-md avatar-online">
-                            <img
-                              className="media-object rounded-circle"
-                              src={profile}
-                              alt="Generic placeholder image"
-                            />
-                            <i />
-                          </span>
-                        </div>
-                        <div className="media-body w-100">
-                          <span className="list-group-item-heading">
-                            Kristopher Candy
-                          </span>
-                          <ul className="list-unstyled users-list m-0 float-right">
-                            <li
-                              data-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-original-title="Product 1"
-                              className="avatar avatar-sm pull-up"
-                            >
+                  <div className="dashboard-content">
+                    <div className="recent-investments">
+                      {/* <h2 className="section-title">Recent Investments</h2> */}
+                      <div className="investment-list">
+                        {recentInvestments.length > 0 ? (
+                          recentInvestments.map((investment, index) => (
+                            <div key={index} className="investment-card">
                               <img
-                                className="media-object rounded-circle no-border-top-radius no-border-bottom-radius"
-                                src={profile2}
-                                alt="Avatar"
+                                src={investment.planId.image}
+                                alt={investment.planId.name}
+                                className="investment-image"
                               />
-                            </li>
-                          </ul>
-                          <p className="list-group-item-text mb-0">
-                            <span className="blue-grey lighten-2 font-small-3">
-                              {" "}
-                              #INV-12336{" "}
-                            </span>
-                          </p>
-                        </div>
-                      </a>
+                              <div className="investment-details">
+                                <h3 className="investment-name">{investment.planId.name}</h3>
+                                <p className="investment-date">
+                                  Invested on: {new Date(investment.investmentDate).toLocaleDateString()}
+                                </p>
+                                {/* <p className="investment-amount">
+                                  Investment Amount: {investment.investmentPrice}
+                                </p> */}
+                              </div>
+                            </div>
+                          ))
+                        ) : (
+                          <p>No recent investments available.</p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
