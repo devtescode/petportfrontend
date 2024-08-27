@@ -145,7 +145,7 @@ const Dashboard = () => {
       try {
         const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getallinvest');
         setRecentInvestments(response.data.investments);
-        console.log(response.data.investments);
+        // console.log(response.data.investments);
       } catch (error) {
         console.error('Error fetching recent investments:', error);
         setError('Failed to fetch recent investments');
