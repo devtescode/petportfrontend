@@ -16,7 +16,7 @@ const View = () => {
     const [user, setUser] = useState(null);
     const [investmentPeriod, setInvestmentPeriod] = useState('');
     const [percentage, setPercentage] = useState('');
-    const [investmentPrice, setInvestmentPrice] = useState(0); // State for the selected investment price
+    const [investmentPrice, setInvestmentPrice] = useState(0); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -63,40 +63,78 @@ const View = () => {
 
     const handleInvestNow = async () => {
         if (!investmentPeriod) {
-            alert('Please select an investment period.');
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please select an investment period.",
+              
+              });
             return;
         }
 
         const [period, price] = investmentPeriod.split('-₦');
 
-        const url = 'https://petportbackend.onrender.com/useranimalinvest/planinvestnow';
+        const url = 'http://localhost:5000/useranimalinvest/planinvestnow';
         const postUser = {
             planId: id,
             email: user.email,
             productImage: product.image,
             investmentPeriod: period,
-            investmentPrice: investmentPrice // Use the selected investment price
+            investmentPrice: investmentPrice
         };
-        console.log(postUser.investmentPeriod, postUser.investmentPrice);
+        // console.log(postUser.investmentPeriod, postUser.investmentPrice);
 
-        try {
-            const response = await axios.post(url, postUser);
-            if (response.data.success) {
-                localStorage.setItem('UserData', JSON.stringify(response.data.userData));
-                alert(response.data.message);
-            } else {
-                alert('Investment failed!');
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You are about to invest. This action cannot be undone!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, invest!"
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+              // Proceed with the investment API call
+              try {
+                console.log("Sending payload: ", postUser); // Log the data being sent
+                const response = await axios.post(url, postUser);
+                if (response.data.success) {
+                  localStorage.setItem('UserData', JSON.stringify(response.data.userData));
+                  
+                  // Show success message with SweetAlert
+                  Swal.fire({
+                    title: "Successful!",
+                    text: response.data.message,  // Show server response message
+                    icon: "success",
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "OK"
+                  });
+                  
+                } else {
+                  // If investment fails, show failure message
+                  Swal.fire({
+                    title: "Investment Failed",
+                    text: response.data.message || "Please try again.",
+                    icon: "error",
+                    confirmButtonColor: "#d33",
+                    confirmButtonText: "OK"
+                  });
+                }
+              } catch (error) {
+                console.error("Error during investment: ", error);  
+                
+                // Show error SweetAlert with specific error details
+                Swal.fire({
+                  title: "Error!",
+                  text: error.response?.data?.message || "Something went wrong. Please try again later.",
+                  icon: "error",
+                  confirmButtonColor: "#d33",
+                  confirmButtonText: "OK"
+                });
+              }
             }
-        } catch (error) {
-            if (error.response) {
-                alert(`${error.response.data.message}`);
-            } else if (error.request) {
-                alert('No response received from server.');
-            } else {
-                alert(`Error: ${error.message}`);
-            }
-            console.error('Error during investment:', error);
-        }
+          });
+          
     };
 
     return (
