@@ -74,7 +74,7 @@ const View = () => {
 
         const [period, price] = investmentPeriod.split('-₦');
 
-        const url = 'http://localhost:5000/useranimalinvest/planinvestnow';
+        const url = 'https://petportbackend.onrender.com/useranimalinvest/planinvestnow';
         const postUser = {
             planId: id,
             email: user.email,
