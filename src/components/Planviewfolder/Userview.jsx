@@ -8,6 +8,7 @@ import '../theme-assets/css/app-lite.css';
 import '../theme-assets/css/core/menu/menu-types/vertical-menu.css';
 import '../theme-assets/css/core/colors/palette-gradient.css';
 import '../theme-assets/css/pages/dashboard-ecommerce.css';
+import { API_URLS } from '../../utils/apiConfig';
 
 const View = () => {
     const { id } = useParams();
@@ -74,7 +75,7 @@ const View = () => {
 
         const [period, price] = investmentPeriod.split('-₦');
 
-        const url = 'https://petportbackend.onrender.com/useranimalinvest/planinvestnow';
+        const url = API_URLS.planinvestnow;
         const postUser = {
             planId: id,
             email: user.email,
