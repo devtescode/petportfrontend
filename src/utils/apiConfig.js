@@ -5,5 +5,5 @@ console.log('Base URL:', baseURL)
 
 export const API_URLS = {
     signin: `${baseURL}/useranimalinvest/signin`,
-    // Add more endpoints here as needed
-};
+    
+};   
