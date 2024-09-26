@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Loaderpage from '../Loaderfolder/Loaderpage'
+import { API_URLS } from '../../utils/apiConfig'
 
 const Signup = () => {
     // const [action, setaction] = useState("Sign Up")
@@ -33,9 +34,8 @@ const Signup = () => {
         onSubmit: (values) => {
             // console.log(values)
             setLoading(true);
-            
             http://localhost:5000
-            axios.post("https://petportbackend.onrender.com/useranimalinvest/signup", { Fullname: values.Fullname, Number: values.Number, Email: values.Email, Password: values.Password })
+            axios.post(API_URLS.signup, { Fullname: values.Fullname, Number: values.Number, Email: values.Email, Password: values.Password })
                 .then((response) => {
                     Swal.fire({
                         icon: "error",

@@ -14,6 +14,7 @@ import profile2 from '../../assets/img/pig.jpg'
 import profile3 from '../../assets/img/closeup-shot-brown-guard-dog-standing-beach.jpg'
 import InvestmentPerformance from '../InvestmentPerfolder/Investperformance.jsx'
 import "./Dashboard.css"
+import { API_URLS } from '../../utils/apiConfig.js';
 
 // ../theme-assets/images/portrait/small/avatar-s-19.png
 
@@ -60,7 +61,7 @@ const Dashboard = () => {
   //     });
   // }, [navigate]);
 
-  let url = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
+  let url = API_URLS.dashboard;
   useEffect(() => {
     let token = localStorage.token;
 
