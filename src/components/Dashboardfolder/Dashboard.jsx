@@ -144,7 +144,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchRecentInvestments = async () => {
       try {
-        const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getallinvest');
+        const response = await axios.get(API_URLS.getallinvest);
         setRecentInvestments(response.data.investments);
         // console.log(response.data.investments);
       } catch (error) {
@@ -157,7 +157,7 @@ const Dashboard = () => {
     fetchRecentInvestments();
   }, []);
 
-  if (loading) return <p className='text-center'>Loading...</p>;
+  // if (loading) return <p className='text-center'>Loading...</p>;
   if (error) return <p>{error}</p>;
 
 
