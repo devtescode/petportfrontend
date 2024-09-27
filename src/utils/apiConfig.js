@@ -8,5 +8,7 @@ export const API_URLS = {
     signup: `${baseURL}/useranimalinvest/signup`,
     dashboard: `${baseURL}/useranimalinvest/dashboard`,
     getallinvest: `${baseURL}/useranimalinvest/getallinvest`,
-    planinvestnow: `${baseURL}/useranimalinvest/planinvestnow`
-};   
+    planinvestnow: `${baseURL}/useranimalinvest/planinvestnow`,
+    getuserplans: `${baseURL}/useranimalinvest/getuserplans`,
+    getcomments: (planId) => `${baseURL}/useranimalinvest/getcomments/${planId}`,
+};  

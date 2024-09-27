@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import './planget.css';
+import { API_URLS } from '../../utils/apiConfig';
 
 const Userplanget = () => {
     const [plans, setPlans] = useState([]);
@@ -17,7 +18,7 @@ const Userplanget = () => {
 
         const fetchPlans = async () => {
             try {
-                const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getuserplans');
+                const response = await axios.get(API_URLS.getuserplans);
                 if (isMounted) {
                     setPlans(response.data.plans);
                     setLoading(false);
@@ -49,7 +50,7 @@ const Userplanget = () => {
 
     const fetchComments = async (planId) => {
         try {
-            const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/getcomments/${planId}`);
+            const response = await axios.get(API_URLS.getcomments(planId));
             const commentCount = response.data.comments.length;
 
             setComments(prevComments => ({

@@ -55,7 +55,7 @@ const View = () => {
         }
 
         const selectedPrice = investmentPeriod.split('-₦')[1];
-        setInvestmentPrice(selectedPrice ? parseFloat(selectedPrice) : 0); // Update the investment price based on selection
+        setInvestmentPrice(selectedPrice ? parseFloat(selectedPrice) : 0); 
     }, [investmentPeriod]);
 
     if (loading) {
