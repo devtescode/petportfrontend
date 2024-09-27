@@ -77,6 +77,11 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
+  const Addaccountrouting = () => {
+    navigate('/addaccount')
+    hideOffcanvasMenu();
+  }
+
   const notificationrouting = () => {
     navigate('/Usernotification')
   }
@@ -428,6 +433,14 @@ const Sidenav = () => {
                 <i className="ri-wallet-line"></i>
                 <span className="menu-title" data-i18n="">
                   Wallet
+                </span>
+              </a>
+            </li>
+            <li className=" nav-item" onClick={Addaccountrouting}>
+              <a >
+              <i className="ri-refund-line"></i>
+                <span className="menu-title" data-i18n="">
+                  Add account
                 </span>
               </a>
             </li>

@@ -29,6 +29,7 @@ import Notification from './components/Notificationfolder/Notification'
 import Usernotification from './components/UserNotificationfolder/Usernotification'
 import BackupDb from '../BackupDb'
 import Comment from './components/Commentfolder/Comment'
+import Addaccount from './components/Accountfolder/Addaccount'
 
 function App() {
 
@@ -93,6 +94,7 @@ function App() {
         <Route path='/usernotification' element={<Usernotification/>}/>
         <Route path='/db' element={<BackupDb/>}/>
         <Route path='/commentdb' element={<Comment/>}/>
+        <Route path='/addaccount' element={<Addaccount/>}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 
