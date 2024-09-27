@@ -58,7 +58,7 @@ const UserPasswordChange = () => {
             <Sidenav />
             <form onSubmit={formik.handleSubmit}>
                 <div className='alldivcontainers'>
-                    <div className='col-md-6 col-sm-6 border p-3 mx-auto shadow rounded-2' style={{ alignItems: "center", marginTop: "100px" }}>
+                    <div className='col-md-7 col-sm-6 p-2 mx-auto shadow rounded-2' style={{ alignItems: "center" }}>
                         <div className=''>
                             <h1>Password</h1>
                         </div>
@@ -66,7 +66,7 @@ const UserPasswordChange = () => {
                             <input
                                 type="password"
                                 placeholder='Old Password'
-                                className={`form-control p-2 my-2 ${formik.values.OldPassword && !formik.errors.OldPassword ? 'is-valid' : formik.touched.OldPassword && formik.errors.OldPassword ? 'is-invalid' : ''}`}
+                                className={`form-control p-1 my-2 ${formik.values.OldPassword && !formik.errors.OldPassword ? 'is-valid' : formik.touched.OldPassword && formik.errors.OldPassword ? 'is-invalid' : ''}`}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 name="OldPassword"
@@ -77,7 +77,7 @@ const UserPasswordChange = () => {
                             <input
                                 type="password"
                                 placeholder='New Password'
-                                className={`form-control p-2 my-2 ${formik.values.NewPassword && !formik.errors.NewPassword ? 'is-valid' : formik.touched.NewPassword && formik.errors.NewPassword ? 'is-invalid' : ''}`}
+                                className={`form-control p-1 my-2 ${formik.values.NewPassword && !formik.errors.NewPassword ? 'is-valid' : formik.touched.NewPassword && formik.errors.NewPassword ? 'is-invalid' : ''}`}
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 name="NewPassword"
