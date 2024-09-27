@@ -80,7 +80,7 @@ const Userplanget = () => {
         }
 
         try {
-            const response = await axios.post('https://petportbackend.onrender.com/useranimalinvest/likeplan', { userId, planId });
+            const response = await axios.post(API_URLS.likeplan, { userId, planId });
             setPlans(plans.map(plan =>
                 plan._id === planId
                     ? {
@@ -103,7 +103,7 @@ const Userplanget = () => {
         const userId = userData.userId;
 
         try {
-            const response = await axios.post('https://petportbackend.onrender.com/useranimalinvest/addcomment', {
+            const response = await axios.post(API_URLS.addcomment, {
                 userId,
                 planId,
                 commentText: newCommentText
