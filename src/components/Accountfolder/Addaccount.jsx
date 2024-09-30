@@ -31,7 +31,8 @@ const Addaccount = () => {
             axios.post(API_URLS.addupaccount, {
                 AccountNumber: values.accountnumber,
                 Bankcode: values.selectaccount,
-                bank: nameit
+                bank: nameit,
+                token: localStorage.token
             })
                 .then((response) => {
                     if (response.data.status === true) {
@@ -64,8 +65,8 @@ const Addaccount = () => {
                           
                             <form onSubmit={formik.handleSubmit}>
                                 <input onChange={formik.handleChange} name='accountnumber' value={formik.values.accountnumber} type="text" className='my-2 form-control p-1' placeholder='Account Number' />
-                                {/* <input type="text" className='my-2 form-control p-1' placeholder='Bank name' /> */}
-                                <select name="selectaccount" onChange={formik.handleChange} value={formik.values.selectaccount} className="my-2 form-select form-select-lg" aria-label="Large select example">
+                               
+                                <select name="selectaccount" onChange={formik.handleChange} value={formik.values.selectaccount} className="my-2      form-select form-select-lg" aria-label="Large select example">
                                     {Data.banks.map((item, index) => (
                                         <option key={index} value={item.code}>{item.name}</option>
                                     ))}
