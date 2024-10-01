@@ -49,7 +49,7 @@ const Addaccount = () => {
                     });
 
                     // console.error("Error occurred", err.response.data.error);
-                    console.log(err);
+                    // console.log(err);
 
                 })
         }
