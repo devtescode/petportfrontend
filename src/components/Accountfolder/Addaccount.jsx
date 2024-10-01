@@ -28,7 +28,7 @@ const Addaccount = () => {
                 return;
             }
             const nameit = selectedBank.name;
-            axios.post(API_URLS.addupaccount, {
+            axios.post("https://petportbackend.onrender.com/useranimalinvest/addupaccount", {
                 AccountNumber: values.accountnumber,
                 Bankcode: values.selectaccount,
                 bank: nameit,
