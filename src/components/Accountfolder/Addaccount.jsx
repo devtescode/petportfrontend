@@ -41,12 +41,12 @@ const Addaccount = () => {
                     }
                 })
                 .catch((err) => {
-                    // swal({
-                    //     title: "",
-                    //     text: err.response.data.error || "Something went wrong!",
-                    //     icon: "error",
-                    //     button: "Aww yiss!",
-                    // });
+                    Swal.fire({
+                        title: "",
+                        text: err.response.data.error || "Something went wrong!",
+                        icon: "error",
+                        button: "Aww yiss!",
+                    });
 
                     // console.error("Error occurred", err.response.data.error);
                     console.log(err);
