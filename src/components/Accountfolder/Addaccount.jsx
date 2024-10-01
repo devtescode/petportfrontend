@@ -50,7 +50,7 @@ const Addaccount = () => {
 
                     // console.error("Error occurred", err.response.data.error);
                     console.log(err);
-                    
+
                 })
         }
     })
@@ -64,16 +64,16 @@ const Addaccount = () => {
                             <div>
                                 <h1>Add Account</h1>
                             </div>
-                          
+
                             <form onSubmit={formik.handleSubmit}>
                                 <input onChange={formik.handleChange} name='accountnumber' value={formik.values.accountnumber} type="text" className='my-2 form-control p-1' placeholder='Account Number' />
-                               
+
                                 <select name="selectaccount" onChange={formik.handleChange} value={formik.values.selectaccount} className="my-2      form-select form-select-lg" aria-label="Large select example">
                                     {Data.banks.map((item, index) => (
                                         <option key={index} value={item.code}>{item.name}</option>
                                     ))}
                                 </select>
-                           
+
                                 <input disabled placeholder="Account Name" className="my-2 input-field text-center fw-bold form-control" type="text" value={account} />
                                 <div className='text-center'>
                                     <button className='btn btn-primary' type='submit'>Add Account</button>
