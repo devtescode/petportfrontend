@@ -117,7 +117,7 @@ const Sidenav = () => {
   useEffect(() => {
     const fetchNotificationCount = async () => {
       try {
-        const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getusernotificationcount'); 
+        const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getusernotificationcount');
         setNotificationCount(response.data.count); // Assuming the API returns { count: number }
         // console.log(response.data.count);
 
@@ -290,6 +290,14 @@ const Sidenav = () => {
                       </span>
                     </a>
                   </li>
+                  <li className=" nav-item my-2" onClick={Addaccountrouting}>
+                    <a >
+                      <i className="ri-refund-line"></i>
+                      <span className="menu-title mx-2" data-i18n="">
+                        Add account
+                      </span>
+                    </a>
+                  </li>
                   <li className=" nav-item my-2">
                     <a >
                       <i class="ri-profile-line"></i>
@@ -342,7 +350,7 @@ const Sidenav = () => {
                                 Login
                               </button>
                             </div>
-                           
+
                           </div>
                         </div>
                       </span>
@@ -438,7 +446,7 @@ const Sidenav = () => {
             </li>
             <li className=" nav-item" onClick={Addaccountrouting}>
               <a >
-              <i className="ri-refund-line"></i>
+                <i className="ri-refund-line"></i>
                 <span className="menu-title" data-i18n="">
                   Add account
                 </span>
