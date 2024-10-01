@@ -24,7 +24,7 @@ const Addaccount = () => {
 
             if (!selectedBank) {
                 console.error('Bank not found for the provided code:', values.selectaccount);
-                setIsProcessing(false);
+                // setIsProcessing(false);
                 return;
             }
             const nameit = selectedBank.name;
@@ -48,7 +48,9 @@ const Addaccount = () => {
                     //     button: "Aww yiss!",
                     // });
 
-                    console.error("Error occurred", err.response.data.error);
+                    // console.error("Error occurred", err.response.data.error);
+                    console.log(err);
+                    
                 })
         }
     })
