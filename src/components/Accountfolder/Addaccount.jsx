@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
-import Sidenav from '../Sidenavbarfolder/Sidenav'
-import { useFormik } from 'formik'
-import * as Yup from "yup"
-import axios from 'axios'
-import { API_URLS } from '../../utils/apiConfig'
-
+import React, { useState } from 'react';
+import Sidenav from '../Sidenavbarfolder/Sidenav';
+import { useFormik } from 'formik';
+import * as Yup from "yup";
+import axios from 'axios';
+import { API_URLS } from '../../utils/apiConfig';
 import Data from '../../../Data.json';
+// import swal from 'sweetalert'; // Ensure swal is imported
 
 const Addaccount = () => {
     const [account, setAccount] = useState('');
+    const [isProcessing, setIsProcessing] = useState(false); // Loading state
+
     const formik = useFormik({
         initialValues: {
             accountnumber: "",
@@ -18,68 +20,116 @@ const Addaccount = () => {
             accountnumber: Yup.number().typeError('Must be a number').required('Required'),
             selectaccount: Yup.string().required('Required'),
         }),
-        onSubmit: values => {
+        onSubmit: async (values) => {
+            setIsProcessing(true);
             const selectedBank = Data.banks.find((item) => item.code === values.selectaccount);
-
 
             if (!selectedBank) {
                 console.error('Bank not found for the provided code:', values.selectaccount);
-                // setIsProcessing(false);
+                swal({
+                    title: "Error",
+                    text: "Selected bank is invalid.",
+                    icon: "error",
+                    button: "OK",
+                });
+                setIsProcessing(false);
                 return;
             }
-            const nameit = selectedBank.name;
-            axios.post(API_URLS.addupaccount, {
-                AccountNumber: values.accountnumber,
-                Bankcode: values.selectaccount,
-                bank: nameit,
-                token: localStorage.token
-            })
-                .then((response) => {
-                    if (response.data.status === true) {
-                        setAccount(response.data.accountName);
-                        console.log(response.data.accountName);
-                    }
-                })
-                .catch((err) => {
-                    Swal.fire({
-                        title: "",
-                        text: err.response.data.error || "Something went wrong!",
-                        icon: "error",
-                        button: "Aww yiss!",
+
+            try {
+                const response = await axios.post(API_URLS.addupaccount, {
+                    AccountNumber: values.accountnumber,
+                    Bankcode: values.selectaccount,
+                    bank: selectedBank.name,
+                    token: localStorage.token
+                });
+
+                if (response.data.status === true) {
+                    setAccount(response.data.accountName);
+                    swal({
+                        title: "Success",
+                        text: "Account successfully added.",
+                        icon: "success",
+                        button: "OK",
                     });
-
-                    // console.error("Error occurred", err.response.data.error);
-                    // console.log(err);
-
-                })
+                    formik.resetForm(); // Reset the form upon success
+                } else {
+                    swal({
+                        title: "Error",
+                        text: response.data.message || "Failed to add account.",
+                        icon: "error",
+                        button: "OK",
+                    });
+                }
+            } catch (err) {
+                const errorMsg = err.response?.data?.error || err.response?.data?.message || "Something went wrong!";
+                swal({
+                    title: "Error",
+                    text: errorMsg,
+                    icon: "error",
+                    button: "OK",
+                });
+                console.error("Error occurred:", errorMsg);
+            } finally {
+                setIsProcessing(false);
+            }
         }
-    })
+    });
+
     return (
         <>
             <Sidenav />
             <div className='alldivcontainers'>
-                <div className=' d-flex' style={{ alignItems: "center" }}>
-                    <div className="col-md-7  col-sm-12 shadow-lg mx-auto p-2">
+                <div className='d-flex' style={{ alignItems: "center" }}>
+                    <div className="col-md-7 col-sm-12 shadow-lg mx-auto p-2">
                         <div>
-                            <div>
-                                <h1>Add Account</h1>
-                            </div>
-
+                            <h1>Add Account</h1>
                             <form onSubmit={formik.handleSubmit}>
-                                <input onChange={formik.handleChange} name='accountnumber' value={formik.values.accountnumber} type="text" className='my-2 form-control p-1' placeholder='Account Number' />
+                                <input 
+                                    onChange={formik.handleChange} 
+                                    name='accountnumber' 
+                                    value={formik.values.accountnumber} 
+                                    type="text" 
+                                    className='my-2 form-control p-1' 
+                                    placeholder='Account Number' 
+                                />
+                                {formik.touched.accountnumber && formik.errors.accountnumber ? (
+                                    <div className="text-danger">{formik.errors.accountnumber}</div>
+                                ) : null}
 
-                                <select name="selectaccount" onChange={formik.handleChange} value={formik.values.selectaccount} className="my-2      form-select form-select-lg" aria-label="Large select example">
+                                <select 
+                                    name="selectaccount" 
+                                    onChange={formik.handleChange} 
+                                    value={formik.values.selectaccount} 
+                                    className="my-2 form-select form-select-lg" 
+                                    aria-label="Large select example"
+                                >
+                                    <option value="">Select Bank</option> {/* Add a default option */}
                                     {Data.banks.map((item, index) => (
                                         <option key={index} value={item.code}>{item.name}</option>
                                     ))}
                                 </select>
+                                {formik.touched.selectaccount && formik.errors.selectaccount ? (
+                                    <div className="text-danger">{formik.errors.selectaccount}</div>
+                                ) : null}
 
-                                <input disabled placeholder="Account Name" className="my-2 input-field text-center fw-bold form-control" type="text" value={account} />
+                                <input 
+                                    disabled 
+                                    placeholder="Account Name" 
+                                    className="my-2 input-field text-center fw-bold form-control" 
+                                    type="text" 
+                                    value={account} 
+                                />
                                 <div className='text-center'>
-                                    <button className='btn btn-primary' type='submit'>Add Account</button>
+                                    <button 
+                                        className='btn btn-primary' 
+                                        type='submit' 
+                                        disabled={isProcessing} // Disable button while processing
+                                    >
+                                        {isProcessing ? "Adding..." : "Add Account"}
+                                    </button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -88,4 +138,4 @@ const Addaccount = () => {
     )
 }
 
-export default Addaccount
+export default Addaccount;
