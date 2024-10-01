@@ -46,7 +46,7 @@ const Addaccount = () => {
 
                 if (response.data.status === true) {
                     setAccount(response.data.accountName);
-                    swal({
+                    Swal.fire({
                         title: "Success",
                         text: "Account successfully added.",
                         icon: "success",
@@ -54,7 +54,7 @@ const Addaccount = () => {
                     });
                     formik.resetForm(); // Reset the form upon success
                 } else {
-                    swal({
+                    Swal.fire({
                         title: "Error",
                         text: response.data.message || "Failed to add account.",
                         icon: "error",
@@ -63,7 +63,7 @@ const Addaccount = () => {
                 }
             } catch (err) {
                 const errorMsg = err.response?.data?.error || err.response?.data?.message || "Something went wrong!";
-                swal({
+                Swal.fire({
                     title: "Error",
                     text: errorMsg,
                     icon: "error",
