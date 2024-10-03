@@ -13,5 +13,6 @@ export const API_URLS = {
     getcomments: (planId) => `${baseURL}/useranimalinvest/getcomments/${planId}`,
     likeplan: `${baseURL}/useranimalinvest/likeplan`,
     addcomment: `${baseURL}/useranimalinvest/addcomment`,
-    addupaccount: `${baseURL}/useranimalinvest/addupaccount`
+    addupaccount: `${baseURL}/useranimalinvest/addupaccount`,
+    getaccount: `${baseURL}/useranimalinvest/getaccount`
 };  

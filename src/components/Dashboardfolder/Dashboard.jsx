@@ -149,7 +149,7 @@ const Dashboard = () => {
         // console.log(response.data.investments);
       } catch (error) {
         console.error('Error fetching recent investments:', error);
-        setError('Failed to fetch recent investments');
+        // setError('Failed to fetch recent investments');
       } finally {
         setLoading(false);
       }
