@@ -52,7 +52,7 @@ const Addaccount = () => {
                         icon: "success",
                         button: "OK",
                     });
-                    formik.resetForm(); // Reset the form upon success
+                    formik.resetForm();
                 } else {
                     Swal.fire({
                         title: "Error",
@@ -85,23 +85,40 @@ const Addaccount = () => {
                         <div>
                             <h1>Add Account</h1>
                             <form onSubmit={formik.handleSubmit}>
-                                <input 
-                                    onChange={formik.handleChange} 
-                                    name='accountnumber' 
-                                    value={formik.values.accountnumber} 
-                                    type="text" 
-                                    className='my-2 form-control p-1' 
-                                    placeholder='Account Number' 
-                                />
-                                {formik.touched.accountnumber && formik.errors.accountnumber ? (
-                                    <div className="text-danger">{formik.errors.accountnumber}</div>
-                                ) : null}
+                                <input
+                                    onChange={formik.handleChange}
+                                    name='accountnumber'
+                                    value={formik.values.accountnumber}
+                                    type="text"
 
-                                <select 
-                                    name="selectaccount" 
-                                    onChange={formik.handleChange} 
-                                    value={formik.values.selectaccount} 
-                                    className="my-2 form-select form-select-lg" 
+                                    placeholder='Account Number'
+                                    onBlur={formik.handleBlur}
+                                    className={`form-control my-2 p-1 ${(formik.values.accountnumber && !formik.errors.accountnumber) ||
+                                        (formik.touched.accountnumber && formik.values.accountnumber && formik.errors.accountnumber && formik.touched.accountnumber && formik.values.accountnumber)
+                                        ? 'is-valid'
+                                        : formik.values.accountnumber || formik.touched.accountnumber
+                                            ? 'is-invalid'
+                                            : ''
+                                        }`}
+                                />
+                                {/* {formik.touched.accountnumber && formik.errors.accountnumber ? (
+                                    <div className="text-danger">{formik.errors.accountnumber}</div>
+                                ) : null} */}
+                                <select
+                                    name="selectaccount"
+                                    onChange={formik.handleChange}
+                                    value={formik.values.selectaccount}
+                                    onBlur={formik.handleBlur}
+
+                                    // className=""
+
+                                    className={`form-control my-2 p-1  my-2 form-select form-select-lg ${(formik.values.selectaccount && !formik.errors.selectaccount) ||
+                                        (formik.touched.selectaccount && formik.values.selectaccount && formik.errors.selectaccount && formik.touched.selectaccount && formik.values.selectaccount)
+                                        ? 'is-valid'
+                                        : formik.values.selectaccount || formik.touched.selectaccount
+                                            ? 'is-invalid'
+                                            : ''
+                                        }`}
                                     aria-label="Large select example"
                                 >
                                     <option value="">Select Bank</option> {/* Add a default option */}
@@ -109,21 +126,21 @@ const Addaccount = () => {
                                         <option key={index} value={item.code}>{item.name}</option>
                                     ))}
                                 </select>
-                                {formik.touched.selectaccount && formik.errors.selectaccount ? (
+                                {/* {formik.touched.selectaccount && formik.errors.selectaccount ? (
                                     <div className="text-danger">{formik.errors.selectaccount}</div>
-                                ) : null}
+                                ) : null} */}
 
-                                <input 
-                                    disabled 
-                                    placeholder="Account Name" 
-                                    className="my-2 input-field text-center fw-bold form-control" 
-                                    type="text" 
-                                    value={account} 
+                                <input
+                                    disabled
+                                    placeholder="Account Name"
+                                    className="my-2 input-field text-center fw-bold form-control"
+                                    type="text"
+                                    value={account}
                                 />
                                 <div className='text-center'>
-                                    <button 
-                                        className='btn btn-primary' 
-                                        type='submit' 
+                                    <button
+                                        className='btn btn-primary'
+                                        type='submit'
                                         disabled={isProcessing} // Disable button while processing
                                     >
                                         {isProcessing ? "Adding..." : "Add Account"}
