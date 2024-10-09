@@ -14,5 +14,7 @@ export const API_URLS = {
     likeplan: `${baseURL}/useranimalinvest/likeplan`,
     addcomment: `${baseURL}/useranimalinvest/addcomment`,
     addupaccount: `${baseURL}/useranimalinvest/addupaccount`,
-    getaccount: `${baseURL}/useranimalinvest/getaccount`
+    getaccount: `${baseURL}/useranimalinvest/getaccount`,
+    // "https://petportbackend.onrender.com/useranimalinvest/adminlogin"
+    adminlogin : `${baseURL}/useranimalinvest/adminlogin`
 };  

@@ -4,6 +4,7 @@ import * as Yup from "yup"
 import axios from 'axios'
 import { useNavigate } from 'react-router'
 import Loader from '../Loaderfolder/Loaderpage'
+import { API_URLS } from '../../utils/apiConfig'
 
 const Adminregister = () => {
     const [Email, setEmail] = useState('');
@@ -26,7 +27,7 @@ const Adminregister = () => {
         }),
         onSubmit: values => {
             setLoading(true);
-            axios.post("https://petportbackend.onrender.com/useranimalinvest/adminlogin", { Email: values.Email, password: values.password })
+            axios.post(API_URLS.adminlogin, { Email: values.Email, password: values.password })
                 .then((response) => {
                     // console.log(response);
                     swal.fire({
