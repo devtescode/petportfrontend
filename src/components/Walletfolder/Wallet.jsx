@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import Sidenav from '../Sidenavbarfolder/Sidenav'
+import React, { useEffect, useState } from 'react';
+import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
-import CountdownTimer from '../Timer/CountdownTimer';
 
-const Wallet = ({ }) => {
-
-    const [email, setEmail] = useState('');
+const Wallet = () => {
     const [amount, setAmount] = useState('');
     const [message, setMessage] = useState('');
     const [getUser, setUser] = useState([]);
@@ -14,28 +11,26 @@ const Wallet = ({ }) => {
         const getUserFromLocal = JSON.parse(localStorage.getItem('UserData'));
         console.log(getUserFromLocal);
 
-        if (!getUserFromLocal || getUserFromLocal.lenght === 0) {
+        if (!getUserFromLocal || getUserFromLocal.length === 0) {
             alert('User not found, please log in again');
-        }
-        else {
+        } else {
             setUser(getUserFromLocal);
         }
-
-    }, [])
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const sendToBack = {
             email: getUser.email,
-            amount: parseInt(amount, 10)
+            amount: parseInt(amount, 10) // Convert amount to an integer
         };
         console.log(sendToBack);
+        
         try {
             const response = await axios.post('http://localhost:5000/useranimalinvest/fundaccount', sendToBack);
-
-
             if (response.data.status) {
-                setMessage('Account funded successfully');
+                // Redirect user to Paystack payment page
+                window.location.href = response.data.authorization_url;
             } else {
                 setMessage('Funding failed');
             }
@@ -45,17 +40,12 @@ const Wallet = ({ }) => {
         }
     };
 
-
-
     return (
         <>
             <Sidenav />
-         
             <div className='alldivcontainers text-center'>
-                
                 <h2>Fund Account</h2>
                 <form onSubmit={handleSubmit}>
-                
                     <div>
                         <label>Amount:</label>
                         <input
@@ -65,12 +55,12 @@ const Wallet = ({ }) => {
                             required
                         />
                     </div>
-                    <button type="submit">Fund Account</button>
+                    <button type="submit" className='btn btn-dark'>Fund Account</button>
                 </form>
                 {message && <p>{message}</p>}
             </div>
         </>
-    )
+    );
 }
 
-export default Wallet
+export default Wallet;
