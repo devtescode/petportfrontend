@@ -157,10 +157,33 @@ const Dashboard = () => {
     fetchRecentInvestments();
   }, []);
 
+
+  const [balance, setBalance] = useState(0);
+  // Fetch user data from localStorage
+  useEffect(() => {
+    const getUserFromLocal = JSON.parse(localStorage.getItem('UserData'));
+    setUser(getUserFromLocal);
+  }, []);
+
+  // Function to fetch user's balance
+  const fetchUserBalance = async () => {
+    if (user && user.email) {
+      try {
+        const response = await axios.get(`http://localhost:5000/useranimalinvest/balance/${user.email}`);
+        setBalance(response.data.Balance);
+      } catch (error) {
+        console.error('Error fetching user balance:', error);
+      }
+    }
+  };
+
+  // Fetch balance when component mounts
+  useEffect(() => {
+    fetchUserBalance();
+  }, [user]);
+
   // if (loading) return <p className='text-center'>Loading...</p>;
   if (error) return <p>{error}</p>;
-
-
 
 
   return (
@@ -182,6 +205,10 @@ const Dashboard = () => {
               <div className='fs-2'>
                 <span className='text-white'>Balance:</span>
                 <span className='text-white' style={{ marginLeft: "8px" }}>₦{user.Balance}</span>
+                <p>
+                  
+                  my doing{balance}
+                  </p>
               </div>
             </div>
           </div>
