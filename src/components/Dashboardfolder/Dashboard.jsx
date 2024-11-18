@@ -168,7 +168,7 @@ const Dashboard = () => {
   // Function to fetch user's balance
   const fetchUserBalance = async () => {
     if (user && user.email) {
-      try {
+      try { 
         const response = await axios.get(`http://localhost:5000/useranimalinvest/balance/${user.email}`);
         setBalance(response.data.Balance);
       } catch (error) {
@@ -207,7 +207,7 @@ const Dashboard = () => {
                 <span className='text-white' style={{ marginLeft: "8px" }}>₦{user.Balance}</span>
                 <p>
                   
-                  my doing{balance}
+                  Balance {balance}
                   </p>
               </div>
             </div>

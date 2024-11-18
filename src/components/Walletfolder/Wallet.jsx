@@ -53,6 +53,7 @@ const Wallet = () => {
                             value={amount}
                             onChange={(e) => setAmount(e.target.value)}
                             required
+                            // className='form-control'
                         />
                     </div>
                     <button type="submit" className='btn btn-dark'>Fund Account</button>

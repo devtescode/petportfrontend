@@ -79,8 +79,6 @@ const Invest = ({}) => {
             alert('An error occurred during investment')
         }
     };
-
-
     return (
         <>
             <Sidenav/>
