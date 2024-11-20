@@ -16,6 +16,8 @@ export const API_URLS = {
     getaccount: `${baseURL}/useranimalinvest/getaccount`,
     // "https://petportbackend.onrender.com/useranimalinvest/adminlogin"
     adminlogin : `${baseURL}/useranimalinvest/adminlogin`,
-    walletbalance: (email)=> `${baseURL}/api/wallet-balance/${email}`
+    // walletbalance: (email)=> `${baseURL}/api/wallet-balance/${email}`,
+    userBalance: (email)=> `${baseURL}/useranimalinvest/userBalance/${email}`,
+    fundaccount : `${baseURL}/useranimalinvest/fundaccount`,
     // /api/wallet-balance/${email}
 };  

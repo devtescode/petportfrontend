@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
+import { API_URLS } from '../../utils/apiConfig';
 
 const Wallet = () => {
     const [amount, setAmount] = useState('');
@@ -26,7 +27,7 @@ const Wallet = () => {
         };
         console.log(sendToBack);
         try {
-            const response = await axios.post('http://localhost:5000/useranimalinvest/fundaccount', sendToBack);
+            const response = await axios.post(API_URLS.fundaccount, sendToBack);
             if (response.data.status) {
                 // Redirect user to Paystack payment page
                 window.location.href = response.data.authorization_url;
