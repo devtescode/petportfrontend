@@ -25,7 +25,6 @@ const Wallet = () => {
             amount: parseInt(amount, 10) // Convert amount to an integer
         };
         console.log(sendToBack);
-        
         try {
             const response = await axios.post('http://localhost:5000/useranimalinvest/fundaccount', sendToBack);
             if (response.data.status) {
