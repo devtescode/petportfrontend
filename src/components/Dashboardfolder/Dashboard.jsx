@@ -158,7 +158,7 @@ const Dashboard = () => {
   }, []);
 
 
-  const [balance, setBalance] = useState(0);
+  // const [balance, setBalance] = useState(0);
   // Fetch user data from localStorage
   useEffect(() => {
     const getUserFromLocal = JSON.parse(localStorage.getItem('UserData'));
@@ -166,23 +166,47 @@ const Dashboard = () => {
   }, []);
 
   // Function to fetch user's balance
-  const fetchUserBalance = async () => {
-    if (user && user.email) {
-      try { 
-        const response = await axios.get(`http://localhost:5000/useranimalinvest/balance/${user.email}`);
-        setBalance(response.data.Balance);
+  // const fetchUserBalance = async () => {
+  //   if (user && user.email) {
+  //     try { 
+  //       const response = await axios.get(`http://localhost:5000/useranimalinvest/balance/${user.email}`);
+  //       setBalance(response.data.Balance);
+  //     } catch (error) {
+  //       console.error('Error fetching user balance:', error);
+  //     }
+  //   }
+  // };
+
+  // // Fetch balance when component mounts
+  // useEffect(() => {
+  //   fetchUserBalance();
+  // }, [user]);
+
+
+
+
+  const [WalletBalance, setWalletBalance] = useState(0);
+  const fetchWalletBalance = async () => {
+      try {
+          const userData = JSON.parse(localStorage.getItem('UserData'));
+          const email = userData.email;
+          // console.log("get all userData", userData);
+          // const response = await axios.get(API_URLS.walletbalance(email));  
+          const response = await axios.post(`http://localhost:5000/useranimalinvest/userBalance/${email}`);
+          console.log(response);
+          
+          setWalletBalance(response.data.walletBalance);
+          
       } catch (error) {
-        console.error('Error fetching user balance:', error);
+          console.error('Error fetching wallet balance:', error.message);
       }
-    }
   };
-
-  // Fetch balance when component mounts
   useEffect(() => {
-    fetchUserBalance();
-  }, [user]);
 
-  // if (loading) return <p className='text-center'>Loading...</p>;
+      fetchWalletBalance();
+  }, []);
+
+  if (loading) return <p className='text-center'>Loading...</p>;
   if (error) return <p>{error}</p>;
 
 
@@ -204,11 +228,9 @@ const Dashboard = () => {
               </span>
               <div className='fs-2'>
                 <span className='text-white'>Balance:</span>
-                <span className='text-white' style={{ marginLeft: "8px" }}>₦{user.Balance}</span>
-                <p>
-                  
-                  Balance {balance}
-                  </p>
+                {/* <span className='text-white' style={{ marginLeft: "8px" }}>pay{WalletBalance.toLocaleString()}</span> */}
+                <span className='text-white' style={{ marginLeft: "8px" }}>₦{WalletBalance}</span>
+                
               </div>
             </div>
           </div>
