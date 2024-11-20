@@ -228,7 +228,6 @@ const Dashboard = () => {
               </span>
               <div className='fs-2'>
                 <span className='text-white'>Balance:</span>
-                {/* <span className='text-white' style={{ marginLeft: "8px" }}>pay{WalletBalance.toLocaleString()}</span> */}
                 <span className='text-white' style={{ marginLeft: "8px" }}>₦{WalletBalance}</span>
                 
               </div>
