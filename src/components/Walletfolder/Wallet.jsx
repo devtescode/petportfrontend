@@ -10,7 +10,7 @@ const Wallet = () => {
 
     useEffect(() => {
         const getUserFromLocal = JSON.parse(localStorage.getItem('UserData'));
-        console.log(getUserFromLocal);
+        // console.log(getUserFromLocal);
 
         if (!getUserFromLocal || getUserFromLocal.length === 0) {
             alert('User not found, please log in again');
@@ -43,23 +43,37 @@ const Wallet = () => {
     return (
         <>
             <Sidenav />
-            <div className='alldivcontainers text-center'>
-                <h2>Fund Account</h2>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Amount:</label>
-                        <input
-                            type="number"
-                            value={amount}
-                            onChange={(e) => setAmount(e.target.value)}
-                            required
-                            // className='form-control'
-                        />
+            <div className="alldivcontainers d-flex justify-content-center align-items-center bg-ligh">
+                <div className="card shadow-lg border-0 col-md-8 col-sm-12">
+                    <div className="card-body text-center">
+                        <h2 className="mb-4 text-primary">Fund Account</h2>
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-4 text-start">
+                                <label htmlFor="amount" className=" form-label fw-bold">
+                                    Amount
+                                </label>
+                                <input
+                                    id="amount"
+                                    value={amount}
+                                    onChange={(e) => setAmount(e.target.value)}
+                                    className="form-control form-control-lg"
+                                    placeholder="Enter amount"
+                                />
+                            </div>
+                            <button type="submit" className="btn btn-primary btn-lg">
+                                Fund Account
+                            </button>
+                        </form>
+                        {message && (
+                            <p className="mt-3 text-success fw-semibold">
+                                {message}
+                            </p>
+                        )}
                     </div>
-                    <button type="submit" className='btn btn-dark'>Fund Account</button>
-                </form>
-                {message && <p>{message}</p>}
+                </div>
             </div>
+
+
         </>
     );
 }
