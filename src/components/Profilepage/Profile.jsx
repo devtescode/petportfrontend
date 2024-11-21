@@ -3,6 +3,7 @@ import Sidenav from '../Sidenavbarfolder/Sidenav';
 import imagelocate from "../../assets/profile.png";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_URLS } from '../../utils/apiConfig';
 
 const Profile = () => {
     const [file, setFile] = useState("");
@@ -10,9 +11,9 @@ const Profile = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const url1 = "https://petportbackend.onrender.com/useranimalinvest/dashboard";
-    const url = "https://petportbackend.onrender.com/useranimalinvest/profile";
-
+    const url1 = API_URLS.dashboard;
+    const url = API_URLS.profile;
+    
     const getFile = (e) => {
         const myFile = e.target.files[0];
         const reader = new FileReader();
