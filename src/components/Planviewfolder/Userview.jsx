@@ -68,75 +68,77 @@ const View = () => {
                 icon: "error",
                 title: "Oops...",
                 text: "Please select an investment period.",
-              
-              });
+            });
             return;
         }
-
+    
         const [period, price] = investmentPeriod.split('-₦');
-
-        const url = API_URLS.planinvestnow;
+        const investmentAmount = investmentPrice;
+    
+        // Calculate payout amount based on percentage
+        let payoutPercentage = 0;
+        if (period === '3-month') payoutPercentage = 10;
+        if (period === '6-month') payoutPercentage = 20;
+        if (period === '9-month') payoutPercentage = 30;
+    
+        const payoutAmount = investmentAmount + (investmentAmount * payoutPercentage) / 100;
+    
+        // Calculate payout date
+        const currentDate = new Date();
+        const payoutDate = new Date(currentDate);
+        payoutDate.setMonth(payoutDate.getMonth() + parseInt(period.split('-')[0]));
+    
         const postUser = {
             planId: id,
             email: user.email,
             productImage: product.image,
             investmentPeriod: period,
-            investmentPrice: investmentPrice
+            investmentPrice: investmentAmount,
+            payoutAmount,
+            payoutDate, // Save payout details
         };
-        // console.log(postUser.investmentPeriod, postUser.investmentPrice);
-
+    
         Swal.fire({
             title: "Are you sure?",
-            text: "You are about to invest. This action cannot be undone!",
+            text: `You are about to invest ₦${investmentAmount}. You will receive ₦${payoutAmount} after ${period}.`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, invest!"
-          }).then(async (result) => {
+            confirmButtonText: "Yes, invest!",
+        }).then(async (result) => {
             if (result.isConfirmed) {
-              // Proceed with the investment API call
-              try {
-                console.log("Sending payload: ", postUser); // Log the data being sent
-                const response = await axios.post(url, postUser);
-                if (response.data.success) {
-                  localStorage.setItem('UserData', JSON.stringify(response.data.userData));
-                  
-                  // Show success message with SweetAlert
-                  Swal.fire({
-                    title: "Successful!",
-                    text: response.data.message,  // Show server response message
-                    icon: "success",
-                    confirmButtonColor: "#3085d6",
-                    confirmButtonText: "OK"
-                  });
-                  
-                } else {
-                  // If investment fails, show failure message
-                  Swal.fire({
-                    title: "Investment Failed",
-                    text: response.data.message || "Please try again.",
-                    icon: "error",
-                    confirmButtonColor: "#d33",
-                    confirmButtonText: "OK"
-                  });
+                try {
+                    const response = await axios.post(API_URLS.planinvestnow, postUser);
+                    if (response.data.success) {
+                        localStorage.setItem('PayoutData', JSON.stringify({ payoutAmount, payoutDate }));
+    
+                        Swal.fire({
+                            title: "Successful!",
+                            text: response.data.message,
+                            icon: "success",
+                            confirmButtonText: "OK",
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Investment Failed",
+                            text: response.data.message || "Please try again.",
+                            icon: "error",
+                            confirmButtonText: "OK",
+                        });
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Something went wrong. Please try again later.",
+                        icon: "error",
+                        confirmButtonText: "OK",
+                    });
                 }
-              } catch (error) {
-                console.error("Error during investment: ", error);  
-                
-                // Show error SweetAlert with specific error details
-                Swal.fire({
-                  title: "Error!",
-                  text: error.response?.data?.message || "Something went wrong. Please try again later.",
-                  icon: "error",
-                  confirmButtonColor: "#d33",
-                  confirmButtonText: "OK"
-                });
-              }
             }
-          });
-          
+        });
     };
+    
 
     return (
         <>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar';
 import axios from 'axios';
 import './PlanHistory.css';
+import { API_URLS } from '../../utils/apiConfig';
 
 const PlanHistory = () => {
     const [plans, setPlans] = useState([]);
@@ -21,7 +22,7 @@ const PlanHistory = () => {
     const fetchPlans = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getuserplans');
+            const response = await axios.get(API_URLS.getuserplans);
             if (response.data.success) {
                 setPlans(response.data.plans);
             } else {
@@ -55,7 +56,7 @@ const PlanHistory = () => {
             if (result.isConfirmed) {
                 setLoading(true);
                 try {
-                    const response = await axios.delete(`https://petportbackend.onrender.com/useranimalinvest/adminplansdelect/${id}`);
+                    const response = await axios.delete(API_URLS.adminplansdelect(id));
                     if (response.data.success) {
                         Swal.fire({
                             icon: 'success',
@@ -114,7 +115,7 @@ const PlanHistory = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`https://petportbackend.onrender.com/useranimalinvest/updateplan/${currentPlan._id}`, formValues);
+            const response = await axios.put(API_URLS.updateplan(currentPlan._id), formValues);
             if (response.data.success) {
                 Swal.fire({
                     icon: 'success',
