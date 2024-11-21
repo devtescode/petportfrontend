@@ -27,5 +27,6 @@ export const API_URLS = {
     getallnotifications: `${baseURL}/useranimalinvest/getallnotifications`,
     fetchUsersNotifications: `${baseURL}/useranimalinvest/fetchUsersNotifications`,
     adnotification: `${baseURL}/useranimalinvest/adnotification`,
-    deletenotification: (id)=> `${baseURL}/useranimalinvest/deletenotification/${id}`
+    deletenotification: (id)=> `${baseURL}/useranimalinvest/deletenotification/${id}`,
+    changepassword: `${baseURL}/useranimalinvest/changepassword`
 };  

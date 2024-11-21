@@ -3,7 +3,7 @@ import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
-
+import { API_URLS } from '../../utils/apiConfig';
 const UserPasswordChange = () => {
     const formik = useFormik({
         initialValues: {
@@ -26,7 +26,7 @@ const UserPasswordChange = () => {
                 });
                 return;
             }
-            axios.post("https://petportbackend.onrender.com/useranimalinvest/changepassword", { OldPassword: values.OldPassword, NewPassword: values.NewPassword, token })
+            axios.post(API_URLS.changepassword, { OldPassword: values.OldPassword, NewPassword: values.NewPassword, token })
                 .then((response) => {
                     if (response.data.status) {
                         Swal.fire({
