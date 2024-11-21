@@ -82,6 +82,10 @@ const Sidenav = () => {
     navigate('/addaccount')
     hideOffcanvasMenu();
   }
+  const Payoutrouting = () => {
+    navigate('/payout')
+    hideOffcanvasMenu();
+  }
 
   const notificationrouting = () => {
     navigate('/Usernotification')
@@ -291,6 +295,14 @@ const Sidenav = () => {
                       </span>
                     </a>
                   </li>
+                  <li className=" nav-item" onClick={Payoutrouting}>
+                    <a >
+                      <i className="ri-exchange-line"></i>
+                      <span className="menu-title mx-2" data-i18n="">
+                        Payout
+                      </span>
+                    </a>
+                  </li>
                   <li className=" nav-item my-2" onClick={Addaccountrouting}>
                     <a >
                       <i className="ri-refund-line"></i>
@@ -442,6 +454,14 @@ const Sidenav = () => {
                 <i className="ri-wallet-line"></i>
                 <span className="menu-title" data-i18n="">
                   Wallet
+                </span>
+              </a>
+            </li>
+            <li className=" nav-item" onClick={Payoutrouting}>
+              <a >
+                <i className="ri-exchange-line"></i>
+                <span className="menu-title" data-i18n="">
+                  Payout
                 </span>
               </a>
             </li>

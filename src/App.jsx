@@ -30,6 +30,7 @@ import Usernotification from './components/UserNotificationfolder/Usernotificati
 import BackupDb from '../BackupDb'
 import Comment from './components/Commentfolder/Comment'
 import Addaccount from './components/Accountfolder/Addaccount'
+import Payout from './components/Payoutfolder/Payout'
 
 function App() {
 
@@ -95,6 +96,7 @@ function App() {
         <Route path='/db' element={<BackupDb/>}/>
         <Route path='/commentdb' element={<Comment/>}/>
         <Route path='/addaccount' element={<Addaccount/>}/>
+        <Route path='/payout' element={<Payout/>}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 
