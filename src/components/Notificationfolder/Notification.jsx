@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar';
+import { API_URLS } from '../../utils/apiConfig';
 
 const Notification = () => {
     const [message, setMessage] = useState('');
@@ -11,7 +12,7 @@ const Notification = () => {
 
     const fetchNotifications = async () => {
         try {
-            const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getallnotifications');
+            const response = await axios.get(API_URLS.getallnotifications);
             setNotifications(response.data.notifications);
         } catch (error) {
             console.error('Error fetching notifications:', error);
@@ -21,7 +22,7 @@ const Notification = () => {
         // Fetch the list of users when the component mounts
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/fetchUsersNotifications');
+                const response = await axios.get(API_URLS.fetchUsersNotifications);
                 setUsers(response.data);
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -36,7 +37,7 @@ const Notification = () => {
     const handleNotificationSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://petportbackend.onrender.com/useranimalinvest/adnotification', { message, userId });
+            const response = await axios.post(API_URLS.adnotification, { message, userId });
             console.log('Response:', response);
 
             // Check if the response status is within the success range
@@ -58,7 +59,7 @@ const Notification = () => {
 
     const handleDeleteNotification = async (id) => {
         try {
-            await axios.delete(`https://petportbackend.onrender.com/deletenotification/${id}`);
+            await axios.delete(API_URLS.deletenotification(id));
             setNotifications(notifications.filter(notification => notification._id !== id));
             setStatus('Notification deleted successfully');
         } catch (error) {

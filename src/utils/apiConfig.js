@@ -21,6 +21,11 @@ export const API_URLS = {
     profile: `${baseURL}/useranimalinvest/profile`,
     createplan: `${baseURL}/useranimalinvest/createplan`,
     getplan :(id)=> `${baseURL}/useranimalinvest/getplan/${id}`,
-    getHistory: `${baseURL}/useranimalinvest/getHistory`
-  
+    getHistory: `${baseURL}/useranimalinvest/getHistory`,
+    getusernotificationcount: `${baseURL}/useranimalinvest/getusernotificationcount`,
+    getusernotification:`${baseURL}/useranimalinvest/getusernotification`,
+    getallnotifications: `${baseURL}/useranimalinvest/getallnotifications`,
+    fetchUsersNotifications: `${baseURL}/useranimalinvest/fetchUsersNotifications`,
+    adnotification: `${baseURL}/useranimalinvest/adnotification`,
+    deletenotification: (id)=> `${baseURL}/useranimalinvest/deletenotification/${id}`
 };  

@@ -9,6 +9,7 @@ import '../theme-assets/css/core/menu/menu-types/vertical-menu.css'
 import '../theme-assets/css/core/colors/palette-gradient.css'
 import '../theme-assets/css/pages/dashboard-ecommerce.css'
 import axios from 'axios';
+import { API_URLS } from '../../utils/apiConfig';
 // import profile from '../theme-assets/images/portrait/small/avatar-s-19.png'
 
 
@@ -117,9 +118,9 @@ const Sidenav = () => {
   useEffect(() => {
     const fetchNotificationCount = async () => {
       try {
-        const response = await axios.get('https://petportbackend.onrender.com/useranimalinvest/getusernotificationcount');
+        const response = await axios.get(API_URLS.getusernotificationcount);
         setNotificationCount(response.data.count); // Assuming the API returns { count: number }
-        // console.log(response.data.count);
+        console.log(response.data.count);
 
       } catch (error) {
         console.error('Error fetching notification count:', error);

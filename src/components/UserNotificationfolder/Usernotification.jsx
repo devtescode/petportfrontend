@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
 import "./Usernotification.css";
+import { API_URLS } from '../../utils/apiConfig';
 
 const Usernotification = () => {
     const [notifications, setNotifications] = useState([]);
@@ -15,9 +16,9 @@ const Usernotification = () => {
                 const userId = userData.userId;
                 console.log(userId);
                         
-                // const response = await axios.get(`http://localhost:5000/useranimalinvest/getusernotification`, );
+              
 
-                const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/getusernotification`, {
+                const response = await axios.get(API_URLS.getusernotification, {
                     params: { userId }  // Pass userId as a query parameter
                 });
 
