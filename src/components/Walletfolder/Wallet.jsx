@@ -7,11 +7,10 @@ const Wallet = () => {
     const [amount, setAmount] = useState('');
     const [message, setMessage] = useState('');
     const [getUser, setUser] = useState([]);
+    const [isLoading, setIsLoading] = useState(false); // State to handle loading status
 
     useEffect(() => {
         const getUserFromLocal = JSON.parse(localStorage.getItem('UserData'));
-        // console.log(getUserFromLocal);
-
         if (!getUserFromLocal || getUserFromLocal.length === 0) {
             alert('User not found, please log in again');
         } else {
@@ -21,35 +20,36 @@ const Wallet = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true); 
         const sendToBack = {
             email: getUser.email,
-            amount: parseInt(amount, 10) // Convert amount to an integer
+            amount: parseInt(amount, 10) 
         };
-        console.log(sendToBack);
         try {
             const response = await axios.post(API_URLS.fundaccount, sendToBack);
             if (response.data.status) {
-                // Redirect user to Paystack payment page
-                window.location.href = response.data.authorization_url;
+                window.location.href = response.data.authorization_url; 
             } else {
                 setMessage('Funding failed');
             }
         } catch (error) {
             console.error('Error funding account:', error);
             setMessage('An error occurred while funding the account');
+        } finally {
+            setIsLoading(false); 
         }
     };
 
     return (
         <>
             <Sidenav />
-            <div className="alldivcontainers d-flex justify-content-center align-items-center bg-ligh">
-                <div className="card shadow-lg border-0 col-md-8 col-sm-12">
-                    <div className="card-body text-center">
+            <div className="alldivcontainers d-flex justify-content-center align-items-center">
+                <div className="border-0 col-md-8 col-sm-12">
+                    <div className="card-body border-2 border border-light text-center">
                         <h2 className="mb-4 text-primary">Fund Account</h2>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-4 text-start">
-                                <label htmlFor="amount" className=" form-label fw-bold">
+                                <label htmlFor="amount" className="form-label fw-bold">
                                     Amount
                                 </label>
                                 <input
@@ -58,24 +58,27 @@ const Wallet = () => {
                                     onChange={(e) => setAmount(e.target.value)}
                                     className="form-control form-control-lg"
                                     placeholder="Enter amount"
+                                    required
                                 />
                             </div>
-                            <button type="submit" className="btn btn-primary btn-lg">
-                                Fund Account
+                            <button
+                                type="submit"
+                                className="btn btn-primary btn-lg"
+                                disabled={isLoading} // Disable button when loading
+                            >
+                                {isLoading ? 'Processing...' : 'Fund Account'}
                             </button>
                         </form>
                         {message && (
-                            <p className="mt-3 text-success fw-semibold">
+                            <p className="mt-3 text-danger fw-semibold">
                                 {message}
                             </p>
                         )}
                     </div>
                 </div>
             </div>
-
-
         </>
     );
-}
+};
 
 export default Wallet;
