@@ -14,13 +14,12 @@ export const API_URLS = {
     addcomment: `${baseURL}/useranimalinvest/addcomment`,
     addupaccount: `${baseURL}/useranimalinvest/addupaccount`,
     getaccount: `${baseURL}/useranimalinvest/getaccount`,
-    // "https://petportbackend.onrender.com/useranimalinvest/adminlogin"
     adminlogin : `${baseURL}/useranimalinvest/adminlogin`,
-    // walletbalance: (email)=> `${baseURL}/api/wallet-balance/${email}`,
     userBalance: (email)=> `${baseURL}/useranimalinvest/userBalance/${email}`,
     fundaccount : `${baseURL}/useranimalinvest/fundaccount`,
     dashboard : `${baseURL}/useranimalinvest/dashboard`,
     profile: `${baseURL}/useranimalinvest/profile`,
-    createplan: `${baseURL}/useranimalinvest/createplan`
-    // /api/wallet-balance/${email}
+    createplan: `${baseURL}/useranimalinvest/createplan`,
+    getplan :(id)=> `${baseURL}/useranimalinvest/getplan/${id}`
+  
 };  

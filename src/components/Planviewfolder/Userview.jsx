@@ -23,7 +23,7 @@ const View = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://petportbackend.onrender.com/useranimalinvest/getplan/${id}`);
+                const response = await axios.get(API_URLS.getplan(id));
                 setProduct(response.data.plan);
                 setLoading(false);
             } catch (error) {
