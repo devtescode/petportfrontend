@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import { API_URLS } from '../../utils/apiConfig';
+
 const UserPasswordChange = () => {
+    const [loading, setLoading] = useState(false); // State for loading indicator
+
     const formik = useFormik({
         initialValues: {
             OldPassword: "",
@@ -26,6 +29,8 @@ const UserPasswordChange = () => {
                 });
                 return;
             }
+
+            setLoading(true); // Start loading
             axios.post(API_URLS.changepassword, { OldPassword: values.OldPassword, NewPassword: values.NewPassword, token })
                 .then((response) => {
                     if (response.data.status) {
@@ -48,11 +53,12 @@ const UserPasswordChange = () => {
                         title: "Error Occurred",
                         text: 'An error occurred while changing the password.',
                     });
+                }).finally(() => {
+                    setLoading(false); // Stop loading
                 });
         }
     });
 
-    
     return (
         <>
             <Sidenav />
@@ -71,6 +77,7 @@ const UserPasswordChange = () => {
                                 onBlur={formik.handleBlur}
                                 name="OldPassword"
                                 value={formik.values.OldPassword}
+                                disabled={loading} // Disable while loading
                             />
                         </div>
                         <div>
@@ -82,10 +89,17 @@ const UserPasswordChange = () => {
                                 onBlur={formik.handleBlur}
                                 name="NewPassword"
                                 value={formik.values.NewPassword}
+                                disabled={loading} // Disable while loading
                             />
                         </div>
                         <div className='text-center'>
-                            <button className='btn btn-primary'>Submit</button>
+                            <button 
+                                className='btn btn-primary' 
+                                type="submit" 
+                                disabled={loading} // Disable while loading
+                            >
+                                {loading ? "Processing..." : "Submit"}
+                            </button>
                         </div>
                     </div>
                 </div>
