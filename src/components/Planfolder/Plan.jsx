@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Adminsidebar from '../AdminSidebarfolder/Adminsidebar';
 import axios from 'axios';
 import './Plan.css';
+import { API_URLS } from '../../utils/apiConfig';
 
 
 const Plan = () => {
@@ -21,7 +22,7 @@ const Plan = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('https://petportbackend.onrender.com/useranimalinvest/createplan', {
+            const response = await axios.post(API_URLS.createplan, {
                 name: planName,
                 description: planDescription,
                 price: planPrice,

@@ -20,6 +20,7 @@ export const API_URLS = {
     userBalance: (email)=> `${baseURL}/useranimalinvest/userBalance/${email}`,
     fundaccount : `${baseURL}/useranimalinvest/fundaccount`,
     dashboard : `${baseURL}/useranimalinvest/dashboard`,
-    profile: `${baseURL}/useranimalinvest/profile`
+    profile: `${baseURL}/useranimalinvest/profile`,
+    createplan: `${baseURL}/useranimalinvest/createplan`
     // /api/wallet-balance/${email}
 };  
