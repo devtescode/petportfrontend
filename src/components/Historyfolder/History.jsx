@@ -9,6 +9,7 @@ import '../theme-assets/css/core/colors/palette-gradient.css';
 import '../theme-assets/css/pages/dashboard-ecommerce.css';
 import { Modal, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'; // Ensure this is imported
+import { API_URLS } from '../../utils/apiConfig';
 
 const History = () => {
     const [history, setHistory] = useState([]);
@@ -21,7 +22,7 @@ const History = () => {
         const getUser = JSON.parse(localStorage.getItem('UserData'));
         const token = localStorage.getItem('UserData');
         if (getUser && token) {
-            const url = "https://petportbackend.onrender.com/useranimalinvest/getHistory";
+            const url = API_URLS.getHistory;
             let email = getUser.email;
 
             axios.post(url, { email })

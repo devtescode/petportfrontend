@@ -20,6 +20,7 @@ export const API_URLS = {
     dashboard : `${baseURL}/useranimalinvest/dashboard`,
     profile: `${baseURL}/useranimalinvest/profile`,
     createplan: `${baseURL}/useranimalinvest/createplan`,
-    getplan :(id)=> `${baseURL}/useranimalinvest/getplan/${id}`
+    getplan :(id)=> `${baseURL}/useranimalinvest/getplan/${id}`,
+    getHistory: `${baseURL}/useranimalinvest/getHistory`
   
 };  

@@ -190,9 +190,6 @@ const Dashboard = () => {
       try {
           const userData = JSON.parse(localStorage.getItem('UserData'));
           const email = userData.email;
-          // console.log("get all userData", userData);
-          // const response = await axios.get(API_URLS.walletbalance(email));  
-          // const response = await axios.post(`http://localhost:5000/useranimalinvest/userBalance/${email}`);
           const response = await axios.post(API_URLS.userBalance(email));
           console.log(response);
           setWalletBalance(response.data.walletBalance);
@@ -202,7 +199,6 @@ const Dashboard = () => {
       }
   };
   useEffect(() => {
-
       fetchWalletBalance();
   }, []);
 
