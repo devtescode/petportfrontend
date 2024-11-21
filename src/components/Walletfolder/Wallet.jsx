@@ -45,7 +45,7 @@ const Wallet = () => {
             <Sidenav />
             <div className="alldivcontainers d-flex justify-content-center align-items-center">
                 <div className="border-0 col-md-8 col-sm-12">
-                    <div className="card-body border-2 border border-light text-center">
+                    <div className="card-body border-1 border border-light text-center">
                         <h2 className="mb-4 text-primary">Fund Account</h2>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-4 text-start">
