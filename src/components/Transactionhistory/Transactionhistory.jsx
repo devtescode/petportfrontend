@@ -37,7 +37,7 @@ const Transactionhistory = () => {
             <div className="alldivcontainers">
                 <h1>Transaction History</h1>
                 {isLoading ? (
-                    <p>Loading...</p>
+                    <p className='text-center'>Loading...</p>
                 ) : message ? (
                     <p className="text-danger">{message}</p>
                 ) : (

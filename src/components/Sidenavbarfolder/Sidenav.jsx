@@ -68,10 +68,10 @@ const Sidenav = () => {
     hideOffcanvasMenu();
   }
 
-  const historyrouting = () => {
-    navigate('/history')
-    hideOffcanvasMenu();
-  }
+  // const historyrouting = () => {
+  //   navigate('/history')
+  //   hideOffcanvasMenu();
+  // }
 
   const walletrouting = () => {
     navigate('/wallet')
@@ -354,14 +354,14 @@ const Sidenav = () => {
                     </a>
                   </li>
 
-                  <li className=" nav-item my-2" onClick={historyrouting}>
+                  {/* <li className=" nav-item my-2" onClick={historyrouting}>
                     <a >
                       <i class="ri-history-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
-                        History
+                        History 
                       </span>
                     </a>
-                  </li>
+                  </li> */}
                   {/* <div className='mx-2 border border-1 border-light shadow-lg rounded-1 w-25'>
                     <p>Admin</p>
                   </div> */}
@@ -524,19 +524,19 @@ const Sidenav = () => {
                 )}
               </a>
             </li>
-            <li className=" nav-item" onClick={historyrouting}>
+            {/* <li className=" nav-item" onClick={historyrouting}>
               <a >
                 <i className="ri-history-line"></i>
                 <span className="menu-title" data-i18n="">
                   History
                 </span>
               </a>
-            </li>
+            </li> */}
             <li className=" nav-item" onClick={tranhistoryrouting}>
               <a >
                 <i className="ri-history-line"></i>
                 <span className="menu-title" data-i18n="">
-                   History
+                  History
                 </span>
               </a>
             </li>
