@@ -349,7 +349,7 @@ const Sidenav = () => {
                     <a >
                       <i class="ri-history-line"></i>
                       <span className="menu-title mx-2" data-i18n="">
-                        tranhistory
+                        History
                       </span>
                     </a>
                   </li>

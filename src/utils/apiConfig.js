@@ -35,6 +35,6 @@ export const API_URLS = {
     updateplan: (currentPlan)=> `${baseURL}/useranimalinvest/updateplan/${currentPlan}`,
     getallusers : `${baseURL}/useranimalinvest/getallusers`,
     delecteachuser : (userId)=> `${baseURL}/useranimalinvest/delecteachuser/${userId}`,
-    
-
-};  
+    // transctionhistory : `${baseURL}/apihistory/transaction-history`
+    transctionhistory : `${baseURL}/useranimalinvest/transactionhistory`
+}; 
