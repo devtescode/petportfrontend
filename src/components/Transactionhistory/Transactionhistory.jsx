@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import { API_URLS } from '../../utils/apiConfig';
-
+import "./Transactionhistory.css"
 const Transactionhistory = () => {
     const [transactions, setTransactions] = useState([]);
     const [message, setMessage] = useState('');
@@ -35,36 +35,39 @@ const Transactionhistory = () => {
         <>
             <Sidenav />
             <div className="alldivcontainers">
-                <h1>Transaction History</h1>
-                {isLoading ? (
-                    <p className='text-center'>Loading...</p>
-                ) : message ? (
-                    <p className="text-danger">{message}</p>
-                ) : (
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Reference</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th>Payment Method</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {transactions.map((transaction) => (
-                                <tr key={transaction.reference}>
-                                    <td>{transaction.reference}</td>
-                                    <td>{transaction.amount} NGN</td>
-                                    <td>{transaction.status}</td>
-                                    <td>{transaction.paymentMethod}</td>
-                                    <td>{new Date(transaction.paidAt).toLocaleDateString()}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )}
-            </div>
+    <h1>Transaction History</h1>
+    {isLoading ? (
+        <p className='text-center'>Loading...</p>
+    ) : message ? (
+        <p className="text-danger">{message}</p>
+    ) : (
+        <div className="table-responsive">
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Reference</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Payment Method</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {transactions.map((transaction) => (
+                        <tr key={transaction.reference}>
+                            <td>{transaction.reference}</td>
+                            <td>{transaction.amount} NGN</td>
+                            <td>{transaction.status}</td>
+                            <td>{transaction.paymentMethod}</td>
+                            <td>{new Date(transaction.paidAt).toLocaleDateString()}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    )}
+</div>
+
         </>
     );
 };

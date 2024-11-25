@@ -1,0 +1,28 @@
+/* Ensures that the table is scrollable on smaller screens */
+.table-responsive {
+    overflow-x: auto; /* Enables horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+}
+
+/* Optional: Add some padding and margin for better visual appeal */
+.alldivcontainers {
+    padding: 20px;
+}
+
+/* Ensure the table is properly styled for small screens */
+.table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    th, td {
+        font-size: 12px;  /* Adjust the font size on smaller screens */
+    }
+}
