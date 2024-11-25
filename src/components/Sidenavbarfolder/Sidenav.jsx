@@ -89,6 +89,12 @@ const Sidenav = () => {
 
   const notificationrouting = () => {
     navigate('/Usernotification')
+    hideOffcanvasMenu();
+  }
+
+  const tranhistoryrouting = ()=>{
+    navigate('/tranhistory')
+    hideOffcanvasMenu();
   }
 
   const hideOffcanvasMenu = () => {
@@ -338,6 +344,16 @@ const Sidenav = () => {
                       )}
                     </a>
                   </li>
+
+                  <li className=" nav-item my-2" onClick={tranhistoryrouting}>
+                    <a >
+                      <i class="ri-history-line"></i>
+                      <span className="menu-title mx-2" data-i18n="">
+                        tranhistory
+                      </span>
+                    </a>
+                  </li>
+
                   <li className=" nav-item my-2" onClick={historyrouting}>
                     <a >
                       <i class="ri-history-line"></i>
@@ -513,6 +529,14 @@ const Sidenav = () => {
                 <i className="ri-history-line"></i>
                 <span className="menu-title" data-i18n="">
                   History
+                </span>
+              </a>
+            </li>
+            <li className=" nav-item" onClick={tranhistoryrouting}>
+              <a >
+                <i className="ri-history-line"></i>
+                <span className="menu-title" data-i18n="">
+                   History
                 </span>
               </a>
             </li>

@@ -31,6 +31,7 @@ import BackupDb from '../BackupDb'
 import Comment from './components/Commentfolder/Comment'
 import Addaccount from './components/Accountfolder/Addaccount'
 import Payout from './components/Payoutfolder/Payout'
+import Transactionhistory from './components/Transactionhistory/Transactionhistory'
 
 function App() {
 
@@ -97,6 +98,7 @@ function App() {
         <Route path='/commentdb' element={<Comment/>}/>
         <Route path='/addaccount' element={<Addaccount/>}/>
         <Route path='/payout' element={<Payout/>}/>
+        <Route path='/tranhistory' element={<Transactionhistory/>}/>
         <Route path='*' element={<Notfound />} />
         {/* <Route path='/*'  element={<AdminLayout/>}/> */}
 

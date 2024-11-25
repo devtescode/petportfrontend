@@ -187,19 +187,19 @@ const Dashboard = () => {
 
   const [WalletBalance, setWalletBalance] = useState(0);
   const fetchWalletBalance = async () => {
-      try {
-          const userData = JSON.parse(localStorage.getItem('UserData'));
-          const email = userData.email;
-          const response = await axios.post(API_URLS.userBalance(email));
-          console.log(response);
-          setWalletBalance(response.data.walletBalance);
-          
-      } catch (error) {
-          console.error('Error fetching wallet balance:', error.message);
-      }
+    try {
+      const userData = JSON.parse(localStorage.getItem('UserData'));
+      const email = userData.email;
+      const response = await axios.post(API_URLS.userBalance(email));
+      console.log(response);
+      setWalletBalance(response.data.walletBalance);
+
+    } catch (error) {
+      console.error('Error fetching wallet balance:', error.message);
+    }
   };
   useEffect(() => {
-      fetchWalletBalance();
+    fetchWalletBalance();
   }, []);
 
   if (loading) return <p className='text-center'>Loading...</p>;
@@ -225,7 +225,7 @@ const Dashboard = () => {
               <div className='fs-2'>
                 <span className='text-white'>Balance:</span>
                 <span className='text-white' style={{ marginLeft: "8px" }}>₦{WalletBalance}</span>
-                
+
               </div>
             </div>
           </div>
@@ -362,7 +362,7 @@ const Dashboard = () => {
               <div className="col-xl-8 col-lg-12">
                 <div className="card">
                   <div className="card-header">
-                    <h4 className="card-title">Recent Invest</h4>
+                    <h4 className="card-title">Users Recent Invested</h4>
                     <a className="heading-elements-toggle">
                       <i className="fa fa-ellipsis-v font-medium-3" />
                     </a>
@@ -381,27 +381,33 @@ const Dashboard = () => {
                       {/* <h2 className="section-title">Recent Investments</h2> */}
                       <div className="investment-list">
                         {recentInvestments.length > 0 ? (
-                          recentInvestments.map((investment, index) => (
-                            <div key={index} className="investment-card">
-                              <img
-                                src={investment.planId.image}
-                                alt={investment.planId.name}
-                                className="investment-image"
-                              />
-                              <div className="investment-details">
-                                <h3 className="investment-name">{investment.planId.name}</h3>
-                                <p className="investment-date">
-                                  Invested on: {new Date(investment.investmentDate).toLocaleDateString()}
-                                </p>
-                                {/* <p className="investment-amount">
-                                  Investment Amount: {investment.investmentPrice}
-                                </p> */}
+                          recentInvestments.map((investment, index) => {
+                            if (!investment.planId) {
+                              return null; // Skip rendering if planId is missing
+                            }
+                            return (
+                              <div key={index} className="investment-card">
+                                <img
+                                  src={investment.planId.image}
+                                  alt={investment.planId.name}
+                                  className="investment-image"
+                                />
+                                <div className="investment-details">
+                                  <h3 className="investment-name">{investment.planId.name}</h3>
+                                  <p className="investment-date">
+                                    Invested on: {new Date(investment.investmentDate).toLocaleDateString()}
+                                  </p>
+                                  <p className="investment-amount">
+                                    Investment Amount: {investment.investmentPrice}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                          ))
+                            );
+                          })
                         ) : (
                           <p>No recent investments available.</p>
                         )}
+
                       </div>
                     </div>
                   </div>

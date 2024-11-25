@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import '../theme-assets/css/vendors.css';
 import '../theme-assets/css/plugins/charts/chartist.css';
@@ -17,7 +17,8 @@ const View = () => {
     const [user, setUser] = useState(null);
     const [investmentPeriod, setInvestmentPeriod] = useState('');
     const [percentage, setPercentage] = useState('');
-    const [investmentPrice, setInvestmentPrice] = useState(0); 
+    const [investmentPrice, setInvestmentPrice] = useState(0);
+    const [isProcessing, setIsProcessing] = useState(false); // New state for processing
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -43,7 +44,6 @@ const View = () => {
     }, [navigate]);
 
     useEffect(() => {
-        // Update percentage and price based on investment period
         if (investmentPeriod.includes('3-month')) {
             setPercentage('10%');
         } else if (investmentPeriod.includes('6-month')) {
@@ -55,12 +55,8 @@ const View = () => {
         }
 
         const selectedPrice = investmentPeriod.split('-₦')[1];
-        setInvestmentPrice(selectedPrice ? parseFloat(selectedPrice) : 0); 
+        setInvestmentPrice(selectedPrice ? parseFloat(selectedPrice) : 0);
     }, [investmentPeriod]);
-
-    if (loading) {
-        return <p className='text-center'>Loading...</p>;
-    }
 
     const handleInvestNow = async () => {
         if (!investmentPeriod) {
@@ -71,23 +67,21 @@ const View = () => {
             });
             return;
         }
-    
+
         const [period, price] = investmentPeriod.split('-₦');
         const investmentAmount = investmentPrice;
-    
-        // Calculate payout amount based on percentage
+
         let payoutPercentage = 0;
         if (period === '3-month') payoutPercentage = 10;
         if (period === '6-month') payoutPercentage = 20;
         if (period === '9-month') payoutPercentage = 30;
-    
+
         const payoutAmount = investmentAmount + (investmentAmount * payoutPercentage) / 100;
-    
-        // Calculate payout date
+
         const currentDate = new Date();
         const payoutDate = new Date(currentDate);
         payoutDate.setMonth(payoutDate.getMonth() + parseInt(period.split('-')[0]));
-    
+
         const postUser = {
             planId: id,
             email: user.email,
@@ -95,9 +89,9 @@ const View = () => {
             investmentPeriod: period,
             investmentPrice: investmentAmount,
             payoutAmount,
-            payoutDate, // Save payout details
+            payoutDate,
         };
-    
+
         Swal.fire({
             title: "Are you sure?",
             text: `You are about to invest ₦${investmentAmount}. You will receive ₦${payoutAmount} after ${period}.`,
@@ -108,11 +102,13 @@ const View = () => {
             confirmButtonText: "Yes, invest!",
         }).then(async (result) => {
             if (result.isConfirmed) {
+                setIsProcessing(true); // Set processing to true
                 try {
                     const response = await axios.post(API_URLS.planinvestnow, postUser);
+                    setIsProcessing(false); // Reset processing to false
                     if (response.data.success) {
                         localStorage.setItem('PayoutData', JSON.stringify({ payoutAmount, payoutDate }));
-    
+
                         Swal.fire({
                             title: "Successful!",
                             text: response.data.message,
@@ -128,6 +124,7 @@ const View = () => {
                         });
                     }
                 } catch (error) {
+                    setIsProcessing(false); // Reset processing to false
                     Swal.fire({
                         title: "Error!",
                         text: "Something went wrong. Please try again later.",
@@ -138,18 +135,20 @@ const View = () => {
             }
         });
     };
-    
+
+    if (loading) {
+        return <p className='text-center'>Loading...</p>;
+    }
 
     return (
         <>
             <Sidenav />
             <div className="alldivcontainers d-flex shadow-lg" style={{ alignItems: 'center' }}>
                 <div className="container bg-white col-md-6 rounded-3 p-1 p-sm-2" style={{ alignItems: 'center' }}>
-                    <h2 className=''>{product.name}</h2>
+                    <h2>{product.name}</h2>
                     <img src={product.image} alt={product.name} className="card-img-top mx-auto d-block col-12" />
                     <div className="mt-2 text-center">
                         <p>{product.description}</p>
-                        {/* <p>Price: g₦{product.price}</p> */}
                     </div>
                     <select
                         name="investmentPeriod"
@@ -162,14 +161,18 @@ const View = () => {
                         <option value={`3-month-₦${product.investmentPeriods['3-month']}`}>3-month ₦{product.investmentPeriods['3-month']}</option>
                         <option value={`6-month-₦${product.investmentPeriods['6-month']}`}>6-month ₦{product.investmentPeriods['6-month']}</option>
                         <option value={`9-month-₦${product.investmentPeriods['9-month']}`}>9-month ₦{product.investmentPeriods['9-month']}</option>
-                    </select>  
+                    </select>
                     <select name="" id="" className='form-control my-2' disabled>
-                        <option value="">{percentage}</option> 
-                    </select> 
+                        <option value="">{percentage}</option>
+                    </select>
 
                     <div className="text-center">
-                        <button className="btn btn-primary" onClick={handleInvestNow}>
-                            Invest Now
+                        <button
+                            className="btn btn-primary"
+                            onClick={handleInvestNow}
+                            disabled={isProcessing} // Disable button during processing
+                        >
+                            {isProcessing ? "Processing..." : "Invest Now"}
                         </button>
                     </div>
                 </div>

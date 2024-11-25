@@ -33,4 +33,8 @@ export const API_URLS = {
     getuserplans: `${baseURL}/useranimalinvest/getuserplans`,
     adminplansdelect: (id)=> `${baseURL}/useranimalinvest/adminplansdelect/${id}`,
     updateplan: (currentPlan)=> `${baseURL}/useranimalinvest/updateplan/${currentPlan}`,
+    getallusers : `${baseURL}/useranimalinvest/getallusers`,
+    delecteachuser : (userId)=> `${baseURL}/useranimalinvest/delecteachuser/${userId}`,
+    
+
 };  

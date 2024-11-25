@@ -3,6 +3,7 @@ import Adminsidebar from '../AdminSidebarfolder/Adminsidebar'
 import UserList from '../AdminUserListFolder/UserAdmin'
 import UserForm from '../UserFormFolder/UserForm'
 import axios from 'axios'
+import { API_URLS } from '../../utils/apiConfig'
 // import "../UserFormFolder/UserForm.css"
 
 const Adminuser = () => {
@@ -12,7 +13,7 @@ const Adminuser = () => {
     const [formVisible, setFormVisible] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     useEffect(() => {
-        axios.get("https://petportbackend.onrender.com/useranimalinvest/getallusers")
+        axios.get(API_URLS.getallusers)
             .then(response => {
                 setUsers(response.data)
                 setFilteredUsers(response.data);
@@ -24,16 +25,6 @@ const Adminuser = () => {
 
 
     const handleDelete = async (userId) => {
-        // if (window.confirm('Are you sure you want to delete this user?')) {
-        //     try {
-        //         await axios.delete(`http://localhost:5000/useranimalinvest/delecteachuser/${userId}`);
-        //         const updatedUsers = users.filter(user => user._id !== userId);
-        //         setUsers(updatedUsers);
-        //         setFilteredUsers(updatedUsers);
-        //     } catch (error) {
-        //         console.error('There was an error deleting the user!', error);
-        //     }
-        // }
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -45,7 +36,7 @@ const Adminuser = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axios.delete(`https://petportbackend.onrender.com/useranimalinvest/delecteachuser/${userId}`);
+                    await axios.delete(API_URLS.delecteachuser);    
                     const updatedUsers = users.filter(user => user._id !== userId);
                     setUsers(updatedUsers);
                     setFilteredUsers(updatedUsers);
