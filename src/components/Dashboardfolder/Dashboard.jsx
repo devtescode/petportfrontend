@@ -191,7 +191,7 @@ const Dashboard = () => {
       const userData = JSON.parse(localStorage.getItem('UserData'));
       const email = userData.email;
       const response = await axios.post(API_URLS.userBalance(email));
-      console.log(response);
+      // console.log(response);
       setWalletBalance(response.data.walletBalance);
 
     } catch (error) {
