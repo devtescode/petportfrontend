@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidenav from '../Sidenavbarfolder/Sidenav';
 import { API_URLS } from '../../utils/apiConfig';
-import "./Transactionhistory.css"
+import "./Transactionhistory.css";
+
 const Transactionhistory = () => {
     const [transactions, setTransactions] = useState([]);
     const [message, setMessage] = useState('');
@@ -20,9 +21,14 @@ const Transactionhistory = () => {
                 const response = await axios.post(API_URLS.transctionhistory, {
                     email: getUserFromLocal.email,
                 });
-                setTransactions(response.data);
+
+                if (response.data.length === 0) {
+                    setMessage('No transaction history available');
+                } else {
+                    setTransactions(response.data);
+                }
             } catch (error) {
-                setMessage('Error fetching transaction history');
+                // setMessage('Error fetching transaction history');
             } finally {
                 setIsLoading(false);
             }
@@ -35,18 +41,16 @@ const Transactionhistory = () => {
         <>
             <Sidenav />
             <div className="alldivcontainers">
-            <div className="text-center">
-                            <h1>Transaction History</h1>
-                        </div>
+                <div className="text-center">
+                    <h1>Transaction History</h1>
+                </div>
                 {isLoading ? (
                     <p className='text-center'>Loading...</p>
                 ) : message ? (
                     <p className="text-danger">{message}</p>
                 ) : (
                     <div className="table-responsive">
-                        
                         <table className="table">
-
                             <thead>
                                 <tr>
                                     <th>S/N</th>
@@ -59,9 +63,7 @@ const Transactionhistory = () => {
                             </thead>
                             <tbody>
                                 {transactions.map((transaction, index) => (
-
                                     <tr key={transaction.reference}>
-
                                         <td>{index + 1}</td>
                                         <td>{transaction.reference}</td>
                                         <td>{transaction.amount} NGN</td>
@@ -75,7 +77,6 @@ const Transactionhistory = () => {
                     </div>
                 )}
             </div>
-
         </>
     );
 };
